@@ -1176,72 +1176,32 @@ export default function Variant() {
                                                 <div onScroll={(event) => {
                                                     setDistance(event.currentTarget.scrollTop)
                                                 }} className={`${style["scroll-sec"]} text-left relative z-10`}>
-                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                        <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
-                                                            Dimension
-                                                        </p>
-                                                        <div className='flex my-2 space-x-[10rem]'>
-                                                            <p>Displacement (cc)</p>
-                                                            <p>2998</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                        <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
-                                                            Dimension
-                                                        </p>
-                                                        <p>Dimension</p>
-                                                        <p className='text-[14px] pt-[10px] pb-[5px] font-normal text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                        <p className='text-[12px] pb-[5px] text-[#484848] font-bold tracking-[-0.24px]'>9.5-10h</p>
-                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                                    </div>
-                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                        <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
-                                                            Dimension
-                                                        </p>
-                                                        <p>Dimension</p>
-                                                        <p className='text-[14px] pt-[10px] pb-[5px] font-normal text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                        <p className='text-[12px] pb-[5px] text-[#484848] font-bold tracking-[-0.24px]'>9.5-10h</p>
-                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                                    </div>
-                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                        <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
-                                                            Dimension
-                                                        </p>
-                                                        <p>Dimension</p>
-                                                        <p className='text-[14px] pt-[10px] pb-[5px] font-normal text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                        <p className='text-[12px] pb-[5px] text-[#484848] font-bold tracking-[-0.24px]'>9.5-10h</p>
-                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                                    </div>
-                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                        <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
-                                                            Dimension
-                                                        </p>
-                                                        <p>Dimension</p>
-                                                        <p className='text-[14px] pt-[10px] pb-[5px] font-normal text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                        <p className='text-[12px] pb-[5px] text-[#484848] font-bold tracking-[-0.24px]'>9.5-10h</p>
-                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                                    </div>
-                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                        <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
-                                                            Dimension
-                                                        </p>
-                                                        <p>Dimension</p>
-                                                        <p className='text-[14px] pt-[10px] pb-[5px] font-normal text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                        <p className='text-[12px] pb-[5px] text-[#484848] font-bold tracking-[-0.24px]'>9.5-10h</p>
-                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                                    </div>
-                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                        <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
-                                                            Dimension
-                                                        </p>
-                                                        <p>Dimension</p>
-                                                        <p className='text-[14px] pt-[10px] pb-[5px] font-normal text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                        <p className='text-[12px] pb-[5px] text-[#484848] font-bold tracking-[-0.24px]'>9.5-10h</p>
-                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur deserunt perferendis iusto officia vel veritatis quod hic officiis corrupti aut, nemo, similique, nulla repellat at exercitationem veniam delectus blanditiis id. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non tenetur distinctio hic quos architecto et sint ullam laboriosam, dolore autem reiciendis repellat mollitia, ipsam voluptatum at atque possimus ad pariatur debitis totam quod nobis eveniet vitae nostrum. Odit voluptas excepturi nulla nesciunt ipsum, cupiditate dicta pariatur corporis beatae? Delectus, voluptatem?</p>
-                                                    </div>
-                                                    <div className='text-center my-4'>
-                                                        <button className='text-[15px] bg-[#09809A] font-extralight py-2.5 px-14 rounded-sm text-white'>Download Brochure</button>
-                                                    </div>
+                                                    {Object.keys(cardetails[0].Specifications).map((item, index) => {
+                                                        return (<div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                            <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
+                                                                {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
+                                                            </p>
+                                                            {Object.keys(cardetails[0].Specifications[item]).map((itm, ind) => {
+                                                                return (<div className={`${cardetails[0].Specifications[item][itm] === null ? 'hidden' : 'flex'} border-b-[1px] py-2 border-[#c6c6c6] justify-between my-2 space-x-[10rem]`}>
+                                                                    <p className='font-semibold text-[#484848]'>{titleCase(itm.split("_").join(" "))}</p>
+                                                                    <p className='text-[#6F6F6F]'>{cardetails[0].Specifications[item][itm]}</p>
+                                                                </div>)
+                                                            })}
+                                                        </div>)
+                                                    })}
+                                                    {Object.keys(cardetails[0].Features).map((item, index) => {
+                                                        return (<div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                            <p className='text-[16px] text-center my-[10px] font-normal text-[#09809A] tracking-[-0.32px]'>
+                                                                {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
+                                                            </p>
+                                                            {Object.keys(cardetails[0].Features[item]).map((itm, ind) => {
+                                                                return (<div className={`${cardetails[0].Features[item][itm] === null ? 'hidden' : 'flex'} justify-between border-b-[1px] py-2 border-[#c6c6c6] my-2 space-x-[10rem]`}>
+                                                                    <p className='font-semibold text-[#484848]'>{titleCase(itm.split("_").join(" "))}</p>
+                                                                    <p className='text-[#6F6F6F]'>{cardetails[0].Features[item][itm]}</p>
+                                                                </div>)
+                                                            })}
+                                                        </div>)
+                                                    })}
                                                 </div>
                                             </div>
                                         </div>
