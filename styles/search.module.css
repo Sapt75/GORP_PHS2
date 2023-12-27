@@ -1,0 +1,20 @@
+.search {
+    position: absolute;
+    visibility: hidden;
+    transition: transform 0.3s linear 0s, -webkit-transform 0.3s linear 0s;
+    /* width: 100%; */
+    background-color: white;
+    top: 900px;
+    left: -16px;
+    z-index: 99999 !important;
+}
+
+.show-search {
+    transform: translateY(-890px);
+    visibility: visible;
+}
+
+.hide-search {
+    transform: translateY(900px);
+    visibility: visible;
+}

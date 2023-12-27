@@ -1,0 +1,236 @@
+.header {
+  font-family: "Avenir-Roman", Helvetica;
+  font-weight: 400;
+}
+
+
+@media only screen and (min-width: 800px) {
+  .spec-category {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .spec-category {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  }
+}
+
+
+
+
+
+@media only screen and (min-width: 1000px) {
+  .normal {
+    /* (A1) FONT */
+    font-size: 16px;
+    font-weight: 500;
+    /* (A2) COLORS */
+    color: #484848;
+    background: #F4F4F4;
+
+    /* (A3) DIMENSIONS + POSITION */
+    position: relative;
+    border-right: 2px solid #0B9DBC;
+  }
+
+  /* (A) SPEECH BOX */
+  .speech {
+    /* (A1) FONT */
+    font-size: 16px;
+    font-weight: 500;
+    /* (A2) COLORS */
+    color: #fff !important;
+    background: #0B9DBC;
+
+    /* (A3) DIMENSIONS + POSITION */
+    position: relative;
+  }
+
+  .box .text-wrapper {
+    position: absolute;
+    width: 44px;
+    top: 35px;
+    left: 28px;
+    font-family: "Avenir-Roman", Helvetica;
+    font-weight: 400;
+    color: var(--textlink-hover);
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .box .ellipse {
+    position: absolute;
+    width: 81px;
+    height: 81px;
+    top: 8px;
+    left: 8px;
+    background-color: var(--white);
+    border-radius: 40.6px;
+  }
+
+  .box .v-s {
+    width: 99px;
+    height: 97px;
+  }
+
+  .box .overlap-group {
+    position: relative;
+    width: 97px;
+    height: 97px;
+    background-color: var(--textlink-hover);
+    border-radius: 48.72px;
+  }
+
+
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .normal {
+    /* (A1) FONT */
+    font-size: 12px;
+    font-weight: 500;
+    /* (A2) COLORS */
+    color: #484848;
+    background: #F4F4F4;
+
+    /* (A3) DIMENSIONS + POSITION */
+    position: relative;
+    border-right: 2px solid #0B9DBC;
+  }
+
+  /* (A) SPEECH BOX */
+  .speech {
+    /* (A1) FONT */
+    font-size: 12px;
+    font-weight: 500;
+    /* (A2) COLORS */
+    color: #fff;
+    background: #0B9DBC;
+
+    /* (A3) DIMENSIONS + POSITION */
+    position: relative;
+  }
+
+  .box .text-wrapper {
+    position: absolute;
+    width: 44px;
+    top: 25px;
+    left: 23px;
+    font-family: "Avenir-Roman", Helvetica;
+    font-weight: 400;
+    color: var(--textlink-hover);
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .box .ellipse {
+    position: absolute;
+    width: 62px;
+    height: 60px;
+    top: 8px;
+    left: 8px;
+    background-color: var(--white);
+    border-radius: 40.6px;
+  }
+
+  .box .v-s {
+    width: 99px;
+    height: 97px;
+  }
+
+  .box .overlap-group {
+    position: relative;
+    width: 79px;
+    height: 77px;
+    background-color: var(--textlink-hover);
+    border-radius: 48.72px;
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+/* (B) ADD SPEECH "CALLOUT TAIL" */
+/* (B1) USE ::AFTER TO CREATE THE "TAIL" */
+
+
+
+/* (C3) RIGHT */
+.right.speech::after {
+  /* (C3-1) RIGHT TRIANGLE */
+  border-left-color: #0B9DBC;
+  border-right: 0;
+
+  /* (C3-2) POSITION AT RIGHT */
+  right: -10px;
+  top: 60%;
+  margin-top: -20px;
+}
+
+.scroll-sec {
+  height: 41.5rem;
+  overflow: scroll;
+}
+
+
+.box {
+  width: 97px;
+  height: 97px;
+}
+
+
+.top-scroll {
+  top: -80px;
+  z-index: 999;
+  transition: transform 0.5s linear 0s, -webkit-transform 0.5s linear 0s;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+  position: fixed;
+  width: 100%;
+  background: white;
+}
+
+.scrolling {
+  transform: translateY(80px);
+  transition: transform 0.5s linear 0s, -webkit-transform 0.5s linear 0s;
+}
+
+.full div:nth-child(1) {
+  width: 100% !important;
+}
+
+.full3 div:nth-child(2) {
+  width: 100% !important;
+}
+
+.full2 div:nth-child(3) {
+  width: 100% !important;
+}
+
+.h-banner {
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/829/63/597/range-rover-beach-rocks-stones-suv-hd-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.price-hover:hover {
+  border: 1px solid #09809A !important;
+  color: #09809A !important;
+}
+

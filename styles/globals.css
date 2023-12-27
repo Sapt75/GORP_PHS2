@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+:root {
+  --white: rgba(255, 255, 255, 1);
+  --text-color: rgba(0, 0, 0, 1);
+  --hero-button-default: rgba(9, 128, 154, 1);
+  --hero-button-hover: rgba(6, 84, 101, 1);
+  --section-divider: rgba(198, 198, 198, 1);
+  --price-breakup: rgba(206, 67, 39, 1);
+  --textlink-hover: rgba(11, 157, 188, 1);
+  --element-border: rgba(118, 118, 118, 1);
+  --logo-color-grey: rgba(51, 51, 51, 1);
+  --logo-color-maroon: rgba(186, 18, 35, 1);
+  --box-bg: rgba(198, 198, 198, 0.2);
+  --main-title-font-family: "Avenir-Heavy", Helvetica;
+  --main-title-font-weight: 400;
+  --main-title-font-size: 22px;
+  --main-title-letter-spacing: -0.44px;
+  --main-title-line-height: normal;
+  --main-title-font-style: normal;
+  --sub-title-font-family: "Avenir-Medium", Helvetica;
+  --sub-title-font-weight: 500;
+  --sub-title-font-size: 16px;
+  --sub-title-letter-spacing: -0.32px;
+  --sub-title-line-height: normal;
+  --sub-title-font-style: normal;
+  --paragraph-font-family: "Avenir-Roman", Helvetica;
+  --paragraph-font-weight: 400;
+  --paragraph-font-size: 12px;
+  --paragraph-letter-spacing: -0.24px;
+  --paragraph-line-height: 0%;
+  --paragraph-font-style: normal;
+  --normal-heading-font-family: "Avenir-Medium", Helvetica;
+  --normal-heading-font-weight: 500;
+  --normal-heading-font-size: 14px;
+  --normal-heading-letter-spacing: -0.28px;
+  --normal-heading-line-height: normal;
+  --normal-heading-font-style: normal;
+  --h2-normal-font-family: "Avenir-Book", Helvetica;
+  --h2-normal-font-weight: 400;
+  --h2-normal-font-size: 12px;
+  --h2-normal-letter-spacing: -0.24px;
+  --h2-normal-line-height: normal;
+  --h2-normal-font-style: normal;
+  --car-title-font-family: "Avenir-Heavy", Helvetica;
+  --car-title-font-weight: 400;
+  --car-title-font-size: 14px;
+  --car-title-letter-spacing: -0.28px;
+  --car-title-line-height: normal;
+  --car-title-font-style: normal;
+  --car-price-font-family: "Avenir-Heavy", Helvetica;
+  --car-price-font-weight: 400;
+  --car-price-font-size: 12px;
+  --car-price-letter-spacing: -0.24px;
+  --car-price-line-height: normal;
+  --car-price-font-style: normal;
+  --link-text-call-to-action-font-family: "Avenir-Book", Helvetica;
+  --link-text-call-to-action-font-weight: 400;
+  --link-text-call-to-action-font-size: 10px;
+  --link-text-call-to-action-letter-spacing: -0.2px;
+  --link-text-call-to-action-line-height: normal;
+  --link-text-call-to-action-font-style: normal;
+  --conditional-text-font-family: "Avenir-Book", Helvetica;
+  --conditional-text-font-weight: 400;
+  --conditional-text-font-size: 10px;
+  --conditional-text-letter-spacing: -0.2px;
+  --conditional-text-line-height: normal;
+  --conditional-text-font-style: normal;
+  --cartitle-description-font-family: "Avenir-Heavy", Helvetica;
+  --cartitle-description-font-weight: 400;
+  --cartitle-description-font-size: 12px;
+  --cartitle-description-letter-spacing: -0.24px;
+  --cartitle-description-line-height: normal;
+  --cartitle-description-font-style: normal;
+  --h-3-font-family: "Avenir-Book", Helvetica;
+  --h-3-font-weight: 400;
+  --h-3-font-size: 10px;
+  --h-3-letter-spacing: -0.2px;
+  --h-3-line-height: normal;
+  --h-3-font-style: normal;
+  --avenir-11-font-family: "Avenir-Book", Helvetica;
+  --avenir-11-font-weight: 400;
+  --avenir-11-font-size: 11px;
+  --avenir-11-letter-spacing: -0.22px;
+  --avenir-11-line-height: normal;
+  --avenir-11-font-style: normal;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .MuiDialog-paperWidthMd {
+    max-height: 100vh !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    z-index: 99999999999999 !important;
+    position: relative !important;
+  }
+
+  .MuiDialogContent-root {
+    padding: 0 5px !important;
+  }
+
+  .css-vv8b04{
+    margin: 0 2.5rem !important;
+  }
+
+}
+
+
+.css-ryrseu-MuiRating-root {
+  color: #09809A !important;
+}
+
+.css-1fwwzvr {
+  color: #09809A !important;
+}
+
+.css-187mznn-MuiSlider-root {
+  color: #09809A !important;
+}
+
+:root {
+  color-scheme: only light !important;
+}
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  border: 1px solid #09809A;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #09809A;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* input:checked + .slider {
+  background-color: #2196F3;
+} */
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #09809A;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(42px);
+  -ms-transform: translateX(42px);
+  transform: translateX(42px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+input:focus-visible {
+  outline: 1px solid #09809A;
+}

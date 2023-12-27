@@ -1,0 +1,15 @@
+<svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="gala:brochure" clip-path="url(#clip0_766_704)">
+<g id="galaBrochure0">
+<path id="galaBrochure1" d="M1.50574 2.76175H18.3727L10.8763 8.38408" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="galaBrochure2" d="M1.50574 2.76175L1.50574 23.377H10.8763" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="galaBrochure3" d="M10.8763 8.38409H27.7433V28.9993H10.8763V8.38409Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="galaBrochure4" d="M18.3727 2.76175V8.38408" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_766_704">
+<rect width="30" height="30" fill="white" transform="translate(0 0.659912)"/>
+</clipPath>
+</defs>
+</svg>
