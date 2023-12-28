@@ -111,11 +111,18 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 
     useEffect(() => {
-        // if (params) {
-        //     getData()
-        // }
         window.onscroll = function () { scrollFunction() };
-    }, [params])
+        setCardetails(data)
+
+        setVersion(response)
+        setFinalVersion(response)
+
+
+        vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
+
+
+        vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
+    }, [params, data, response, vpresponse, vvpresponse])
 
 
 
