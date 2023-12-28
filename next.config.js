@@ -3,7 +3,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['ik.imagekit.io'],
-    unoptimized: true
+    // unoptimized: true
   },
   transpilePackages: ['@mui/x-charts'],
   // output: 'export',
