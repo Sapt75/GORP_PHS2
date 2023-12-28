@@ -1,62 +1,62 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
-import style from "../../styles/varient.module.css"
-import ImageSlider from '../../components/carousel'
-import Faq from '../../components/faq';
+import style from "../styles/varient.module.css"
+import ImageSlider from '../components/carousel'
+import Faq from '../components/faq';
 import Image from 'next/image';
-import Color from "../../components/color"
+import Color from "../components/color"
 import DoneIcon from '@mui/icons-material/Done';
-import logo from "../../public/images/logo.png"
-import star from "../../public/images/star.svg"
-import color from "../../public/images/color.svg"
-import image from "../../public/images/image.png"
-import down from "../../public/images/down.svg"
-import edit from "../../public/images/edit.svg"
-import arai from "../../public/images/arai.svg"
-import engine from "../../public/images/engine.svg"
-import fuel from "../../public/images/fuel.svg"
-import seat from "../../public/images/seat.svg"
-import transmission from "../../public/images/transmission.svg"
-import body from "../../public/images/body.svg"
-import advert2 from "../../public/images/advert2.png"
-import engine_white from "../../public/images/engine_white.svg"
-import dimension from "../../public/images/dimension.svg"
-import capacity from "../../public/images/capacity.svg"
-import suspension from "../../public/images/suspension.svg"
-import safety from "../../public/images/safety.svg"
-import breaking from "../../public/images/breaking.svg"
-import comfort from "../../public/images/comfort.svg"
-import locks from "../../public/images/locks.svg"
-import bow from "../../public/images/bow.svg"
-import car1 from "../../public/images/car1.png"
-import car2 from "../../public/images/car2.png"
-import car3 from "../../public/images/car3.png"
-import compare from "../../public/images/compare.svg"
-import car5 from "../../public/images/car5.png"
-import car4 from "../../public/images/car4.png"
-import compare_white from "../../public/images/compare-white.svg"
-import brochure from "../../public/images/brocher.jpg"
-import brochure2 from "../../public/images/brochure.svg"
-import download from "../../public/images/download.svg"
-import connect from "../../public/images/connect.svg"
-import promo from "../../public/images/promo.png"
-import last_adv from "../../public/images/last_adv.png"
-import Navbar from '../../components/navbar';
-import Footer from '../../components/footer';
-import City_Modal from '../../components/city_modal';
-import Version_Modal from '../../components/version_modal';
+import logo from "../public/images/logo.png"
+import star from "../public/images/star.svg"
+import color from "../public/images/color.svg"
+import image from "../public/images/image.png"
+import down from "../public/images/down.svg"
+import edit from "../public/images/edit.svg"
+import arai from "../public/images/arai.svg"
+import engine from "../public/images/engine.svg"
+import fuel from "../public/images/fuel.svg"
+import seat from "../public/images/seat.svg"
+import transmission from "../public/images/transmission.svg"
+import body from "../public/images/body.svg"
+import advert2 from "../public/images/advert2.png"
+import engine_white from "../public/images/engine_white.svg"
+import dimension from "../public/images/dimension.svg"
+import capacity from "../public/images/capacity.svg"
+import suspension from "../public/images/suspension.svg"
+import safety from "../public/images/safety.svg"
+import breaking from "../public/images/breaking.svg"
+import comfort from "../public/images/comfort.svg"
+import locks from "../public/images/locks.svg"
+import bow from "../public/images/bow.svg"
+import car1 from "../public/images/car1.png"
+import car2 from "../public/images/car2.png"
+import car3 from "../public/images/car3.png"
+import compare from "../public/images/compare.svg"
+import car5 from "../public/images/car5.png"
+import car4 from "../public/images/car4.png"
+import compare_white from "../public/images/compare-white.svg"
+import brochure from "../public/images/brocher.jpg"
+import brochure2 from "../public/images/brochure.svg"
+import download from "../public/images/download.svg"
+import connect from "../public/images/connect.svg"
+import promo from "../public/images/promo.png"
+import last_adv from "../public/images/last_adv.png"
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+import City_Modal from '../components/city_modal';
+import Version_Modal from '../components/version_modal';
 import { ChevronRight } from '@mui/icons-material';
-import Right from '../../components/right';
-import Rating_Model from '../../components/rating_modal';
-import Emi_Modal from '../../components/emi';
+import Right from '../components/right';
+import Rating_Model from '../components/rating_modal';
+import Emi_Modal from '../components/emi';
 import { useRouter } from "next/router";
 import { Link, animateScroll as scroll } from "react-scroll";
-import Brand_Model from '../../components/brand_modal';
+import Brand_Model from '../components/brand_modal';
 
 
 
 
-export default function Variant({ data, response, vpresponse, vvpresponse, params }) {
+export default function Variant() {
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -65,15 +65,10 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     const tab_change = useRef(null)
     let [distance, setDistance] = useState(0)
     const white = useRef(null)
-    const [cardetails, setCardetails] = useState(data)
-    const [finalVersion, setFinalVersion] = useState(response)
-    const [getVersion, setVersion] = useState(response)
-    const [allVersionPrice, setAllVersionPrice] = useState(vpresponse == "No Data" ? [] : vpresponse)
-    const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
-    const router = useRouter();
-
+    
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
+
 
 
 
@@ -96,26 +91,11 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
         }
     }
 
-    function titleCase(str) {
-        return str.toLowerCase().split(' ').map(x => x[0].toUpperCase() + x.slice(1)).join(' ');
-    }
-
-
-    function numFormat(value) {
-        const val = Math.abs(value)
-        if (val >= 10000000) return `${(value / 10000000).toFixed(2)} Crore`
-        if (val >= 100000) return `${(value / 100000).toFixed(2)} Lakh`
-        return value;
-    }
-
 
 
     useEffect(() => {
-        // if (params) {
-        //     getData()
-        // }
         window.onscroll = function () { scrollFunction() };
-    }, [params])
+    }, [])
 
 
 
@@ -123,13 +103,13 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     return (
         <>
             <Navbar />
-            {cardetails ? <div className='mx-2 md:mx-0'>
+            <div className='mx-2 md:mx-0'>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                     <div className='flex justify-around'>
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                                 <li><Image width={200} src={logo} /></li>
-                                <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
+                                <Brand_Model url={url} state={true} brand="Hyundai" model="Aura" />
                                 <Link to='spec' spy={true} smooth={true} offset={-100} duration={500}>
                                     <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
                                 </Link>
@@ -170,7 +150,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             <div className='mt-[1rem] bg-white z-[9999]'>
                                 <div className='h-[5rem] md:h-auto mr-3'>
                                     <div className='flex w-[-webkit-fill-available] mr-[10px] bg-white fixed z-[999] md:hidden space-x-1'>
-                                        <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
+                                        <Version_Modal brand="Hyundai" model="Aura" version="E" price={[]} data={[]} />
                                         <City_Modal />
                                     </div>
                                 </div>
@@ -179,7 +159,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                 </div>
                                 <div>
                                     <ul className='flex fixed mt-[15px] z-[999] bg-white w-full md:hidden whitespace-nowrap overflow-x-scroll md:whitespace-normal space-x-8 md:space-x-[5rem] text-[16px] border-y border-[#E1E1E1] font-normal tracking-[-0.32px] px-2'>
-                                        <li className='font-semibold text-[#484848] text-[14px] my-2'>{cardetails[0].model_name}</li>
+                                        <li className='font-semibold text-[#484848] text-[14px] my-2'>Aura</li>
                                         <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Overview</li>
                                         <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Features</li>
                                         <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Specifications</li>
@@ -194,18 +174,18 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                         </div>
                         <div className='md:hidden'>
                             <div className='flex justify-between'>
-                                <h1 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name}</h1>
+                                <h1 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>Hyundai Aura E</h1>
                                 <div className=''>
                                     <input className='mx-1' type="checkbox"></input>
                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
                                 </div>
                             </div>
                             <div className='space-x-[1.6rem]'>
-                                {versionPrice.length > 0 ? <span className='text-[20px] text-[#484848] font-semibold tracking-[-0.48px]'> {`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
+                                <span className='text-[20px] text-[#484848] font-semibold tracking-[-0.48px]'> ₹6,95,860</span>
                                 <span className='text-[12px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
                             </div>
                             <span className='text-[14px] pt-1.5 font-normal tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
-                            {/* <div className='hidden md:flex justify-between w-100 bg-[#F4F4F4] py-[0.5rem]'>
+                            <div className='hidden md:flex justify-between w-100 bg-[#F4F4F4] py-[0.5rem]'>
                                 <div className='px-2 pb-1'>
                                     <p className='text-[12px] text-[#484848] font-medium pb-0.5 tracking-[-0.28px]'>EMI Starts  at 12550/Month</p>
                                     <Emi_Modal />
@@ -213,12 +193,12 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                 <div>
                                     <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
                                 </div>
-                            </div> */}
+                            </div>
                             <button className='hidden md:block text-[14px] my-[1rem] py-[0.5rem] rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>
                         </div>
                         <div className='hidden md:block mt-[2rem] mb-[1.5rem]'>
-                            <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} <Image src={edit} className='inline mx-2 mb-1' /></h1>
-                            {/* <div className='flex pt-3 justify-between'>
+                            <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>Hyundai Aura E <Image src={edit} className='inline mx-2 mb-1' /></h1>
+                            <div className='flex pt-3 justify-between'>
                                 <div className='flex space-x-[1rem] text-[14px] font-light'>
                                     <div>
                                         <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
@@ -239,11 +219,11 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                     <input className='mx-1' type="checkbox"></input>
                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
                                 </div>
-                            </div> */}
+                            </div>
                             {/* <hr className='border-t-1 border-[#E1E1E1]' /> */}
                         </div>
                         <ul className='whitespace-nowrap hidden md:flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                            <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
+                            <Brand_Model url={url} state={true} brand={"Hyundai"} model={"Aura"} />
                             <Link activeClass="active"
                                 to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Features & Specifications</li>
@@ -256,8 +236,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                 to="col" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
                             </Link>
-                            {/* <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Similar Cars</li>
-                            <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>FAQ&apos;s</li> */}
+                            <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Similar Cars</li>
+                            <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>FAQ&apos;s</li>
                         </ul>
                         <hr className='border-t-1 mt-2 border-[#E1E1E1]' />
                         <div className='md:flex xl:space-x-[6rem] my-[1rem] py-[1rem] md:border md:border-[#E1E1E1]'>
@@ -266,20 +246,20 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                 <Link to='col' spy={true} smooth={true} offset={-150} duration={500}>
                                     <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="" /> Colors</span>
                                 </Link>
-                                {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
+                                <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span>
                             </div>
                             <div className='md:w-[40%]'>
                                 <div className='md:flex hidden space-x-1'>
-                                    <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
+                                    <Version_Modal brand={"Hyundai"} model={"Aura"} version={"E"} price={[]} data={[]} />
                                     <City_Modal />
                                 </div>
                                 <div className='hidden md:block'>
                                     <div className='pt-[1.5rem] space-x-[1.6rem]'>
-                                        {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
+                                        <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>₹6,95,860</span>
                                         <span className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
                                     </div>
                                     <span className='text-[14px] font-[400] tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
-                                    {/* <div className='flex justify-between mt-2 w-100 bg-[#F4F4F4] py-[0.5rem]'>
+                                    <div className='flex justify-between mt-2 w-100 bg-[#F4F4F4] py-[0.5rem]'>
                                         <div className='px-2 pb-1'>
                                             <p className='text-[16px] text-[#484848] font-medium pb-0.5 tracking-[-0.28px]'>EMI Starts  at 12550/Month</p>
                                             <Emi_Modal />
@@ -287,7 +267,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         <div>
                                             <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
                                         </div>
-                                    </div> */}
+                                    </div>
                                     <button className='text-[14px] my-[1rem] py-[0.5rem] block rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>
                                 </div>
                             </div>
@@ -297,9 +277,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                     <div className='md:hidden'>
                         <div className='md:w-[74%]'>
                             <div className='w-full'>
-                                <h2 className='md:text-[24px] text-[#484848] mb-3 text-[18px] font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
+                                <h2 className='md:text-[24px] text-[#484848] mb-3 text-[18px] font-semibold tracking-[-0.48px]'>{"Hyundai"} {"Aura"} {"E"} Latest Updates</h2>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
-                                    <p>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Prices: The price of the {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
+                                    <p>{"Hyundai"} {"Aura"} {"E"} Prices: The price of the {"Hyundai"} {"Aura"} {"E"} in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {"Hyundai"} {"Aura"} {"E"} mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
                                     </span></p>
 
                                     <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
@@ -309,7 +289,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                 <hr className='border-t-1 border-[#E1E1E1]' />
 
                                 <div className='md:hidden block my-3'>
-                                    {/* <div className='flex justify-between w-100 bg-[#F4F4F4] py-[0.5rem]'>
+                                    <div className='flex justify-between w-100 bg-[#F4F4F4] py-[0.5rem]'>
                                         <div className='px-2 pb-1'>
                                             <p className='text-[16px] text-[#484848] font-medium pb-0.5 tracking-[-0.28px]'>EMI Starts  at 12550/Month</p>
                                             <Emi_Modal />
@@ -317,8 +297,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         <div>
                                             <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
                                         </div>
-                                    </div> */}
-                                    <h2 className='md:text-[24px] text-[#484848] text-[16px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
+                                    </div>
+                                    <h2 className='md:text-[24px] text-[#484848] text-[16px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>Hyundai Aura E Latest Updates</h2>
                                     <div className='flex md:hidden space-x-[1rem] text-[14px] border-b-[1px] border-[#E1E1E1] pb-4 font-light'>
                                         <div>
                                             <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
@@ -345,7 +325,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                                 <div className='py-2'>
                                     <div className='w-full rounded-[2px] flex justify-between text-[#484848] py-2 px-2'>
-                                        <h2 className='text-[15px] md:text-[24px] font-semibold tracking-[-0.32px]'>Key Specs of {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} 1.2 Petrol</h2>
+                                        <h2 className='text-[15px] md:text-[24px] font-semibold tracking-[-0.32px]'>Key Specs of Hyundai Aura E 1.2 Petrol</h2>
                                         <p className='md:text-[14px] text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All <span className='mx-2'>
                                             +
                                         </span></p>
@@ -359,7 +339,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Fuel Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.fuel_type}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>Petrol</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -371,7 +351,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Seating Capacity</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].seating_capacity}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>5</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -383,7 +363,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Body Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].body_type}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>Sedan</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -395,7 +375,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Transmission Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].transmission_type}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>Manual</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -407,7 +387,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Engine Displacement</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.displacement} CC</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>1490 - 2000 CC</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -421,7 +401,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>ARAI Mileage</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.arai_mileage ? cardetails[0].Specifications.engine_and_transmission.arai_mileage : "null"} /kmph</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>24 - 28 /kmph</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -435,7 +415,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                             {/* Specifications, Features */}
                             <div>
-                                <p className='md:text-[24px] text-[#484848] text-[18px] font-semibold tracking-[0.48px] mb-2'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} 1.2 Petrol Features & Specs</p>
+                                <p className='md:text-[24px] text-[#484848] text-[18px] font-semibold tracking-[0.48px] mb-2'>Hyundai Aura E 1.2 Petrol Features & Specs</p>
                                 <div className='md:w-full'>
                                     <div className='md:mx-3'>
                                         <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[16px] font-semibold tracking-[-0.32px]'>Specifications & Features</p>
@@ -637,9 +617,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                             {/* Color Listing  */}
                             <div className='lg:w-full mt-[2rem] mb-[3rem]'>
-                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
+                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>Hyundai Aura Colors</p>
                                 <div className='border-[1px] border-[#C6C6C6]'>
-                                    <Color url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
+                                    <Color url={url} brand={"Hyundai"} model={"Aura"} />
                                     <div className='flex justify-center space-x-5 pt-8 pb-4'>
                                         <div className='bg-[#A5172B] w-10 h-10'>
                                             <DoneIcon sx={{ color: "white" }} className='m-2' />
@@ -663,7 +643,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                             {/* Similar Cars  */}
 
-                            {/* <div className='lg:flex'>
+                            <div className='lg:flex'>
                                 <div className='lg:w-full md:mx-0'>
                                     <h2 className='text-[18px] pt-2 text-[#484848] font-semibold tracking-[-0.48px]'>Similar Cars</h2>
                                     <div className='flex'>
@@ -736,7 +716,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </div>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
 
                             {/* City Prices  */}
                             <div className='md:w-full'>
@@ -778,7 +758,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             </div>
 
                             {/* Compare Cars  */}
-                            {/* <div className='my-4'>
+                            <div className='my-4'>
                                 <h2 className='text-[18px] font-semibold text-[#484848] tracking-[-0.48px]'>Compare With Other Cars</h2>
                                 <div className='flex pt-2'>
                                     <div className='border border-[#C6C6C6] md:h-[20rem] md:w-[30rem] text-center'>
@@ -838,7 +818,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </div>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
 
                             {/* Dream Car  */}
                             <div className='w-full bg-[#065465] my-4'>
@@ -862,7 +842,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 
                             {/* Reviews Section  */}
-                            {/* <div className='mt-2'>
+                            <div className='mt-2'>
                                 <h2 className='text-[18px] font-semibold text-[#484848] pb-2 tracking-[-0.48px]'>Aura User Reviews</h2>
                                 <div className='md:w-full border border-[#C6C6C6]'>
                                     <p className='text-[16px] font-normal text-[#484848] tracking-[-0.32px] mx-3 mt-3 mb-1'>Hyundai Aura </p>
@@ -967,15 +947,15 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </div>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
 
                             {/* FAQ Section  */}
-                            {/* <div className='mt-3'>
+                            <div className='mt-3'>
                                 <h2 className='text-[18px] px-4 font-semibold tracking-[-0.48px]'>FAQ&apos;s</h2>
                                 <div className='my-3 md:w-[65rem]'>
                                     <Faq />
                                 </div>
-                            </div> */}
+                            </div>
 
                             {/* SPonsored adv  */}
                             <div className='mb-8'>
@@ -993,9 +973,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                     <div className='md:flex hidden'>
                         <div className='md:w-[74%]'>
                             <div className='w-full'>
-                                <h2 className='md:text-[24px] py-2 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
+                                <h2 className='md:text-[24px] py-2 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{"Hyundai"} {"Aura"} {"E"} Latest Updates</h2>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F]  p-3'>
-                                    <p>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Prices: The price of the {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} mileage : It returns a certified mileage of . <span className={`${show ? null : "hidden"}`}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, nobis culpa nesciunt temporibus vel consequatur consectetur, natus ab magnam adipisci incidunt nulla dolor et. Explicabo quos omnis magni voluptatum cum natus tenetur similique, magnam itaque aspernatur, harum dolor nesciunt vitae.</span> </p>
+                                    <p>Hyundai Aura E Prices: The price of the Hyundai Aura E in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. Hyundai Aura E mileage : It returns a certified mileage of . <span className={`${show ? null : "hidden"}`}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, nobis culpa nesciunt temporibus vel consequatur consectetur, natus ab magnam adipisci incidunt nulla dolor et. Explicabo quos omnis magni voluptatum cum natus tenetur similique, magnam itaque aspernatur, harum dolor nesciunt vitae.</span> </p>
 
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
                                         <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
@@ -1004,7 +984,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                 <hr className='border-t-1 border-[#E1E1E1]' />
                                 <div className='py-5'>
                                     <div className='w-full rounded-[2px] flex justify-between font-semibold text-[#484848] py-2'>
-                                        <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} 1.2 Petrol</h2>
+                                        <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of Hyundai Aura E 1.2 Petrol</h2>
                                         <p className='md:text-[14px] text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All <span className='mx-2'>
                                             +
                                         </span></p>
@@ -1018,7 +998,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Fuel Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.fuel_type}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>Petrol</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1030,7 +1010,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Seating Capacity</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].seating_capacity}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>5</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1042,7 +1022,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Body Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].body_type}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>Sedan</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1054,7 +1034,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Transmission Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].transmission_type}</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>Manual</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1066,7 +1046,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Engine Displacement</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.displacement} CC</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>1490- 2000 CC</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1078,7 +1058,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>ARAI Mileage</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.arai_mileage ? cardetails[0].Specifications.engine_and_transmission.arai_mileage : "null"} /kmph</p>
+                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>24-30 /kmph</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1092,57 +1072,123 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                             {/* Specifications, Features & Brochure */}
                             <div id='spec'>
-                                <p className='text-[24px] text-[#484848] font-semibold tracking-[0.48px] mb-6'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} 1.2 Petrol Features & Specs</p>
+                                <p className='text-[24px] text-[#484848] font-semibold tracking-[0.48px] mb-6'>{"Hyundai"} {"Aura"} {"E"} 1.2 Petrol Features & Specs</p>
                                 <div className='md:w-full'>
                                     <div className='mx-3'>
                                         <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[18px] font-semibold tracking-[-0.32px]'>Specifications & Features</p>
                                         <div className='flex'>
                                             <div className='min-w-fit space-y-1 relative z-0'>
-                                                {Object.keys(cardetails[0].Specifications).map((item, index) => {
-                                                    return (index === 0 ? <div key={index} className={`md:p-[10px] text-[#484848] py-2.5 max-w-[320px] ${distance >= 100 ? null : style.speech} ${distance >= 100 ? style.normal : style.right}  md:pr-10 md:pl-4 flex space-x-2`}>
-                                                        <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
-                                                    </div> : <div key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= index * 100 && distance <= (index * 100) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4`}>
-                                                        <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
-                                                    </div>)
-                                                })}
-                                                {Object.keys(cardetails[0].Features).map((item, index) => {
-                                                    return (index === 0 ? <div key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= Object.keys(cardetails[0].Specifications).length * 100 && distance <= (Object.keys(cardetails[0].Specifications).length * 100) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4`}>
-                                                        <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
-                                                    </div> : <div key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= (index * 100) + (Object.keys(cardetails[0].Specifications).length * 100) && distance <= ((index * 100) + (Object.keys(cardetails[0].Specifications).length * 100)) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4`}>
-                                                        <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
-                                                    </div>)
-                                                })}
+                                                <div className={`md:py-3 max-w-[320px] ${distance >= 100 ? null : style.speech} ${distance >= 100 ? style.normal : style.right}  py-3 px-2 flex space-x-2`}>
+                                                    <p>Dimensions</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 100 && distance <= 200 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Engine</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 200 && distance <= 300 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Transmission</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 300 && distance <= 400 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Safety & Security</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 400 && distance <= 500 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Vehicle Status & Alert</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 500 && distance <= 600 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Location & Trips</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 600 && distance <= 700 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Infotainment & Connectivity</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 700 && distance <= 800 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Comfort and Convenience</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 800 && distance <= 900 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Capacity</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 900 && distance <= 1000 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Exterior</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 1000 && distance <= 1100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Interior</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 1100 && distance <= 1200 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Entertainment & Communication</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 1200 && distance <= 1300 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Suspension & Brakes</p>
+                                                </div>
+                                                <div className={`md:py-3 ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= 1300 && distance <= 1400 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] py-3 px-2`}>
+                                                    <p>Steering & Tyres</p>
+                                                </div>
                                             </div>
                                             <div className='text-center w-[80%]'>
                                                 <div onScroll={(event) => {
                                                     setDistance(event.currentTarget.scrollTop)
-                                                }} className={`${style["scroll-sec"]} text-left relative z-10`}>
-                                                    {Object.keys(cardetails[0].Specifications).map((item, index) => {
-                                                        return (<div key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                            <p className='text-[18px] mx-4 my-[10px] font-bold text-[#09809A] tracking-[-0.32px]'>
-                                                                {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
-                                                            </p>
-                                                            {Object.keys(cardetails[0].Specifications[item]).map((itm, ind) => {
-                                                                return (<div key={ind} className={`${cardetails[0].Specifications[item][itm] === null ? 'hidden' : 'flex'} mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
-                                                                    <p className='text-[#6F6F6F] w-[25rem] text-[16px]'>{titleCase(itm.split("_").join(" "))}</p>
-                                                                    <p className='text-[#484848] text-[16px] font-semibold'>{cardetails[0].Specifications[item][itm]}</p>
-                                                                </div>)
-                                                            })}
-                                                        </div>)
-                                                    })}
-                                                    {Object.keys(cardetails[0].Features).map((item, index) => {
-                                                        return (<div key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                            <p className='text-[18px] mx-4 my-[10px] font-bold text-[#09809A] tracking-[-0.32px]'>
-                                                                {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
-                                                            </p>
-                                                            {Object.keys(cardetails[0].Features[item]).map((itm, ind) => {
-                                                                return (<div key={ind} className={`${cardetails[0].Features[item][itm] === null ? 'hidden' : 'flex'} mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
-                                                                    <p className='text-[#6F6F6F] w-[25rem] text-[16px]'>{titleCase(itm.split("_").join(" "))}</p>
-                                                                    <p className='text-[#484848] text-[16px] font-semibold'>{cardetails[0].Features[item][itm]}</p>
-                                                                </div>)
-                                                            })}
-                                                        </div>)
-                                                    })}
+                                                }} className={`h-[45rem] overflow-y-scroll text-left relative z-10`}>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    v
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
+                                                    </div>
+                                                    <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        <p>Dimension</p>
+                                                        <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
+                                                        <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
+                                                        <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus.</p>
+                                                    </div>
+                                                    <div className='text-center my-4'>
+                                                        <button className='text-[13px] bg-[#09809A] font-extralight py-2.5 px-14 rounded-sm text-white'>Download Brochure</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1164,25 +1210,134 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                                     {/* Versions  */}
                                     <div>
-                                        {finalVersion.map((element, id) => {
-                                            return (<div key={id} className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
-                                                <div className='w-[10rem]'>
-                                                    <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
-                                                    <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
-                                                </div>
-                                                <div>
-                                                    <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null} </p>
-                                                    {/* <div className='pb-[1rem]'>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
                                                         <input className='mx-1' type="checkbox"></input>
                                                         <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div> */}
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                                </div>
-                                            </div>)
-                                        })}
-
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
+                                                        <input className='mx-1' type="checkbox"></input>
+                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
+                                                        <input className='mx-1' type="checkbox"></input>
+                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
+                                                        <input className='mx-1' type="checkbox"></input>
+                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
+                                                        <input className='mx-1' type="checkbox"></input>
+                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
+                                                        <input className='mx-1' type="checkbox"></input>
+                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
+                                                        <input className='mx-1' type="checkbox"></input>
+                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div className='w-[10rem]'>
+                                                <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>Aura E</p>
+                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1400 cc, Manual, Petrol </span>
+                                            </div>
+                                            <div>
+                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
+                                                <div className='pb-[1rem]'>
+                                                        <input className='mx-1' type="checkbox"></input>
+                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                    </div>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div className='text-center my-4'>
@@ -1196,9 +1351,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                             {/* Color Listing  */}
                             <div id='col' className='lg:w-full mt-[2rem] mb-[3rem]'>
-                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
+                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>Hyundai Aura Colors</p>
                                 <div className='border-[1px] border-[#C6C6C6]'>
-                                    <Color url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
+                                    <Color url={url} brand={"Hyundai"} model={"Aura"} />
                                     <div className='flex justify-center space-x-5 pt-8 pb-4'>
                                         <div className='bg-[#A5172B] w-10 h-10'>
                                             <DoneIcon sx={{ color: "white" }} className='m-2' />
@@ -1222,7 +1377,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                             {/* Similar Cars  */}
 
-                            {/* <div className='lg:flex'>
+                            <div className='lg:flex'>
                                 <div className='lg:w-full mx-3 md:mx-0'>
                                     <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>Similar Cars</p>
                                     <div className='flex'>
@@ -1295,11 +1450,11 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </div>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
 
 
                             {/* City Prices  */}
-                            {/* <div className='my-10 md:w-full'>
+                            <div className='my-10 md:w-full'>
                                 <p className='md:text-[24px] text-[16px] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'>Aura E 1.2 Petrol Price in cities near New Delhi</p>
                                 <table className='w-full my-2 md:my-5'>
                                     <tr className='bg-[#09809A]'>
@@ -1344,10 +1499,10 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </td>
                                     </tr>
                                 </table>
-                            </div> */}
+                            </div>
 
                             {/* Compare Cars  */}
-                            {/* <div className='my-10'>
+                            <div className='my-10'>
                                 <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>Compare With Other Cars</p>
                                 <div className='flex pt-[1rem]'>
                                     <div className='border border-[#C6C6C6] h-[20rem] lg:w-[25rem] text-center'>
@@ -1407,13 +1562,13 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </div>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
 
                             {/* Reviews Section  */}
-                            {/* <div className='my-10'>
+                            <div className='my-10'>
                                 <p className='text-[24px] font-semibold text-[#484848] pb-2 tracking-[-0.48px]'>Aura E User Reviews</p>
                                 <div className='md:w-full border border-[#C6C6C6]'>
-                                    <p className='text-[16px] font-normal text-[#484848] tracking-[-0.32px] m-3'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} 1.2 Petrol</p>
+                                    <p className='text-[16px] font-normal text-[#484848] tracking-[-0.32px] m-3'>{"Hyundai"} {"Aura"} {"E"} 1.2 Petrol</p>
                                     <div className='flex pt-1 justify-between mx-3'>
                                         <div className='flex space-x-[1rem] text-[14px] font-light'>
                                             <div>
@@ -1515,20 +1670,20 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </div>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
 
                             {/* FAQ Section  */}
-                            {/* <div className='my-10'>
+                            <div className='my-10'>
                                 <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>FAQ&apos;s</p>
                                 <div className='my-3 md:w-[65rem]'>
                                     <Faq />
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
 
 
                         <div className='md:w-[26%] mx-[1rem]'>
-                            <Right url={url} uid={cardetails[0].uid} brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} />
+                            <Right url={url} uid={"218"} brand={"Hyundai"} model={"Aura"} version={"E"} />
                         </div>
                     </div>
 
@@ -1538,84 +1693,11 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 
                 </div>
-            </div> : null}
+            </div>
 
             <Footer />
         </>
     )
 }
 
-
-export async function getServerSideProps(context) {
-
-    const { params } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-
-    let id, model
-
-
-
-    const res = await fetch(`${url}/single_car/${params.variant[0]}/${params.variant[1]}/${params.variant[2]}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-
-    const data = await res.json()
-
-    id = data[0].uid
-    model = data[0].model_id
-
-    // setCardetails(data)
-
-
-    let vversion = await fetch(`${url}/version_data/${model}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let response = await vversion.json()
-
-
-    // setVersion(response)
-    // setFinalVersion(response)
-
-    let vp = await fetch(`${url}/version_prices/${model}/Mumbai`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let vpresponse = await vp.json()
-
-    // vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
-
-
-    let vvp = await fetch(`${url}/single_version/${id}/Mumbai`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let vvpresponse = await vvp.json()
-
-
-    // vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
-
-
-    return {
-        props: {
-            data,
-            response,
-            vpresponse,
-            vvpresponse,
-            params
-        }
-    }
-}
 
