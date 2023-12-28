@@ -56,7 +56,7 @@ import Brand_Model from '../../components/brand_modal';
 
 
 
-export default function Variant() {
+export default function Variant({ data, response, vpresponse, vvpresponse }) {
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -65,18 +65,16 @@ export default function Variant() {
     const tab_change = useRef(null)
     let [distance, setDistance] = useState(0)
     const white = useRef(null)
-    const [cardetails, setCardetails] = useState([])
-    const [finalVersion, setFinalVersion] = useState([])
-    const [getVersion, setVersion] = useState([])
-    const [allVersionPrice, setAllVersionPrice] = useState([])
-    const [versionPrice, setVersionPrice] = useState([])
+    const [cardetails, setCardetails] = useState(data)
+    const [finalVersion, setFinalVersion] = useState(response)
+    const [getVersion, setVersion] = useState(response)
+    const [allVersionPrice, setAllVersionPrice] = useState(vpresponse == "No Data" ? [] : vpresponse)
+    const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
     const router = useRouter();
 
     const params = router.query.variant
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
-
-    let id, model
 
 
 
@@ -104,62 +102,6 @@ export default function Variant() {
     }
 
 
-
-    async function getData() {
-        const res = await fetch(`${url}/single_car/${params[0]}/${params[1]}/${params[2]}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        const data = await res.json();
-
-        id = data[0].uid
-        model = data[0].model_id
-
-        setCardetails(data)
-
-
-        let vversion = await fetch(`${url}/version_data/${model}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-
-        let response = await vversion.json()
-
-        console.log(response)
-
-        setVersion(response)
-        setFinalVersion(response)
-
-        let vp = await fetch(`${url}/version_prices/${model}/Mumbai`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-
-        let vpresponse = await vp.json()
-
-        vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
-
-
-        let vvp = await fetch(`${url}/single_version/${id}/Mumbai`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-
-        let vvpresponse = await vvp.json()
-
-
-        vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
-    }
-
     function numFormat(value) {
         const val = Math.abs(value)
         if (val >= 10000000) return `${(value / 10000000).toFixed(2)} Crore`
@@ -170,9 +112,9 @@ export default function Variant() {
 
 
     useEffect(() => {
-        if (params) {
-            getData()
-        }
+        // if (params) {
+        //     getData()
+        // }
         window.onscroll = function () { scrollFunction() };
     }, [params])
 
@@ -182,7 +124,7 @@ export default function Variant() {
     return (
         <>
             <Navbar />
-            {cardetails.length > 0 ? <div className='mx-2 md:mx-0'>
+            {cardetails ? <div className='mx-2 md:mx-0'>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                     <div className='flex justify-around'>
                         <div className='flex'>
@@ -1602,5 +1544,78 @@ export default function Variant() {
             <Footer />
         </>
     )
+}
+
+
+export async function getServerSideProps(context) {
+
+    const { params } = context;
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+
+    let id, model
+
+
+
+    const res = await fetch(`${url}/single_car/${params.variant[0]}/${params.variant[1]}/${params.variant[2]}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    const data = await res.json()
+
+    id = data[0].uid
+    model = data[0].model_id
+
+    // setCardetails(data)
+
+
+    let vversion = await fetch(`${url}/version_data/${model}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    let response = await vversion.json()
+
+
+    // setVersion(response)
+    // setFinalVersion(response)
+
+    let vp = await fetch(`${url}/version_prices/${model}/Mumbai`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    let vpresponse = await vp.json()
+
+    // vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
+
+
+    let vvp = await fetch(`${url}/single_version/${id}/Mumbai`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    let vvpresponse = await vvp.json()
+
+
+    // vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
+
+
+    return {
+        props: {
+            data,
+            response,
+            vpresponse,
+            vvpresponse
+        }
+    }
 }
 
