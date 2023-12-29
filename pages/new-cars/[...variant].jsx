@@ -427,7 +427,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                     {/* Versions  */}
                                     <div>
                                         {finalVersion.map((element, id) => {
-                                            return (<div key={id} className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                                 <div className='w-[10rem]'>
                                                     <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
                                                     <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
@@ -448,8 +448,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                     </div>
 
                                     <div className='text-center my-4'>
-                                        <button className='px-16 rounded-md'> <span className='text-[16px] font-normal tracking-[-0.24px] hover:text-[#09809A] text-[#09809A]'>
-                                            View All Variants
+                                        <button onClick={() => update ? setUpdate(false) : setUpdate(true)} className='px-16 rounded-md'> <span className='text-[16px] font-normal tracking-[-0.24px] hover:text-[#09809A] text-[#09809A]'>
+                                            {update ? "Hide" : "View"} All Variants
                                         </span></button>
                                     </div>
                                 </div>

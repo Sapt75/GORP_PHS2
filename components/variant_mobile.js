@@ -469,7 +469,7 @@ const Variant_Mobile = (props) => {
                             <div>
                                 {finalVersion.map((element, id) => {
                                     return (
-                                        <div key={id} className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                        <div key={id} className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                             <div>
                                                 <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
                                                 <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
@@ -487,8 +487,8 @@ const Variant_Mobile = (props) => {
                             </div>
 
                             <div className='text-center my-4'>
-                                <button className='px-16 rounded-md'><span className='text-[12px] font-normal tracking-[-0.24px] text-[#09809A]'>
-                                    View All Variants
+                                <button onClick={() => show ? setShow(false) : setShow(true)} className='px-16 rounded-md'><span className='text-[12px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                {show ? "Hide" : "View"} All Variants
                                 </span></button>
                             </div>
                         </div>

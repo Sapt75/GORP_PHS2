@@ -24,14 +24,6 @@ const Navbar = () => {
     const [drop, setDrop] = useState(false)
     const [more, setMore] = useState(false)
 
-    const [width, setWidth] = useState()
-
-    useEffect(() => {
-        window.addEventListener("resize", () => {
-            setWidth(window.innerWidth)
-        })
-        setWidth(window.innerWidth)
-    }, [])
 
 
 
