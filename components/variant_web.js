@@ -129,7 +129,7 @@ const Variant_Web = (props) => {
 
     return (
         <div>
-            <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
+            <div ref={top_bar} className={`${style["top-scroll"]} block`}>
                 <div className='flex justify-around'>
                     <div className='flex'>
                         <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
@@ -170,57 +170,7 @@ const Variant_Web = (props) => {
             </div>
             <div className="mx-[5rem]">
                 <div>
-                    <div ref={top_shift} className='h-[10rem] md:h-auto'>
-                        <div className='mt-[1rem] bg-white z-[9999]'>
-                            <div className='h-[5rem] md:h-auto mr-3'>
-                                <div className='flex w-[-webkit-fill-available] mr-[10px] bg-white fixed z-[999] md:hidden space-x-1'>
-                                    <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
-                                    <City_Modal />
-                                </div>
-                            </div>
-                            <div ref={white} className='w-full md:hidden fixed bg-white top-[50px] z-[99] h-[2rem]'>
-
-                            </div>
-                            <div>
-                                <ul className='flex fixed mt-[15px] z-[999] bg-white w-full md:hidden whitespace-nowrap overflow-x-scroll md:whitespace-normal space-x-8 md:space-x-[5rem] text-[16px] border-y border-[#E1E1E1] font-normal tracking-[-0.32px] px-2'>
-                                    <li className='font-semibold text-[#484848] text-[14px] my-2'>{cardetails[0].model_name}</li>
-                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Overview</li>
-                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Features</li>
-                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Specifications</li>
-                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Version</li>
-                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Reviews</li>
-                                    <li className='my-1.5'>
-                                        <button className='text-white text-[14px] px-4 bg-[#CE4327] font-semibold pb-1 rounded-md'>Get Offer</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='md:hidden'>
-                        <div className='flex justify-between'>
-                            <h1 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name}</h1>
-                            <div className=''>
-                                <input className='mx-1' type="checkbox"></input>
-                                <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                            </div>
-                        </div>
-                        <div className='space-x-[1.6rem]'>
-                            {versionPrice.length > 0 ? <span className='text-[20px] text-[#484848] font-semibold tracking-[-0.48px]'> {`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
-                            <span className='text-[12px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
-                        </div>
-                        <span className='text-[14px] pt-1.5 font-normal tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
-                        {/* <div className='hidden md:flex justify-between w-100 bg-[#F4F4F4] py-[0.5rem]'>
-                                <div className='px-2 pb-1'>
-                                    <p className='text-[12px] text-[#484848] font-medium pb-0.5 tracking-[-0.28px]'>EMI Starts  at 12550/Month</p>
-                                    <Emi_Modal />
-                                </div>
-                                <div>
-                                    <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
-                                </div>
-                            </div> */}
-                        <button className='hidden md:block text-[14px] my-[1rem] py-[0.5rem] rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>
-                    </div>
-                    <div className='hidden md:block mt-[2rem] mb-[1.5rem]'>
+                    <div className='block mt-[2rem] mb-[1.5rem]'>
                         <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} <Image src={edit} className='inline mx-2 mb-1' /></h1>
                         {/* <div className='flex pt-3 justify-between'>
                                 <div className='flex space-x-[1rem] text-[14px] font-light'>
@@ -246,7 +196,7 @@ const Variant_Web = (props) => {
                             </div> */}
                         {/* <hr className='border-t-1 border-[#E1E1E1]' /> */}
                     </div>
-                    <ul className='whitespace-nowrap hidden md:flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
+                    <ul className='whitespace-nowrap flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                         <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                         <Link activeClass="active"
                             to="spec" spy={true} smooth={true} offset={-150} duration={500}>
@@ -273,11 +223,11 @@ const Variant_Web = (props) => {
                             {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
                         </div>
                         <div className='md:w-[40%]'>
-                            <div className='md:flex hidden space-x-1'>
+                            <div className='flex space-x-1'>
                                 <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
                                 <City_Modal />
                             </div>
-                            <div className='hidden md:block'>
+                            <div className='block'>
                                 <div className='pt-[1.5rem] space-x-[1.6rem]'>
                                     {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
                                     <span className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
@@ -299,7 +249,7 @@ const Variant_Web = (props) => {
                 </div>
 
 
-                <div className='md:flex hidden'>
+                <div className='flex'>
                     <div className='md:w-[74%]'>
                         <div className='w-full'>
                             <h2 className='md:text-[24px] py-2 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
@@ -432,7 +382,7 @@ const Variant_Web = (props) => {
                                                             {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
                                                         </p>
                                                         {Object.keys(cardetails[0].Specifications[item]).map((itm, ind) => {
-                                                            return (<div key={ind} className={`${cardetails[0].Specifications[item][itm] === null ? 'hidden' : 'flex'} mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
+                                                            return (cardetails[0].Specifications[item][itm] === null ? null : <div key={ind} className={`flex mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
                                                                 <p className='text-[#6F6F6F] w-[25rem] text-[16px]'>{titleCase(itm.split("_").join(" "))}</p>
                                                                 <p className='text-[#484848] text-[16px] font-semibold'>{cardetails[0].Specifications[item][itm]}</p>
                                                             </div>)
@@ -445,7 +395,7 @@ const Variant_Web = (props) => {
                                                             {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
                                                         </p>
                                                         {Object.keys(cardetails[0].Features[item]).map((itm, ind) => {
-                                                            return (<div key={ind} className={`${cardetails[0].Features[item][itm] === null ? 'hidden' : 'flex'} mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
+                                                            return (cardetails[0].Features[item][itm] === null ? null : <div key={ind} className={`flex mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
                                                                 <p className='text-[#6F6F6F] w-[25rem] text-[16px]'>{titleCase(itm.split("_").join(" "))}</p>
                                                                 <p className='text-[#484848] text-[16px] font-semibold'>{cardetails[0].Features[item][itm]}</p>
                                                             </div>)
