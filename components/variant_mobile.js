@@ -201,49 +201,6 @@ const Variant_Mobile = (props) => {
                             </div> */}
                     <button className='hidden md:block text-[14px] my-[1rem] py-[0.5rem] rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>
                 </div>
-                <div className='hidden md:block mt-[2rem] mb-[1.5rem]'>
-                    <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} <Image src={edit} className='inline mx-2 mb-1' /></h1>
-                    {/* <div className='flex pt-3 justify-between'>
-                                <div className='flex space-x-[1rem] text-[14px] font-light'>
-                                    <div>
-                                        <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
-                                            4.5
-                                            <Image width={20} className='pl-[4px]' src={star} alt="" />
-                                        </span>
-                                    </div>
-                                    <p className='text-[14px] md:inline text-[#6F6F6F] hidden md:text-base'>17 Ratings & 25 Reviews</p>
-                                    <p className='md:inline hidden'>|</p>
-                                    <Rating_Model />
-                                    <div className='flex space-x-2 md:hidden'>
-                                        <p className='text-[11px] text-[#6F6F6F] md:text-base'>17 Ratings & 25 Reviews</p>
-                                        <p>|</p>
-                                        <Rating_Model />
-                                    </div>
-                                </div>
-                                <div className=''>
-                                    <input className='mx-1' type="checkbox"></input>
-                                    <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                </div>
-                            </div> */}
-                    {/* <hr className='border-t-1 border-[#E1E1E1]' /> */}
-                </div>
-                <ul className='whitespace-nowrap hidden md:flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                    <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
-                    <Link activeClass="active"
-                        to="spec" spy={true} smooth={true} offset={-150} duration={500}>
-                        <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Features & Specifications</li>
-                    </Link>
-                    <Link activeClass="active"
-                        to="ver" spy={true} smooth={true} offset={-150} duration={500}>
-                        <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variants</li>
-                    </Link>
-                    <Link activeClass="active"
-                        to="col" spy={true} smooth={true} offset={-150} duration={500}>
-                        <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
-                    </Link>
-                    {/* <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Similar Cars</li>
-                            <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>FAQ&apos;s</li> */}
-                </ul>
                 <hr className='border-t-1 mt-2 border-[#E1E1E1]' />
                 <div className='md:flex xl:space-x-[6rem] my-[1rem] py-[1rem] md:border md:border-[#E1E1E1]'>
                     <div className='md:w-[50%] text-center'>
@@ -252,29 +209,6 @@ const Variant_Mobile = (props) => {
                             <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="" /> Colors</span>
                         </Link>
                         {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
-                    </div>
-                    <div className='md:w-[40%]'>
-                        <div className='md:flex hidden space-x-1'>
-                            <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
-                            <City_Modal />
-                        </div>
-                        <div className='hidden md:block'>
-                            <div className='pt-[1.5rem] space-x-[1.6rem]'>
-                                {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
-                                <span className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
-                            </div>
-                            <span className='text-[14px] font-[400] tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
-                            {/* <div className='flex justify-between mt-2 w-100 bg-[#F4F4F4] py-[0.5rem]'>
-                                        <div className='px-2 pb-1'>
-                                            <p className='text-[16px] text-[#484848] font-medium pb-0.5 tracking-[-0.28px]'>EMI Starts  at 12550/Month</p>
-                                            <Emi_Modal />
-                                        </div>
-                                        <div>
-                                            <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
-                                        </div>
-                                    </div> */}
-                            <button className='text-[14px] my-[1rem] py-[0.5rem] block rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>
-                        </div>
                     </div>
                 </div>
             </div>
