@@ -10,6 +10,11 @@
     grid-template-columns: repeat(9, minmax(0, 1fr));
 
   }
+
+  .scroll-sec {
+    height: 64rem;
+    overflow: scroll;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -17,6 +22,11 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
 
+  }
+
+  .scroll-sec {
+    height: 43rem;
+    overflow: scroll;
   }
 }
 
@@ -183,10 +193,7 @@
   margin-top: -20px;
 }
 
-.scroll-sec {
-  height: 64rem;
-  overflow: scroll;
-}
+
 
 
 .box {

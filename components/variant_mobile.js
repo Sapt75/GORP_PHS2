@@ -237,7 +237,7 @@ const Variant_Mobile = (props) => {
                                             <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
                                         </div>
                                     </div> */}
-                            <h2 className='md:text-[24px] text-[#484848] text-[16px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
+                            <h2 className='md:text-[24px] text-[#484848] text-[16px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Ratings</h2>
                             <div className='flex md:hidden space-x-[1rem] text-[14px] border-b-[1px] border-[#E1E1E1] pb-4 font-light'>
                                 <div>
                                     <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
@@ -407,30 +407,32 @@ const Variant_Mobile = (props) => {
                                         <div onScroll={(event) => {
                                             setDistance(event.currentTarget.scrollTop)
                                         }} className={`${style["scroll-sec"]} text-left relative z-10`}>
-                                            <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                <p>Dimension</p>
-                                                <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
-                                                <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                            </div>
-                                            <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                <p>Dimension</p>
-                                                <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
-                                                <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                            </div>
-                                            <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                <p>Dimension</p>
-                                                <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
-                                                <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus. Eveniet inventore aspernatur laudantium maxime aliquid, tempore, iste laborum, assumenda tenetur nisi error sint laboriosam magnam dolorum tempora repellat libero expedita quia optio asperiores blanditiis voluptates. Quod doloribus sit reiciendis obcaecati. Nulla repellendus veritatis ipsa, quis dolor accusantium ab autem blanditiis perferendis rerum. Velit, voluptatum.</p>
-                                            </div>
-                                            <div className='border-t-[1px] py-2 border-r-[1px] border-[#C6C6C6] px-4'>
-                                                <p>Dimension</p>
-                                                <p className='text-[14px] font-normal pt-[10px] pb-[5px] text-[#6F6F6F] tracking-[-0.28px] leading-[1]'>Charging Time A C</p>
-                                                <p className='text-[12px] text-[#484848] font-bold pb-[5px] tracking-[-0.24px]'>9.5-10h</p>
-                                                <p className='text-[12px] text-[#484848]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam molestias quas error animi exercitationem eum laborum at perferendis excepturi adipisci, harum quam quisquam ea a! Atque repellat officiis voluptate necessitatibus in iusto tempore, neque ipsa ducimus ratione sunt vero, itaque illo ullam ad aliquam minima rem officia? Ipsum ipsam repellendus id, magni architecto dolorem doloribus.</p>
-                                            </div>
+                                            {Object.keys(cardetails[0].Specifications).map((item, index) => {
+                                                return (<div key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                    <p className='text-[14px] mx-4 my-[10px] font-bold text-[#09809A] tracking-[-0.32px]'>
+                                                        {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
+                                                    </p>
+                                                    {Object.keys(cardetails[0].Specifications[item]).map((itm, ind) => {
+                                                        return (cardetails[0].Specifications[item][itm] === null ? null : <div key={ind} className={`flex mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
+                                                            <p className='text-[#6F6F6F] text-[12px]'>{titleCase(itm.split("_").join(" "))}</p>
+                                                            <p className='text-[#484848] text-[12px] font-semibold'>{cardetails[0].Specifications[item][itm]}</p>
+                                                        </div>)
+                                                    })}
+                                                </div>)
+                                            })}
+                                            {Object.keys(cardetails[0].Features).map((item, index) => {
+                                                return (<div key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                    <p className='text-[14px] mx-4 my-[10px] font-bold text-[#09809A] tracking-[-0.32px]'>
+                                                        {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
+                                                    </p>
+                                                    {Object.keys(cardetails[0].Features[item]).map((itm, ind) => {
+                                                        return (cardetails[0].Features[item][itm] === null ? null : <div key={ind} className={`flex mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
+                                                            <p className='text-[#6F6F6F] text-[12px]'>{titleCase(itm.split("_").join(" "))}</p>
+                                                            <p className='text-[#484848] text-[12px] font-semibold'>{cardetails[0].Features[item][itm]}</p>
+                                                        </div>)
+                                                    })}
+                                                </div>)
+                                            })}
                                             <div className='text-center my-4'>
                                                 <button className='text-[13px] bg-[#09809A] font-extralight py-2.5 px-14 rounded-sm text-white'>Download Brochure</button>
                                             </div>

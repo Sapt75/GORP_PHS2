@@ -109,6 +109,10 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     }
 
     useEffect(() => {
+        window.addEventListener("resize", () => {
+            setWidth(window.innerWidth)
+        })
+        setWidth(window.innerWidth)
         window.onscroll = function () { scrollFunction() };
         setCardetails(data)
 
@@ -120,10 +124,6 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 
         vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
-        window.addEventListener("resize", () => {
-            setWidth(window.innerWidth)
-        })
-        setWidth(window.innerWidth)
     }, [params, data, response, vpresponse, vvpresponse])
 
 
