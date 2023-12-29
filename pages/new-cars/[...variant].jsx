@@ -174,7 +174,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 <div className="mx-[5rem]">
                     <div>
                         <div className='block mt-[2rem] mb-[1.5rem]'>
-                            <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} <Image src={edit} className='inline mx-2 mb-1' /></h1>
+                            <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} status={true} /></h1>
                             {/* <div className='flex pt-3 justify-between'>
                                     <div className='flex space-x-[1rem] text-[14px] font-light'>
                                         <div>
@@ -257,7 +257,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             <div className='w-full'>
                                 <h2 className='md:text-[24px] py-2 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F]  p-3'>
-                                    <p>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Prices: The price of the {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} mileage : It returns a certified mileage of . <span className={`${show ? null : "hidden"}`}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, nobis culpa nesciunt temporibus vel consequatur consectetur, natus ab magnam adipisci incidunt nulla dolor et. Explicabo quos omnis magni voluptatum cum natus tenetur similique, magnam itaque aspernatur, harum dolor nesciunt vitae.</span> </p>
+                                    <p>{cardetails[0].varient_description} <span className={`${show ? null : "hidden"}`}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, nobis culpa nesciunt temporibus vel consequatur consectetur, natus ab magnam adipisci incidunt nulla dolor et. Explicabo quos omnis magni voluptatum cum natus tenetur similique, magnam itaque aspernatur, harum dolor nesciunt vitae.</span> </p>
 
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
                                         <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
@@ -416,10 +416,10 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             {/* Car Versions Listing  */}
 
                             <div id='ver' className='lg:w-full'>
-                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>Hyundai Aura Versions 2023</p>
+                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>Hyundai Aura Variants 2023</p>
                                 <div>
                                     <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Versions</p>
+                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Variants</p>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] ml-[3.5rem]'>On Road Price</p>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Price Breakup</p>
                                     </div>
@@ -449,7 +449,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
                                     <div className='text-center my-4'>
                                         <button className='px-16 rounded-md'> <span className='text-[16px] font-normal tracking-[-0.24px] hover:text-[#09809A] text-[#09809A]'>
-                                            View All Versions
+                                            View All Variants
                                         </span></button>
                                     </div>
                                 </div>
@@ -459,7 +459,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             {/* Color Listing  */}
                             <div id='col' className='lg:w-full mt-[2rem] mb-[3rem]'>
                                 <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
-                                <div className='border-[1px] border-[#C6C6C6]'>
+                                {/* <div className='border-[1px] border-[#C6C6C6]'>
                                     <Color url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                     <div className='flex justify-center space-x-5 pt-8 pb-4'>
                                         <div className='bg-[#A5172B] w-10 h-10'>
@@ -478,7 +478,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                             <DoneIcon sx={{ color: "white" }} className='m-2' />
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
 
 

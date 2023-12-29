@@ -168,7 +168,7 @@ const Variant_Mobile = (props) => {
                                 <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Overview</li>
                                 <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Features</li>
                                 <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Specifications</li>
-                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Version</li>
+                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Variants</li>
                                 <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Reviews</li>
                                 <li className='my-1.5'>
                                     <button className='text-white text-[14px] px-4 bg-[#CE4327] font-semibold pb-1 rounded-md'>Get Offer</button>
@@ -218,7 +218,7 @@ const Variant_Mobile = (props) => {
                     <div className='w-full'>
                         <h2 className='md:text-[24px] text-[#484848] mb-3 text-[18px] font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
                         <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
-                            <p>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Prices: The price of the {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
+                            <p>{cardetails[0].varient_description} <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
                             </span></p>
 
                             <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
@@ -458,90 +458,37 @@ const Variant_Mobile = (props) => {
                     {/* Car Versions Listing  */}
 
                     <div className='lg:w-full'>
-                        <h2 className='lg:text-[24px] text-[#484848] text-[18px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>Hyundai Aura Versions 2023</h2>
+                        <h2 className='lg:text-[24px] text-[#484848] text-[18px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>Hyundai Aura Variants 2023</h2>
                         <div>
                             <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
-                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Versions</p>
+                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Variants</p>
                                 <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>On Road Price</p>
                             </div>
 
                             {/* Versions  */}
                             <div>
-                                <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>Aura</p>
-                                        <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1197 cc, Manual, Petrol </span>
-                                        <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6.09 Lakh</p>
-                                        <div className=''>
-                                            <input className='mx-1' type="checkbox"></input>
-                                            <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>Aura</p>
-                                        <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1197 cc, Manual, Petrol </span>
-                                        <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 7.18 Lakh</p>
-                                        <div className=''>
-                                            <input className='mx-1' type="checkbox"></input>
-                                            <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>Aura</p>
-                                        <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1197 cc, Manual, Petrol </span>
-                                        <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 7.95 Lakh</p>
-                                        <div className=''>
-                                            <input className='mx-1' type="checkbox"></input>
-                                            <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>Aura</p>
-                                        <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1197 cc, Manual, Petrol </span>
-                                        <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 8.13 Lakh</p>
-                                        <div className=''>
-                                            <input className='mx-1' type="checkbox"></input>
-                                            <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>Aura</p>
-                                        <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>1197 cc, Manual, Petrol </span>
-                                        <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                    </div>
-                                    <div>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 8.61 Lakh</p>
-                                        <div className=''>
-                                            <input className='mx-1' type="checkbox"></input>
-                                            <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                {finalVersion.map((element, id) => {
+                                    return (
+                                        <div key={id} className='flex justify-between py-3 px-4 border border-[#C6C6C6]'>
+                                            <div>
+                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
+                                                <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
+                                                <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            </div>
+                                            <div>
+                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
+                                                {/* <div className=''>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div> */}
+                                            </div>
+                                        </div>)
+                                })}
                             </div>
 
                             <div className='text-center my-4'>
                                 <button className='px-16 rounded-md'><span className='text-[12px] font-normal tracking-[-0.24px] text-[#09809A]'>
-                                    View All Versions
+                                    View All Variants
                                 </span></button>
                             </div>
                         </div>
@@ -561,7 +508,7 @@ const Variant_Mobile = (props) => {
                         <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
                         <div className='border-[1px] border-[#C6C6C6]'>
                             <Color url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
-                            <div className='flex justify-center space-x-5 pt-8 pb-4'>
+                            {/* <div className='flex justify-center space-x-5 pt-8 pb-4'>
                                 <div className='bg-[#A5172B] w-10 h-10'>
                                     <DoneIcon sx={{ color: "white" }} className='m-2' />
                                 </div>
@@ -577,7 +524,7 @@ const Variant_Mobile = (props) => {
                                 <div className='bg-[#98A4AA] w-10 h-10'>
                                     <DoneIcon sx={{ color: "white" }} className='m-2' />
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
