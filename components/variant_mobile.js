@@ -51,6 +51,7 @@ import Emi_Modal from '../components/emi';
 import { useRouter } from "next/router";
 import { Link, animateScroll as scroll } from "react-scroll";
 import Brand_Model from '../components/brand_modal';
+import RLink from 'next/link';
 
 
 
@@ -469,7 +470,8 @@ const Variant_Mobile = (props) => {
                             <div>
                                 {finalVersion.map((element, id) => {
                                     return (
-                                        <div key={id} className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
+                                        <RLink key={id} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                        <div className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                             <div>
                                                 <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
                                                 <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
@@ -482,7 +484,8 @@ const Variant_Mobile = (props) => {
                                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
                                                 </div> */}
                                             </div>
-                                        </div>)
+                                        </div>
+                                        </RLink>)
                                 })}
                             </div>
 

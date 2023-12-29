@@ -52,6 +52,7 @@ import Emi_Modal from '../../components/emi';
 import { useRouter } from "next/router";
 import { Link, animateScroll as scroll } from "react-scroll";
 import Brand_Model from '../../components/brand_modal';
+import RLink from 'next/link';
 import Variant_Mobile from "../../components/variant_mobile"
 
 
@@ -427,22 +428,26 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                     {/* Versions  */}
                                     <div>
                                         {finalVersion.map((element, id) => {
-                                            return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
-                                                <div className='w-[10rem]'>
-                                                    <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
-                                                    <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
+                                            return (<RLink key={id} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                                <div className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
+
+                                                    <div className='w-[10rem]'>
+                                                        <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
+                                                        <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
+                                                    </div>
+
+                                                    <div>
+                                                        <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null} </p>
+                                                        {/* <div className='pb-[1rem]'>
+            <input className='mx-1' type="checkbox"></input>
+            <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+        </div> */}
+                                                    </div>
+                                                    <div>
+                                                        <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null} </p>
-                                                    {/* <div className='pb-[1rem]'>
-                                                            <input className='mx-1' type="checkbox"></input>
-                                                            <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                        </div> */}
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                                </div>
-                                            </div>)
+                                            </RLink>)
                                         })}
 
                                     </div>
@@ -817,7 +822,8 @@ export async function getServerSideProps(context) {
 
 
 
-    const res = await fetch(`${url}/single_car/${params.variant[0]}/${params.variant[1]}/${params.variant[2]}`, {
+
+    const res = await fetch(`${url}/single_car/${params.variant[0].charAt(0).toUpperCase() + params.variant[0].slice(1)}/${params.variant[1].charAt(0).toUpperCase() + params.variant[1].slice(1)}/${params.variant[2].split("-").join(" ")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"

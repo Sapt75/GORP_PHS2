@@ -67,7 +67,7 @@ function Version_Model(props) {
                         <div className="overflow-y-scroll">
                             {props.data ? props.data.map((element, index) => {
                                 return (
-                                    <Link key={index} onClick={handleClose} href={`/new-cars/${element.brand}/${element.model_name}/${element.version_name}`}>
+                                    <Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                         <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
