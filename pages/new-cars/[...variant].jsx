@@ -54,6 +54,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import Brand_Model from '../../components/brand_modal';
 import RLink from 'next/link';
 import Variant_Mobile from "../../components/variant_mobile"
+import Head from "next/head"
 
 
 
@@ -132,6 +133,13 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     return (
         <>
             <Navbar />
+            <Head>
+                <title>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} on road price, {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs, Colours & Variants.
+                </title>
+                <meta name="description" content={`${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} on road price, features, specifications, Maruti Fronx variants and colours - View price breakup of ${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} at GetOnRoadPrice.
+`} />
+            </Head>
+
             {width > 800 ? <div>
                 <div ref={top_bar} className={`${style["top-scroll"]} block`}>
                     <div className='flex justify-around'>
@@ -220,7 +228,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                         <hr className='border-t-1 mt-2 border-[#E1E1E1]' />
                         <div className='md:flex xl:space-x-[6rem] my-[1rem] py-[1rem] md:border md:border-[#E1E1E1]'>
                             <div className='md:w-[50%] text-center'>
-                                <ImageSlider />
+                                <ImageSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <Link to='col' spy={true} smooth={true} offset={-150} duration={500}>
                                     <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="" /> Colors</span>
                                 </Link>
@@ -358,7 +366,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                 <p className='text-[24px] text-[#484848] font-semibold tracking-[0.48px] mb-6'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs</p>
                                 <div className='md:w-full'>
                                     <div className='mx-3'>
-                                        <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[18px] font-semibold tracking-[-0.32px]'>Specifications & Features</p>
+                                        <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[18px] font-semibold tracking-[-0.32px]'>Features & Specifications</p>
                                         <div className='flex'>
                                             <div className='min-w-fit space-y-1 relative z-0'>
                                                 {Object.keys(cardetails[0].Specifications).map((item, index) => {
@@ -428,26 +436,27 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                     {/* Versions  */}
                                     <div>
                                         {finalVersion.map((element, id) => {
-                                            return (<RLink key={id} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
-                                                <div className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
+                                            return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
 
+                                                <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                                     <div className='w-[10rem]'>
                                                         <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
                                                         <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
                                                     </div>
+                                                </RLink>
 
-                                                    <div>
-                                                        <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null} </p>
-                                                        {/* <div className='pb-[1rem]'>
+
+                                                <div>
+                                                    <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null} </p>
+                                                    {/* <div className='pb-[1rem]'>
             <input className='mx-1' type="checkbox"></input>
             <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
         </div> */}
-                                                    </div>
-                                                    <div>
-                                                        <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                                    </div>
                                                 </div>
-                                            </RLink>)
+                                                <div>
+                                                    <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                                </div>
+                                            </div>)
                                         })}
 
                                     </div>

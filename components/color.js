@@ -69,16 +69,16 @@ const ImageSlider = (props) => {
                     <SplideTrack>
                         {images.length > 0 ? images.map((item, index) => {
                             return (<SplideSlide key={index}>
-                                <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={`https://ik.imagekit.io/GORP/${props.brand}/${props.model}/Color/${item}`} alt="" />
+                                <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/Color/${item}`} alt={`${item.split(".")[0]} Color`} />
                             </SplideSlide>)
                         }) : null}
                     </SplideTrack>
                     <div className="splide__arrows">
                         <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--prev shadow-md">
-                            <img width={8} className='rotate-[180deg]' src="./images/right.svg" alt="" />
+                            <img width={8} className='rotate-[180deg]' src="./images/right.svg" alt="left arrow" />
                         </button>
                         <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--next shadow-md">
-                            <img width={8} src="./images/right.svg" alt="" />
+                            <img width={8} src="./images/right.svg" alt="right arrow" />
                         </button>
                     </div>
                 </div>

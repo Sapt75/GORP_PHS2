@@ -8,11 +8,34 @@ const ImageSlider = (props) => {
     const mainRef = useRef(null);
     const thumbsRef = useRef(null);
     let [width, setWidth] = useState()
+    const [images, setImages] = useState([])
+
+
+    function titleCase(str) {
+        return str.toLowerCase().split(' ').map(x => x[0].toUpperCase() + x.slice(1)).join(' ');
+    }
+
+
+    async function getData() {
+        const data = await fetch(`http://localhost:5000/car_images/${titleCase(props.brand)}/${titleCase(props.model)}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const res = await data.json()
+
+        console.log(res)
+
+        setImages(res)
+    }
 
     useEffect(() => {
         if (mainRef.current && thumbsRef.current && thumbsRef.current.splide) {
             mainRef.current.sync(thumbsRef.current.splide);
         }
+
+        getData()
 
         setWidth(window.innerWidth)
     }, []);
@@ -44,13 +67,17 @@ const ImageSlider = (props) => {
     return (
         <div className="wrapper">
             <Splide options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
+                {Object.keys(images).map((item) => {
+                    return (images[item].map((itm, ind) => {
+                        return (<SplideSlide key={ind}>
+                            <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(item)}/${itm}`} alt={`${props.brand} ${props.model} ${item}`} />
+                        </SplideSlide>)
+                    }))
+                })}
 
-                <SplideSlide>
-                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src="https://ik.imagekit.io/GORP/Hyundai/Aura/Aura.jpg?updatedAt=1690106132936" alt="" />
-                </SplideSlide>
-                <SplideSlide>
-                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`}src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
-                </SplideSlide>
+                {/* <SplideSlide>
+                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
+                </SplideSlide> */}
             </Splide>
 
             {/* <Splide

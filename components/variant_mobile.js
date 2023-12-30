@@ -207,7 +207,7 @@ const Variant_Mobile = (props) => {
                     <div className='md:w-[50%] text-center'>
                         <ImageSlider />
                         <Link to='col' spy={true} smooth={true} offset={-150} duration={500}>
-                            <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="" /> Colors</span>
+                            <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="Color Image" /> Colors</span>
                         </Link>
                         {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
                     </div>
@@ -223,7 +223,7 @@ const Variant_Mobile = (props) => {
                             </span></p>
 
                             <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
-                                <span className='mx-[1rem] text-[#09809A] text-[14px] font-normal'>Read More <Image className='inline' src={down} alt="" /></span>
+                                <span className='mx-[1rem] text-[#09809A] text-[14px] font-normal'>Read More <Image className='inline' src={down} alt="down icon" /></span>
                             </div>
                         </div>
                         <hr className='border-t-1 border-[#E1E1E1]' />
@@ -243,7 +243,7 @@ const Variant_Mobile = (props) => {
                                 <div>
                                     <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
                                         4.5
-                                        <Image width={20} className='pl-[4px]' src={star} alt="" />
+                                        <Image width={20} className='pl-[4px]' src={star} alt="Star" />
                                     </span>
                                 </div>
                                 <div className='flex space-x-2 md:hidden pt-1'>
@@ -275,7 +275,7 @@ const Variant_Mobile = (props) => {
                                     <div className='flex space-x-3 ml-2 py-2'>
 
                                         <div>
-                                            <Image className='mt-1' src={fuel} alt="" />
+                                            <Image className='mt-1' src={fuel} alt="fuel" />
                                         </div>
                                         <div>
                                             <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Fuel Type</p>
@@ -287,7 +287,7 @@ const Variant_Mobile = (props) => {
                                     <div className='flex space-x-3 ml-2 py-2'>
 
                                         <div>
-                                            <Image className='mt-1' src={seat} alt="" />
+                                            <Image className='mt-1' src={seat} alt="seat" />
                                         </div>
                                         <div>
                                             <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Seating Capacity</p>
@@ -299,7 +299,7 @@ const Variant_Mobile = (props) => {
                                     <div className='flex space-x-3 ml-2 py-2'>
 
                                         <div>
-                                            <Image className='mt-1' src={body} alt="" />
+                                            <Image className='mt-1' src={body} alt="body" />
                                         </div>
                                         <div>
                                             <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Body Type</p>
@@ -311,7 +311,7 @@ const Variant_Mobile = (props) => {
                                     <div className='flex space-x-3 ml-2 py-2'>
 
                                         <div>
-                                            <Image className='mt-1' src={transmission} alt="" />
+                                            <Image className='mt-1' src={transmission} alt="transmission" />
                                         </div>
                                         <div>
                                             <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Transmission Type</p>
@@ -323,7 +323,7 @@ const Variant_Mobile = (props) => {
                                     <div className='flex space-x-3 ml-2 py-2'>
 
                                         <div>
-                                            <Image className='mt-1' src={engine} alt="" />
+                                            <Image className='mt-1' src={engine} alt="engine" />
                                         </div>
                                         <div>
                                             <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Engine Displacement</p>
@@ -337,7 +337,7 @@ const Variant_Mobile = (props) => {
                                     <div className='flex space-x-3 ml-2 py-2'>
 
                                         <div>
-                                            <Image className='mt-1' src={arai} alt="" />
+                                            <Image className='mt-1' src={arai} alt="arai" />
                                         </div>
                                         <div>
                                             <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>ARAI Mileage</p>
@@ -347,7 +347,7 @@ const Variant_Mobile = (props) => {
                                 </div>
                             </div>
                             <div className='md:py-[3rem] pt-4 pb-3'>
-                                <Image src={advert2} alt="" />
+                                <Image src={advert2} alt="advertisement" />
                             </div>
                         </div>
                     </div>
@@ -358,7 +358,7 @@ const Variant_Mobile = (props) => {
                         <p className='md:text-[24px] text-[#484848] text-[18px] font-semibold tracking-[0.48px] mb-2'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs</p>
                         <div className='md:w-full'>
                             <div className='md:mx-3'>
-                                <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[16px] font-semibold tracking-[-0.32px]'>Specifications & Features</p>
+                                <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[16px] font-semibold tracking-[-0.32px]'>Features & Specifications</p>
                                 <div className='flex'>
                                     <div className='w-[40%] space-y-1 relative z-0'>
                                         <div className={`md:py-3 max-w-[320px] ${distance >= 100 ? null : style.speech} ${distance >= 100 ? style.normal : style.right}  py-3 px-2 flex space-x-2`}>
@@ -449,9 +449,9 @@ const Variant_Mobile = (props) => {
                         <div className='md:w-full p-3 md:p-0 bg-[#CE4327] md:absolute md:top-1/3 rounded-sm'>
                             <p className='md:text-[28px] mx-4 text-[18px] text-white font-semibold tracking-[-0.56px] md:py-2'> Hyundai Aura</p>
                             <div className='mx-2'>
-                                <Image className='mx-2 md:py-4 inline w-4 md:w-6' src={brochure2} alt="" />
+                                <Image className='mx-2 md:py-4 inline w-4 md:w-6' src={brochure2} alt="brochure" />
                                 <span className='md:text-[22px] text-[14px] inline mr-2 text-white font-medium tracking-[-0.44px]'>Download Brochure</span>
-                                <Image className='mx-2 md:py-4 inline w-4 md:w-6' src={download} alt="" />
+                                <Image className='mx-2 md:py-4 inline w-4 md:w-6' src={download} alt="download" />
                             </div>
                         </div>
                     </div>
@@ -714,12 +714,12 @@ const Variant_Mobile = (props) => {
                     {/* Dream Car  */}
                     <div className='w-full bg-[#065465] my-4'>
                         <div className='relative w-[80%] pt-4'>
-                            <Image width={150} src={logo} />
+                            <Image width={150} src={logo} alt='logo' />
                             <p className='absolute right-[3.5rem] text-[14px] bottom-[-5px] text-white'>Recommender</p>
                         </div>
                         <div className='pb-8 pt-4 flex justify-evenly'>
                             <div>
-                                <Image src={bow} />
+                                <Image src={bow} alt='bow' />
                             </div>
                             <div className='text-white'>
                                 <p className='text-[12px]'>Not Sure, Which car to buy?</p>
