@@ -7,6 +7,7 @@ import youtube from "../public/images/youtube.svg"
 import linkedin from "../public/images/linkedin.svg"
 import chat from "../public/images/chat.svg"
 import Image from 'next/image'
+// import insta from "../public/images/insta.jpeg"
 
 const Footer = () => {
     return (
@@ -44,6 +45,9 @@ const Footer = () => {
                             </a>
                             <a href="https://www.youtube.com/channel/UC61OEz_KZVsMlozqPz-1xgw">
                                 <li><Image width={25} src={youtube} alt="" /></li>
+                            </a>
+                            <a href="https://www.instagram.com/getonroadprice/">
+                                <li><Image width={20} src={insta} alt="" /></li>
                             </a>
                             <li><Image width={20} src={linkedin} alt="" /></li>
                         </ul>

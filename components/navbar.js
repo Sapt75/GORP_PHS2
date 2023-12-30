@@ -4,6 +4,7 @@ import facebook from "../public/images/facebook.svg"
 import twitter from "../public/images/twitter.svg"
 import book from "../public/images/book.svg"
 import youtube from "../public/images/youtube.svg"
+import insta from "../public/images/insta.jpeg"
 import percent from "../public/images/percent.svg"
 import square from "../public/images/square.svg"
 import logo from "../public/images/logo.png"
@@ -85,6 +86,9 @@ const Navbar = () => {
                                 </a>
                                 <a href="https://www.youtube.com/channel/UC61OEz_KZVsMlozqPz-1xgw">
                                     <li><Image width={25} src={youtube} alt="" /></li>
+                                </a>
+                                <a href="https://www.instagram.com/getonroadprice/">
+                                    <li><Image width={25} src={insta} alt="" /></li>
                                 </a>
                             </ul>
                             <p className='mt-3 font-semibold text-[#484848]'>VMetrics Solutions Private Limited</p>

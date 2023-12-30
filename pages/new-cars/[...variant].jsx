@@ -255,7 +255,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             <div className='w-full'>
                                 <h2 className='md:text-[24px] py-2 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F]  p-3'>
-                                    <p>{cardetails[0].varient_description} <span className={`${show ? null : "hidden"}`}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, nobis culpa nesciunt temporibus vel consequatur consectetur, natus ab magnam adipisci incidunt nulla dolor et. Explicabo quos omnis magni voluptatum cum natus tenetur similique, magnam itaque aspernatur, harum dolor nesciunt vitae.</span> </p>
+                                    <p>{cardetails[0].varient_description} <span className={`${show ? null : "hidden"}`}></span> </p>
 
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
                                         <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
@@ -378,7 +378,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                     setDistance(event.currentTarget.scrollTop)
                                                 }} className={`${style["scroll-sec"]} text-left relative z-10`}>
                                                     {Object.keys(cardetails[0].Specifications).map((item, index) => {
-                                                        return (<div key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        return (<div id={item} key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
                                                             <p className='text-[18px] mx-4 my-[10px] font-bold text-[#09809A] tracking-[-0.32px]'>
                                                                 {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
                                                             </p>
@@ -391,7 +391,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                                         </div>)
                                                     })}
                                                     {Object.keys(cardetails[0].Features).map((item, index) => {
-                                                        return (<div key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
+                                                        return (<div id={item} key={index} className='py-2 border-r-[1px] border-[#C6C6C6] px-4'>
                                                             <p className='text-[18px] mx-4 my-[10px] font-bold text-[#09809A] tracking-[-0.32px]'>
                                                                 {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
                                                             </p>
