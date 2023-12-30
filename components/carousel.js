@@ -17,7 +17,7 @@ const ImageSlider = (props) => {
 
 
     async function getData() {
-        const data = await fetch(`http://localhost:5000/car_images/${titleCase(props.brand)}/${titleCase(props.model)}`, {
+        const data = await fetch(`${props.url}/car_images/${titleCase(props.brand)}/${titleCase(props.model)}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
