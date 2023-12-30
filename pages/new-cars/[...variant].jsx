@@ -877,11 +877,11 @@ Variant.getInitialProps = async (context) => {
 
 
     return {
-            data,
-            response,
-            vpresponse,
-            vvpresponse,
-            query
+        data,
+        response,
+        vpresponse,
+        vvpresponse,
+        query
     }
 }
 
