@@ -55,6 +55,7 @@ import Brand_Model from '../../components/brand_modal';
 import RLink from 'next/link';
 import Variant_Mobile from "../../components/variant_mobile"
 import Head from "next/head"
+import ColorSlider from '../../components/color';
 
 
 
@@ -64,10 +65,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
     const top_bar = useRef(null)
-    const top_shift = useRef(null)
     const tab_change = useRef(null)
     let [distance, setDistance] = useState(0)
-    const white = useRef(null)
     const [cardetails, setCardetails] = useState(data)
     const [finalVersion, setFinalVersion] = useState(response)
     const [getVersion, setVersion] = useState(response)
@@ -82,19 +81,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     function scrollFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             top_bar.current.classList.add(style.scrolling);
-            top_shift.current.classList.add("mt-[-4rem]")
-            white.current.classList.remove("top-[50px]")
-            white.current.classList.add("top-[-13px]")
-            white.current.classList.remove("h-[2rem]")
-            white.current.classList.add("h-[10rem]")
 
         } else {
             top_bar.current.classList.remove(style.scrolling);
-            top_shift.current.classList.remove("mt-[-4rem]")
-            white.current.classList.remove("top-[-13px]")
-            white.current.classList.add("top-[50px]")
-            white.current.classList.remove("h-[10rem]")
-            white.current.classList.add("h-[2rem]")
         }
     }
 
@@ -473,6 +462,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             {/* Color Listing  */}
                             <div id='col' className='lg:w-full mt-[2rem] mb-[3rem]'>
                                 <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
+                                <ColorSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 {/* <div className='border-[1px] border-[#C6C6C6]'>
                                     <Color url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                     <div className='flex justify-center space-x-5 pt-8 pb-4'>
@@ -822,17 +812,17 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 
 
-export async function getServerSideProps(context) {
 
-    const { params } = context;
+Variant.getInitialProps = async (context) => {
+
+    const { query } = context;
     const url = "https://inquisitive-knickers-fish.cyclic.app"
-
     let id, model
 
 
 
 
-    const res = await fetch(`${url}/single_car/${params.variant[0].charAt(0).toUpperCase() + params.variant[0].slice(1)}/${params.variant[1].charAt(0).toUpperCase() + params.variant[1].slice(1)}/${params.variant[2].split("-").join(" ")}`, {
+    const res = await fetch(`${url}/single_car/${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2].split("-").join(" ")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -841,8 +831,9 @@ export async function getServerSideProps(context) {
 
     const data = await res.json()
 
-    id = data[0].uid
-    model = data[0].model_id
+
+    id = data.length > 0 ? data[0].uid : 218
+    model = data.length > 0 ? data[0].model_id : 24
 
     // setCardetails(data)
 
@@ -886,13 +877,11 @@ export async function getServerSideProps(context) {
 
 
     return {
-        props: {
             data,
             response,
             vpresponse,
             vvpresponse,
-            params
-        }
+            query
     }
 }
 

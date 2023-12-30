@@ -1,8 +1,10 @@
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import React, { useRef, useEffect, useState } from 'react';
 // import { IKImage } from 'imagekitio-react';
 // import "../styles/carousel.module.css"
 import '@splidejs/splide/dist/css/splide.min.css';
+import right from "../public/images/right.svg"
+import Image from 'next/image';
 
 const ImageSlider = (props) => {
     const mainRef = useRef(null);
@@ -66,34 +68,38 @@ const ImageSlider = (props) => {
 
     return (
         <div className="wrapper">
-            <Splide options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
-                {Object.keys(images).map((item) => {
-                    return (images[item].map((itm, ind) => {
-                        return (<SplideSlide key={ind}>
-                            <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(item)}/${itm}`} alt={`${props.brand} ${props.model} ${item}`} />
-                        </SplideSlide>)
-                    }))
-                })}
+            <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
+                <div className='custom-wrapper'>
+                    <SplideTrack>
+                        {Object.keys(images).map((item) => {
+                            return (images[item].map((itm, ind) => {
+                                return (ind === 0 ? <>
+                                    <SplideSlide>
+                                        <img className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(props.model)}.jpg`} alt={`${props.brand} ${props.model} Hero`} />
+                                    </SplideSlide>
+                                    <SplideSlide>
+                                        <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(item)}/${itm}`} alt={`${props.brand} ${props.model} ${item}`} />
+                                    </SplideSlide>
+                                </> : <SplideSlide key={ind}>
+                                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(item)}/${itm}`} alt={`${props.brand} ${props.model} ${item}`} />
+                                </SplideSlide>)
+                            }))
+                        })}
+                    </SplideTrack>
+                    <div className="splide__arrows">
+                        <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--prev shadow-md">
+                            <Image width={8} className='rotate-[180deg]' src={right} alt="left arrow" />
+                        </button>
+                        <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--next shadow-md">
+                            <Image width={8} src={right} alt="right arrow" />
+                        </button>
+                    </div>
+                </div>
 
                 {/* <SplideSlide>
                     <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
                 </SplideSlide> */}
             </Splide>
-
-            {/* <Splide
-                options={thumbsOptions}
-                ref={thumbsRef} // Use "as" to assert the type.
-                aria-label="The carousel with thumbnails. Selecting a thumbnail will change the main carousel"
-            >
-
-                <SplideSlide>
-                    <img src="https://ik.imagekit.io/GORP/Hyundai/Aura/Aura.jpg?updatedAt=1690106132936" alt="" />
-                </SplideSlide>
-                <SplideSlide>
-                    <img src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
-                </SplideSlide>
-
-            </Splide> */}
         </div>
     );
 };

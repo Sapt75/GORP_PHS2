@@ -3,8 +3,10 @@ import React, { useRef, useEffect, useState } from 'react';
 // import { IKImage } from 'imagekitio-react';
 // import "../styles/carousel.module.css"
 import '@splidejs/splide/dist/css/splide.min.css';
+import right from "../public/images/right.svg"
+import Image from 'next/image';
 
-const ImageSlider = (props) => {
+const ColorSlider = (props) => {
     const mainRef = useRef(null);
     const thumbsRef = useRef(null);
     let [width, setWidth] = useState()
@@ -69,16 +71,16 @@ const ImageSlider = (props) => {
                     <SplideTrack>
                         {images.length > 0 ? images.map((item, index) => {
                             return (<SplideSlide key={index}>
-                                <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/Color/${item}`} alt={`${item.split(".")[0]} Color`} />
+                                <img className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/Color/${item}`} alt={`${item.split(".")[0]} Color`} />
                             </SplideSlide>)
                         }) : null}
                     </SplideTrack>
                     <div className="splide__arrows">
                         <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--prev shadow-md">
-                            <img width={8} className='rotate-[180deg]' src="./images/right.svg" alt="left arrow" />
+                            <Image width={8} className='rotate-[180deg]' src={right} alt="left arrow" />
                         </button>
                         <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--next shadow-md">
-                            <img width={8} src="./images/right.svg" alt="right arrow" />
+                            <Image width={8} src={right} alt="right arrow" />
                         </button>
                     </div>
                 </div>
@@ -102,5 +104,5 @@ const ImageSlider = (props) => {
     );
 };
 
-export default ImageSlider;
+export default ColorSlider;
 
