@@ -22,7 +22,9 @@ function Brand_Model(props) {
                 "Content-Type": "application/json"
             }
         });
-        const data = await res.json();
+        let data = await res.json();
+
+        data = [...new Map(data.map(item => [item["model_name"], item])).values()]
 
         if (res.status === 422 || !data) {
             console.log("error");

@@ -74,7 +74,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
@@ -816,7 +816,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 Variant.getInitialProps = async (context) => {
 
     const { query } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
     let id, model
 
 
