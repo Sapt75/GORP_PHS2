@@ -67,7 +67,7 @@ export default function Variant() {
     const white = useRef(null)
     
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
@@ -108,7 +108,7 @@ export default function Variant() {
                     <div className='flex justify-around'>
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <li><Image width={200} src={logo} /></li>
+                                <li><Image width={200} height={60} src={logo} /></li>
                                 <Brand_Model url={url} state={true} brand="Hyundai" model="Aura" />
                                 <Link to='spec' spy={true} smooth={true} offset={-100} duration={500}>
                                     <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
@@ -823,7 +823,7 @@ export default function Variant() {
                             {/* Dream Car  */}
                             <div className='w-full bg-[#065465] my-4'>
                                 <div className='relative w-[80%] pt-4'>
-                                    <Image width={150} src={logo} />
+                                    <Image width={150} height={50} src={logo} />
                                     <p className='absolute right-[3.5rem] text-[14px] bottom-[-5px] text-white'>Recommender</p>
                                 </div>
                                 <div className='pb-8 pt-4 flex justify-evenly'>

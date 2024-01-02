@@ -31,7 +31,7 @@ function Version_Model(props) {
 
     return (
         <>
-            {props.status ? <Image onClick={handleOpen} src={edit} className='inline mx-2 mb-1 cursor-pointer' /> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
+            {props.status ? <Image onClick={handleOpen} src={edit} alt="edit" className='inline mx-2 mb-1 cursor-pointer' /> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
                 <div className='leading-[1.2] p-[0.5rem]'>
                     <p className='pb-2 text-[#6F6F6F]'>Change Variant</p>
                     <span className='md:text-[14px] text-[13px] text-[#484848] font-semibold tracking-[-0.28px]'>{props.version}</span>

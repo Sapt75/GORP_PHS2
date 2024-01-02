@@ -78,8 +78,8 @@ const Variant_Mobile = (props) => {
     const router = useRouter();
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    
+    const url = "http://localhost:5000"
+
 
 
 
@@ -472,27 +472,27 @@ const Variant_Mobile = (props) => {
                                 {finalVersion.map((element, id) => {
                                     return (
                                         <RLink key={id} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
-                                        <div className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
-                                            <div>
-                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
-                                                <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
-                                                <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                            </div>
-                                            <div>
-                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
-                                                {/* <div className=''>
+                                            <div className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
+                                                <div>
+                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
+                                                    <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
+                                                    <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                                </div>
+                                                <div>
+                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
+                                                    {/* <div className=''>
                                                     <input className='mx-1' type="checkbox"></input>
                                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
                                                 </div> */}
+                                                </div>
                                             </div>
-                                        </div>
                                         </RLink>)
                                 })}
                             </div>
 
                             <div className='text-center my-4'>
                                 <button onClick={() => show ? setShow(false) : setShow(true)} className='px-16 rounded-md'><span className='text-[12px] font-normal tracking-[-0.24px] text-[#09809A]'>
-                                {show ? "Hide" : "View"} All Variants
+                                    {show ? "Hide" : "View"} All Variants
                                 </span></button>
                             </div>
                         </div>
@@ -614,38 +614,40 @@ const Variant_Mobile = (props) => {
                     <div className='md:w-full'>
                         <h2 className='md:text-[24px] text-[18px] mt-3 text-[#484848] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'>Aura Price in cities near New Delhi</h2>
                         <table className='w-full my-2 md:my-5'>
-                            <tr className='bg-[#f4f4f4]'>
-                                <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
-                                <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
-                            </tr>
-                            <tr className='border border-[#C6C6C6]'>
-                                <td className='text-[15px] text-[#09809A] font-normal p-2'>Noida</td>
-                                <td className='text-right p-2'>
-                                    <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                </td>
-                            </tr>
-                            <tr className='border border-[#C6C6C6]'>
-                                <td className='text-[15px] text-[#09809A] font-normal p-2'>Gaziabad</td>
-                                <td className='text-right p-2'>
-                                    <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                </td>
-                            </tr>
-                            <tr className='border border-[#C6C6C6]'>
-                                <td className='text-[15px] text-[#09809A] font-normal p-2'>Gurugram</td>
-                                <td className='text-right p-2'>
-                                    <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                </td>
-                            </tr>
-                            <tr className='border border-[#C6C6C6]'>
-                                <td className='text-[15px] text-[#09809A] font-normal p-2'>Haridwar</td>
-                                <td className='text-right p-2'>
-                                    <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr className='bg-[#f4f4f4]'>
+                                    <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
+                                    <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
+                                </tr>
+                                <tr className='border border-[#C6C6C6]'>
+                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Noida</td>
+                                    <td className='text-right p-2'>
+                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                    </td>
+                                </tr>
+                                <tr className='border border-[#C6C6C6]'>
+                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Gaziabad</td>
+                                    <td className='text-right p-2'>
+                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                    </td>
+                                </tr>
+                                <tr className='border border-[#C6C6C6]'>
+                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Gurugram</td>
+                                    <td className='text-right p-2'>
+                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                    </td>
+                                </tr>
+                                <tr className='border border-[#C6C6C6]'>
+                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Haridwar</td>
+                                    <td className='text-right p-2'>
+                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 
@@ -715,7 +717,7 @@ const Variant_Mobile = (props) => {
                     {/* Dream Car  */}
                     <div className='w-full bg-[#065465] my-4'>
                         <div className='relative w-[80%] pt-4'>
-                            <Image width={150} src={logo} alt='logo' />
+                            <Image className='w-auto h-auto' width={150} height={50} src={logo} alt='logo' />
                             <p className='absolute right-[3.5rem] text-[14px] bottom-[-5px] text-white'>Recommender</p>
                         </div>
                         <div className='pb-8 pt-4 flex justify-evenly'>

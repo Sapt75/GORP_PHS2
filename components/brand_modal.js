@@ -24,7 +24,7 @@ function Brand_Model(props) {
         });
         let data = await res.json();
 
-        data = [...new Map(data.map(item => [item["model_name"], item])).values()]
+        // data = [...new Map(data.map(item => [item["model_name"], item])).values()]
 
         if (res.status === 422 || !data) {
             console.log("error");
@@ -54,7 +54,7 @@ function Brand_Model(props) {
 
     return (
         <>
-            {props.state ? <li className='font-semibold text-[#484848] cursor-pointer'><a href="" title={`${props.brand} ${props.model}`}> {props.model}</a> <Image onClick={handleOpen} className='inline' src={edit} /></li> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
+            {props.state ? <li className='font-semibold text-[#484848] cursor-pointer'><a href="" title={`${props.brand} ${props.model}`}> {props.model}</a> <Image onClick={handleOpen} className='inline' src={edit} alt="edit" /></li> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
                 <div className='leading-[1.2] p-[0.5rem]'>
                     <p className='pb-2 text-[#6F6F6F]'>Brand</p>
                     <span className='md:text-[14px] text-[13px] text-[#484848] font-semibold tracking-[-0.28px]'>{props.brand}</span>
@@ -66,7 +66,7 @@ function Brand_Model(props) {
                 <DialogTitle>
                     <div className='flex justify-between px-4 py-4'>
                         <p className='font-semibold'>Select Your Model</p>
-                        <Image onClick={handleClose} className='cursor-pointer' src={cross} alt="" />
+                        <Image onClick={handleClose} className='cursor-pointer' src={cross} alt="cross" />
                     </div>
                 </DialogTitle>
                 <DialogContent>
@@ -79,7 +79,7 @@ function Brand_Model(props) {
                     <div className='mt-4'>
                         <ul className='overflow-y-scroll h-[100vh]'>
                             {data.length > 0 ? data.map((item, index) => {
-                                return (<li key={index} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item.brand} {item.model_name}</li>)
+                                return (<li key={index} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{props.brand} {item}</li>)
                             }) : null}
                         </ul>
                     </div>

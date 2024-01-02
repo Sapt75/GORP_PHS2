@@ -69,8 +69,8 @@ const Price = () => {
                 <div className='flex justify-between'>
                     <div className='flex'>
                         <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-[2rem] overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[2rem] text-[16px] font-normal tracking-[-0.32px]'>
-                            <li><Image width={200} src={logo} /></li>
-                            <li className='font-semibold text-[#484848]'>Aura <Image className='inline' src={edit} /></li>
+                            <li><Image width={200} height={60} src={logo} /></li>
+                            <li className='font-semibold text-[#484848]'>Aura <Image className='inline' src={edit} alt='edit' /></li>
                             <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
                             <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Variant</li>
                         </ul>

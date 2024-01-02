@@ -74,7 +74,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
+    // https://inquisitive-knickers-fish.cyclic.app
 
 
 
@@ -122,19 +123,19 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     return (
         <>
             <Navbar />
-            <Head>
+            {/* <Head>
                 <title>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} on road price, {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs, Colours & Variants.
                 </title>
                 <meta name="description" content={`${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} on road price, features, specifications, Maruti Fronx variants and colours - View price breakup of ${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} at GetOnRoadPrice.
 `} />
-            </Head>
+            </Head> */}
 
             {width > 800 ? <div>
                 <div ref={top_bar} className={`${style["top-scroll"]} block`}>
                     <div className='flex justify-around'>
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <li><Image width={200} src={logo} /></li>
+                                <li><Image className='w-auto h-auto' width={200} height={60} src={logo} alt='logo' /></li>
                                 <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <Link to='spec' spy={true} smooth={true} offset={-100} duration={500}>
                                     <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
@@ -219,7 +220,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                             <div className='md:w-[50%] text-center'>
                                 <ImageSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <Link to='col' spy={true} smooth={true} offset={-150} duration={500}>
-                                    <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="" /> Colors</span>
+                                    <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="color" /> Colors</span>
                                 </Link>
                                 {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
                             </div>
@@ -258,7 +259,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                     <p>{cardetails[0].varient_description} <span className={`${show ? null : "hidden"}`}></span> </p>
 
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
-                                        <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
+                                        <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="down" /></span>
                                     </div>
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
@@ -274,7 +275,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                             <div className='flex space-x-3 mx-4 py-2'>
 
                                                 <div>
-                                                    <Image className='mt-1' src={fuel} alt="" />
+                                                    <Image className='mt-1' src={fuel} alt="fuel" />
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Fuel Type</p>
@@ -286,7 +287,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                             <div className='flex space-x-3 mx-4 py-2'>
 
                                                 <div>
-                                                    <Image className='mt-1' src={seat} alt="" />
+                                                    <Image className='mt-1' src={seat} alt="seat" />
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Seating Capacity</p>
@@ -298,7 +299,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                             <div className='flex space-x-3 mx-4 py-2'>
 
                                                 <div>
-                                                    <Image className='mt-1' src={body} alt="" />
+                                                    <Image className='mt-1' src={body} alt="body" />
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Body Type</p>
@@ -310,7 +311,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                             <div className='flex space-x-3 mx-4 py-2'>
 
                                                 <div>
-                                                    <Image className='mt-1' src={transmission} alt="" />
+                                                    <Image className='mt-1' src={transmission} alt="transmission" />
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Transmission Type</p>
@@ -322,7 +323,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                             <div className='flex space-x-3 mx-4 py-2'>
 
                                                 <div>
-                                                    <Image className='mt-1' src={engine} alt="" />
+                                                    <Image className='mt-1' src={engine} alt="engine" />
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Engine Displacement</p>
@@ -334,7 +335,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                             <div className='flex space-x-3 mx-4 py-2'>
 
                                                 <div>
-                                                    <Image className='mt-1' src={arai} alt="" />
+                                                    <Image className='mt-1' src={arai} alt="arai" />
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>ARAI Mileage</p>
@@ -344,7 +345,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         </div>
                                     </div>
                                     <div className='py-[1.5rem]'>
-                                        <Image src={advert2} alt="" />
+                                        <Image src={advert2} alt="advertisement" />
                                     </div>
                                 </div>
                             </div>
@@ -816,7 +817,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 Variant.getInitialProps = async (context) => {
 
     const { query } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
     let id, model
 
 

@@ -17,7 +17,7 @@ const Footer = () => {
                     <div>
                         <div className='relative mb-12'>
                             <span className='absolute right-[-36px]'>
-                                <Image style={{ maxWidth: "unset" }} className='w-[12rem]' src={logo} alt="" />
+                                <Image style={{ maxWidth: "unset" }} className='w-[12rem] h-auto' src={logo} alt="" />
                             </span>
                         </div>
                         <ul className='space-y-2'>

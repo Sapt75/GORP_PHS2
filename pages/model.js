@@ -85,8 +85,8 @@ const Model = () => {
                     <div className='flex justify-around'>
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <li><Image width={200} src={logo} /></li>
-                                <li className='font-semibold text-[#484848]'>Aura <Image className='inline' src={edit} /></li>
+                                <li><Image width={200} height={60} src={logo} /></li>
+                                <li className='font-semibold text-[#484848]'>Aura <Image className='inline' src={edit} alt='edit' /></li>
                                 <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
                                 <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Variant</li>
                             </ul>
@@ -120,7 +120,7 @@ const Model = () => {
                     <div>
                         <div className='h-[2rem] md:h-auto'>
                             <ul ref={top_shift} className={`flex ${style["top-top"]} fixed top-top z-[9999] bg-white w-full md:hidden whitespace-nowrap overflow-x-scroll md:whitespace-normal space-x-8 md:space-x-[5rem] text-[16px] border-y border-[#E1E1E1] font-normal tracking-[-0.32px] px-2`}>
-                                <li className='font-semibold text-[#484848] text-[14px] my-2'>Aura <Image className='inline' src={edit} /></li>
+                                <li className='font-semibold text-[#484848] text-[14px] my-2'>Aura <Image className='inline' src={edit} alt='edit' /></li>
                                 <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Overview</li>
                                 <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Variant</li>
                                 <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Colors</li>
@@ -135,7 +135,7 @@ const Model = () => {
                         </div>
                         {/* <Image className='mx-auto' src={advert} alt="" /> */}
                         <div className='mt-[2rem] mb-[1rem]'>
-                            <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>Hyundai Aura <Image className='inline' src={edit} /> </h1>
+                            <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>Hyundai Aura <Image className='inline' src={edit} alt='edit' /> </h1>
                             <div className='flex py-3 justify-between'>
                                 <div className='flex space-x-[1rem] text-[14px] font-light'>
                                     <div>
@@ -166,7 +166,7 @@ const Model = () => {
                         </div>
 
                         <ul className='whitespace-nowrap hidden md:flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                            <li className='font-semibold text-[#484848]'>Aura  <Image className='inline' src={edit} /></li>
+                            <li className='font-semibold text-[#484848]'>Aura  <Image className='inline' src={edit} alt='edit' /></li>
                             <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Overview</li>
                             <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variant</li>
                             <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
@@ -666,7 +666,7 @@ const Model = () => {
                             {/* Dream Car  */}
                             <div className='w-full mt-3 bg-[#065465]'>
                                 <div className='relative w-[80%] pt-4'>
-                                    <Image width={150} src={logo} />
+                                    <Image width={150} height={50} src={logo} />
                                     <p className='absolute right-[3.5rem] text-[14px] bottom-[-5px] text-white'>Recommender</p>
                                 </div>
                                 <div className='pb-8 pt-4 flex justify-evenly'>

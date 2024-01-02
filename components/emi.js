@@ -6,7 +6,6 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Image from "next/image";
-import location from "../public/images/location.svg"
 import cross from "../public/images/cross.svg"
 import ahmedabad from "../public/images/ahemdabad.png"
 import bangalore from "../public/images/bangalore.png"
