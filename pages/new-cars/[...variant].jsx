@@ -74,6 +74,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
 
 
+
     const url = "https://inquisitive-knickers-fish.cyclic.app"
     // https://inquisitive-knickers-fish.cyclic.app
 
@@ -832,11 +833,9 @@ Variant.getInitialProps = async (context) => {
 
     const data = await res.json()
 
-    data ? window.location.reload() : null
 
-
-    id = data[0].uid
-    model = data[0].model_id
+    id = data.length > 0 ? data[0].uid : 218
+    model = data.length > 0 ? data[0].model_id : 24
     // setCardetails(data)
 
 

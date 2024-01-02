@@ -78,7 +78,7 @@ function ImageSlider(props) {
 
     return (
         <div className="wrapper">
-            {images.length > 0 ? <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
+            <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
                 <div className='custom-wrapper'>
                     <SplideTrack>
                         <SplideSlide>
@@ -105,7 +105,7 @@ function ImageSlider(props) {
                 {/* <SplideSlide>
                     <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
                 </SplideSlide> */}
-            </Splide> : null}
+            </Splide> 
         </div>
     );
 

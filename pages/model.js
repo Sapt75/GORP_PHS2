@@ -178,7 +178,7 @@ const Model = () => {
                         <hr className='border-t-1 border-[#E1E1E1]' />
                         <div className='md:flex xl:space-x-[6rem] my-[1rem] py-[1rem] md:border md:border-[#E1E1E1]'>
                             <div className='md:w-[50%] text-center'>
-                                <ImageSlider />
+                                {/* <ImageSlider /> */}
                                 <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={color} alt="" /> Colors</span>
                                 <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span>
                             </div>
