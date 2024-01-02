@@ -67,7 +67,7 @@ export default function Variant() {
     const white = useRef(null)
     
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 
