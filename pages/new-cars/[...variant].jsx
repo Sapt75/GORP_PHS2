@@ -218,7 +218,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                         <hr className='border-t-1 mt-2 border-[#E1E1E1]' />
                         <div className='md:flex xl:space-x-[6rem] my-[1rem] py-[1rem] md:border md:border-[#E1E1E1]'>
                             <div className='md:w-[50%] text-center'>
-                                {cardetails ? <ImageSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} /> : null}
+                                <ImageSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <Link to='col' spy={true} smooth={true} offset={-150} duration={500}>
                                     <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="color" /> Colors</span>
                                 </Link>
@@ -832,10 +832,11 @@ Variant.getInitialProps = async (context) => {
 
     const data = await res.json()
 
+    data ? window.location.reload() : null
 
-    id = data.length > 0 ? data[0].uid : 218
-    model = data.length > 0 ? data[0].model_id : 24
 
+    id = data[0].uid
+    model = data[0].model_id
     // setCardetails(data)
 
 

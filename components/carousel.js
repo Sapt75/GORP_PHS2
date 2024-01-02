@@ -17,10 +17,12 @@ function ImageSlider(props) {
 
     let { variant } = router.query
 
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+
 
 
     async function getData() {
-        const data = await fetch(`${props.url}/car_images/${titleCase(variant[0])}/${titleCase(variant[1])}`, {
+        const data = await fetch(`${url}/car_images/${titleCase(variant[0])}/${titleCase(variant[1])}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -76,7 +78,7 @@ function ImageSlider(props) {
 
     return (
         <div className="wrapper">
-            <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
+            {images.length > 0 ? <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
                 <div className='custom-wrapper'>
                     <SplideTrack>
                         <SplideSlide>
@@ -103,7 +105,7 @@ function ImageSlider(props) {
                 {/* <SplideSlide>
                     <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
                 </SplideSlide> */}
-            </Splide>
+            </Splide> : null}
         </div>
     );
 
