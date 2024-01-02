@@ -32,7 +32,7 @@ const ColorSlider = (props) => {
 
 
     useEffect(() => {
-        // getData()
+        getData()
         if (mainRef.current && thumbsRef.current && thumbsRef.current.splide) {
             mainRef.current.sync(thumbsRef.current.splide);
         }
@@ -52,65 +52,28 @@ const ColorSlider = (props) => {
         height: `${width >= 1000 ? "16rem" : "10rem"}`,
     };
 
-    const thumbsOptions = {
-        type: 'slide',
-        rewind: true,
-        gap: '1rem',
-        pagination: false,
-        fixedWidth: 110,
-        fixedHeight: 70,
-        cover: true,
-        focus: 'center',
-        isNavigation: true,
-    };
-
-    // return (
-    //     <div className="wrapper">
-    //         <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
-    //             <div className='custom-wrapper'>
-    //                 <SplideTrack>
-    //                     {images.length > 0 ? images.map((item, index) => {
-    //                         return (<SplideSlide key={index}>
-    //                             <img className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={item} alt={`${item.split("/")[images.length - 1].split(".")[0]} Color`} />
-    //                         </SplideSlide>)
-    //                     }) : null}
-    //                 </SplideTrack>
-    //                 <div className="splide__arrows">
-    //                     <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--prev shadow-md">
-    //                         <Image width={8} className='rotate-[180deg]' src={right} alt="left arrow" />
-    //                     </button>
-    //                     <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--next shadow-md">
-    //                         <Image width={8} src={right} alt="right arrow" />
-    //                     </button>
-    //                 </div>
-    //             </div>
-    //         </Splide>
-
-    //         {/* <Splide
-    //             options={thumbsOptions}
-    //             ref={thumbsRef} // Use "as" to assert the type.
-    //             aria-label="The carousel with thumbnails. Selecting a thumbnail will change the main carousel"
-    //         >
-
-    //             <SplideSlide>
-    //                 <img src="https://ik.imagekit.io/GORP/Hyundai/Aura/Aura.jpg?updatedAt=1690106132936" alt="" />
-    //             </SplideSlide>
-    //             <SplideSlide>
-    //                 <img src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
-    //             </SplideSlide>
-
-    //         </Splide> */}
-    //     </div>
-    // );
+    // const thumbsOptions = {
+    //     type: 'slide',
+    //     rewind: true,
+    //     gap: '1rem',
+    //     pagination: false,
+    //     fixedWidth: 110,
+    //     fixedHeight: 70,
+    //     cover: true,
+    //     focus: 'center',
+    //     isNavigation: true,
+    // };
 
     return (
         <div className="wrapper">
             <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
                 <div className='custom-wrapper'>
                     <SplideTrack>
-                        <SplideSlide>
-                            <img className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src="https://ik.imagekit.io/GORP/Hyundai/Aura/Aura.jpg" alt={`Aura`} />
-                        </SplideSlide>)
+                        {images.length > 0 ? images.map((item, index) => {
+                            return (<SplideSlide key={index}>
+                                <img className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={item} alt={`${item.split("/")[images.length - 1].split(".")[0]} Color`} />
+                            </SplideSlide>)
+                        }) : null}
                     </SplideTrack>
                     <div className="splide__arrows">
                         <button className="w-[40.38px] h-[40.38px] bg-white rounded-full splide__arrow splide__arrow--prev shadow-md">
@@ -139,6 +102,8 @@ const ColorSlider = (props) => {
             </Splide> */}
         </div>
     );
+
+    
 };
 
 export default ColorSlider;
