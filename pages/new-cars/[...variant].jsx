@@ -117,19 +117,19 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 
         vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
-    }, [params, data, response, vpresponse, vvpresponse])
+    }, [params, data, response, vpresponse, vvpresponse, width])
 
 
 
     return (
         <>
             <Navbar />
-            {/* <Head>
+            <Head>
                 <title>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} on road price, {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs, Colours & Variants.
                 </title>
                 <meta name="description" content={`${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} on road price, features, specifications, Maruti Fronx variants and colours - View price breakup of ${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} at GetOnRoadPrice.
 `} />
-            </Head> */}
+            </Head>
 
             {width > 800 ? <div>
                 <div ref={top_bar} className={`${style["top-scroll"]} block`}>
@@ -361,16 +361,16 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                         <div className='flex'>
                                             <div className='min-w-fit space-y-1 relative z-0'>
                                                 {Object.keys(cardetails[0].Specifications).map((item, index) => {
-                                                    return (index === 0 ? <div key={index} className={`md:p-[10px] text-[#484848] py-2.5 max-w-[320px] ${distance >= 100 ? null : style.speech} ${distance >= 100 ? style.normal : style.right}  md:pr-10 md:pl-4 flex space-x-2`}>
+                                                    return (index === 0 ? <div onClick={() => document.getElementById(item).scrollIntoView({ behavior: "smooth" })} key={index} className={`md:p-[10px] text-[#484848] py-2.5 max-w-[320px] ${distance >= 100 ? null : style.speech} ${distance >= 100 ? style.normal : style.right}  md:pr-10 md:pl-4 flex space-x-2 cursor-pointer`}>
                                                         <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
-                                                    </div> : <div key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= index * 100 && distance <= (index * 100) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4`}>
+                                                    </div> : <div onClick={() => document.getElementById(item).scrollIntoView({ behavior: "smooth" })} key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= index * 100 && distance <= (index * 100) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4 cursor-pointer`}>
                                                         <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
                                                     </div>)
                                                 })}
                                                 {Object.keys(cardetails[0].Features).map((item, index) => {
-                                                    return (index === 0 ? <div key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= Object.keys(cardetails[0].Specifications).length * 100 && distance <= (Object.keys(cardetails[0].Specifications).length * 100) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4`}>
+                                                    return (index === 0 ? <div onClick={() => document.getElementById(item).scrollIntoView({ behavior: "smooth" })} key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= Object.keys(cardetails[0].Specifications).length * 100 && distance <= (Object.keys(cardetails[0].Specifications).length * 100) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4 cursor-pointer`}>
                                                         <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
-                                                    </div> : <div key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= (index * 100) + (Object.keys(cardetails[0].Specifications).length * 100) && distance <= ((index * 100) + (Object.keys(cardetails[0].Specifications).length * 100)) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4`}>
+                                                    </div> : <div onClick={() => document.getElementById(item).scrollIntoView({ behavior: "smooth" })} key={index} className={`md:py-3 text-[#484848] ${distance >= 5 && distance <= 10 ? "text-[#484848]" : null} ${distance >= (index * 100) + (Object.keys(cardetails[0].Specifications).length * 100) && distance <= ((index * 100) + (Object.keys(cardetails[0].Specifications).length * 100)) + 100 ? style.speech : style.normal} ${distance >= 5 && distance <= 10 >= 5 ? style.right : null} max-w-[330px] md:pr-10 md:pl-4 cursor-pointer`}>
                                                         <p>{titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}</p>
                                                     </div>)
                                                 })}
@@ -486,312 +486,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                                     </div>
                                 </div> */}
                             </div>
-
-
-                            {/* Similar Cars  */}
-
-                            {/* <div className='lg:flex'>
-                                    <div className='lg:w-full mx-3 md:mx-0'>
-                                        <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>Similar Cars</p>
-                                        <div className='flex'>
-                                            <div style={{ whiteSpace: "nowrap", overflow: "scroll", display: "flow" }} className='space-x-3'>
-                                                <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                    <div className='h-[7rem]'>
-                                                        <Image className='mx-auto' src={car1} alt="" />
-                                                    </div>
-                                                    <div className='bg-[#f4f4f4] p-3'>
-                                                        <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>Hyundai Exter</p>
-                                                        <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 6.00 Lakh</span>
-                                                        <span className='text-[#CE4327] text-[12px] font-semibold leading-[24px] tracking-[-0.24px]'>View Price Breakup</span>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 22.05 KMPL</p>
-                                                        <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Exter</p>
-                                                    </div>
-                                                </div>
-                                                <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                    <div className='h-[7rem]'>
-                                                        <Image className='mx-auto' src={car2} alt="" />
-                                                    </div>
-                                                    <div className='bg-[#f4f4f4] p-3'>
-                                                        <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>Tata Punch</p>
-                                                        <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 7.15 Lakh</span>
-                                                        <span className='text-[#CE4327] text-[12px] font-semibold leading-[24px] tracking-[-0.24px]'>View Price Breakup</span>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                        <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                    </div>
-                                                </div>
-                                                <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                    <div className='h-[7rem]'>
-                                                        <Image className='mx-auto' src={car3} alt="" />
-                                                    </div>
-                                                    <div className='bg-[#f4f4f4] p-3'>
-                                                        <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>Maruti Brezza</p>
-                                                        <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 8.69 Lakh</span>
-                                                        <span className='text-[#CE4327] text-[12px] font-semibold leading-[24px] tracking-[-0.24px]'>View Price Breakup</span>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                        <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                    </div>
-                                                </div>
-                                                <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                    <div className='h-[7rem]'>
-                                                        <Image className='mx-auto' src={car2} alt="" />
-                                                    </div>
-                                                    <div className='bg-[#f4f4f4] p-3'>
-                                                        <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>KIA Sonet</p>
-                                                        <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 10.29 Lakh</span>
-                                                        <span className='text-[#CE4327] text-[12px] font-semibold leading-[24px] tracking-[-0.24px]'>View Price Breakup</span>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                        <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                    </div>
-                                                </div>
-                                                <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                    <div className='h-[7rem]'>
-                                                        <Image className='mx-auto' src={car1} alt="" />
-                                                    </div>
-                                                    <div className='bg-[#f4f4f4] p-3'>
-                                                        <p className='text-[16px] font-normal text-[#484848] leading-[24px] capitalize'>Maruti Brezza</p>
-                                                        <span className='mr-3 text-[14px] font-semibold text-[#484848] leading-[24px] capitalize'>₹ 8.69 Lakh</span>
-                                                        <span className='text-[#CE4327] text-[12px] font-semibold leading-[24px] tracking-[-0.24px]'>View Price Breakup</span>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                        <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                        <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
-
-
-                            {/* City Prices  */}
-                            {/* <div className='my-10 md:w-full'>
-                                    <p className='md:text-[24px] text-[16px] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'>Aura E 1.2 Petrol Price in cities near New Delhi</p>
-                                    <table className='w-full my-2 md:my-5'>
-                                        <tr className='bg-[#09809A]'>
-                                            <th className='text-left p-2 text-white text-[16px] font-normal tracking-[-0.32px]'>City</th>
-                                            <th className='text-right px-6 py-2 text-white text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
-                                            <th className='text-right px-6 py-2 text-white text-[16px] font-normal tracking-[-0.32px]'>Price Breakup</th>
-                                        </tr>
-                                        <tr className='border border-[#C6C6C6]'>
-                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Noida</td>
-                                            <td className='text-right px-6 p-2'>
-                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            </td>
-                                            <td className='text-right px-6 p-2'>
-                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                            </td>
-                                        </tr>
-                                        <tr className='border border-[#C6C6C6]'>
-                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Gaziabad</td>
-                                            <td className='text-right px-6 p-2'>
-                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            </td>
-                                            <td className='text-right px-6 p-2'>
-                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                            </td>
-                                        </tr>
-                                        <tr className='border border-[#C6C6C6]'>
-                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Gurugram</td>
-                                            <td className='text-right px-6 p-2'>
-                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            </td>
-                                            <td className='text-right px-6 p-2'>
-                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                            </td>
-                                        </tr>
-                                        <tr className='border border-[#C6C6C6]'>
-                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Haridwar</td>
-                                            <td className='text-right px-6 p-2'>
-                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            </td>
-                                            <td className='text-right px-6 p-2'>
-                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div> */}
-
-                            {/* Compare Cars  */}
-                            {/* <div className='my-10'>
-                                    <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>Compare With Other Cars</p>
-                                    <div className='flex pt-[1rem]'>
-                                        <div className='border border-[#C6C6C6] h-[20rem] lg:w-[25rem] text-center'>
-                                            <Image className='mx-auto' src={car5} alt="" />
-                                            <div className='text-center'>
-                                                <p className='text-[20px] text-[#484848] font-medium tracking-[-0.4px]'>Hyundai Aura</p>
-                                                <p className='text-[18px] text-[#484848] font-semibold relative right-[20px]'>₹ 6 Lakhs</p>
-                                                <p className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px] relative right-[4px]'>Price in New Delhi</p>
-                                            </div>
-                                        </div>
-                                        <div className='relative z-20'>
-                                            <div className={`${style.box} absolute left-[-45px] top-[100px]`}>
-                                                <div className={`${style["v-s"]}`}>
-                                                    <div className={`${style["overlap-group"]}`}>
-                                                        <div className={`${style.ellipse}`}></div>
-                                                        <div className={`${style["text-wrapper"]}`}>V/s</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-    
-    
-                                        </div>
-    
-                                        <div className='h-[20rem] overflow-y-scroll'>
-                                            <div className='border border-[#C6C6C6] h-[20rem] lg:w-[25rem] text-center relative z-10'>
-                                                <Image className='mx-auto' src={car5} alt="" />
-                                                <div className='text-center'>
-                                                    <p className='text-[20px] text-[#484848] font-medium tracking-[-0.4px]'>Tata Punch</p>
-                                                    <p className='text-[18px] text-[#484848] font-semibold relative right-[5px]'>₹ 6 Lakhs</p>
-                                                    <p className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px] relative right-[-11px]'>Price in New Delhi</p>
-                                                </div>
-                                                <div className='bottom-0 absolute text-center w-full'>
-                                                    <button className='bg-[#09809A] w-full py-3 text-white text-[14px] font-normal'><Image className='inline mr-2' src={compare_white} alt="" />Add to Compare</button>
-                                                </div>
-                                            </div>
-                                            <div className='border border-[#C6C6C6] h-[20rem] lg:w-[25rem] text-center relative z-10'>
-                                                <Image className='mx-auto' src={car4} alt="" />
-                                                <div className='text-center'>
-                                                    <p className='text-[20px] text-[#484848] font-medium tracking-[-0.4px]'>Tata Punch</p>
-                                                    <p className='text-[18px] text-[#484848] font-semibold relative right-[5px]'>₹ 6 Lakhs</p>
-                                                    <p className='text-[14px] text-[#6F6F6F] relative right-[-11px] font-normal tracking-[-0.28px]'>Price in New Delhi</p>
-                                                </div>
-                                                <div className='bottom-0 absolute text-center w-full'>
-                                                    <button className='bg-[#09809A] w-full py-3 text-white text-[14px] font-normal'><Image className='inline mr-2' src={compare_white} alt="" />Add to Compare</button>
-                                                </div>
-                                            </div>
-                                            <div className='border border-[#C6C6C6] h-[20rem] lg:w-[25rem] text-center relative z-10'>
-                                                <Image className='mx-auto' src={car3} alt="" />
-                                                <div className='text-center'>
-                                                    <p className='text-[20px] text-[#484848] font-medium tracking-[-0.4px]'>Tata Punch</p>
-                                                    <p className='text-[18px] text-[#484848] font-semibold relative right-[5px]'>₹ 6 Lakhs</p>
-                                                    <p className='text-[14px] text-[#6F6F6F] relative right-[-11px] font-normal tracking-[-0.28px]'>Price in New Delhi</p>
-                                                </div>
-                                                <div className='bottom-0 absolute text-center w-full'>
-                                                    <button className='bg-[#09809A] w-full py-3 text-white text-[14px] font-normal'><Image className='inline mr-2' src={compare_white} alt="" />Add to Compare</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
-
-                            {/* Reviews Section  */}
-                            {/* <div className='my-10'>
-                                    <p className='text-[24px] font-semibold text-[#484848] pb-2 tracking-[-0.48px]'>Aura E User Reviews</p>
-                                    <div className='md:w-full border border-[#C6C6C6]'>
-                                        <p className='text-[16px] font-normal text-[#484848] tracking-[-0.32px] m-3'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} 1.2 Petrol</p>
-                                        <div className='flex pt-1 justify-between mx-3'>
-                                            <div className='flex space-x-[1rem] text-[14px] font-light'>
-                                                <div>
-                                                    <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
-                                                        4.5
-                                                        <Image width={20} className='pl-[4px]' src={star} alt="" />
-                                                    </span>
-                                                </div>
-                                                <p className='text-[11px] text-[#484848] md:inline hidden md:text-base'>25 Reviews</p>
-                                                <p className='md:inline hidden'>|</p>
-                                                <Rating_Model />
-                                                <div className='flex space-x-2 md:hidden'>
-                                                    <p className='text-[11px] md:text-base'>25 Reviews</p>
-                                                    <p>|</p>
-                                                    <Rating_Model />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style={{ display: "-webkit-box" }} className='overflow-x-scroll space-x-3 m-3'>
-                                            <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                                <div className='mb-5 mt-4'>
-                                                    <span className='bg-[#09809A] pt-[5px] px-[10px] pb-[10px] text-[12px] rounded-md text-white'>
-                                                        <Image width={20} className='inline' src={star} alt="" />
-                                                    </span>
-                                                    <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                    </p>
-                                                </div>
-                                                <div className='mt-10 mb-2'>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                                </div>
-                                            </div>
-                                            <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                                <div className='mb-5 mt-4'>
-                                                    <span className='bg-[#09809A] pt-[5px] px-[10px] pb-[10px] text-[12px] rounded-md text-white'>
-                                                        <Image width={20} className='inline' src={star} alt="" />
-                                                    </span>
-                                                    <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                    </p>
-                                                </div>
-                                                <div className='mt-10 mb-2'>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                                </div>
-                                            </div>
-                                            <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                                <div className='mb-5 mt-4'>
-                                                    <span className='bg-[#09809A] pt-[5px] px-[10px] pb-[10px] text-[12px] rounded-md text-white'>
-                                                        <Image width={20} className='inline' src={star} alt="" />
-                                                    </span>
-                                                    <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                    </p>
-                                                </div>
-                                                <div className='mt-10 mb-2'>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                                </div>
-                                            </div>
-                                            <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                                <div className='mb-5 mt-4'>
-                                                    <span className='bg-[#09809A] pt-[5px] px-[10px] pb-[10px] text-[12px] rounded-md text-white'>
-                                                        <Image width={20} className='inline' src={star} alt="" />
-                                                    </span>
-                                                    <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                    </p>
-                                                </div>
-                                                <div className='mt-10 mb-2'>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                                </div>
-                                            </div>
-                                            <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                                <div className='mb-5 mt-4'>
-                                                    <span className='bg-[#09809A] pt-[5px] px-[10px] pb-[10px] text-[12px] rounded-md text-white'>
-                                                        <Image width={20} className='inline' src={star} alt="" />
-                                                    </span>
-                                                    <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                    </p>
-                                                </div>
-                                                <div className='mt-10 mb-2'>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> */}
-
-                            {/* FAQ Section  */}
-                            {/* <div className='my-10'>
-                                    <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>FAQ&apos;s</p>
-                                    <div className='my-3 md:w-[65rem]'>
-                                        <Faq />
-                                    </div>
-                                </div> */}
+                            
                         </div>
 
 
@@ -818,7 +513,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 Variant.getInitialProps = async (context) => {
 
     const { query } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
+    // https://inquisitive-knickers-fish.cyclic.app
     let id, model
 
 

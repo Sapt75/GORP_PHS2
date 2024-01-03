@@ -206,7 +206,7 @@ const Variant_Mobile = (props) => {
                 <hr className='border-t-1 mt-2 border-[#E1E1E1]' />
                 <div className='md:flex xl:space-x-[6rem] my-[1rem] py-[1rem] md:border md:border-[#E1E1E1]'>
                     <div className='md:w-[50%] text-center'>
-                        <ImageSlider />
+                        <ImageSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                         <Link to='col' spy={true} smooth={true} offset={-150} duration={500}>
                             <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="Color Image" /> Colors</span>
                         </Link>
