@@ -513,8 +513,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 Variant.getInitialProps = async (context) => {
 
     const { query } = context;
-    const url = "http://localhost:5000"
-    // https://inquisitive-knickers-fish.cyclic.app
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
     let id, model
 
 
