@@ -39,7 +39,7 @@ const Navbar = () => {
                                 <Image className='mt-2' width={25} src={square} alt="square" />
                             </div>
                             <div>
-                                <Image className='w-auto h-auto' width={200} height={60} src={logo} alt="logo" />
+                                <Image className='w-auto h-[50px]' width={200} height={60} src={logo} alt="logo" />
                             </div>
                             <div className='flex space-x-4'>
                                 <Search />
@@ -102,7 +102,7 @@ const Navbar = () => {
             <div className='hidden md:block pt-[0.5rem] pb-[0.5rem]'>
                 <div className='flex justify-evenly 2xl:mx-2'>
                     <div>
-                        <Image className='w-auto h-auto' width={345} height={60} src={logo} alt="logo" />
+                        <Image className='w-auto h-[60px]' width={345} height={60} src={logo} alt="logo" />
                     </div>
                     <ul className='flex text-[18px] uppercase font-medium tracking-[-0.4px] space-x-[1.5rem] xl:space-x-[3rem] 2xl:space-x-[4rem] 2xl:ml-[2rem] pt-[1rem]'>
                         <li className='text-[#484848]'>New Cars</li>
