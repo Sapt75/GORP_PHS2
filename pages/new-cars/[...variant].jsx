@@ -5,6 +5,7 @@ import Head from "next/head"
 import Variant_Web from '../../components/variant_web';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
+import { useRouter } from 'next/router';
 
 
 
@@ -12,9 +13,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
     const [width, setWidth] = useState()
 
-    const host_url = head.referer
+    const host_url = `https://${head.host}`
+    const route = useRouter()
 
-    console.log(host_url)
 
 
     useEffect(() => {
@@ -34,7 +35,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 </title>
                 <meta name="description" content={`${data[0].brand} ${data[0].model_name} ${data[0].version_name} on road price, features, specifications, ${data[0].brand} ${data[0].model_name} variants and colours - View price breakup of ${data[0].brand} ${data[0].model_name} ${data[0].version_name} at GetOnRoadPrice.
 `} />
-                <link rel="canonical" href={`${host_url}`} />
+                <link rel="canonical" href={`${host_url}${route.asPath}`} />
             </Head>
 
             {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} /> : <Variant_Mobile data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} />}
