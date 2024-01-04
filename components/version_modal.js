@@ -12,6 +12,7 @@ import edit from "../public/images/edit.svg"
 
 function Version_Model(props) {
     const [open, setOpen] = useState(false);
+    const [data, setData] = useState(props.data)
 
 
     function numFormat(value) {
@@ -30,6 +31,7 @@ function Version_Model(props) {
     };
 
     const handleClose = () => {
+        setData(props.data)
         setOpen(false);
     };
 
@@ -53,15 +55,25 @@ function Version_Model(props) {
                         <Image onClick={handleClose} className="cursor-pointer" width={20} src={cross} alt="" />
                     </div>
                     <div className='p-4 border-y-[2px] border-gray-100 mt-4'>
-                        <ul className='flex space-x-4'>
-                            <li>Petrol</li>
-                            <li>Diesel</li>
-                            <li>CNG</li>
-                            <li className='border-l-[1px] border-black pl-4'>Manual</li>
-                            <li>Automatic</li>
+                        <ul className='flex space-x-4 text-[16px]'>
+                            <li onClick={() => {
+                                setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Petrol"))
+                            }} className="cursor-pointer">Petrol</li>
+                            <li onClick={() => {
+                                setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Diesel"))
+                            }} className="cursor-pointer">Diesel</li>
+                            <li onClick={() => {
+                                setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "CNG"))
+                            }} className="cursor-pointer">CNG</li>
+                            <li onClick={() => {
+                                setData(props.data.filter((item) => item.transmission_type === "Manual"))
+                            }} className='border-l-[1px] border-black pl-4 cursor-pointer'>Manual</li>
+                            <li onClick={() => {
+                                setData(props.data.filter((item) => item.transmission_type === "Automatic"))
+                            }} className="cursor-pointer">Automatic</li>
                         </ul>
                     </div>
-                    <div className='flex justify-between mt-4 px-4 py-2 border-b-[1px] border-[#C6C6C6]'>
+                    <div className='flex justify-between text-[18px] mt-4 px-4 py-2 border-b-[1px] border-[#C6C6C6]'>
                         <p className='font-semibold text-[#484848]'>Variants</p>
                         <p className='text-right font-semibold text-[#484848]'>On Road Price Mumbai</p>
                     </div>
@@ -69,9 +81,8 @@ function Version_Model(props) {
                 <DialogContent>
                     <div>
                         <div className="overflow-y-scroll">
-                            {props.data ? props.data.map((element, index) => {
-                                return (
-                                    <Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                            {data.length > 0 ? data.map((element, index) => {
+                                return (<Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                         <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
@@ -82,7 +93,9 @@ function Version_Model(props) {
                                             </div>
                                         </div>
                                     </Link>)
-                            }) : null}
+                            }) : <>
+                            <p className="text-[18px] text-red-600 text-center">No data</p> 
+                            </>}
                         </div>
                     </div>
                 </DialogContent>

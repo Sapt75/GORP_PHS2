@@ -74,8 +74,6 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
     const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
 
 
-    console.log(data)
-
 
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"

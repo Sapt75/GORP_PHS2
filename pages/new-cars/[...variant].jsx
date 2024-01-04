@@ -13,7 +13,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
     const [width, setWidth] = useState()
 
-    const host_url = `https://${head.host}`
+    const host_url = `https://${head.host}/new-cars`
     const route = useRouter()
 
 
@@ -35,7 +35,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 </title>
                 <meta name="description" content={`${data[0].brand} ${data[0].model_name} ${data[0].version_name} on road price, features, specifications, ${data[0].brand} ${data[0].model_name} variants and colours - View price breakup of ${data[0].brand} ${data[0].model_name} ${data[0].version_name} at GetOnRoadPrice.
 `} />
-                <link rel="canonical" href={`${host_url}${route.asPath}`} />
+                <link rel="canonical" href={`${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`} />
             </Head>
 
             {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} /> : <Variant_Mobile data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} />}
