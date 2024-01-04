@@ -21,6 +21,10 @@ function Version_Model(props) {
         return value;
     }
 
+    function titleCase(str) {
+        return str.toLowerCase().split(' ').map(x => x[0].toUpperCase() + x.slice(1)).join(' ');
+    }
+
     const handleOpen = () => {
         setOpen(true);
     };
@@ -43,13 +47,11 @@ function Version_Model(props) {
                 <DialogTitle>
                     <div className="flex justify-between">
                         <div className='flex space-x-4'>
-                            <Image width={150} height={150} src={"https://ik.imagekit.io/GORP/Hyundai/Aura/Aura.jpg?updatedAt=1690106132936"} />
+                            <Image width={150} height={150} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(props.model)}.jpg`} />
                             <p className='font-semibold text-[18px] text-[#484848] mt-8'>{props.brand} {props.model} Variants</p>
                         </div>
                         <Image onClick={handleClose} className="cursor-pointer" width={20} src={cross} alt="" />
                     </div>
-                </DialogTitle>
-                <DialogContent>
                     <div className='p-4 border-y-[2px] border-gray-100 mt-4'>
                         <ul className='flex space-x-4'>
                             <li>Petrol</li>
@@ -59,11 +61,13 @@ function Version_Model(props) {
                             <li>Automatic</li>
                         </ul>
                     </div>
+                    <div className='flex justify-between mt-4 px-4 py-2 border-b-[1px] border-[#C6C6C6]'>
+                        <p className='font-semibold text-[#484848]'>Variants</p>
+                        <p className='text-right font-semibold text-[#484848]'>On Road Price Mumbai</p>
+                    </div>
+                </DialogTitle>
+                <DialogContent>
                     <div>
-                        <div className='flex justify-between mt-4 px-4 py-2 border-b-[1px] border-[#C6C6C6]'>
-                            <p className='font-semibold text-[#484848]'>Variants</p>
-                            <p className='text-right font-semibold text-[#484848]'>On Road Price Mumbai</p>
-                        </div>
                         <div className="overflow-y-scroll">
                             {props.data ? props.data.map((element, index) => {
                                 return (

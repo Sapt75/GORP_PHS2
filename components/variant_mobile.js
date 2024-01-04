@@ -167,11 +167,18 @@ const Variant_Mobile = (props) => {
                         <div>
                             <ul className='flex fixed mt-[15px] z-[999] bg-white w-full md:hidden whitespace-nowrap overflow-x-scroll md:whitespace-normal space-x-8 md:space-x-[5rem] text-[16px] border-y border-[#E1E1E1] font-normal tracking-[-0.32px] px-2'>
                                 <li className='font-semibold text-[#484848] text-[14px] my-2'>{cardetails[0].model_name}</li>
-                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Overview</li>
-                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Features</li>
-                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Specifications</li>
-                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Variants</li>
-                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Reviews</li>
+                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeClass="active"
+                                    to="spec" spy={true} smooth={true} offset={-150} duration={500}>
+                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Features & Specifications</li>
+                                </Link>
+                                <Link title={`${cardetails[0].model_name} Variants`} activeClass="active"
+                                    to="ver" spy={true} smooth={true} offset={-150} duration={500}>
+                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Variants</li>
+                                </Link>
+                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Colors`} activeClass="active"
+                                to="col" spy={true} smooth={true} offset={-150} duration={500}>
+                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Colors</li>
+                                </Link>
                                 <li className='my-1.5'>
                                     <button className='text-white text-[14px] px-4 bg-[#CE4327] font-semibold pb-1 rounded-md'>Get Offer</button>
                                 </li>
@@ -220,7 +227,7 @@ const Variant_Mobile = (props) => {
                     <div className='w-full'>
                         <h2 className='md:text-[24px] text-[#484848] mb-3 text-[18px] font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Latest Updates</h2>
                         <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
-                            <p>{cardetails[0].varient_description} <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
+                            <p>{cardetails[0].varient_description} <span className={`${update ? null : "hidden"}`}>
                             </span></p>
 
                             <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
@@ -239,7 +246,7 @@ const Variant_Mobile = (props) => {
                                             <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
                                         </div>
                                     </div> */}
-                            <h2 className='md:text-[24px] text-[#484848] text-[16px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Ratings</h2>
+                            {/* <h2 className='md:text-[24px] text-[#484848] text-[16px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Ratings</h2>
                             <div className='flex md:hidden space-x-[1rem] text-[14px] border-b-[1px] border-[#E1E1E1] pb-4 font-light'>
                                 <div>
                                     <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
@@ -252,7 +259,7 @@ const Variant_Mobile = (props) => {
                                     <p>|</p>
                                     <Rating_Model />
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         {/* SPonsored adv  */}
@@ -356,7 +363,7 @@ const Variant_Mobile = (props) => {
 
                     {/* Specifications, Features */}
                     <div>
-                        <p className='md:text-[24px] text-[#484848] text-[18px] font-semibold tracking-[0.48px] mb-2'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs</p>
+                        <h2 className='md:text-[24px] text-[#484848] text-[18px] font-semibold tracking-[0.48px] mb-2'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs</h2>
                         <div className='md:w-full'>
                             <div className='md:mx-3'>
                                 <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[16px] font-semibold tracking-[-0.32px]'>Features & Specifications</p>
@@ -448,7 +455,7 @@ const Variant_Mobile = (props) => {
                     {/* Brochure  */}
                     <div className='relative mt-5 md:mt-[5rem]'>
                         <div className='md:w-full p-3 md:p-0 bg-[#CE4327] md:absolute md:top-1/3 rounded-sm'>
-                            <p className='md:text-[28px] mx-4 text-[18px] text-white font-semibold tracking-[-0.56px] md:py-2'> Hyundai Aura</p>
+                            <p className='md:text-[28px] mx-4 text-[18px] text-white font-semibold tracking-[-0.56px] md:py-2'>{cardetails[0].brand} {cardetails[0].model_name} </p>
                             <div className='mx-2'>
                                 <Image className='mx-2 md:py-4 inline w-4 md:w-6' src={brochure2} alt="brochure" />
                                 <span className='md:text-[22px] text-[14px] inline mr-2 text-white font-medium tracking-[-0.44px]'>Download Brochure</span>
@@ -460,7 +467,7 @@ const Variant_Mobile = (props) => {
                     {/* Car Versions Listing  */}
 
                     <div className='lg:w-full'>
-                        <h2 className='lg:text-[24px] text-[#484848] text-[18px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>Hyundai Aura Variants 2023</h2>
+                        <h2 className='lg:text-[24px] text-[#484848] text-[18px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Variants 2023</h2>
                         <div>
                             <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
                                 <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Variants</p>
@@ -470,23 +477,22 @@ const Variant_Mobile = (props) => {
                             {/* Versions  */}
                             <div>
                                 {finalVersion.map((element, id) => {
-                                    return (
-                                        <RLink key={id} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
-                                            <div className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
-                                                <div>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
-                                                    <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
-                                                    <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
-                                                </div>
-                                                <div>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
-                                                    {/* <div className=''>
+                                    return (<div className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
+                                        <div>
+                                            <RLink title={`${element.model_name} ${element.version_name}`} key={id} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                                <h3 className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</h3>
+                                            </RLink>
+                                            <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
+                                            <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                        </div>
+                                        <div>
+                                            <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
+                                            {/* <div className=''>
                                                     <input className='mx-1' type="checkbox"></input>
                                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
                                                 </div> */}
-                                                </div>
-                                            </div>
-                                        </RLink>)
+                                        </div>
+                                    </div>)
                                 })}
                             </div>
 
@@ -612,7 +618,8 @@ const Variant_Mobile = (props) => {
 
                     {/* City Prices  */}
                     <div className='md:w-full'>
-                        <h2 className='md:text-[24px] text-[18px] mt-3 text-[#484848] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'>Aura Price in cities near New Delhi</h2>
+                        <h2 className='md:text-[24px] text-[18px] mt-3 text-[#484848] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'> {cardetails[0].model_name} Price in top cities
+                            in India</h2>
                         <table className='w-full my-2 md:my-5'>
                             <tbody>
                                 <tr className='bg-[#f4f4f4]'>

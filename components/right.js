@@ -53,8 +53,8 @@ const Right = (props) => {
             {/* City Prices  */}
             <div className='w-full ml-[2.5rem] hidden md:inline'>
                 <div className='my-[2rem]'>
-                    <h2 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>{props.model} {props.version} Price in cities
-                        near New Delhi</h2>
+                    <h2 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>{props.model} {props.version} Price in top cities
+                        in India</h2>
                     <div className='mt-[1rem]'>
                         <table className='w-full my-2 md:my-5'>
                             <tbody>
@@ -120,14 +120,14 @@ const Right = (props) => {
 
 
             {/* Car Loan  */}
-            <div className='bg-[#F4F4F4] p-4'>
+            {/* <div className='bg-[#F4F4F4] p-4'>
                 <p className='text-[#f80a1a] text-[32px] font-semibold leading-[1]'>Car Loan</p>
                 <p className='text-[#1db876] text-[30px] font-semibold leading-[1]'>Lowest EMI</p>
                 <Image src={promo} alt="" />
                 <div className='text-center py-3'>
                     <button className='bg-[#ff3209] text-white text-[18px] font-medium px-4 rounded-md'>GET THE BEST OFFERS</button>
                 </div>
-            </div>
+            </div> */}
 
 
             {/* LAst Adv  */}

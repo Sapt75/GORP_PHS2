@@ -82,7 +82,7 @@ function ImageSlider(props) {
                 <div className='custom-wrapper'>
                     <SplideTrack>
                         <SplideSlide>
-                            <img className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(variant[0])}/${titleCase(variant[1])}/${titleCase(variant[1])}.jpg`} alt={`${props.brand} ${props.model} Hero`} />
+                            <img title={`${titleCase(variant[0])} ${titleCase(variant[1])}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(variant[0])}/${titleCase(variant[1])}/${titleCase(variant[1])}.jpg`} alt={`${props.brand} ${props.model} Hero`} />
                         </SplideSlide>
                         {Object.keys(images).map((item) => {
                             return (images[item].map((itm, ind) => {

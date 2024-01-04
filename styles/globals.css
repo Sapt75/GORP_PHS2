@@ -96,7 +96,7 @@ body {
   --avenir-11-font-style: normal;
 }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar:horizontal {
   display: none;
 }
 

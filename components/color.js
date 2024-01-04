@@ -71,7 +71,7 @@ const ColorSlider = (props) => {
                     <SplideTrack>
                         {images.length > 0 ? images.map((item, index) => {
                             return (<SplideSlide key={index}>
-                                <img className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={item} alt={`${item.split("/")[images.length - 1].split(".")[0]} Color`} />
+                                <img title={`${props.brand} ${props.model} ${item.split("/")[item.split("/").length - 1].split(".")[0].split("_")[1]}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={item} alt={`${item.split("/")[item.split("/").length - 1].split(".")[0]} Color`} />
                             </SplideSlide>)
                         }) : null}
                     </SplideTrack>

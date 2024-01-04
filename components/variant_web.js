@@ -197,15 +197,15 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                         </div>
                         <ul className='whitespace-nowrap flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                             <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
-                            <Link activeClass="active"
+                            <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeClass="active"
                                 to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Features & Specifications</li>
                             </Link>
-                            <Link activeClass="active"
+                            <Link title={`${cardetails[0].model_name} Variants`} activeClass="active"
                                 to="ver" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variants</li>
                             </Link>
-                            <Link activeClass="active"
+                            <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Colors`} activeClass="active"
                                 to="col" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
                             </Link>
@@ -263,9 +263,10 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                 <div className='py-5'>
                                     <div className='w-full rounded-[2px] flex justify-between font-semibold text-[#484848] py-2'>
                                         <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name}</h2>
-                                        <p className='md:text-[14px] text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All <span className='mx-2'>
-                                            +
-                                        </span></p>
+                                        <Link activeClass="active"
+                                            to="spec" spy={true} smooth={true} offset={-150} duration={500}>
+                                            <p className='md:text-[14px] cursor-pointer text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p>
+                                        </Link>
                                     </div>
                                     <div className={`${style["spec-category"]} my-1`}>
                                         <div className="border border-[#E1E1E1] col-span-3">
@@ -350,7 +351,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
 
                             {/* Specifications, Features & Brochure */}
                             <div id='spec'>
-                                <p className='text-[24px] text-[#484848] font-semibold tracking-[0.48px] mb-6'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs</p>
+                                <h2 className='text-[24px] text-[#484848] font-semibold tracking-[0.48px] mb-6'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs</h2>
                                 <div className='md:w-full'>
                                     <div className='mx-3'>
                                         <p className='bg-[#F4F4F4] mb-1 text-[#484848] py-2 px-2 text-[18px] font-semibold tracking-[-0.32px]'>Features & Specifications</p>
@@ -412,11 +413,11 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                             {/* Car Versions Listing  */}
 
                             <div id='ver' className='lg:w-full'>
-                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>Hyundai Aura Variants 2023</p>
+                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Variants 2023</p>
                                 <div>
                                     <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Variants</p>
-                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] ml-[3.5rem]'>On Road Price</p>
+                                        <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] w-[25rem] text-right'>On Road Price</p>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Price Breakup</p>
                                     </div>
 
@@ -424,13 +425,12 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                     <div>
                                         {finalVersion.map((element, id) => {
                                             return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
-
-                                                <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
-                                                    <div className='w-[10rem]'>
-                                                        <p className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
-                                                        <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
-                                                    </div>
-                                                </RLink>
+                                                <div className='w-[25rem]'>
+                                                    <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                                        <h3 className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</h3>
+                                                    </RLink>
+                                                    <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
+                                                </div>
 
 
                                                 <div>
@@ -441,7 +441,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
         </div> */}
                                                 </div>
                                                 <div>
-                                                    <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                                    <p title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</p>
                                                 </div>
                                             </div>)
                                         })}
