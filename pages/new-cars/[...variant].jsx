@@ -8,9 +8,13 @@ import Footer from '../../components/footer';
 
 
 
-export default function Variant({ data, response, vpresponse, vvpresponse, params }) {
+export default function Variant({ data, response, vpresponse, vvpresponse, params, head }) {
 
     const [width, setWidth] = useState()
+
+    const host_url = head.referer
+
+    console.log(host_url)
 
 
     useEffect(() => {
@@ -30,6 +34,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 </title>
                 <meta name="description" content={`${data[0].brand} ${data[0].model_name} ${data[0].version_name} on road price, features, specifications, ${data[0].brand} ${data[0].model_name} variants and colours - View price breakup of ${data[0].brand} ${data[0].model_name} ${data[0].version_name} at GetOnRoadPrice.
 `} />
+                <link rel="canonical" href={`${host_url}`} />
             </Head>
 
             {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} /> : <Variant_Mobile data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} />}
@@ -49,9 +54,11 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 Variant.getInitialProps = async (context) => {
 
-    const { query } = context;
+    const { query, req } = context;
     const url = "https://inquisitive-knickers-fish.cyclic.app"
     let id, model
+
+    const head = req.headers
 
 
 
@@ -114,7 +121,8 @@ Variant.getInitialProps = async (context) => {
         response,
         vpresponse,
         vvpresponse,
-        query
+        query,
+        head
     }
 }
 
