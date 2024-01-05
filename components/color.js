@@ -10,33 +10,17 @@ const ColorSlider = (props) => {
     const mainRef = useRef(null);
     const thumbsRef = useRef(null);
     let [width, setWidth] = useState()
-    const [images, setImages] = useState([])
+    const [images, setImages] = useState(props.data)
 
 
-    function titleCase(str) {
-        return str.toLowerCase().split(' ').map(x => x[0].toUpperCase() + x.slice(1)).join(' ');
-    }
-
-
-    async function getData() {
-        const data = await fetch(`${props.url}/color_images/${titleCase(props.brand)}/${titleCase(props.model)}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        const res = await data.json()
-        setImages(res)
-    }
 
 
 
     useEffect(() => {
-        getData()
         if (mainRef.current && thumbsRef.current && thumbsRef.current.splide) {
             mainRef.current.sync(thumbsRef.current.splide);
         }
-
+        setImages(props.data)
         setWidth(window.innerWidth)
     }, []);
 
@@ -69,7 +53,7 @@ const ColorSlider = (props) => {
             <Splide hasTrack={false} options={mainOptions} ref={mainRef} aria-labelledby="thumbnail-slider-example">
                 <div className='custom-wrapper'>
                     <SplideTrack>
-                        {images.length > 0 ? images.map((item, index) => {
+                        {images ? images.map((item, index) => {
                             return (<SplideSlide key={index}>
                                 <img title={`${props.brand} ${props.model} ${item.split("/")[item.split("/").length - 1].split(".")[0].split("_")[1]}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={item} alt={`${item.split("/")[item.split("/").length - 1].split(".")[0]} Color`} />
                             </SplideSlide>)

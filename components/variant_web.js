@@ -59,7 +59,7 @@ import ColorSlider from '../components/color';
 
 
 
-export default function Variant_Web({ data, response, vpresponse, vvpresponse, params }) {
+export default function Variant_Web({ data, response, vpresponse, vvpresponse, params, cres }) {
 
     const [width, setWidth] = useState()
     const [update, setUpdate] = useState(false)
@@ -458,7 +458,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                             {/* Color Listing  */}
                             <div id='col' className='lg:w-full mt-[2rem] mb-[3rem]'>
                                 <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
-                                <ColorSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
+                                <ColorSlider url={url} data={cres} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 {/* <div className='border-[1px] border-[#C6C6C6]'>
                                     <Color url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                     <div className='flex justify-center space-x-5 pt-8 pb-4'>

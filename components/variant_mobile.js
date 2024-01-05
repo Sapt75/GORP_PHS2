@@ -61,7 +61,7 @@ import RLink from 'next/link';
 const Variant_Mobile = (props) => {
 
 
-    const { data, response, vpresponse, vvpresponse, params } = props
+    const { data, response, vpresponse, vvpresponse, params, cres } = props
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -517,7 +517,7 @@ const Variant_Mobile = (props) => {
                     <div className='lg:w-full mt-[2rem] mb-[3rem]'>
                         <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
                         <div className='border-[1px] border-[#C6C6C6]'>
-                            <Color url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
+                            <Color url={url} data={props.cres} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                             {/* <div className='flex justify-center space-x-5 pt-8 pb-4'>
                                 <div className='bg-[#A5172B] w-10 h-10'>
                                     <DoneIcon sx={{ color: "white" }} className='m-2' />
