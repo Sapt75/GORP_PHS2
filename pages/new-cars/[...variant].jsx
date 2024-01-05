@@ -31,9 +31,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
         <>
             <Navbar />
             <Head>
-                <title>{data[0].brand} {data[0].model_name} {data[0].version_name} on road price, {data[0].brand} {data[0].model_name} {data[0].version_name} Features & Specs, Colours & Variants.
+                <title itemProp='name'>{data[0].brand} {data[0].model_name} {data[0].version_name} on road price, {data[0].brand} {data[0].model_name} {data[0].version_name} Features & Specs, Colours & Variants.
                 </title>
-                <meta name="description" content={`${data[0].brand} ${data[0].model_name} ${data[0].version_name} on road price, features, specifications, ${data[0].brand} ${data[0].model_name} variants and colours - View price breakup of ${data[0].brand} ${data[0].model_name} ${data[0].version_name} at GetOnRoadPrice.
+                <meta name="description" itemProp='description' content={`${data[0].brand} ${data[0].model_name} ${data[0].version_name} on road price, features, specifications, ${data[0].brand} ${data[0].model_name} variants and colours - View price breakup of ${data[0].brand} ${data[0].model_name} ${data[0].version_name} at GetOnRoadPrice.
 `} />
                 <link rel="canonical" href={`${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`} />
             </Head>
