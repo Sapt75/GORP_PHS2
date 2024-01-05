@@ -17,9 +17,10 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     const host_url = `https://${head.host}/new-cars`
     const route = useRouter()
 
-    let colors = cres.map((item)=>{
+    let colors = cres.map((item) => {
         return item.split("/")[item.split("/").length - 1].split(".")[0].split("_")[1]
     })
+
 
 
 
@@ -66,6 +67,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
         window.addEventListener("resize", () => {
             setWidth(window.innerWidth)
         })
+
+        sessionStorage.setItem("host", head)
         setWidth(window.innerWidth)
     })
 
@@ -109,7 +112,7 @@ Variant.getInitialProps = async (context) => {
     // https://inquisitive-knickers-fish.cyclic.app
     let id, model
 
-    const head = req.headers
+    const head = req ? req.headers : sessionStorage.getItem("host")
 
 
 
