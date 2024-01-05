@@ -165,10 +165,10 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                         </div>
                     </div>
                 </div>
-                <div className="mx-[5rem]">
+                <div itemProp='Car' itemscope itemtype="https://schema.org/Car" className="mx-[5rem]">
                     <div>
                         <div className='block mt-[2rem] mb-[1.5rem]'>
-                            <h1 className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} status={true} /></h1>
+                            <h1 itemProp='name' className='text-[24px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} status={true} /></h1>
                             {/* <div className='flex pt-3 justify-between'>
                                     <div className='flex space-x-[1rem] text-[14px] font-light'>
                                         <div>
@@ -226,7 +226,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                 </div>
                                 <div className='block'>
                                     <div className='pt-[1.5rem] space-x-[1.6rem]'>
-                                        {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
+                                        {versionPrice.length > 0 ? <span itemProp='price' className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
                                         <span className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
                                     </div>
                                     <span className='text-[14px] font-[400] tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
@@ -275,7 +275,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Fuel Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.fuel_type}</p>
+                                                    <p itemProp='fuelType' className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.fuel_type}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -287,7 +287,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Seating Capacity</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].seating_capacity}</p>
+                                                    <p itemProp='seatingCapacity' className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].seating_capacity}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -299,7 +299,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Body Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].body_type}</p>
+                                                    <p itemProp='bodyType' className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].body_type}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -311,7 +311,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Transmission Type</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].transmission_type}</p>
+                                                    <p itemProp='vehicleTransmission' className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].transmission_type}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -323,7 +323,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Engine Displacement</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.displacement} CC</p>
+                                                    <p itemProp='vehicleEngine' className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.displacement} CC</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -335,7 +335,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                                 </div>
                                                 <div>
                                                     <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>ARAI Mileage</p>
-                                                    <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.arai_mileage ? cardetails[0].Specifications.engine_and_transmission.arai_mileage : "null"} /kmph</p>
+                                                    <p itemProp='fuelConsumption' className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{cardetails[0].Specifications.engine_and_transmission.arai_mileage ? cardetails[0].Specifications.engine_and_transmission.arai_mileage : "null"} /kmph</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -6,6 +6,7 @@ import Variant_Web from '../../components/variant_web';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 
 
 
@@ -38,6 +39,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 <link rel="canonical" href={`${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`} />
             </Head>
 
+            
             {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} /> : <Variant_Mobile data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} />}
 
             <div className='md:p-4 p-1.5'>
