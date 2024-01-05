@@ -309,7 +309,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 <link rel="canonical" href={`${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`} />
             </Head>
 
-            <Script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }}>
+            <Script id='schema' key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }}>
 
             </Script>
 
