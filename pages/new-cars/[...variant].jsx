@@ -57,6 +57,7 @@ Variant.getInitialProps = async (context) => {
 
     const { query, req } = context;
     const url = "https://inquisitive-knickers-fish.cyclic.app"
+    // https://inquisitive-knickers-fish.cyclic.app
     let id, model
 
     const head = req.headers

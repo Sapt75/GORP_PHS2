@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['ik.imagekit.io'],
     // unoptimized: true
   },
-  transpilePackages: ['@mui/x-charts'],
+  transpilePackages: ['@mui/x-charts']
   // output: 'export',
   // trailingSlash: true
 }
