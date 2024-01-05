@@ -78,7 +78,7 @@ const Variant_Mobile = (props) => {
     const router = useRouter();
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 

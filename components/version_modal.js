@@ -13,6 +13,10 @@ import edit from "../public/images/edit.svg"
 function Version_Model(props) {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState(props.data)
+    const [filter, setFilter] = useState({
+        fuel_type: null,
+        transmission_type: null
+    })
 
 
     function numFormat(value) {
@@ -57,21 +61,64 @@ function Version_Model(props) {
                     <div className='p-4 border-y-[2px] border-gray-100 mt-4'>
                         <ul className='flex space-x-4 text-[16px]'>
                             <li onClick={() => {
-                                setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Petrol"))
+                                setFilter({
+                                    fuel_type: "Petrol",
+                                    transmission_type: filter.transmission_type
+                                })
+                                filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Petrol" && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === "Petrol"
+                                ))
                             }} className="cursor-pointer">Petrol</li>
                             <li onClick={() => {
-                                setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Diesel"))
+                                setFilter({
+                                    fuel_type: "Diesel",
+                                    transmission_type: filter.transmission_type
+                                })
+                                filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Diesel" && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === "Diesel"
+                                ))
                             }} className="cursor-pointer">Diesel</li>
                             <li onClick={() => {
-                                setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "CNG"))
+                                setFilter({
+                                    fuel_type: "CNG",
+                                    transmission_type: filter.transmission_type
+                                })
+                                filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "CNG" && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === "CNG"
+                                ))
                             }} className="cursor-pointer">CNG</li>
                             <li onClick={() => {
-                                setData(props.data.filter((item) => item.transmission_type === "Manual"))
+                                setFilter({
+                                    fuel_type: filter.fuel_type,
+                                    transmission_type: "Manual"
+                                })
+                                filter.fuel_type !== null ? setData(props.data.filter((item) => item.transmission_type === "Manual" && item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setData(props.data.filter((item) => item.transmission_type === "Manual"))
                             }} className='border-l-[1px] border-black pl-4 cursor-pointer'>Manual</li>
                             <li onClick={() => {
-                                setData(props.data.filter((item) => item.transmission_type === "Automatic"))
+                                setFilter({
+                                    fuel_type: filter.fuel_type,
+                                    transmission_type: "Automatic"
+                                })
+                                filter.fuel_type !== null ? setData(props.data.filter((item) => item.transmission_type === "Automatic" && item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setData(props.data.filter((item) => item.transmission_type === "Automatic"))
                             }} className="cursor-pointer">Automatic</li>
                         </ul>
+                    </div>
+                    <div className="flex space-x-4 my-4">
+                        {filter.fuel_type !== null ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                            {filter.fuel_type} <Image onClick={() => {
+                                setFilter({
+                                    fuel_type: null,
+                                    transmission_type: filter.transmission_type
+                                })
+                                filter.transmission_type !== null ? setData(props.data.filter((item) => item.transmission_type === filter.transmission_type)) : setData(props.data)
+                            }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                        </span> : null}
+                        {filter.transmission_type !== null ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                            {filter.transmission_type} <Image onClick={() => {
+                                setFilter({
+                                    fuel_type: filter.fuel_type,
+                                    transmission_type: null
+                                })
+                                filter.fuel_type !== null ? setData(props.data.filter((item) => item.fuel_type === filter.fuel_type)) : setData(props.data)
+                            }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                        </span> : null}
                     </div>
                     <div className='flex justify-between text-[18px] mt-4 px-4 py-2 border-b-[1px] border-[#C6C6C6]'>
                         <p className='font-semibold text-[#484848]'>Variants</p>
@@ -83,23 +130,23 @@ function Version_Model(props) {
                         <div className="overflow-y-scroll">
                             {data.length > 0 ? data.map((element, index) => {
                                 return (<Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
-                                        <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
-                                            <div>
-                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
-                                                <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
-                                            </div>
-                                            <div>
-                                                <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{props.price.length > 0 ? `₹ ${numFormat(props.price.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
-                                            </div>
+                                    <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
+                                        <div>
+                                            <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
+                                            <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
                                         </div>
-                                    </Link>)
+                                        <div>
+                                            <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{props.price.length > 0 ? `₹ ${numFormat(props.price.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
+                                        </div>
+                                    </div>
+                                </Link>)
                             }) : <>
-                            <p className="text-[18px] text-red-600 text-center">No data</p> 
+                                <p className="text-[18px] text-red-600 text-center">No data</p>
                             </>}
                         </div>
                     </div>
                 </DialogContent>
-            </Dialog>
+            </Dialog >
         </>
     );
 }

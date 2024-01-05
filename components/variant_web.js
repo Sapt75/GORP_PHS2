@@ -76,8 +76,8 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
 
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    // https://inquisitive-knickers-fish.cyclic.app
+    const url = "http://localhost:5000"
+    // http://localhost:5000
 
 
 
