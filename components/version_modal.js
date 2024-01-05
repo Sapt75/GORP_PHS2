@@ -116,7 +116,7 @@ function Version_Model(props) {
                                     fuel_type: filter.fuel_type,
                                     transmission_type: null
                                 })
-                                filter.fuel_type !== null ? setData(props.data.filter((item) => item.fuel_type === filter.fuel_type)) : setData(props.data)
+                                filter.fuel_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setData(props.data)
                             }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
                         </span> : null}
                     </div>

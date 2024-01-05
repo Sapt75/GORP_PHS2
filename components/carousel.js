@@ -17,7 +17,7 @@ function ImageSlider(props) {
 
     let { variant } = router.query
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 
