@@ -58,8 +58,19 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
             "name": `${data[0].transmission_type}`
         },
         "description": `${data[0].varient_description}`,
-        "url": `${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`
+        "url": `${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`,
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": 746500,
+            "highPrice": 1313500,
+            "offerCount": 1
+        },
+        "vehicleModelDate" : "15-06-2023",
+        "itemCondition": "New"
     }
+
+
 
 
 
