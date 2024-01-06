@@ -26,6 +26,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
     let sdata = {
         "@context": "https://schema.org/",
         "@type": "Car",
+        "mpn": "CW-Version-11545",
         "name": `${data[0].brand} ${data[0].model_name} ${data[0].version_name}`,
         "model": `${data[0].model_name}`,
         "image": `https://ik.imagekit.io/GORP/${data[0].brand}/${data[0].model_name}/${data[0].model_name}.jpg`,
@@ -82,7 +83,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 <meta name="description" itemProp='description' content={`${data[0].brand} ${data[0].model_name} ${data[0].version_name} on road price, features, specifications, ${data[0].brand} ${data[0].model_name} variants and colours - View price breakup of ${data[0].brand} ${data[0].model_name} ${data[0].version_name} at GetOnRoadPrice.
 `} />
                 <link rel="canonical" href={`${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`} />
-                <script id='schema' key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
+                <script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
             </Head>
 
             {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} /> : <Variant_Mobile data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} />}
