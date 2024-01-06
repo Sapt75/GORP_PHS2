@@ -6,7 +6,6 @@ import Variant_Web from '../../components/variant_web';
 import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import { useRouter } from 'next/router';
-import Script from 'next/script';
 
 
 
@@ -83,12 +82,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 <meta name="description" itemProp='description' content={`${data[0].brand} ${data[0].model_name} ${data[0].version_name} on road price, features, specifications, ${data[0].brand} ${data[0].model_name} variants and colours - View price breakup of ${data[0].brand} ${data[0].model_name} ${data[0].version_name} at GetOnRoadPrice.
 `} />
                 <link rel="canonical" href={`${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`} />
+                <script id='schema' key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
             </Head>
-
-            <Script id='schema' key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }}>
-
-            </Script>
-
 
             {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} /> : <Variant_Mobile data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} />}
 
