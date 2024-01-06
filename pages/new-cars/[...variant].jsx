@@ -67,7 +67,8 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
             "offerCount": 1
         },
         "vehicleModelDate" : "15-06-2023",
-        "itemCondition": "New"
+        "itemCondition": null,
+        vehicleIdentificationNumber: null
     }
 
 
