@@ -215,7 +215,8 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                 <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={color} alt="" /> Colors</span>
                                 {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
                             </div>
-                            <div className='bg-[#f4f4f4] md:hidden mt-[1rem] text-[#6F6F6F] p-3'>
+                            <h2 className='text-[18px] text-[#484848] mt-6 font-semibold tracking-[-0.48px]'>{getmodels[0].brand} {getmodels[0].model_name} Latest Updates</h2>
+                            <div className='bg-[#f4f4f4] md:hidden mt-[0.5rem] text-[#6F6F6F] p-3'>
                                 <p>{getmodels[0].model_description} <span className={`${update ? null : "hidden"}`}>
                                 </span></p>
 
