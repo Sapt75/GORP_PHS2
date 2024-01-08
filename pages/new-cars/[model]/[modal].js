@@ -462,8 +462,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                                         return index === self.findIndex((t) => {
                                             return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
                                         })
-                                    }).map((item) => {
-                                        return (<ul className='border px-4 border-[#C6C6C6] flex justify-between mb-3'>
+                                    }).map((item, index) => {
+                                        return (<ul key={index} className='border px-4 border-[#C6C6C6] flex justify-between mb-3'>
                                             <li className='font-normal py-2'>
                                                 <p className='text-[#484848] font-semibold text-[18px]'>{item.Specifications.engine_and_transmission.fuel_type}</p>
                                                 <p className='text-[14px] text-[#6F6F6F]'>{item.Specifications.engine_and_transmission.displacement} cc</p>
