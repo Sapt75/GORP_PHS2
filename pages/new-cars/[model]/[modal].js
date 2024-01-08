@@ -50,6 +50,8 @@ import Brand_Model from '../../../components/brand_modal';
 import { Link } from 'react-scroll';
 import ColorSlider from '../../../components/color';
 import RLink from 'next/link';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 
 
@@ -79,6 +81,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
     })
     let [uniqueId, setUID] = useState()
     let [model_id, setModel_ID] = useState()
+
+    const route = useRouter()
 
     function scrollFunction() {
         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -135,6 +139,11 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
     return (
         <>
             <Navbar />
+            <Head>
+                <title>{getmodels[0].brand} {getmodels[0].model_name} Price, {getmodels[0].model_name} Varients, Mileage & Features & Specifications | GetOnRoadPrice</title>
+                <meta name="description" content={`${getmodels[0].brand} ${getmodels[0].model_name} price in India starts at ${modelPrice.length > 0 ? numFormat(modelPrice[0].min_price) : null}. Get ${getmodels[0].brand} ${getmodels[0].model_name} key specs, features, ${getmodels[0].model} Price Breakup, mileage, color, variants Price at GetonRoadPrice  `} />
+                <link rel="canonical" href={`${host_url}/${route.query.model.toLowerCase()}/${route.query.modal.toLowerCase()}`} />
+            </Head>
             <div className='mx-2 md:mx-0'>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                     <div className='flex justify-around'>
@@ -208,8 +217,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                             <li className='font-semibold text-[#484848]'><span title={`${getmodels[0].brand} ${getmodels[0].model_name}`}> {getmodels[0].model_name}  </span><Version_Modal brand={getmodels[0].brand} model={getmodels[0].model_name} version={getmodels[0].version_name} price={versionPrice} data={finalVersion} status={true} /></li>
                             <Link title={`${getmodels[0].model_name} Overview`} activeClass="active"
                                 to="over" spy={true} smooth={true} offset={-150} duration={500}>
-                            <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Overview</li>
-                                </Link>
+                                <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Overview</li>
+                            </Link>
                             <Link title={`${getmodels[0].model_name} Variants`} activeClass="active"
                                 to="ver" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variants</li>
