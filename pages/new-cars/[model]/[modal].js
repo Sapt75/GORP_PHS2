@@ -112,6 +112,106 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
     const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
+
+
+    let sdata = {
+        "@context": "https://schema.org/",
+        "@graph": [
+            {
+                "@type": "Car",
+                "name": `${getmodels[0].brand} ${getmodels[0].model_name}`,
+                "description": `${getmodels[0].model_description}`,
+                "url": `${host_url}/${route.query.model.toLowerCase()}/${route.query.modal.toLowerCase()}`,
+                "model": `${getmodels[0].model_name}`,
+                // "image": [
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-right-front-three-quarter-109.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-right-front-three-quarter-108.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-right-side-view-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-right-rear-three-quarter-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-rear-view-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-left-rear-three-quarter-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-left-side-view-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-left-front-three-quarter-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-exterior-front-view-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-interior-dashboard-2.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     },
+                //     {
+                //         "@type": "ImageObject",
+                //         "url": "https://imgd.aeplcdn.com/1920x1080/n/cw/ec/130591/fronx-interior-steering-wheel.jpeg?isig=0&q=80&q=80",
+                //         "height": "1080",
+                //         "width": "1920"
+                //     }
+                // ],
+                "brand": `${getmodels[0].brand}`,
+                "manufacturer": {
+                    "@type": "Organization",
+                    "name": `${getmodels[0].brand}`
+                },
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "priceCurrency": "INR",
+                    "lowPrice": modelPrice[0].min_price,
+                    "highPrice": numFormat2(modelPrice[0].max_price),
+                    "offerCount": 1
+                },
+            }
+        ]
+    }
+
+
+
+
+
+
     useEffect(() => {
         window.onscroll = function () { scrollFunction() };
         setTips({
@@ -145,6 +245,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                 <title>{getmodels[0].brand} {getmodels[0].model_name} Price, {getmodels[0].model_name} Varients, Mileage & Features & Specifications | GetOnRoadPrice</title>
                 <meta name="description" content={`${getmodels[0].brand} ${getmodels[0].model_name} price in India starts at ${modelPrice.length > 0 ? numFormat(modelPrice[0].min_price) : null}. Get ${getmodels[0].brand} ${getmodels[0].model_name} key specs, features, ${getmodels[0].model} Price Breakup, mileage, color, variants Price at GetonRoadPrice  `} />
                 <link rel="canonical" href={`${host_url}/${route.query.model.toLowerCase()}/${route.query.modal.toLowerCase()}`} />
+                <script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
             </Head>
             <div className='mx-2 md:mx-0'>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
@@ -241,7 +342,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                         <div className='md:flex xl:space-x-[6rem] my-[1rem] py-[1rem] md:border md:border-[#E1E1E1]'>
                             <div className='md:w-[50%] text-center'>
                                 <ImageSlider url={url} brand={getmodels[0].brand} model={getmodels[0].model_name} />
-                                <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={color} alt="" /> Colors</span>
+                                <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={color} alt="colors" /> Colors</span>
                                 {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
                             </div>
                             <div className='md:w-[40%]'>
@@ -272,15 +373,15 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                         </div>
                     </div>
 
-                    <div className='md:flex hidden'>
-                        <div className='md:w-[74%]'>
+                    <div className='flex'>
+                        <div className='w-[74%]'>
                             <div id='over' className='mb-[1rem] w-full'>
                                 <h2 className='md:text-[24px] py-2 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{getmodels[0].brand} {getmodels[0].model_name} Latest Updates</h2>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F]  p-3'>
-                                    <p><span dangerouslySetInnerHTML={{ __html: getmodels[0].model_description }}></span><span className={`${show ? null : "hidden"}`}></span> </p>
+                                    <p>{getmodels[0].model_description}<span className={`${show ? null : "hidden"}`}></span> </p>
 
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
-                                        <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
+                                        <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="down" /></span>
                                     </div>
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
@@ -458,7 +559,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                                     <p>{getmodels[0].mileage_algorithm}<span className={`${show ? null : "hidden"}`}></span> </p>
 
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
-                                        <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
+                                        <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="down" /></span>
                                     </div>
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
@@ -497,8 +598,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                                         <p className='text-white text-[32px] font-bold'>Hyundai Aura Brochure</p>
                                         <p className='text-white text-[22px] w-3/4'>Download the brochure to view detailed price, specs, and features</p>
                                         <div className='flex space-x-6 pt-4'>
-                                            <p className='text-white text-[22px] mt-[3rem]'>Download Brochure <Image width={22} className='inline' src={download} /></p>
-                                            <Image src={model_car} />
+                                            <p className='text-white text-[22px] mt-[3rem]'>Download Brochure <Image width={22} className='inline' src={download} alt='download' /></p>
+                                            <Image src={model_car} alt='car' />
                                         </div>
                                     </div>
                                 </div>
@@ -507,7 +608,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                                         <p className='text-3xl font-semibold pt-2'>Contact Hyundai Dealer</p>
                                         <p className='text-[22px] w-4/5 pt-2'>Get in touch for the best buying option from your authorized dealer</p>
                                         <div className='pt-6'>
-                                            <Image className='inline' src={price_tag} />
+                                            <Image className='inline' src={price_tag} alt='price-tag' />
                                             <button className='bg-black py-2 w-3/4 rounded-md mx-4 text-white'>Locate the dealer near you</button>
                                         </div>
                                     </div>
