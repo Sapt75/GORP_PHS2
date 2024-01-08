@@ -64,23 +64,23 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
     const [show, setShow] = useState(false)
     const top_bar = useRef(null)
     const [getmodels, setGetModels] = useState(data);
-    const [versionPrice, setVersionPrice] = useState([])
-    const [finalVersion, setFinalVersion] = useState([])
+    const [versionPrice, setVersionPrice] = useState(vpresponse)
+    const [finalVersion, setFinalVersion] = useState(vresponse)
     const [getprices, setGetPrices] = useState([]);
-    const [modelPrice, setModelPrice] = useState([])
-    const [getVersion, setVersion] = useState([])
+    const [modelPrice, setModelPrice] = useState(response)
+    const [getVersion, setVersion] = useState(vresponse)
     const [tshow, setTShow] = useState(false)
     const [modal, showModal] = useState(false)
-    const [spec, setSpecs] = useState()
+    const [spec, setSpecs] = useState(specef)
     const [read, setRead] = useState(false)
-    const [city, setCity] = useState([])
-    const [rcity, setRCity] = useState([])
+    const [city, setCity] = useState(citresponse)
+    const [rcity, setRCity] = useState(nomcity)
     const [tips, setTips] = useState({
         pros: "",
         cons: ""
     })
-    let [uniqueId, setUID] = useState()
-    let [model_id, setModel_ID] = useState()
+    let [uniqueId, setUID] = useState(data[0].uid)
+    let [model_id, setModel_ID] = useState(data[0].model_id)
 
     const route = useRouter()
 
@@ -199,8 +199,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                 "offers": {
                     "@type": "AggregateOffer",
                     "priceCurrency": "INR",
-                    "lowPrice": modelPrice ? modelPrice[0].min_price : null,
-                    "highPrice": modelPrice ? modelPrice[0].max_price : null,
+                    "lowPrice": modelPrice[0].min_price,
+                    "highPrice": modelPrice[0].max_price,
                     "offerCount": 1
                 },
             }
