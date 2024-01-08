@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 
 
-export default function Variant({ data, response, vpresponse, vvpresponse, params, head, cres }) {
+export default function Variant({ data, response, vpresponse, vvpresponse, params, head, cres, rcity }) {
 
     const [width, setWidth] = useState()
 
@@ -95,7 +95,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 <script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
             </Head>
 
-            {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} /> : <Variant_Mobile data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} />}
+            {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} /> : <Variant_Mobile data={data} rcity={rcity} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} />}
 
             <div className='md:p-4 p-1.5'>
                 <p>Home &gt; Hyundai &gt; Aura</p>
@@ -183,6 +183,17 @@ Variant.getInitialProps = async (context) => {
     const cres = await color.json()
     // setImages(res)
 
+    let city = await fetch(`${url}/diff_prices/${data[0].uid}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    let rcity = await city.json()
+
+    // setCity(res)
+
 
     return {
         data,
@@ -191,7 +202,8 @@ Variant.getInitialProps = async (context) => {
         vvpresponse,
         query,
         head,
-        cres
+        cres, 
+        rcity
     }
 }
 

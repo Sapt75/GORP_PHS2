@@ -60,30 +60,20 @@ function Version_Model(props) {
                     </div>
                     <div className='p-4 border-y-[2px] border-gray-100 mt-4'>
                         <ul className='flex space-x-4 text-[16px]'>
-                            <li onClick={() => {
-                                setFilter({
-                                    fuel_type: "Petrol",
-                                    transmission_type: filter.transmission_type
+                            {data.filter((value, index, self) => {
+                                return index === self.findIndex((t) => {
+                                    return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
                                 })
-                                filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Petrol" && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === "Petrol"
-                                ))
-                            }} className="cursor-pointer">Petrol</li>
-                            <li onClick={() => {
-                                setFilter({
-                                    fuel_type: "Diesel",
-                                    transmission_type: filter.transmission_type
-                                })
-                                filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "Diesel" && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === "Diesel"
-                                ))
-                            }} className="cursor-pointer">Diesel</li>
-                            <li onClick={() => {
-                                setFilter({
-                                    fuel_type: "CNG",
-                                    transmission_type: filter.transmission_type
-                                })
-                                filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === "CNG" && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === "CNG"
-                                ))
-                            }} className="cursor-pointer">CNG</li>
+                            }).map((item, index) => {
+                                return(<li key={index} onClick={() => {
+                                    setFilter({
+                                        fuel_type: `${item.Specifications.engine_and_transmission.fuel_type}`,
+                                        transmission_type: filter.transmission_type
+                                    })
+                                    filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === `${item.Specifications.engine_and_transmission.fuel_type}` && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === `${item.Specifications.engine_and_transmission.fuel_type}`
+                                    ))
+                                }} className="cursor-pointer">{item.Specifications.engine_and_transmission.fuel_type}</li>)
+                            })}
                             <li onClick={() => {
                                 setFilter({
                                     fuel_type: filter.fuel_type,

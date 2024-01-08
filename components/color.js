@@ -6,7 +6,7 @@ import '@splidejs/splide/dist/css/splide.min.css';
 import right from "../public/images/right.svg"
 import Image from 'next/image';
 
-const ColorSlider = (props) => {
+export default function ColorSlider(props){
     const mainRef = useRef(null);
     const thumbsRef = useRef(null);
     let [width, setWidth] = useState()
@@ -90,5 +90,5 @@ const ColorSlider = (props) => {
     
 };
 
-export default ColorSlider;
+
 

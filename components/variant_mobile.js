@@ -52,16 +52,17 @@ import { useRouter } from "next/router";
 import { Link, animateScroll as scroll } from "react-scroll";
 import Brand_Model from '../components/brand_modal';
 import RLink from 'next/link';
+import ColorSlider from '../components/color';
 
 
 
 
 
 
-const Variant_Mobile = (props) => {
+export default function Variant_Mobile(props) {
 
 
-    const { data, response, vpresponse, vvpresponse, params, cres } = props
+    const { data, response, vpresponse, vvpresponse, params, color, rcity } = props
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -75,6 +76,7 @@ const Variant_Mobile = (props) => {
     const [getVersion, setVersion] = useState(response)
     const [allVersionPrice, setAllVersionPrice] = useState(vpresponse == "No Data" ? [] : vpresponse)
     const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
+    const [city, setCity] = useState(rcity)
     const router = useRouter();
 
 
@@ -85,14 +87,14 @@ const Variant_Mobile = (props) => {
 
     function scrollFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            top_shift.current.classList.add("mt-[-4rem]")
+            top_shift.current.classList.add("mt-[-5rem]")
             white.current.classList.remove("top-[50px]")
             white.current.classList.add("top-[-13px]")
             white.current.classList.remove("h-[2rem]")
             white.current.classList.add("h-[10rem]")
 
         } else {
-            top_shift.current.classList.remove("mt-[-4rem]")
+            top_shift.current.classList.remove("mt-[-5rem]")
             white.current.classList.remove("top-[-13px]")
             white.current.classList.add("top-[50px]")
             white.current.classList.remove("h-[10rem]")
@@ -122,28 +124,13 @@ const Variant_Mobile = (props) => {
         setFinalVersion(response)
 
 
-        vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
-
-
-        vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
-    }, [params, data, response, vpresponse, vvpresponse])
-
-
-
-
-    useEffect(() => {
-        window.onscroll = function () { scrollFunction() };
-        setCardetails(data)
-
-        setVersion(response)
-        setFinalVersion(response)
-
 
         vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
 
 
         vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
-    }, [params, data, response, vpresponse, vvpresponse])
+        setCity(rcity)
+    }, [params, data, response, vpresponse, vvpresponse, rcity])
 
 
 
@@ -176,8 +163,8 @@ const Variant_Mobile = (props) => {
                                     <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Variants</li>
                                 </Link>
                                 <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Colors`} activeClass="active"
-                                to="col" spy={true} smooth={true} offset={-150} duration={500}>
-                                <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Colors</li>
+                                    to="col" spy={true} smooth={true} offset={-150} duration={500}>
+                                    <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Colors</li>
                                 </Link>
                                 <li className='my-1.5'>
                                     <button className='text-white text-[14px] px-4 bg-[#CE4327] font-semibold pb-1 rounded-md'>Get Offer</button>
@@ -189,10 +176,10 @@ const Variant_Mobile = (props) => {
                 <div className='md:hidden'>
                     <div className='flex justify-between'>
                         <h1 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name}</h1>
-                        <div className=''>
+                        {/* <div className=''>
                             <input className='mx-1' type="checkbox"></input>
                             <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='space-x-[1.6rem]'>
                         {versionPrice.length > 0 ? <span className='text-[20px] text-[#484848] font-semibold tracking-[-0.48px]'> {`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
@@ -274,9 +261,10 @@ const Variant_Mobile = (props) => {
                         <div className='py-2'>
                             <div className='w-full rounded-[2px] flex justify-between text-[#484848] py-2 px-2'>
                                 <h2 className='text-[15px] md:text-[24px] font-semibold tracking-[-0.32px]'>Key Specs of {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name}</h2>
-                                <p className='md:text-[14px] text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All <span className='mx-2'>
-                                    +
-                                </span></p>
+                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeClass="active"
+                                    to="spec" spy={true} smooth={true} offset={-150} duration={500}>
+                                    <p className='md:text-[14px] text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p>
+                                </Link>
                             </div>
                             <div className={`${style["spec-category"]} my-1`}>
                                 <div className="border border-[#E1E1E1] col-span-2 xl:col-span-2">
@@ -362,7 +350,7 @@ const Variant_Mobile = (props) => {
 
 
                     {/* Specifications, Features */}
-                    <div>
+                    <div id='spec'>
                         <h2 className='md:text-[24px] text-[#484848] text-[18px] font-semibold tracking-[0.48px] mb-2'>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Features & Specs</h2>
                         <div className='md:w-full'>
                             <div className='md:mx-3'>
@@ -422,7 +410,7 @@ const Variant_Mobile = (props) => {
                                                         {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
                                                     </p>
                                                     {Object.keys(cardetails[0].Specifications[item]).map((itm, ind) => {
-                                                        return (cardetails[0].Specifications[item][itm] === null ? null : <div key={ind} className={`flex mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
+                                                        return (cardetails[0].Specifications[item][itm] === null ? null : <div key={ind} className={`flex justify-between border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
                                                             <p className='text-[#6F6F6F] text-[12px]'>{titleCase(itm.split("_").join(" "))}</p>
                                                             <p className='text-[#484848] text-[12px] font-semibold'>{cardetails[0].Specifications[item][itm]}</p>
                                                         </div>)
@@ -435,7 +423,7 @@ const Variant_Mobile = (props) => {
                                                         {titleCase(item.replace("_", " ").replace("_", " ").replace("and", "&"))}
                                                     </p>
                                                     {Object.keys(cardetails[0].Features[item]).map((itm, ind) => {
-                                                        return (cardetails[0].Features[item][itm] === null ? null : <div key={ind} className={`flex mx-4 border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
+                                                        return (cardetails[0].Features[item][itm] === null ? null : <div key={ind} className={`flex justify-between border-b-[1px] py-4 border-[#c6c6c6] my-2`}>
                                                             <p className='text-[#6F6F6F] text-[12px]'>{titleCase(itm.split("_").join(" "))}</p>
                                                             <p className='text-[#484848] text-[12px] font-semibold'>{cardetails[0].Features[item][itm]}</p>
                                                         </div>)
@@ -466,7 +454,7 @@ const Variant_Mobile = (props) => {
 
                     {/* Car Versions Listing  */}
 
-                    <div className='lg:w-full'>
+                    <div id='ver' className='lg:w-full'>
                         <h2 className='lg:text-[24px] text-[#484848] text-[18px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Variants 2023</h2>
                         <div>
                             <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
@@ -478,7 +466,7 @@ const Variant_Mobile = (props) => {
                             <div>
                                 {finalVersion.map((element, id) => {
                                     return (<div key={id} className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
-                                        <div >
+                                        <div className='w-[10rem]'>
                                             <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                                 <h3 className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</h3>
                                             </RLink>
@@ -514,10 +502,10 @@ const Variant_Mobile = (props) => {
 
 
                     {/* Color Listing  */}
-                    <div className='lg:w-full mt-[2rem] mb-[3rem]'>
+                    <div id='col' className='lg:w-full mt-[2rem] mb-[3rem]'>
                         <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Colors</p>
                         <div className='border-[1px] border-[#C6C6C6]'>
-                            <Color url={url} data={props.cres} brand={cardetails[0].brand} model={cardetails[0].model_name} />
+                            <ColorSlider url={url} data={color} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                             {/* <div className='flex justify-center space-x-5 pt-8 pb-4'>
                                 <div className='bg-[#A5172B] w-10 h-10'>
                                     <DoneIcon sx={{ color: "white" }} className='m-2' />
@@ -539,83 +527,6 @@ const Variant_Mobile = (props) => {
                     </div>
 
 
-                    {/* Similar Cars  */}
-
-                    {/* <div className='lg:flex'>
-                                <div className='lg:w-full md:mx-0'>
-                                    <h2 className='text-[18px] pt-2 text-[#484848] font-semibold tracking-[-0.48px]'>Similar Cars</h2>
-                                    <div className='flex'>
-                                        <div style={{ whiteSpace: "nowrap", overflow: "scroll", display: "flow" }} className='space-x-3'>
-                                            <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                <div className='h-[7rem]'>
-                                                    <Image className='mx-auto' src={car1} alt="" />
-                                                </div>
-                                                <div className='bg-[#f4f4f4] p-3'>
-                                                    <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>Hyundai Exter</p>
-                                                    <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 6.00 Lakh</span>
-                                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</span>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 22.05 KMPL</p>
-                                                    <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Exter</p>
-                                                </div>
-                                            </div>
-                                            <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                <div className='h-[7rem]'>
-                                                    <Image className='mx-auto' src={car2} alt="" />
-                                                </div>
-                                                <div className='bg-[#f4f4f4] p-3'>
-                                                    <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>Tata Punch</p>
-                                                    <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 7.15 Lakh</span>
-                                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</span>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                    <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                </div>
-                                            </div>
-                                            <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                <div className='h-[7rem]'>
-                                                    <Image className='mx-auto' src={car3} alt="" />
-                                                </div>
-                                                <div className='bg-[#f4f4f4] p-3'>
-                                                    <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>Maruti Brezza</p>
-                                                    <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 8.69 Lakh</span>
-                                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</span>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                    <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                </div>
-                                            </div>
-                                            <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                <div className='h-[7rem]'>
-                                                    <Image className='mx-auto' src={car2} alt="" />
-                                                </div>
-                                                <div className='bg-[#f4f4f4] p-3'>
-                                                    <p className='text-[16px] text-[#484848] font-normal leading-[24px] capitalize'>KIA Sonet</p>
-                                                    <span className='mr-3 text-[14px] text-[#484848] font-semibold leading-[24px] capitalize'>₹ 10.29 Lakh</span>
-                                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</span>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                    <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                </div>
-                                            </div>
-                                            <div className='w-[19rem] inline-block border border-[#C6C6C6] my-3'>
-                                                <div className='h-[7rem]'>
-                                                    <Image className='mx-auto' src={car1} alt="" />
-                                                </div>
-                                                <div className='bg-[#f4f4f4] p-3'>
-                                                    <p className='text-[16px] font-normal text-[#484848] leading-[24px] capitalize'>Maruti Brezza</p>
-                                                    <span className='mr-3 text-[14px] font-semibold text-[#484848] leading-[24px] capitalize'>₹ 8.69 Lakh</span>
-                                                    <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</span>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize py-[4px]'>On-Road Price New Delhi</p>
-                                                    <p className='text-[12px] text-[#6F6F6F] font-normal leading-[17px] capitalize'>Petrol, Manual, 20.05 KMPL</p>
-                                                    <p className='mt-3 text-[#09809A] text-[14px] font-normal'><span><Image className='inline' src={compare} alt="" /></span> Compare Aura v/s Punch</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-
                     {/* City Prices  */}
                     <div className='md:w-full'>
                         <h2 className='md:text-[24px] text-[18px] mt-3 text-[#484848] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'> {cardetails[0].model_name} Price in top cities
@@ -626,100 +537,19 @@ const Variant_Mobile = (props) => {
                                     <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
                                     <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
                                 </tr>
-                                <tr className='border border-[#C6C6C6]'>
-                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Noida</td>
-                                    <td className='text-right p-2'>
-                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                    </td>
-                                </tr>
-                                <tr className='border border-[#C6C6C6]'>
-                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Gaziabad</td>
-                                    <td className='text-right p-2'>
-                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                    </td>
-                                </tr>
-                                <tr className='border border-[#C6C6C6]'>
-                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Gurugram</td>
-                                    <td className='text-right p-2'>
-                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                    </td>
-                                </tr>
-                                <tr className='border border-[#C6C6C6]'>
-                                    <td className='text-[15px] text-[#09809A] font-normal p-2'>Haridwar</td>
-                                    <td className='text-right p-2'>
-                                        <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                    </td>
-                                </tr>
+                                {city ? city.map((item, index) => {
+                                    return (<tr key={index} className='border border-[#C6C6C6]'>
+                                        <td className='text-[15px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
+                                        <td className='text-right p-2'>
+                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
+                                            {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
+                                        </td>
+                                    </tr>)
+                                }):null}
                             </tbody>
                         </table>
                     </div>
 
-                    {/* Compare Cars  */}
-                    {/* <div className='my-4'>
-                                <h2 className='text-[18px] font-semibold text-[#484848] tracking-[-0.48px]'>Compare With Other Cars</h2>
-                                <div className='flex pt-2'>
-                                    <div className='border border-[#C6C6C6] md:h-[20rem] md:w-[30rem] text-center'>
-                                        <Image className='mx-auto' src={car5} alt="" />
-                                        <div className='text-center'>
-                                            <p className='md:text-[20px] text-[15px] font-medium tracking-[-0.4px]'>Hyundai Aura</p>
-                                            <p className='md:text-[18px] text-[13px] font-semibold relative right-[17px]'>₹ 6 Lakhs</p>
-                                            <p className='md:text-[14px] text-[13px] text-[#6F6F6F] relative right-[-5px] font-normal tracking-[-0.28px]'>Price in New Delhi</p>
-                                        </div>
-                                    </div>
-                                    <div className='relative z-20'>
-                                        <div className={`${style.box} absolute left-[-35px] md:left-[-45px] top-[90px] md:top-[100px]`}>
-                                            <div className={`${style["v-s"]}`}>
-                                                <div className={`${style["overlap-group"]}`}>
-                                                    <div className={`${style.ellipse}`}></div>
-                                                    <div className={`${style["text-wrapper"]}`}>V/s</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div className='h-[15rem] md:h-[20rem] overflow-y-scroll'>
-                                        <div className='border border-[#C6C6C6] md:h-[20rem] h-[15rem] md:w-[30rem] text-center relative z-10'>
-                                            <Image className='mx-auto' src={car4} alt="" />
-                                            <div className='text-center'>
-                                                <p className='md:text-[20px] text-[15px] font-medium tracking-[-0.4px]'>Tata Punch</p>
-                                                <p className='md:text-[18px] text-[13px] font-semibold right-[5px] relative'>₹ 6 Lakhs</p>
-                                                <p className='md:text-[14px] text-[13px] text-[#6F6F6F] right-[-18px] relative font-normal tracking-[-0.28px]'>Price in New Delhi</p>
-                                            </div>
-                                            <div className='bottom-0 absolute text-center w-full'>
-                                                <button className='bg-[#09809A] w-full py-3 text-white text-[14px] font-normal'><Image className='inline mr-1' width={20} src={compare_white} alt="" />Add to Compare</button>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] md:h-[20rem] h-[15rem] md:w-[30rem] text-center relative z-10'>
-                                            <Image className='mx-auto' src={car4} alt="" />
-                                            <div className='text-center'>
-                                                <p className='md:text-[20px] text-[15px] font-medium tracking-[-0.4px]'>Tata Punch</p>
-                                                <p className='md:text-[18px] text-[13px] font-semibold relative right-[5px]'>₹ 6 Lakhs</p>
-                                                <p className='md:text-[14px] text-[13px] text-[#6F6F6F] relative right-[-18px] font-normal tracking-[-0.28px]'>Price in New Delhi</p>
-                                            </div>
-                                            <div className='bottom-0 absolute text-center w-full'>
-                                                <button className='bg-[#09809A] w-full py-3 text-white text-[14px] font-normal'><Image className='inline mr-1' width={20} src={compare_white} alt="" />Add to Compare</button>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] md:h-[20rem] h-[15rem] md:w-[30rem] text-center relative z-10'>
-                                            <Image className='mx-auto' src={car4} alt="" />
-                                            <div className='text-center'>
-                                                <p className='md:text-[20px] text-[15px] font-medium tracking-[-0.4px]'>Tata Punch</p>
-                                                <p className='md:text-[18px] text-[13px] font-semibold relative right-[5px]'>₹ 6 Lakhs</p>
-                                                <p className='md:text-[14px] text-[13px] text-[#6F6F6F] relative right-[-18px] font-normal tracking-[-0.28px]'>Price in New Delhi</p>
-                                            </div>
-                                            <div className='bottom-0 absolute text-center w-full'>
-                                                <button className='bg-[#09809A] w-full py-3 text-white text-[14px] font-normal'><Image className='inline mr-1' width={20} src={compare_white} alt="" />Add to Compare</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
 
                     {/* Dream Car  */}
                     <div className='w-full bg-[#065465] my-4'>
@@ -742,122 +572,6 @@ const Variant_Mobile = (props) => {
                     </div>
 
 
-                    {/* Reviews Section  */}
-                    {/* <div className='mt-2'>
-                                <h2 className='text-[18px] font-semibold text-[#484848] pb-2 tracking-[-0.48px]'>Aura User Reviews</h2>
-                                <div className='md:w-full border border-[#C6C6C6]'>
-                                    <p className='text-[16px] font-normal text-[#484848] tracking-[-0.32px] mx-3 mt-3 mb-1'>Hyundai Aura </p>
-                                    <div className='flex pt-1 justify-between mx-3'>
-                                        <div className='flex space-x-[1rem] text-[14px] font-light'>
-                                            <div>
-                                                <span className='bg-[#09809A] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
-                                                    4.5
-                                                    <Image width={20} className='pl-[4px]' src={star} alt="" />
-                                                </span>
-                                            </div>
-                                            <p className='text-[14px] md:inline text-[#6F6F6F] hidden md:text-base'>17 Ratings & 25 Reviews</p>
-                                            <p className='md:inline hidden'>|</p>
-                                            <Rating_Model />
-                                            <div className='flex space-x-2 pt-[6px] md:pt-0 md:hidden'>
-                                                <p className='text-[12px] font-normal text-[#484848] md:text-base'>17 Ratings & 25 Reviews</p>
-                                                <p className='mt-[-2px] md:mt-0'>|</p>
-                                                <Rating_Model />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div style={{ display: "-webkit-box" }} className='overflow-x-scroll space-x-3 m-3'>
-                                        <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                            <div className='mb-5 mt-4'>
-                                                <span className='bg-[#09809A] p-2 text-[12px] rounded-md text-white'>
-                                                    <Image width={20} className='inline' src={star} alt="" />
-                                                </span>
-                                                <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                            </div>
-                                            <div>
-                                                <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                </p>
-                                            </div>
-                                            <div className='mt-10 mb-2'>
-                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                            <div className='mb-5 mt-4'>
-                                                <span className='bg-[#09809A] p-2 text-[12px] rounded-md text-white'>
-                                                    <Image width={20} className='inline' src={star} alt="" />
-                                                </span>
-                                                <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                            </div>
-                                            <div>
-                                                <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                </p>
-                                            </div>
-                                            <div className='mt-10 mb-2'>
-                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                            <div className='mb-5 mt-4'>
-                                                <span className='bg-[#09809A] p-2 text-[12px] rounded-md text-white'>
-                                                    <Image width={20} className='inline' src={star} alt="" />
-                                                </span>
-                                                <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                            </div>
-                                            <div>
-                                                <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                </p>
-                                            </div>
-                                            <div className='mt-10 mb-2'>
-                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                            <div className='mb-5 mt-4'>
-                                                <span className='bg-[#09809A] p-2 text-[12px] rounded-md text-white'>
-                                                    <Image width={20} className='inline' src={star} alt="" />
-                                                </span>
-                                                <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                            </div>
-                                            <div>
-                                                <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                </p>
-                                            </div>
-                                            <div className='mt-10 mb-2'>
-                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] w-[20rem] px-4'>
-                                            <div className='mb-5 mt-4'>
-                                                <span className='bg-[#09809A] p-2 text-[12px] rounded-md text-white'>
-                                                    <Image width={20} className='inline' src={star} alt="" />
-                                                </span>
-                                                <span className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] mx-4'>4.5 Excellent Star</span>
-                                            </div>
-                                            <div>
-                                                <p className='text-[16px] text-[#6F6F6F] font-light tracking-[-0.32px] text-justify'>It&apos;s a good car with a good design, and the mileage is also very good. I would like to buy it as i... <span className='text-[#09809A] text-[14px]'>Read More</span>
-                                                </p>
-                                            </div>
-                                            <div className='mt-10 mb-2'>
-                                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>By Salauddin</p>
-                                                <p className='text-[12px] text-[#6F6F6F] font-normal tracking-[-0.24px]'>On: Jul 14, 2023 | 568 views</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-
-                    {/* FAQ Section  */}
-                    {/* <div className='mt-3'>
-                                <h2 className='text-[18px] px-4 font-semibold tracking-[-0.48px]'>FAQ&apos;s</h2>
-                                <div className='my-3 md:w-[65rem]'>
-                                    <Faq />
-                                </div>
-                            </div> */}
-
                     {/* SPonsored adv  */}
                     <div className='mb-8'>
                         <p className='text-[12px] text-[#484848] mb-2 underline'>Sponsored</p>
@@ -873,4 +587,3 @@ const Variant_Mobile = (props) => {
     )
 }
 
-export default Variant_Mobile

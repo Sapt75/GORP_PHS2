@@ -150,7 +150,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                 <div className='lg:mx-[5rem]'>
                     <div>
                         <div className='h-[2rem] md:h-auto'>
-                            <ul ref={top_shift} className={`flex ${style["top-top"]} fixed top-top z-[9999] bg-white w-full md:hidden whitespace-nowrap overflow-x-scroll md:whitespace-normal space-x-8 md:space-x-[5rem] text-[16px] border-y border-[#E1E1E1] font-normal tracking-[-0.32px] px-2`}>
+                            <ul ref={top_shift} className={`flex ${style["top-top"]} fixed top-top z-[999] bg-white w-full md:hidden whitespace-nowrap overflow-x-scroll md:whitespace-normal space-x-8 md:space-x-[5rem] text-[16px] border-y border-[#E1E1E1] font-normal tracking-[-0.32px] px-2`}>
                                 <li className='font-semibold text-[#484848] text-[14px] my-2'><span title={`${getmodels[0].brand} ${getmodels[0].model_name}`}> {getmodels[0].model_name}  </span><Version_Modal brand={getmodels[0].brand} model={getmodels[0].model_name} version={getmodels[0].version_name} price={versionPrice} data={finalVersion} status={true} /></li>
                                 <Link title={`${getmodels[0].model_name} Overview`} activeClass="active"
                                     to="over" spy={true} smooth={true} offset={-150} duration={500}>
@@ -215,13 +215,102 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                 <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={color} alt="" /> Colors</span>
                                 {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
                             </div>
-                            <h2 className='text-[18px] text-[#484848] mt-6 font-semibold tracking-[-0.48px]'>{getmodels[0].brand} {getmodels[0].model_name} Latest Updates</h2>
+                            <h2 id='over' className='text-[18px] text-[#484848] mt-6 font-semibold tracking-[-0.48px]'>{getmodels[0].brand} {getmodels[0].model_name} Latest Updates</h2>
                             <div className='bg-[#f4f4f4] md:hidden mt-[0.5rem] text-[#6F6F6F] p-3'>
                                 <p>{getmodels[0].model_description} <span className={`${update ? null : "hidden"}`}>
                                 </span></p>
 
                                 <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
                                     <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read More <Image className='inline' src={down} alt="" /></span>
+                                </div>
+                            </div>
+
+                            <div className='py-2'>
+                                <div className='w-full rounded-[2px] flex justify-between text-[#484848] py-2 px-2'>
+                                    <h2 className='text-[15px] md:text-[24px] font-semibold tracking-[-0.32px]'>Key Specs of {getmodels[0].brand} {getmodels[0].model_name} {getmodels[0].version_name}</h2>
+                                    <Link title={`${getmodels[0].model_name} ${getmodels[0].version_name} Features & Specification`} activeClass="active"
+                                        to="spec" spy={true} smooth={true} offset={-150} duration={500}>
+                                        <p className='md:text-[14px] text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p>
+                                    </Link>
+                                </div>
+                                <div className={`${style["spec-category"]} my-1`}>
+                                    <div className="border border-[#E1E1E1] col-span-2 xl:col-span-2">
+                                        <div className='flex space-x-3 ml-2 py-2'>
+
+                                            <div>
+                                                <Image className='mt-1' src={fuel} alt="fuel" />
+                                            </div>
+                                            <div>
+                                                <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Fuel Type</p>
+                                                <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{getmodels[0].Specifications.engine_and_transmission.fuel_type}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="border border-[#E1E1E1] col-span-2 xl:col-span-3">
+                                        <div className='flex space-x-3 ml-2 py-2'>
+
+                                            <div>
+                                                <Image className='mt-1' src={seat} alt="seat" />
+                                            </div>
+                                            <div>
+                                                <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Seating Capacity</p>
+                                                <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{getmodels[0].seating_capacity}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="border border-[#E1E1E1] col-span-2 xl:col-span-2">
+                                        <div className='flex space-x-3 ml-2 py-2'>
+
+                                            <div>
+                                                <Image className='mt-1' src={body} alt="body" />
+                                            </div>
+                                            <div>
+                                                <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Body Type</p>
+                                                <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{getmodels[0].body_type}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="border border-[#E1E1E1] col-span-2 xl:col-span-3">
+                                        <div className='flex space-x-3 ml-2 py-2'>
+
+                                            <div>
+                                                <Image className='mt-1' src={transmission} alt="transmission" />
+                                            </div>
+                                            <div>
+                                                <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Transmission Type</p>
+                                                <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{getmodels[0].transmission_type}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="border border-[#E1E1E1] col-span-2 xl:col-span-3">
+                                        <div className='flex space-x-3 ml-2 py-2'>
+
+                                            <div>
+                                                <Image className='mt-1' src={engine} alt="engine" />
+                                            </div>
+                                            <div>
+                                                <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>Engine Displacement</p>
+                                                <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{getmodels[0].Specifications.engine_and_transmission.displacement} CC</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div className="border border-[#E1E1E1] col-span-2 xl:col-span-2 rounded-sm">
+                                        <div className='flex space-x-3 ml-2 py-2'>
+
+                                            <div>
+                                                <Image className='mt-1' src={arai} alt="arai" />
+                                            </div>
+                                            <div>
+                                                <p className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.28px]'>ARAI Mileage</p>
+                                                <p className='text-[14px] text-[#484848] font-semibold tracking-[-0.28px]'>{getmodels[0].Specifications.engine_and_transmission.arai_mileage ? getmodels[0].Specifications.engine_and_transmission.arai_mileage : "null"} /kmph</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='md:py-[3rem] pt-4 pb-3'>
+                                    <Image src={advert2} alt="advertisement" />
                                 </div>
                             </div>
                         </div>
@@ -257,10 +346,13 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                 </div> */}
                                 <div>
                                     <ul className='flex space-x-8 px-4 py-3 text-[#484848] font-semibold'>
-                                        <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] cursor-pointer'>Petrol</li>
-                                        <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] cursor-pointer'>CNG</li>
-                                        <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] cursor-pointer'>Manual</li>
-                                        <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] cursor-pointer'>Automatic</li>
+                                        {finalVersion.filter((value, index, self) => {
+                                            return index === self.findIndex((t) => {
+                                                return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
+                                            })
+                                        }).map((item, index) => {
+                                            return (<li key={index} className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] cursor-pointer'>{item.Specifications.engine_and_transmission.fuel_type}</li>)
+                                        })}
                                     </ul>
                                     <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Versions</p>
@@ -271,7 +363,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                     <div>
                                         {finalVersion.map((element, id) => {
                                             return (<div key={id} className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
-                                                <div >
+                                                <div className='w-[10rem]'>
                                                     <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                                         <h3 className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</h3>
                                                     </RLink>
