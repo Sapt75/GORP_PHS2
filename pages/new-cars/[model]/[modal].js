@@ -84,6 +84,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 
     const route = useRouter()
 
+    const host_url = `https://${head.host}/new-cars`
+
     function scrollFunction() {
         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
             top_bar.current.classList.add(style.scrolling);
