@@ -79,7 +79,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
         sessionStorage.setItem("host", head)
         setWidth(window.innerWidth)
-    })
+    }, [])
 
 
 
