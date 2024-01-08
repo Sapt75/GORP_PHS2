@@ -5,24 +5,21 @@ import React, { useRef, useEffect, useState } from 'react';
 import '@splidejs/splide/dist/css/splide.min.css';
 import right from "../public/images/right.svg"
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
-function ImageSlider(props) {
+
+export default function ImageSlider(props) {
     const mainRef = useRef(null);
     const thumbsRef = useRef(null);
     let [width, setWidth] = useState()
     const [images, setImages] = useState([])
 
-    let router = useRouter()
-
-    let { variant } = router.query
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 
     async function getData() {
-        const data = await fetch(`${url}/car_images/${titleCase(variant[0])}/${titleCase(variant[1])}`, {
+        const data = await fetch(`${url}/car_images/${titleCase(props.brand)}/${titleCase(props.model)}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -82,7 +79,7 @@ function ImageSlider(props) {
                 <div className='custom-wrapper'>
                     <SplideTrack>
                         <SplideSlide>
-                            <img title={`${titleCase(variant[0])} ${titleCase(variant[1])}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(variant[0])}/${titleCase(variant[1])}/${titleCase(variant[1])}.jpg`} alt={`${props.brand} ${props.model} Hero`} />
+                            <img title={`${titleCase(props.brand)} ${titleCase(props.model)}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(props.model)}.jpg`} alt={`${props.brand} ${props.model} Hero`} />
                         </SplideSlide>
                         {Object.keys(images).map((item) => {
                             return (images[item].map((itm, ind) => {
@@ -111,5 +108,5 @@ function ImageSlider(props) {
 
 };
 
-export default ImageSlider;
+
 

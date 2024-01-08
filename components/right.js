@@ -53,7 +53,7 @@ const Right = (props) => {
             {/* City Prices  */}
             <div className='w-full ml-[2.5rem] hidden md:inline'>
                 <div className='my-[2rem]'>
-                    <h2 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>{props.model} {props.version} Price in top cities
+                    <h2 className='text-[20px] text-[#484848] font-semibold tracking-[-0.4px]'>{props.model} {props.model ? null : props.version} Price in top cities
                         in India</h2>
                     <div className='mt-[1rem]'>
                         <table className='w-full my-2 md:my-5'>
@@ -66,8 +66,8 @@ const Right = (props) => {
                                     return (<tr key={index} className='border border-[#C6C6C6]'>
                                         <td className='text-[16px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
                                         <td className='text-right p-2'>
-                                            <p className='text-[16px] text-[#484848] leading-[5px] pt-2 pb-1 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)}</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            <p className='text-[16px] text-[#484848] leading-[5px] pt-2 pb-1 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
+                                            {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
                                         </td>
                                     </tr>)
                                 }) : null}
