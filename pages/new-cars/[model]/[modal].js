@@ -199,8 +199,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                 "offers": {
                     "@type": "AggregateOffer",
                     "priceCurrency": "INR",
-                    "lowPrice": modelPrice[0].min_price,
-                    "highPrice": numFormat2(modelPrice[0].max_price),
+                    "lowPrice": modelPrice ? modelPrice[0].min_price : null,
+                    "highPrice": modelPrice ? modelPrice[0].max_price : null,
                     "offerCount": 1
                 },
             }
