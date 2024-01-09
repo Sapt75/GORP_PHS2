@@ -163,7 +163,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                         </div>
                                         <div className='space-y-0.5'>
                                             <Link href={`/new-cars/${item.brand.toLowerCase()}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
-                                                <p className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</p>
+                                                <h3 className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
                                             </Link>
                                             <span className='text-[#6F6F6F] text-[14px] font-normal'>
                                                 {trans.filter((value, index, self) => {
