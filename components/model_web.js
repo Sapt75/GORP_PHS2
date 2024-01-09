@@ -79,7 +79,10 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
         pros: "",
         cons: ""
     })
-    const [filter, setFilter] = useState()
+    const [filter, setFilter] = useState({
+        fuel_type: null,
+        transmission_type: null
+    })
     const [fdata, setfData] = useState(vresponse)
     let [uniqueId, setUID] = useState(data[0].uid)
     let [model_id, setModel_ID] = useState(data[0].model_id)
@@ -389,17 +392,50 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                             })
                                         }).map((item, index) => {
                                             return (<li onClick={() => {
-                                                setFilter(item.Specifications.engine_and_transmission.fuel_type)
-                                                setfData(data.filter((itm) => item.Specifications.engine_and_transmission.fuel_type === `${itm.Specifications.engine_and_transmission.fuel_type}`))
+                                                setFilter({
+                                                    fuel_type: `${item.Specifications.engine_and_transmission.fuel_type}`,
+                                                    transmission_type: filter.transmission_type
+                                                })
+                                                filter.transmission_type !== null ? setfData(data.filter((itm) => item.Specifications.engine_and_transmission.fuel_type === `${itm.Specifications.engine_and_transmission.fuel_type}` && itm.transmission_type === filter.transmission_type)) : setfData(data.filter(itemm => itemm.Specifications.engine_and_transmission.fuel_type === `${item.Specifications.engine_and_transmission.fuel_type}`
+                                                ))
                                             }} key={index} className='hover:text-[#09809A] hover:border-b-[3px]  border-[#09809A] cursor-pointer'>{item.Specifications.engine_and_transmission.fuel_type}</li>)
                                         })}
+                                        {/* <li>|</li> */}
+                                        <li onClick={() => {
+                                            setFilter({
+                                                fuel_type: filter.fuel_type,
+                                                transmission_type: "Manual"
+                                            })
+                                            filter.fuel_type !== null ? setfData(data.filter((item) => item.transmission_type === "Manual" && item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setfData(data.filter((item) => item.transmission_type === "Manual"))
+                                        }} className='border-l-[1px] border-black pl-4 cursor-pointer'>Manual</li>
+                                        <li onClick={() => {
+                                            setFilter({
+                                                fuel_type: filter.fuel_type,
+                                                transmission_type: "Automatic"
+                                            })
+                                            filter.fuel_type !== null ? setfData(data.filter((item) => item.transmission_type === "Automatic" && item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setfData(data.filter((item) => item.transmission_type === "Automatic"))
+                                        }} className="cursor-pointer">Automatic</li>
                                     </ul>
-                                    {filter ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
-                                        {filter} <Image onClick={() => {
-                                            setFilter(null)
-                                            setfData(finalVersion)
-                                        }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
-                                    </span> : null}
+                                    <div className="flex space-x-4 my-4">
+                                        {filter.fuel_type !== null ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                                            {filter.fuel_type} <Image onClick={() => {
+                                                setFilter({
+                                                    fuel_type: null,
+                                                    transmission_type: filter.transmission_type
+                                                })
+                                                filter.transmission_type !== null ? setfData(data.filter((item) => item.transmission_type === filter.transmission_type)) : setfData(data)
+                                            }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                                        </span> : null}
+                                        {filter.transmission_type !== null ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                                            {filter.transmission_type} <Image onClick={() => {
+                                                setFilter({
+                                                    fuel_type: filter.fuel_type,
+                                                    transmission_type: null
+                                                })
+                                                filter.fuel_type !== null ? setfData(data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setfData(data)
+                                            }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                                        </span> : null}
+                                    </div>
                                     <div className='flex justify-between bg-[#F4F4F4] py-3 mt-4 px-4'>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Variants</p>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] w-[25rem] text-right'>On Road Price</p>
