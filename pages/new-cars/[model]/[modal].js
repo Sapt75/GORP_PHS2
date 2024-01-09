@@ -11,7 +11,7 @@ import Model_Mobile from '../../../components/model_mobile';
 
 
 
-export default function Model({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres }) {
+export default function Model({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres, rcity }) {
 
     const [width, setWidth] = useState()
 
@@ -150,7 +150,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
             </Head>
 
 
-            {width > 800 ? <Model_Web data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} /> : <Model_Mobile data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} />}
+            {width > 800 ? <Model_Web data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} /> : <Model_Mobile data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} mcity={rcity} />}
 
             <Footer />
         </>
@@ -298,6 +298,16 @@ Model.getInitialProps = async (context) => {
         const cres = await color.json()
 
 
+        let city = await fetch(`${url}/diff_prices/${data[0].uid}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+    
+        let rcity = await city.json()
+
+
 
 
         return {
@@ -310,7 +320,8 @@ Model.getInitialProps = async (context) => {
             citresponse,
             nomcity,
             specef,
-            cres
+            cres,
+            rcity
         }
     }
 }

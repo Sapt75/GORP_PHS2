@@ -51,13 +51,14 @@ import { Link } from 'react-scroll';
 import { useRouter } from 'next/router';
 import RLink from 'next/link';
 import ColorSlider from '../components/color';
+import cross from "../public/images/cross.svg"
 
 
 
 
 
 
-export default function Model_Mobile({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres }) {
+export default function Model_Mobile({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres, mcity }) {
 
 
     const [update, setUpdate] = useState(false)
@@ -79,8 +80,11 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
         pros: "",
         cons: ""
     })
+    const [mbcity, setMBCity] = useState(mcity)
     let [uniqueId, setUID] = useState(data[0].uid)
     let [model_id, setModel_ID] = useState(data[0].model_id)
+    const [filter, setFilter] = useState()
+    const [fdata, setfData] = useState(vresponse)
 
     const route = useRouter()
 
@@ -129,7 +133,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                 __html: data[0].cons
             }
         })
-
+        setMBCity(rcity)
         setUID(data[0].uid)
         setModel_ID(data[0].model_id)
         setGetModels(data)
@@ -140,7 +144,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
         setCity(citresponse)
         setRCity(nomcity)
         setSpecs(specef)
-    }, [data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef])
+    }, [data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, mcity])
 
 
 
@@ -345,23 +349,32 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                     </div>
                                 </div> */}
                                 <div>
-                                    <ul className='flex space-x-8 px-4 py-3 text-[#484848] font-semibold'>
+                                    <ul className='flex space-x-8 px-4 py-3 mb-2 text-[#484848] font-semibold'>
                                         {finalVersion.filter((value, index, self) => {
                                             return index === self.findIndex((t) => {
                                                 return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
                                             })
                                         }).map((item, index) => {
-                                            return (<li key={index} className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] cursor-pointer'>{item.Specifications.engine_and_transmission.fuel_type}</li>)
+                                            return (<li onClick={() => {
+                                                setFilter(item.Specifications.engine_and_transmission.fuel_type)
+                                                setfData(data.filter((itm) => item.Specifications.engine_and_transmission.fuel_type === `${itm.Specifications.engine_and_transmission.fuel_type}`))
+                                            }} key={index} className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] cursor-pointer'>{item.Specifications.engine_and_transmission.fuel_type}</li>)
                                         })}
                                     </ul>
-                                    <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
+                                    {filter ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                                        {filter} <Image onClick={() => {
+                                            setFilter(null)
+                                            setfData(finalVersion)
+                                        }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                                    </span> : null}
+                                    <div className='flex justify-between bg-[#F4F4F4] py-3 px-4 mt-4'>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Versions</p>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>On Road Price</p>
                                     </div>
 
                                     {/* Versions  */}
                                     <div>
-                                        {finalVersion.map((element, id) => {
+                                        {fdata.map((element, id) => {
                                             return (<div key={id} className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                                 <div className='w-[10rem]'>
                                                     <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
@@ -472,34 +485,16 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                         <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
                                         <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
                                     </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Noida</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Gaziabad</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Gurugram</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Haridwar</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
+                                    {mbcity.map((item, index) => {
+                                        return (<tr key={index} className='border border-[#C6C6C6]'>
+                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
+                                            <td className='text-right p-2'>
+                                                <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
+                                                {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
+                                            </td>
+                                        </tr>)
+                                    })}
+
                                 </table>
                             </div>
 

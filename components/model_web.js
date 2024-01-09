@@ -52,7 +52,7 @@ import ColorSlider from '../components/color';
 import RLink from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
+import cross from "../public/images/cross.svg"
 
 
 
@@ -79,6 +79,8 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
         pros: "",
         cons: ""
     })
+    const [filter, setFilter] = useState()
+    const [fdata, setfData] = useState(vresponse)
     let [uniqueId, setUID] = useState(data[0].uid)
     let [model_id, setModel_ID] = useState(data[0].model_id)
 
@@ -378,9 +380,27 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                             {/* Car Versions Listing  */}
 
                             <div id='ver' className='lg:w-full'>
-                                <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{getmodels[0].brand} {getmodels[0].model_name} Variants 2023</p>
+                                <p className='lg:text-[24px] text-[#484848] text-[18px] my-2 font-semibold tracking-[-0.48px]'>{getmodels[0].brand} {getmodels[0].model_name} Variants 2023</p>
                                 <div>
-                                    <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
+                                    <ul className='flex space-x-8 px-4 py-3 text-[#484848] font-semibold'>
+                                        {finalVersion.filter((value, index, self) => {
+                                            return index === self.findIndex((t) => {
+                                                return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
+                                            })
+                                        }).map((item, index) => {
+                                            return (<li onClick={() => {
+                                                setFilter(item.Specifications.engine_and_transmission.fuel_type)
+                                                setfData(data.filter((itm) => item.Specifications.engine_and_transmission.fuel_type === `${itm.Specifications.engine_and_transmission.fuel_type}`))
+                                            }} key={index} className='hover:text-[#09809A] hover:border-b-[3px]  border-[#09809A] cursor-pointer'>{item.Specifications.engine_and_transmission.fuel_type}</li>)
+                                        })}
+                                    </ul>
+                                    {filter ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                                        {filter} <Image onClick={() => {
+                                            setFilter(null)
+                                            setfData(finalVersion)
+                                        }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                                    </span> : null}
+                                    <div className='flex justify-between bg-[#F4F4F4] py-3 mt-4 px-4'>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Variants</p>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px] w-[25rem] text-right'>On Road Price</p>
                                         <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Price Breakup</p>
@@ -388,7 +408,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
                                     {/* Versions  */}
                                     <div>
-                                        {finalVersion.map((element, id) => {
+                                        {fdata.map((element, id) => {
                                             return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                                 <div className='w-[25rem]'>
                                                     <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
