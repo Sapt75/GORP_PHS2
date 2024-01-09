@@ -36,7 +36,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
                 "@type": "Car",
                 "name": `${data[0].brand} ${data[0].model_name}`,
                 "description": `${data[0].model_description}`,
-                "url": `${host_url}/${route.query.model.toLowerCase()}/${route.query.modal.toLowerCase()}`,
+                "url": `${host_url}/${route.query.brand.toLowerCase()}/${route.query.modal.toLowerCase()}`,
                 "model": `${data[0].model_name}`,
                 // "image": [
                 //     {
@@ -145,7 +145,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
             <Head>
                 <title itemProp='name'>{data[0].brand} {data[0].model_name} Price, {data[0].model_name} Varients, Mileage & Features & Specifications | GetOnRoadPrice</title>
                 <meta name="description" itemProp='description' content={`${data[0].brand} ${data[0].model_name} price in India starts at ${response.length > 0 ? numFormat(response[0].min_price) : null}. Get ${data[0].brand} ${data[0].model_name} key specs, features, ${data[0].model} Price Breakup, mileage, color, variants Price at GetonRoadPrice  `} />
-                <link rel="canonical" href={`${host_url}/${route.query.model.toLowerCase()}/${route.query.modal.toLowerCase()}`} />
+                <link rel="canonical" href={`${host_url}/${route.query.brand.toLowerCase()}/${route.query.modal.toLowerCase()}`} />
                 <script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
             </Head>
 
@@ -169,7 +169,7 @@ Model.getInitialProps = async (context) => {
 
 
 
-    const res = await fetch(`${url}/getmodelnewdetails?brand=${query.model.charAt(0).toUpperCase() + query.model.slice(1)}&model_name=${query.modal.charAt(0).toUpperCase() + query.modal.slice(1)}`, {
+    const res = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.charAt(0).toUpperCase() + query.brand.slice(1)}&model_name=${query.modal.charAt(0).toUpperCase() + query.modal.slice(1)}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -259,7 +259,7 @@ Model.getInitialProps = async (context) => {
             fuel: "",
             seat: ""
         }
-        let dat = await fetch(`${url}/model_car/${query.model.charAt(0).toUpperCase() + query.model.slice(1)}/${query.modal.charAt(0).toUpperCase() + query.modal.slice(1)}`, {
+        let dat = await fetch(`${url}/model_car/${query.brand.charAt(0).toUpperCase() + query.brand.slice(1)}/${query.modal.charAt(0).toUpperCase() + query.modal.slice(1)}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
