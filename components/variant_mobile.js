@@ -145,7 +145,7 @@ export default function Variant_Mobile(props) {
                         <div className='h-[5rem] md:h-auto mr-3'>
                             <div className='flex w-[-webkit-fill-available] mr-[10px] bg-white fixed z-[999] md:hidden space-x-1'>
                                 <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
-                                <City_Modal />
+                                <City_Modal url={url} />
                             </div>
                         </div>
                         <div ref={white} className='w-full md:hidden fixed bg-white top-[50px] z-[99] h-[2rem]'>

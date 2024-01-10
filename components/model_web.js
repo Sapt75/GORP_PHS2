@@ -251,7 +251,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                             <div className='md:w-[40%]'>
                                 <div className='hidden md:flex space-x-1'>
                                     <Version_Modal brand={getmodels[0].brand} model={getmodels[0].model_name} version={getmodels[0].version_name} price={versionPrice} data={finalVersion} />
-                                    <City_Modal />
+                                    <City_Modal url={url} />
                                 </div>
                                 <div>
                                     <div className='hidden md:block'>

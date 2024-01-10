@@ -222,7 +222,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                             <div className='md:w-[40%]'>
                                 <div className='flex space-x-1'>
                                     <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
-                                    <City_Modal />
+                                    <City_Modal url={url} />
                                 </div>
                                 <div className='block'>
                                     <div className='pt-[1.5rem] space-x-[1.6rem]'>

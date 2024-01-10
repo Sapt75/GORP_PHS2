@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -13,6 +13,7 @@ import bangalore from "../public/images/bangalore.png"
 
 function Modal(props) {
     const [open, setOpen] = useState(false);
+    const [city, setCity] = useState([])
 
     const handleOpen = () => {
         setOpen(true);
@@ -21,6 +22,23 @@ function Modal(props) {
     const handleClose = () => {
         setOpen(false);
     };
+
+
+    async function getCityData() {
+        let data = await fetch(`${props.url}/city_names`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let response = await data.json()
+        setCity(response)
+    }
+
+    useEffect(() => {
+        getCityData()
+    }, [])
+
 
     return (
         <>
@@ -91,86 +109,9 @@ function Modal(props) {
                     <div className='mt-4'>
                         <p className='p-2 text-[16px] text-[#484848] font-semibold w-full'>All Cities</p>
                         <ul className='overflow-y-scroll h-[100vh]'>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abohar, Punjab</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Abu, Rajasthan</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adilabad, Telangana</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adimali, Kerala</li>
-                            <li className='py-2.5 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>Adoni, Andra Pradesh</li>
+                            {city ? city.map((item, id) => {
+                                return (<li key={id} onClick={handleClose} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item["City Name"]}, {item["State name"]}</li>)
+                            }) : null}
                         </ul>
                     </div>
                 </DialogContent>
