@@ -215,7 +215,7 @@ export default function Dealers_Mobile({ bresponse, cities }) {
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
                                 <div className={`flex space-x-2 w-full my-2`}>
-                                    <Brand_Modal />
+                                    <Brand_Modal url={url} brand={route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} />
                                     <City_Modal url={url} />
                                 </div>
 
@@ -224,46 +224,14 @@ export default function Dealers_Mobile({ bresponse, cities }) {
                                 <div className='mt-6'>
                                     <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Authorised {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Dealers in {location}</h2>
                                     <div className='space-y-4'>
-                                        <div className='border border-[#C6C6C6] px-4'>
-                                            <p className='font-semibold text-[15px] text-[#484848] md:text-base py-2'>Shreenath {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Andheri, {location}</p>
-                                            <p className='mb-4 text-[14px] md:text-base text-[#6F6F6F]'>Grd Flr Morya Estate New link road Opp. Infinity Mall Andheri West, {location}, Maharashtra 400053</p>
-                                            <div className='flex space-x-4 mb-6'>
-                                                <p><img className='inline' src="./images/phone.svg" alt="" /><span className='text-[14px] md:text-base text-[#6F6F6F]'>9769900531</span></p>
-                                                <button className='bg-[#09809A] py-1 px-2 text-white rounded-md'>Contact Dealer</button>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] px-4'>
-                                            <p className='font-semibold text-[15px] text-[#484848] md:text-base py-2'>Shreenath {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Andheri, {location}</p>
-                                            <p className='mb-4 text-[14px] md:text-base text-[#6F6F6F]'>Grd Flr Morya Estate New link road Opp. Infinity Mall Andheri West, {location}, Maharashtra 400053</p>
-                                            <div className='flex space-x-4 mb-6'>
-                                                <p><img className='inline' src="./images/phone.svg" alt="" /><span className='text-[14px] md:text-base text-[#6F6F6F]'>9769900531</span></p>
-                                                <button className='bg-[#09809A] py-1 px-2 text-white rounded-md'>Contact Dealer</button>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] px-4'>
-                                            <p className='font-semibold text-[15px] text-[#484848] md:text-base py-2'>Shreenath {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Andheri, {location}</p>
-                                            <p className='mb-4 text-[14px] md:text-base text-[#6F6F6F]'>Grd Flr Morya Estate New link road Opp. Infinity Mall Andheri West, {location}, Maharashtra 400053</p>
-                                            <div className='flex space-x-4 mb-6'>
-                                                <p><img className='inline' src="./images/phone.svg" alt="" /><span className='text-[14px] md:text-base text-[#6F6F6F]'>9769900531</span></p>
-                                                <button className='bg-[#09809A] py-1 px-2 text-white rounded-md'>Contact Dealer</button>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] px-4'>
-                                            <p className='font-semibold text-[15px] text-[#484848] md:text-base py-2'>Shreenath {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Andheri, {location}</p>
-                                            <p className='mb-4 text-[14px] md:text-base text-[#6F6F6F]'>Grd Flr Morya Estate New link road Opp. Infinity Mall Andheri West, {location}, Maharashtra 400053</p>
-                                            <div className='flex space-x-4 mb-6'>
-                                                <p><img className='inline' src="./images/phone.svg" alt="" /><span className='text-[14px] md:text-base text-[#6F6F6F]'>9769900531</span></p>
-                                                <button className='bg-[#09809A] py-1 px-2 text-white rounded-md'>Contact Dealer</button>
-                                            </div>
-                                        </div>
-                                        <div className='border border-[#C6C6C6] px-4'>
-                                            <p className='font-semibold text-[15px] text-[#484848] md:text-base py-2'>Shreenath {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Andheri, {location}</p>
-                                            <p className='mb-4 text-[14px] md:text-base text-[#6F6F6F]'>Grd Flr Morya Estate New link road Opp. Infinity Mall Andheri West, {location}, Maharashtra 400053</p>
-                                            <div className='flex space-x-4 mb-6'>
-                                                <p><img className='inline' src="./images/phone.svg" alt="" /><span className='text-[14px] md:text-base text-[#6F6F6F]'>9769900531</span></p>
-                                                <button className='bg-[#09809A] py-1 px-2 text-white rounded-md'>Contact Dealer</button>
-                                            </div>
-                                        </div>
+                                        {dealer.map((item, index) => {
+                                            return (<div key={index} className='border border-[#C6C6C6] w-[18rem] px-4'>
+                                                <p className='font-semibold text-[15px] text-[#484848] md:text-base py-2'>{item.dealer_name}</p>
+                                                <p className='mb-4 text-[14px] md:text-base text-[#6F6F6F]'>{item.complete_address}</p>
+                                                <p><img className='inline' src="./images/phone.svg" alt="" /><span className='text-[14px] md:text-base text-[#6F6F6F]'>{item.phone}</span></p>
+                                                <button className='bg-[#09809A] py-1 px-2 text-white rounded-md w-full mt-2 mb-6'>Contact Dealer</button>
+                                            </div>)
+                                        })}
                                     </div>
                                 </div>
 
@@ -275,30 +243,15 @@ export default function Dealers_Mobile({ bresponse, cities }) {
                                 <div className='w-full my-6'>
                                     <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Top Brands</p>
                                     <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
-                                        <div className='text-center'>
-                                            <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Maruti.jpg?updatedAt=1693313074421"} />
-                                            <p className='text-[16px] text-[#484848] font-semibold my-3'>Maruti</p>
-                                        </div>
-                                        <div className='text-center'>
-                                            <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/{route.query.dealers.split(" - ")[0].charAt(0).toUpperCase() + route.query.dealers.split(" - ")[0].slice(1)}.jpg?updatedAt=1693313074421"} />
-                                            <p className='text-[16px] text-[#484848] font-semibold my-3'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)}</p>
-                                        </div>
-                                        <div className='text-center'>
-                                            <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Tata.jpg?updatedAt=1693313074421"} />
-                                            <p className='text-[16px] text-[#484848] font-semibold my-3'>Tata</p>
-                                        </div>
-                                        <div className='text-center'>
-                                            <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Mahindra.jpg?updatedAt=1693313074421"} />
-                                            <p className='text-[16px] text-[#484848] font-semibold my-3'>Mahindra</p>
-                                        </div>
-                                        <div className='text-center'>
-                                            <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Kia.jpg?updatedAt=1693313074421"} />
-                                            <p className='text-[16px] text-[#484848] font-semibold my-3'>Kia</p>
-                                        </div>
-                                        <div className='text-center'>
-                                            <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Skoda.jpg?updatedAt=1693313074421"} />
-                                            <p className='text-[16px] text-[#484848] font-semibold my-3'>Skoda</p>
-                                        </div>
+                                        {brand.length > 0 ? brand.map((item, index) => {
+                                            return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase()}`}>
+                                                <div key={index} className='text-center'>
+                                                    <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
+                                                    <p className='text-[16px] text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                </div>
+                                            </Link>)
+
+                                        }) : null}
                                     </div>
 
                                 </div>
