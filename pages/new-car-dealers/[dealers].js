@@ -14,7 +14,7 @@ export default function Dealers({ bresponse, cities }) {
 
     useEffect(() => {
         window.innerWidth > 800 ? setShow(true) : setShow(false)
-    }, [location])
+    }, [])
 
 
 
