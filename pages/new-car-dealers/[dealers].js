@@ -5,6 +5,7 @@ import Dealers_Web from '../../components/dealer_web';
 import Dealers_Mobile from '../../components/dealer_mobile';
 import Head from "next/head"
 import locationContext from '../../context/LocationContext';
+import { useRouter } from 'next/router';
 
 
 
@@ -13,6 +14,7 @@ export default function Dealers({ bresponse, cities }) {
 
     let [show, setShow] = useState(false)
     const context = React.useContext(locationContext)
+    const route = useRouter()
 
     let { location } = context
 
@@ -30,8 +32,8 @@ export default function Dealers({ bresponse, cities }) {
         <>
             <Navbar />
             <Head>
-                <title itemProp='title'>{query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Showrooms in {location} | Maruti Dealers in {location} </title>
-                <meta name='description' itemProp='description'>{query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} has 56 authorized dealer outlets / showrooms in {location}. Dealer information includes full address, phone numbers, email, pin code etc.</meta>
+                <title itemProp='title'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.route.query.dealers.split("-")[0].slice(1)} Showrooms in {location} | Maruti Dealers in {location} </title>
+                <meta name='description' itemProp='description'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.route.query.dealers.split("-")[0].slice(1)} has 56 authorized dealer outlets / showrooms in {location}. Dealer information includes full address, phone numbers, email, pin code etc.</meta>
             </Head>
             {show ? <Dealers_Web bresponse={bresponse} cities={cities} /> : <Dealers_Mobile bresponse={bresponse} cities={cities} />}
             <Footer />
