@@ -3,6 +3,7 @@ import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import Dealers_Web from '../../components/dealer_web';
 import Dealers_Mobile from '../../components/dealer_mobile';
+import Head from "next/head"
 
 
 
@@ -10,6 +11,9 @@ import Dealers_Mobile from '../../components/dealer_mobile';
 export default function Dealers({ bresponse, cities }) {
 
     let [show, setShow] = useState(false)
+    const context = React.useContext(locationContext)
+
+    let { location } = context
 
 
     useEffect(() => {
@@ -24,6 +28,10 @@ export default function Dealers({ bresponse, cities }) {
     return (
         <>
             <Navbar />
+            <Head>
+                <title itemProp='title'>{query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Showrooms in {location} | Maruti Dealers in {location} </title>
+                <meta name='description' itemProp='description'>{query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} has 56 authorized dealer outlets / showrooms in {location}. Dealer information includes full address, phone numbers, email, pin code etc.</meta>
+            </Head>
             {show ? <Dealers_Web bresponse={bresponse} cities={cities} /> : <Dealers_Mobile bresponse={bresponse} cities={cities} />}
             <Footer />
         </>
