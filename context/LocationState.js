@@ -4,7 +4,6 @@ import LocationContext from "./LocationContext";
 
 const LocationState = (props) => {
 
-
   const [location, setLocation] = React.useState()
   const [pinn, setpinn] = React.useState()
   const [showInp, setShowInp] = React.useState(false)
@@ -13,13 +12,17 @@ const LocationState = (props) => {
   const [det, setDet] = React.useState("initial")
 
 
+
   useEffect(() => {
     if (sessionStorage.getItem("city") === null) {
-      sessionStorage.setItem("city", "New Delhi")
+      sessionStorage.setItem("city", "Mumbai")
+      setLocation(sessionStorage.getItem("city"))
+    } else {
+      if(location){
+        sessionStorage.setItem("city", location)
+      }
     }
-
-    setLocation(sessionStorage.getItem("city"))
-  }, [])
+  }, [location])
 
 
 

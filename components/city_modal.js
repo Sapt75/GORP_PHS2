@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -6,14 +6,22 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Image from "next/image";
-import location from "../public/images/location.svg"
+import loc from "../public/images/location.svg"
 import cross from "../public/images/cross.svg"
 import ahmedabad from "../public/images/ahemdabad.png"
 import bangalore from "../public/images/bangalore.png"
+import locationContext from "../context/LocationContext";
+import { useRouter } from "next/router";
 
-function Modal(props) {
+export default function Modal(props) {
     const [open, setOpen] = useState(false);
     const [city, setCity] = useState([])
+    const context = useContext(locationContext)
+    const route = useRouter()
+
+
+    let { location, setLocation } = context
+
 
     const handleOpen = () => {
         setOpen(true);
@@ -37,15 +45,15 @@ function Modal(props) {
 
     useEffect(() => {
         getCityData()
-    }, [])
+    }, [location])
 
 
     return (
         <>
-            {props.status ? <Image onClick={handleOpen} className="cursor-pointer w-auto h-auto" width={25} height={25} src={location} alt="location" /> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
+            {props.status ? <Image onClick={handleOpen} className="cursor-pointer w-auto h-auto" width={25} height={25} src={loc} alt="location" /> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
                 <div className='leading-[1.2] p-[0.5rem]'>
                     <p className='pb-2 text-[#6F6F6F]'>City</p>
-                    <span className='md:text-[14px] text-[12px] text-[#484848] font-semibold tracking-[-0.28px]'>Electronic City, Bangalore</span>
+                    <span className='md:text-[14px] text-[12px] text-[#484848] font-semibold tracking-[-0.28px]'>{location ? location : "Mumbai"}</span>
                 </div>
                 <span><ChevronRightIcon className='mt-[1rem] mr-[0.6rem]' fontSize='medium' /></span>
             </div>}
@@ -110,7 +118,11 @@ function Modal(props) {
                         <p className='p-2 text-[16px] text-[#484848] font-semibold w-full'>All Cities</p>
                         <ul className='overflow-y-scroll h-[100vh]'>
                             {city ? city.map((item, id) => {
-                                return (<li key={id} onClick={handleClose} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item["City Name"]}, {item["State name"]}</li>)
+                                return (<li key={id} onClick={() => {
+                                    setLocation(item["City Name"])
+                                    route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
+                                    handleClose()
+                                }} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item["City Name"]}, {item["State name"]}</li>)
                             }) : null}
                         </ul>
                     </div>
@@ -120,4 +132,4 @@ function Modal(props) {
     );
 }
 
-export default Modal;
+

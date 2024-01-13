@@ -15,7 +15,7 @@ import down from "../public/images/down.svg"
 import Image from 'next/image'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Search from './search'
-import City from "./city_modal"
+import City_Modal from "./city_modal"
 
 
 const Navbar = () => {
@@ -24,6 +24,8 @@ const Navbar = () => {
     const [show, setShow] = useState(false)
     const [drop, setDrop] = useState(false)
     const [more, setMore] = useState(false)
+
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 
@@ -136,7 +138,7 @@ const Navbar = () => {
                     <div className='flex space-x-[1rem] 2xl:space-x-[2rem] 2xl:ml-[2rem] py-[0.8rem]'>
                         <Search status={true} />
                         <Image width={25} height={25} src={notification} alt="notification" />
-                        <City status={true} />
+                        <City_Modal status={true} url={url} />
                     </div>
                 </div>
                 <hr className='border-t-2 mb-[0.8rem] border-gray-300' />
