@@ -204,7 +204,7 @@ export default function Dealers_Mobile({ bresponse, cities }) {
                     <div className='md:hidden'>
                         <div className='md:w-[74%]'>
                             <div className='w-full'>
-                                <h2 className='md:text-[24px] text-[#484848] mb-2 mt-6 text-[18px] font-semibold tracking-[-0.48px]'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Car Dealers & Showrooms in {location}</h2>
+                                <h1 className='md:text-[24px] text-[#484848] mb-2 mt-6 text-[18px] font-semibold tracking-[-0.48px]'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Car Dealers & Showrooms in {location}</h1>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
                                     <p>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E Prices: The price of the {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
                                     </span></p>
@@ -241,7 +241,7 @@ export default function Dealers_Mobile({ bresponse, cities }) {
 
                                 {/* Brands Listing */}
                                 <div className='w-full my-6'>
-                                    <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Top Brands</p>
+                                    <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Top Brands</h2>
                                     <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
                                         {brand.length > 0 ? brand.map((item, index) => {
                                             return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase()}`}>
