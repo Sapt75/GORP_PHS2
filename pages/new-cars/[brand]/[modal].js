@@ -162,7 +162,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 Model.getInitialProps = async (context) => {
 
     const { query, req } = context;
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
     // https://inquisitive-knickers-fish.cyclic.app
 
 
