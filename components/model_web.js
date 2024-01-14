@@ -132,6 +132,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
             }
         })
 
+
         setUID(data[0].uid)
         setModel_ID(data[0].model_id)
         setGetModels(data)

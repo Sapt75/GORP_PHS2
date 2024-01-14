@@ -8,6 +8,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Image from "next/image";
 import cross from "../public/images/cross.svg"
 import edit from "../public/images/edit.svg"
+import Link from "next/link";
 
 function Brand_Model(props) {
     const [open, setOpen] = useState(false);
@@ -79,7 +80,9 @@ function Brand_Model(props) {
                     <div className='mt-4'>
                         <ul className='overflow-y-scroll h-[100vh]'>
                             {data.length > 0 ? data.map((item, index) => {
-                                return (<li key={index} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{props.brand} {item}</li>)
+                                return (<Link href={`/new-cars/${props.brand.toLowerCase().split(" ").join("-")}/${item.toLowerCase().split(" ").join("-")}`} key={index}>
+                                    <li className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{props.brand} {item}</li>
+                                </Link>)
                             }) : null}
                         </ul>
                     </div>

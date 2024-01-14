@@ -75,7 +75,7 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres, head 
 
         sessionStorage.setItem("host", head)
         setWidth(window.innerWidth)
-    }, [])
+    }, [data, pricedata, query, tdata, bres, dres, head])
 
 
 
@@ -107,9 +107,11 @@ Brand.getInitialProps = async (context) => {
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
+    console.log(query.brand.split("-").join(" "))
 
 
-    const res = await fetch(`${url}/getonebrandcarsnew?brand=${query.brand}`, {
+
+    const res = await fetch(`${url}/getonebrandcarsnew?brand=${query.brand.split("-").join(" ")}`, {
         // const res = await fetch(`/getonebrandcars?brand=${data[0].brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {
@@ -121,7 +123,7 @@ Brand.getInitialProps = async (context) => {
     // setGetbranddata(data)
 
 
-    const res_two = await fetch(`${url}/all_model_prices/${query.brand}`, {
+    const res_two = await fetch(`${url}/all_model_prices/${query.brand.split("-").join(" ")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -131,7 +133,7 @@ Brand.getInitialProps = async (context) => {
 
     // setGetPrices(pricedata)
 
-    const tres = await fetch(`${url}/all_typ/${query.brand}`, {
+    const tres = await fetch(`${url}/all_typ/${query.brand.split("-").join(" ")}`, {
         // const res = await fetch(`/getonebrandcars?brand=${data[0].brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {
@@ -151,7 +153,7 @@ Brand.getInitialProps = async (context) => {
     // setBrand(res)
 
 
-    let ddata = await fetch(`${url}/brand_desc/${query.brand}`, {
+    let ddata = await fetch(`${url}/brand_desc/${query.brand.split("-").join(" ")}`, {
         headers: {
             "Content-Type": "application/json"
         }

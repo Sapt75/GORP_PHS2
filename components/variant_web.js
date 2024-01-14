@@ -4,11 +4,10 @@ import style from "../styles/varient.module.css"
 import ImageSlider from '../components/carousel'
 import Faq from '../components/faq';
 import Image from 'next/image';
-import Color from "../components/color"
 import DoneIcon from '@mui/icons-material/Done';
 import logo from "../public/images/logo.png"
 import star from "../public/images/star.svg"
-import color from "../public/images/color.svg"
+import colour from "../public/images/color.svg"
 import image from "../public/images/image.png"
 import down from "../public/images/down.svg"
 import edit from "../public/images/edit.svg"
@@ -215,7 +214,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                             <div className='md:w-[50%] text-center'>
                                 <ImageSlider url={url} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <Link to='col' spy={true} smooth={true} offset={-150} duration={500}>
-                                    <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={color} alt="color" /> Colors</span>
+                                    <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A] cursor-pointer'><Image className='inline' src={colour} alt="colors" /> Colors</span>
                                 </Link>
                                 {/* <span className='mx-[2rem] text-[14px] font-normal tracking-[-0.28px] text-[#09809A]'><Image className='inline' src={image} alt="" /> Images</span> */}
                             </div>

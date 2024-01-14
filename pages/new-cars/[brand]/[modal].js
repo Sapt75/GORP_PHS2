@@ -134,7 +134,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 
         sessionStorage.setItem("host", head)
         setWidth(window.innerWidth)
-    }, [])
+    }, [data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres, rcity])
 
 
 
@@ -162,14 +162,17 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 Model.getInitialProps = async (context) => {
 
     const { query, req } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
     // https://inquisitive-knickers-fish.cyclic.app
+
+
+    console.log(query.brand.split("-").join(" "))
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
 
 
-    const res = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.charAt(0).toUpperCase() + query.brand.slice(1)}&model_name=${query.modal.charAt(0).toUpperCase() + query.modal.slice(1)}`, {
+    const res = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.split("-").join(" ")}&model_name=${query.modal.split("-").join(" ")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -259,7 +262,7 @@ Model.getInitialProps = async (context) => {
             fuel: "",
             seat: ""
         }
-        let dat = await fetch(`${url}/model_car/${query.brand.charAt(0).toUpperCase() + query.brand.slice(1)}/${query.modal.charAt(0).toUpperCase() + query.modal.slice(1)}`, {
+        let dat = await fetch(`${url}/model_car/${query.brand.split("-").join(" ")}/${query.modal.split("-").join(" ")}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"

@@ -121,7 +121,7 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
                                             <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} alt={`${item.brand} image`} />
                                         </div>
                                         <div className='space-y-0.5'>
-                                            <Link href={`/new-cars/${item.brand.toLowerCase()}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
+                                            <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
                                                 <h3 className='text-[16px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
                                             </Link>
                                             <span className='text-[#6F6F6F] text-[12px] font-normal'>
@@ -175,7 +175,7 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mt-6 mb-3'>Top Brands</h2>
                                 <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase()}`}>
+                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
                                             <div className='text-center'>
                                                 <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
                                                 <p className='text-[16px] text-[#484848] font-semibold my-3'>{item.brand}</p>

@@ -13,6 +13,7 @@ import edit from "../public/images/edit.svg"
 function Version_Model(props) {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState(props.data)
+    const [fuel, setFuel] = useState(props.data)
     const [filter, setFilter] = useState({
         fuel_type: null,
         transmission_type: null
@@ -60,7 +61,7 @@ function Version_Model(props) {
                     </div>
                     <div className='p-4 border-y-[2px] border-gray-100 mt-4'>
                         <ul className='flex space-x-4 text-[16px]'>
-                            {data.filter((value, index, self) => {
+                            {fuel.filter((value, index, self) => {
                                 return index === self.findIndex((t) => {
                                     return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
                                 })
@@ -70,7 +71,7 @@ function Version_Model(props) {
                                         fuel_type: `${item.Specifications.engine_and_transmission.fuel_type}`,
                                         transmission_type: filter.transmission_type
                                     })
-                                    filter.transmission_type !== null ? setData(props.data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === `${item.Specifications.engine_and_transmission.fuel_type}` && item.transmission_type === filter.transmission_type)) : setData(props.data.filter(item => item.Specifications.engine_and_transmission.fuel_type === `${item.Specifications.engine_and_transmission.fuel_type}`
+                                    filter.transmission_type !== null ? setData(props.data.filter((itm) => itm.Specifications.engine_and_transmission.fuel_type === item.Specifications.engine_and_transmission.fuel_type && itm.transmission_type === filter.transmission_type)) : setData(props.data.filter(itmm => itmm.Specifications.engine_and_transmission.fuel_type === `${item.Specifications.engine_and_transmission.fuel_type}`
                                     ))
                                 }} className="cursor-pointer">{item.Specifications.engine_and_transmission.fuel_type}</li>)
                             })}
@@ -119,7 +120,7 @@ function Version_Model(props) {
                     <div>
                         <div className="overflow-y-scroll">
                             {data.length > 0 ? data.map((element, index) => {
-                                return (<Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                return (<Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                     <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
                                         <div>
                                             <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>

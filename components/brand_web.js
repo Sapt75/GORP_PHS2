@@ -87,7 +87,12 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
 
     useEffect(() => {
         window.onscroll = function () { scrollFunction() };
-    }, [])
+        setGetbranddata(data)
+        setGetPrices(pricedata)
+        setTrans(tdata)
+        setBrand(bres)
+        setDesc(dres)
+    }, [data, pricedata, query, tdata, bres, dres, head])
 
 
 
@@ -162,7 +167,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                             <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} />
                                         </div>
                                         <div className='space-y-0.5'>
-                                            <Link href={`/new-cars/${item.brand.toLowerCase()}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
+                                            <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
                                                 <h3 className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
                                             </Link>
                                             <span className='text-[#6F6F6F] text-[14px] font-normal'>
@@ -217,7 +222,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Top Brands</h2>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase()}`}>
+                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
                                             <div key={index} className='text-center'>
                                                 <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
                                                 <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>

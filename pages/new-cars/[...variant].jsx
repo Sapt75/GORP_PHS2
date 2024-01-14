@@ -113,15 +113,17 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 Variant.getInitialProps = async (context) => {
 
     const { query, req } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
     // https://inquisitive-knickers-fish.cyclic.app
     let id, model
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
+    // console.log(`${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2]}`)
 
 
-    const res = await fetch(`${url}/single_car/${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2].split("-").join(" ")}`, {
+
+    const res = await fetch(`${url}/single_car/${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2]}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
