@@ -120,6 +120,7 @@ export default function Modal(props) {
                             {city ? city.map((item, id) => {
                                 return (<li key={id} onClick={() => {
                                     setLocation(item["City Name"])
+                                    sessionStorage.setItem("city", item["City Name"])
                                     route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
                                     handleClose()
                                 }} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item["City Name"]}, {item["State name"]}</li>)

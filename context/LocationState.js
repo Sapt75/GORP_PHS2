@@ -16,11 +16,9 @@ const LocationState = (props) => {
   useEffect(() => {
     if (sessionStorage.getItem("city") === null) {
       sessionStorage.setItem("city", "Mumbai")
-      setLocation(sessionStorage.getItem("city"))
+      setLocation("Mumbai")
     } else {
-      if(location){
-        sessionStorage.setItem("city", location)
-      }
+      setLocation(sessionStorage.getItem("city"))
     }
   }, [location])
 
