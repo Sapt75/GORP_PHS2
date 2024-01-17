@@ -449,7 +449,7 @@ export default function Price({ data,
                             <div className='md:h-[10rem]'>
                                 <div className={`flex md:block ${style.full} ${style.full3} space-y-2 bg-white z-10`}>
                                     <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
-                                    <City_Modal />
+                                    <City_Modal url={url} />
                                 </div>
                             </div>
                             <div className='hidden md:block'>
