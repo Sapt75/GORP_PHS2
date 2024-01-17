@@ -64,6 +64,7 @@ export default function Price({ data,
 
     let route = useRouter()
 
+    const host_url = `https://${head.host}/price-data`
 
 
     let sdata = {
@@ -75,32 +76,12 @@ export default function Price({ data,
         "image": `https://ik.imagekit.io/GORP/${data[0].brand}/${data[0].model_name}/${data[0].model_name}.jpg`,
         "brand": `${data[0].brand}`,
         "bodyType": `${data[0].body_type}`,
-        "vehicleEngine": {
-            "@type": "EngineSpecification ",
-            "engineDisplacement": {
-                "@type": "QuantitativeValue",
-                "value": `${data[0].Specifications.engine_and_transmission.displacement}`,
-                "unitText": "cc"
-            }
-        },
-        "fuelType": `${data[0].Specifications.engine_and_transmission.fuel_type}`,
-        "vehicleSeatingCapacity": `${data[0].seating_capacity}`,
         "manufacturer": {
             "@type": "Organization",
             "name": `${data[0].brand}`
         },
-        "numberOfAirbags": `${data[0].Features.safety.no_of_airbags}`,
-        "fuelConsumption": {
-            "@type": "QuantitativeValue",
-            "value": `${data[0].Specifications.engine_and_transmission.arai_mileage}`,
-            "unitText": "kmpl"
-        },
-        "vehicleTransmission": {
-            "@type": "QualitativeValue",
-            "name": `${data[0].transmission_type}`
-        },
         "description": `${data[0].varient_description}`,
-        "url": `${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`,
+        "url": `${host_url}/${route.query.price[0].toLowerCase()}/${route.query.price[1].toLowerCase()}/${route.query.price[2].toLowerCase()}`,
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "INR",
