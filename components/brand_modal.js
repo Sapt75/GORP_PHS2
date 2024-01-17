@@ -90,9 +90,9 @@ function Brand_Model(props) {
                         <ul className='overflow-y-scroll h-[100vh]'>
                             {data.length > 0 ? data.map((item, index) => {
                                 return (route.asPath.split("/")[1] === "new-car-dealers" ? <Link href={`/new-car-dealers/${item.toLowerCase().split(" ").join("-")}-car-dealers-in-${location.toLowerCase()}`} key={index}>
-                                    <li className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
+                                    <li onClick={handleClose} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
                                 </Link> : <Link href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`} key={index}>
-                                    <li className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
+                                    <li onClick={handleClose} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
                                 </Link>)
                             }) : null}
                         </ul>

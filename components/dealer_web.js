@@ -196,7 +196,7 @@ export default function Dealers_Web({ bresponse, cities }) {
                                 <h1 className='md:text-[24px] py-2 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Car Dealers & Showrooms in {location}</h1>
                                 <div className='flex'>
                                     <div className='bg-[#f4f4f4] text-[#6F6F6F]  p-3'>
-                                        <p>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E Prices: The price of the {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E mileage : It returns a certified mileage of . <span className={`${show ? "" : "hidden"}`}></span> </p>
+                                        <p>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E Prices: The price of the {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E in {location} is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Aura E mileage : It returns a certified mileage of . <span className={`${show ? "" : "hidden"}`}></span> </p>
                                         <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
                                             <span className='mx-[1rem] text-[#09809A] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
                                         </div>
@@ -226,14 +226,14 @@ export default function Dealers_Web({ bresponse, cities }) {
                                 </div>
                             </div>
 
-                          
+
 
                             {/* Brands Listing */}
                             <div className='w-full mt-10'>
                                 <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Showrooms of Other Brands in {location}</p>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {brand.length > 0 ? brand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase()}`}>
+                                        return (<Link key={index} href={`/new-car-dealers/${item.brand.toLowerCase()}-car-dealers-${location.toLowerCase()}`}>
                                             <div key={index} className='text-center'>
                                                 <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
                                                 <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
@@ -269,25 +269,41 @@ export default function Dealers_Web({ bresponse, cities }) {
                                                 {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Dealers in Top Cities
                                             </p>
                                             <table className='w-full'>
-                                                <tr onClick={() => setLocation("Mumbai")} className='cursor-pointer border border-[#C6C6C6]'>
+                                                <tr onClick={() => {
+                                                    setLocation("Mumbai")
+                                                    sessionStorage.setItem("city", "Mumbai")
+                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-mumbai`)
+                                                }} className='cursor-pointer border border-[#C6C6C6]'>
                                                     <td className='text-[16px] text-[#09809A] font-normal p-2'>Mumbai</td>
                                                     <td className='text-right px-2 py-3'>
                                                         <ChevronRight sx={{ color: "#09809A" }} />
                                                     </td>
                                                 </tr>
-                                                <tr onClick={() => setLocation("Delhi")} className='cursor-pointer border border-[#C6C6C6]'>
+                                                <tr onClick={() => {
+                                                    setLocation("Delhi")
+                                                    sessionStorage.setItem("city", "Delhi")
+                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-delhi`)
+                                                }} className='cursor-pointer border border-[#C6C6C6]'>
                                                     <td className='text-[16px] text-[#09809A] font-normal p-2'>Delhi</td>
                                                     <td className='text-right px-2 py-3'>
                                                         <ChevronRight sx={{ color: "#09809A" }} />
                                                     </td>
                                                 </tr>
-                                                <tr onClick={() => setLocation("Hyderabad")} className='cursor-pointer border border-[#C6C6C6]'>
+                                                <tr onClick={() => {
+                                                    setLocation("Hyderabad")
+                                                    sessionStorage.setItem("city", "Hyderabad")
+                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-hyderabad`)
+                                                }} className='cursor-pointer border border-[#C6C6C6]'>
                                                     <td className='text-[16px] text-[#09809A] font-normal p-2'>Hyderabad</td>
                                                     <td className='text-right px-2 py-3'>
                                                         <ChevronRight sx={{ color: "#09809A" }} />
                                                     </td>
                                                 </tr>
-                                                <tr onClick={() => setLocation("Kolkata")} className='cursor-pointer border border-[#C6C6C6]'>
+                                                <tr onClick={() => {
+                                                    setLocation("Kolkata")
+                                                    sessionStorage.setItem("city", "Kolkata")
+                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-kolkata`)
+                                                }} className='cursor-pointer border border-[#C6C6C6]'>
                                                     <td className='text-[16px] text-[#09809A] font-normal p-2'>Kolkata</td>
                                                     <td className='text-right px-2 py-3'>
                                                         <ChevronRight sx={{ color: "#09809A" }} />
