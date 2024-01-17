@@ -43,7 +43,7 @@ export default function Price({ data,
 
 
     const [update, setUpdate] = useState(false)
-    const [first, setFirst] = useState()
+    const [first, setFirst] = useState({})
     const top_bar = useRef(null)
 
     const [cardetails, setCardetails] = useState(data)
@@ -186,6 +186,9 @@ export default function Price({ data,
     }
 
 
+    console.log(first)
+
+
 
 
     function scrollFunction() {
@@ -200,13 +203,23 @@ export default function Price({ data,
 
     useEffect(() => {
 
+        sessionStorage.setItem("host", head)
+
         let itms = {}
 
-        response.map((item, index) => {
-            itms[index] = false
-            console.log(itms)
-            index === item.length - 1 ? setFirst(itms) : null
-        })
+        for (let i = 0; i < response.length; i++) {
+            console.log(response[i].uid, data.uid)
+            if (response[i].uid === data.uid) {
+                itms[i] = true
+            } else {
+                itms[i] = false
+            }
+
+            if (i === response.length - 1) {
+                setFirst(itms)
+            }
+        }
+
         getFinal()
         getSimilar()
         setDet({
@@ -260,7 +273,7 @@ export default function Price({ data,
                         <div className='px-4 w-1/2 py-[0.5rem] justify-between border-[#E1E1E1] flex'>
                             <div className='pt-2'>
                                 <p className='text-[16px] text-[#6F6F6F]'>City</p>
-                                <p className='text-[13px] font-semibold text-[#484848]'>New Delhi</p>
+                                <p className='text-[13px] font-semibold text-[#484848]'>{location}</p>
                             </div>
                             <div className='pt-4'>
                                 <ChevronRight />
@@ -288,7 +301,7 @@ export default function Price({ data,
                 <div className='md:mr-[2.5rem] pt-6'>
                     <h1 className='md:text-[24px] text-[20px] text-[#484848] pb-3 font-semibold tracking-[-0.48px]'>{cardetails[0].brand}&nbsp;{cardetails[0].model_name} On Road Price in&nbsp;{location}</h1>
                     <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
-                        <p>Hyundai Aura E Prices: The price of the Hyundai Aura E in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. Hyundai Aura E mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
+                        <p>Hyundai Aura E Prices: The price of the Hyundai Aura E in {location} is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura E Images, Reviews, Offers & other details, download the Get On road price App. Hyundai Aura E mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
                         </span></p>
 
                         <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
@@ -306,7 +319,7 @@ export default function Price({ data,
                             <img className='w-[70%] mx-auto' src={`https://ik.imagekit.io/GORP/${cap(route.query.price[0])}/${cap(route.query.price[1])}/${cap(route.query.price[1])}.jpg`} />
                         </div>
                         <div className='bg-[#f4f4f4] md:hidden mt-[1rem] text-[#6F6F6F] p-3'>
-                            <p>Hyundai Aura Prices: The price of the Hyundai Aura in New Delhi is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura Images, Reviews, Offers & other details, download the Get On road price App. Hyundai Aura mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
+                            <p>Hyundai Aura Prices: The price of the Hyundai Aura in {location} is Rs 6.33 Lakh (Ex-showroom). To know more about the Aura Images, Reviews, Offers & other details, download the Get On road price App. Hyundai Aura mileage : It returns a certified mileage of . <span className={`${update ? null : "hidden"}`}> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus, repellat tempore quasi doloribus possimus laudantium. Exercitationem commodi nobis dolore assumenda neque repudiandae, sit dolores, quae eaque soluta maiores! Corporis quis ipsa perferendis, repellendus odio eligendi accusamus impedit quia animi eius.
                             </span></p>
 
                             <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
@@ -363,106 +376,105 @@ export default function Price({ data,
                                             })}
                                         </div>
                                     </div>
-                                    {
-                                        getbreakup.map((item, ind) => {
-                                            return (item.Version_UID === element.uid ? <div key={ind} className={`w-full ${first ? first[index] ? "block" : "hidden" : null} border border-[#E1E1E1]`}>
-                                                <div className='flex justify-between px-4'>
-                                                    <p className="text-[#484848] text-[17px] md:text-[20px] py-3 font-semibold">{element.model_name}&nbsp;{element.version_name}&nbsp;Price {location ? location : "Mumbai"}</p>
-                                                    <div onClick={() => setFirst(prevValues => ({
-                                                        ...prevValues,
-                                                        [index]: false,
-                                                    }))} className='cursor-pointer py-3'>
-                                                        <ChevronRight className='rotate-[90deg]' />
+                                    {getbreakup.map((item, ind) => {
+                                        return (item.Version_UID === element.uid ? <div key={ind} className={`w-full ${first ? first[index] ? "block" : "hidden" : null} border border-[#E1E1E1]`}>
+                                            <div className='flex justify-between px-4'>
+                                                <p className="text-[#484848] text-[17px] md:text-[20px] py-3 font-semibold">{element.model_name}&nbsp;{element.version_name}&nbsp;Price {location ? location : "Mumbai"}</p>
+                                                <div onClick={() => setFirst(prevValues => ({
+                                                    ...prevValues,
+                                                    [index]: false,
+                                                }))} className='cursor-pointer py-3'>
+                                                    <ChevronRight className='rotate-[90deg]' />
+                                                </div>
+                                            </div>
+                                            <div className='bg-stone-300 bg-opacity-25 md:px-4'>
+                                                <div className='flex justify-between pt-4'>
+                                                    <p className="text-[18px] font-semibold">Ex-Showroom Price</p>
+                                                    <p className="text-black text-[18px] text-right font-semibold ">₹ {item.ex_showroom_price}</p>
+                                                </div>
+                                                <div className='pt-6'>
+                                                    <div>
+                                                        <span className="text-[18px] font-semibold">Registration </span>
+                                                        <span className="text-cyan-600 text-[18px] font-medium">Individual</span>
+                                                    </div>
+                                                    <div className='relative h-[9rem]'>
+                                                        <div class="w-[257px] h-[0px] border border-black"></div>
+                                                        <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+                                                        <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
+                                                        <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
+                                                        <div className='absolute right-20 space-y-4 mt-4'>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ {item.rto}</p>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ {item.road_safety_tax_cess}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className='flex justify-between relative'>
+                                                        <p className="text-[18px] font-semibold">Total Registration Charges</p>
+                                                        <p className="text-black text-[18px] text-right font-semibold ">₹ {parseInt(item.rto) + parseInt(item.road_safety_tax_cess)}</p>
+                                                        <div className="w-full h-[0px] px-2 bottom-[-10px] absolute border border-[#E1E1E1]"></div>
                                                     </div>
                                                 </div>
-                                                <div className='bg-stone-300 bg-opacity-25 md:px-4'>
-                                                    <div className='flex justify-between pt-4'>
-                                                        <p className="text-[18px] font-semibold">Ex-Showroom Price</p>
-                                                        <p className="text-black text-[18px] text-right font-semibold ">₹ {item.ex_showroom_price}</p>
+                                                <div className='pt-4'>
+                                                    <div className='flex justify-between pb-6'>
+                                                        <p className="text-[18px] font-semibold">Insurance Charges</p>
+                                                        <p className="text-black text-[18px] text-right font-semibold ">₹ {Math.round(item.insurance)}</p>
                                                     </div>
-                                                    <div className='pt-6'>
-                                                        <div>
-                                                            <span className="text-[18px] font-semibold">Registration </span>
-                                                            <span className="text-cyan-600 text-[18px] font-medium">Individual</span>
-                                                        </div>
-                                                        <div className='relative h-[9rem]'>
-                                                            <div class="w-[257px] h-[0px] border border-black"></div>
-                                                            <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-                                                            <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
-                                                            <div className='absolute right-20 space-y-4 mt-4'>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ {item.rto}</p>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ {item.road_safety_tax_cess}</p>
-                                                            </div>
-                                                        </div>
-                                                        <div className='flex justify-between relative'>
-                                                            <p className="text-[18px] font-semibold">Total Registration Charges</p>
-                                                            <p className="text-black text-[18px] text-right font-semibold ">₹ {parseInt(item.rto) + parseInt(item.road_safety_tax_cess)}</p>
-                                                            <div className="w-full h-[0px] px-2 bottom-[-10px] absolute border border-[#E1E1E1]"></div>
+                                                    <p className="text-[18px] font-semibold">Other Charges </p>
+                                                    <div className='relative h-[9rem]'>
+                                                        <div class="w-[130px] h-[0px] border border-black"></div>
+                                                        <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+                                                        <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
+                                                        <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
+                                                        <div className='absolute right-20 space-y-4 mt-4'>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ {item.hypothecation_charges}</p>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ {item.fastag}</p>
                                                         </div>
                                                     </div>
-                                                    <div className='pt-4'>
-                                                        <div className='flex justify-between pb-6'>
-                                                            <p className="text-[18px] font-semibold">Insurance Charges</p>
-                                                            <p className="text-black text-[18px] text-right font-semibold ">₹ {Math.round(item.insurance)}</p>
-                                                        </div>
-                                                        <p className="text-[18px] font-semibold">Other Charges </p>
-                                                        <div className='relative h-[9rem]'>
-                                                            <div class="w-[130px] h-[0px] border border-black"></div>
-                                                            <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-                                                            <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
-                                                            <div className='absolute right-20 space-y-4 mt-4'>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ {item.hypothecation_charges}</p>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ {item.fastag}</p>
-                                                            </div>
-                                                        </div>
-                                                        <div className='flex justify-between relative'>
-                                                            <p className="text-[18px] font-semibold">Total Other Charges</p>
-                                                            <p className="text-black text-[18px] text-right font-semibold ">₹ {parseInt(item.fastag) + parseInt(item.hypothecation_charges)}</p>
-                                                            <div className="w-full h-[0px] px-2 bottom-[-10px] absolute border border-[#E1E1E1]"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div className='pt-4'>
-                                                        <p className="text-[18px] font-semibold">Optional</p>
-                                                        <div className='relative h-[14rem]'>
-                                                            <div class="w-[130px] h-[0px] border border-black"></div>
-                                                            <div class="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
-                                                            <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
-                                                            <div className='absolute right-20 space-y-5 mt-4'>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ {item.zero_deep_insurance ? item.zero_deep_insurance : 0}</p>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ {item.four_year_extended_warranty ? item.four_year_extended_warranty : 0}</p>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ {item.amc ? item.amc : 0}</p>
-                                                                <p className="text-neutral-500 text-right text-lg">₹ 0</p>
-                                                            </div>
-                                                        </div>
-                                                        <div className='flex justify-between relative'>
-                                                            <p className="text-[18px] font-semibold">Total Optional Charges</p>
-                                                            <p className="text-black text-[18px] text-right font-semibold ">₹ {item.zero_deep_insurance ? item.zero_deep_insurance : 0 + item.four_year_extended_warranty ? item.four_year_extended_warranty : 0 + item.amc ? item.amc : 0 + 0}</p>
-                                                            <div className="w-full h-[0px] px-2 bottom-[-10px] absolute border border-[#E1E1E1]"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div className='pt-4 pb-4 relative'>
-                                                        <div className='flex justify-between pb-6'>
-                                                            <p className="text-[18px] font-semibold">On Road Price Mumbai</p>
-                                                            <p className="text-black text-[18px] text-right font-semibold ">₹ {calc(item)}</p>
-                                                            <div className="w-full h-[0px] px-2 bottom-[30px] absolute border border-[#E1E1E1]"></div>
-                                                        </div>
+                                                    <div className='flex justify-between relative'>
+                                                        <p className="text-[18px] font-semibold">Total Other Charges</p>
+                                                        <p className="text-black text-[18px] text-right font-semibold ">₹ {parseInt(item.fastag) + parseInt(item.hypothecation_charges)}</p>
+                                                        <div className="w-full h-[0px] px-2 bottom-[-10px] absolute border border-[#E1E1E1]"></div>
                                                     </div>
                                                 </div>
-                                            </div> : null)
-                                        })
+                                                <div className='pt-4'>
+                                                    <p className="text-[18px] font-semibold">Optional</p>
+                                                    <div className='relative h-[14rem]'>
+                                                        <div class="w-[130px] h-[0px] border border-black"></div>
+                                                        <div class="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
+                                                        <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
+                                                        <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
+                                                        <div class="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
+                                                        <div class="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
+                                                        <p class="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
+                                                        <div className='absolute right-20 space-y-5 mt-4'>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ {item.zero_deep_insurance ? item.zero_deep_insurance : 0}</p>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ {item.four_year_extended_warranty ? item.four_year_extended_warranty : 0}</p>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ {item.amc ? item.amc : 0}</p>
+                                                            <p className="text-neutral-500 text-right text-lg">₹ 0</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className='flex justify-between relative'>
+                                                        <p className="text-[18px] font-semibold">Total Optional Charges</p>
+                                                        <p className="text-black text-[18px] text-right font-semibold ">₹ {item.zero_deep_insurance ? item.zero_deep_insurance : 0 + item.four_year_extended_warranty ? item.four_year_extended_warranty : 0 + item.amc ? item.amc : 0 + 0}</p>
+                                                        <div className="w-full h-[0px] px-2 bottom-[-10px] absolute border border-[#E1E1E1]"></div>
+                                                    </div>
+                                                </div>
+                                                <div className='pt-4 pb-4 relative'>
+                                                    <div className='flex justify-between pb-6'>
+                                                        <p className="text-[18px] font-semibold">On Road Price Mumbai</p>
+                                                        <p className="text-black text-[18px] text-right font-semibold ">₹ {calc(item)}</p>
+                                                        <div className="w-full h-[0px] px-2 bottom-[30px] absolute border border-[#E1E1E1]"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> : null)
+                                    })
                                     }
                                 </div>)
                             })}
