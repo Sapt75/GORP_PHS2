@@ -331,11 +331,14 @@ export default function Price({ data,
                                         </div>
                                     </div>
                                     {
-                                        getbreakup.map((item, index) => {
-                                            return (item.Version_UID === element.uid ? <div key={index} className={`w-full ${first ? "block" : "hidden"} border border-[#E1E1E1]`}>
+                                        getbreakup.map((item, ind) => {
+                                            return (item.Version_UID === element.uid ? <div key={ind} className={`w-full ${first ? first[index] ? "block" : "hidden" : null} border border-[#E1E1E1]`}>
                                                 <div className='flex justify-between px-4'>
                                                     <p className="text-[#484848] text-[17px] md:text-[20px] py-3 font-semibold">{element.model_name}&nbsp;{element.version_name}&nbsp;Price {location ? location : "Mumbai"}</p>
-                                                    <div onClick={() => setFirst(false)} className='cursor-pointer py-3'>
+                                                    <div onClick={() => setFirst(prevValues => ({
+                                                        ...prevValues,
+                                                        [index]: false,
+                                                    }))} className='cursor-pointer py-3'>
                                                         <ChevronRight className='rotate-[90deg]' />
                                                     </div>
                                                 </div>
