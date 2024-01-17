@@ -9,15 +9,24 @@ import Image from "next/image";
 import cross from "../public/images/cross.svg"
 import edit from "../public/images/edit.svg"
 import Link from "next/link";
+import { useRouter } from "next/router";
+import locationContext from "../context/LocationContext";
 
 function Brand_Model(props) {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState([])
 
+    const context = React.useContext(locationContext)
+
+    let { location } = context
+
+
+    let route = useRouter()
+
 
 
     async function getData() {
-        const res = await fetch(`${props.url}/brands_cars/${props.brand}`, {
+        const res = await fetch(`${props.url}/version_brand_admin`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -57,7 +66,7 @@ function Brand_Model(props) {
         <>
             {props.state ? props.mod ? <Image onClick={handleOpen} className='inline mx-2 cursor-pointer' src={edit} alt="edit" /> : <li className='font-semibold text-[#484848] cursor-pointer mt-2'><a href="" title={`${props.brand} ${props.model}`}> {props.model}</a> <Image onClick={handleOpen} className='inline' src={edit} alt="edit" /></li> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
                 <div className='leading-[1.2] p-[0.5rem]'>
-                    <p className='pb-2 text-[#6F6F6F]'>Brand</p>
+                    <p className='pb-2 text-[#6F6F6F]'>Make</p>
                     <span className='md:text-[14px] text-[13px] text-[#484848] font-semibold tracking-[-0.28px]'>{props.brand}</span>
                 </div>
                 <span><ChevronRightIcon className='mt-[1rem] mr-[0.6rem]' fontSize='medium' /></span>
@@ -80,8 +89,10 @@ function Brand_Model(props) {
                     <div className='mt-4'>
                         <ul className='overflow-y-scroll h-[100vh]'>
                             {data.length > 0 ? data.map((item, index) => {
-                                return (<Link href={`/new-cars/${props.brand.toLowerCase().split(" ").join("-")}/${item.toLowerCase().split(" ").join("-")}`} key={index}>
-                                    <li className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{props.brand} {item}</li>
+                                return (route.asPath.split("/")[1] === "new-car-dealers" ? <Link href={`/new-car-dealers/${item.toLowerCase().split(" ").join("-")}-car-dealers-in-${location.toLowerCase()}`} key={index}>
+                                    <li className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
+                                </Link> : <Link href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`} key={index}>
+                                    <li className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
                                 </Link>)
                             }) : null}
                         </ul>
