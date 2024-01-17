@@ -50,7 +50,7 @@ import Right from '../components/right';
 import Brand_Modal from '../components/brand_modal';
 import { useRouter } from 'next/router';
 import locationContext from '../context/LocationContext';
-import { Link } from 'react-scroll';
+import Link from 'next/link';
 
 
 
