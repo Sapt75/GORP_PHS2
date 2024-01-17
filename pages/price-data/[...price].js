@@ -28,6 +28,7 @@ import edit from "../../public/images/edit.svg"
 import Rating_Model from '../../components/rating_modal';
 import locationContext from '../../context/LocationContext';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 
 
@@ -62,6 +63,52 @@ export default function Price({ data,
 
 
     let route = useRouter()
+
+
+
+    let sdata = {
+        "@context": "https://schema.org/",
+        "@type": "Car",
+        "mpn": "CW-Version-11545",
+        "name": `${data[0].brand} ${data[0].model_name} ${data[0].version_name}`,
+        "model": `${data[0].model_name}`,
+        "image": `https://ik.imagekit.io/GORP/${data[0].brand}/${data[0].model_name}/${data[0].model_name}.jpg`,
+        "brand": `${data[0].brand}`,
+        "bodyType": `${data[0].body_type}`,
+        "vehicleEngine": {
+            "@type": "EngineSpecification ",
+            "engineDisplacement": {
+                "@type": "QuantitativeValue",
+                "value": `${data[0].Specifications.engine_and_transmission.displacement}`,
+                "unitText": "cc"
+            }
+        },
+        "fuelType": `${data[0].Specifications.engine_and_transmission.fuel_type}`,
+        "vehicleSeatingCapacity": `${data[0].seating_capacity}`,
+        "manufacturer": {
+            "@type": "Organization",
+            "name": `${data[0].brand}`
+        },
+        "numberOfAirbags": `${data[0].Features.safety.no_of_airbags}`,
+        "fuelConsumption": {
+            "@type": "QuantitativeValue",
+            "value": `${data[0].Specifications.engine_and_transmission.arai_mileage}`,
+            "unitText": "kmpl"
+        },
+        "vehicleTransmission": {
+            "@type": "QualitativeValue",
+            "name": `${data[0].transmission_type}`
+        },
+        "description": `${data[0].varient_description}`,
+        "url": `${host_url}/${route.query.variant[0].toLowerCase()}/${route.query.variant[1].toLowerCase()}/${route.query.variant[2].toLowerCase()}`,
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": 746500,
+            "highPrice": 1313500,
+            "offerCount": 1
+        }
+    }
 
 
 
@@ -203,6 +250,11 @@ export default function Price({ data,
 
     return (
         <>
+            <Head>
+                <title>{cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name} Price in {location}, Price Breakup of {cardetails[0].model_name} {cardetails[0].version_name} in {location} | GetOnRoadPrice</title>
+                <meta name="description" content={`${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} on road price in ${location} is ${versionPrice.length > 0 ? numFormat(versionPrice[0].ex_showroom_price) : null} .Check ${cardetails[0].brand} ${cardetails[0].model_name} price breakup, ex-showroom price, Registration Charges, Insurance & Other Charges in ${location}. | GetonRoadPrice`} />
+                <script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
+            </Head>
             <Navbar />
             <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                 <div className='flex justify-between'>
