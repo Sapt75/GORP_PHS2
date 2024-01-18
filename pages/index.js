@@ -29,16 +29,26 @@ import Brand_Modal from '../components/brand_modal';
 import Price_Filter from '../components/price_filter';
 import Transmission_Filter from '../components/transmission_filter';
 import Fuel_Filter from '../components/fuel_filter';
+import Link from 'next/link';
 
 
 
 
-const Home = () => {
+export default function Home({bresponse, query, head}) {
 
     const top_bar = useRef(null)
     const top_shift = useRef(null)
     const white = useRef(null)
     const [change, setChange] = useState("budget")
+
+    const [brand, setBrand] = useState(bresponse)
+
+
+    useEffect(() => {
+        console.log(bresponse)
+        setBrand(bresponse)
+    }, [])
+
 
 
 
@@ -223,54 +233,15 @@ const Home = () => {
                                     <li className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
                                 </ul>
                                 <div className='grid grid-cols-3 gap-y-10 border border-[#E1E1E1] py-12'>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Maruti.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Maruti</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Hyundai.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Hyundai</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Tata.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Tata</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Mahindra.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Mahindra</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Kia.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Kia</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Skoda.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Skoda</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Renault.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Renault</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Volkswagen.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Volkswagen</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Skoda.jpg"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Skoda</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/MG.jpg"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>MG</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Honda.jpg"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Honda</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={70} height={40} src={"https://ik.imagekit.io/GORP/Logos/Toyota.jpg"} />
-                                        <p className='text-[14px] text-[#484848] font-semibold my-3'>Toyota</p>
-                                    </div>
+                                    {brand.length > 0 ? brand.map((item, index) => {
+                                        return (<Link key={index} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}`}>
+                                            <div key={index} className='text-center'>
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                            </div>
+                                        </Link>)
+
+                                    }) : null}
                                 </div>
                                 <div className='text-center my-4'>
                                     <button className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
@@ -535,7 +506,7 @@ const Home = () => {
 
                             {/* New Cars  */}
 
-                            <div className='lg:flex my-10'>
+                            {/* <div className='lg:flex my-10'>
                                 <div className='lg:w-full mx-3 md:mx-0'>
                                     <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>New Cars Trending</p>
                                     <ul className='flex space-x-5 my-2'>
@@ -603,12 +574,12 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
 
                             {/* Electric Cars  */}
 
-                            <div className='lg:flex mt-10'>
+                            {/* <div className='lg:flex mt-10'>
                                 <div className='lg:w-full mx-3 md:mx-0'>
                                     <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>Electric Cars</p>
                                     <ul className='flex space-x-5 my-2'>
@@ -676,7 +647,7 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
 
 
@@ -689,54 +660,15 @@ const Home = () => {
                                     <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
                                 </ul>
                                 <div className='grid grid-cols-6 gap-y-10 border border-[#E1E1E1] py-12'>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Maruti.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Maruti</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Hyundai.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Hyundai</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Tata.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Tata</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Mahindra.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Mahindra</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Kia.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Kia</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Skoda.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Skoda</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Renault.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Renault</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Volkswagen.jpg?updatedAt=1693313074421"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Volkswagen</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Skoda.jpg"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Skoda</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/MG.jpg"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>MG</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Honda.jpg"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Honda</p>
-                                    </div>
-                                    <div className='text-center'>
-                                        <Image className='mx-auto' width={100} height={70} src={"https://ik.imagekit.io/GORP/Logos/Toyota.jpg"} />
-                                        <p className='text-xl text-[#484848] font-semibold my-3'>Toyota</p>
-                                    </div>
+                                    {brand.length > 0 ? brand.map((item, index) => {
+                                        return (<Link key={index} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}`}>
+                                            <div key={index} className='text-center'>
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                            </div>
+                                        </Link>)
+
+                                    }) : null}
                                 </div>
                                 <div className='text-center my-4'>
                                     <button className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
@@ -764,7 +696,7 @@ const Home = () => {
 
                             {/* Upcoming Cars  */}
 
-                            <div className='lg:flex mt-10'>
+                            {/* <div className='lg:flex mt-10'>
                                 <div className='lg:w-full mx-3 md:mx-0'>
                                     <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>Upcoming Cars</p>
                                     <ul className='flex space-x-5 my-2'>
@@ -839,12 +771,12 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
 
 
                             {/* Compare Cars  */}
-                            <div className='my-10'>
+                            {/* <div className='my-10'>
                                 <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>Most Compared Cars</p>
                                 <ul className='flex space-x-5 my-2'>
                                     <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>SUV</li>
@@ -970,18 +902,18 @@ const Home = () => {
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> */}
 
 
 
 
                             {/* FAQ Section  */}
-                            <div className='my-10'>
+                            {/* <div className='my-10'>
                                 <p className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>FAQ&apos;s</p>
                                 <div className='my-3 md:w-[65rem]'>
                                     <Faq />
                                 </div>
-                            </div>
+                            </div> */}
 
 
 
@@ -1005,4 +937,35 @@ const Home = () => {
     )
 }
 
-export default Home
+
+
+
+
+Home.getInitialProps = async (context) => {
+
+    const { query, req } = context;
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    // https://inquisitive-knickers-fish.cyclic.app
+
+    const head = req ? req.headers : sessionStorage.getItem("host")
+
+
+
+    let data = await fetch(`${url}/all_brands`, {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    let bresponse = await data.json()
+
+
+    console.log(bresponse)
+
+
+    return {
+        bresponse,
+        query,
+        head
+    }
+}
+

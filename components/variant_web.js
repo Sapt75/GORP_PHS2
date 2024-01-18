@@ -55,6 +55,7 @@ import RLink from 'next/link';
 import Variant_Mobile from "../components/variant_mobile"
 import Head from "next/head"
 import ColorSlider from '../components/color';
+import locationContext from '../context/LocationContext';
 
 
 
@@ -71,6 +72,12 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
     const [getVersion, setVersion] = useState(response)
     const [allVersionPrice, setAllVersionPrice] = useState(vpresponse == "No Data" ? [] : vpresponse)
     const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
+
+
+
+    const context = React.useContext(locationContext)
+
+    let { location } = context
 
 
 
@@ -226,7 +233,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                 <div className='block'>
                                     <div className='pt-[1.5rem] space-x-[1.6rem]'>
                                         {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
-                                        <span className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
+                                        <RLink href={`/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
                                     </div>
                                     <span className='text-[14px] font-[400] tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
                                     {/* <div className='flex justify-between mt-2 w-100 bg-[#F4F4F4] py-[0.5rem]'>
@@ -438,7 +445,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
         </div> */}
                                                 </div>
                                                 <div>
-                                                    <p title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                                    <RLink href={`/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
                                                 </div>
                                             </div>)
                                         })}

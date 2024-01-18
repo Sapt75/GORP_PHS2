@@ -53,6 +53,7 @@ import RLink from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import cross from "../public/images/cross.svg"
+import locationContext from '../context/LocationContext';
 
 
 
@@ -90,6 +91,10 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
     const route = useRouter()
 
     const host_url = `https://${head.host}/new-cars`
+
+    const context = React.useContext(locationContext)
+
+    let { location } = context
 
     function scrollFunction() {
         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -258,7 +263,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                     <div className='hidden md:block'>
                                         <div className='pt-[1.5rem] space-x-[1.6rem]'>
                                             <span className='text-[22px] text-[#484848] font-semibold tracking-[-0.48px]'>₹ {modelPrice.length > 0 ? `${numFormat2(modelPrice[0].min_price)} - ${numFormat(modelPrice[0].max_price)}* ` : "No Data"}</span>
-                                            <span className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
+                                            <RLink href={`/price-data/${getmodels[0].brand.split(" ").join("-").toLowerCase()}/${getmodels[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
                                         </div>
                                         <span className='text-[14px] font-thin tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
                                     </div>
@@ -445,7 +450,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
                                     {/* Versions  */}
                                     <div>
-                                        {fdata.map((element, id) => {
+                                        {fdata ? fdata.map((element, id) => {
                                             return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                                 <div className='w-[25rem]'>
                                                     <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
@@ -463,10 +468,10 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
         </div> */}
                                                 </div>
                                                 <div>
-                                                    <p title={`${getmodels[0].model_name} ${getmodels[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                                    <RLink href={`/price-data/${getmodels[0].brand.split(" ").join("-").toLowerCase()}/${getmodels[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} title={`${getmodels[0].model_name} ${getmodels[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
                                                 </div>
                                             </div>)
-                                        })}
+                                        }):null}
 
                                     </div>
 

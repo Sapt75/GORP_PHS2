@@ -73,18 +73,24 @@ const Right = (props) => {
                                     <th className='text-right p-2 text-white text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
                                 </tr>
                                 {city.length > 0 ? city.map((item, index) => {
-                                    return (route.asPath.split("/")[4].split("-")[0] === "price" ?
-                                        <tr onClick={()=>{
-                                            route.push(`${route.asPath.split("/")[0]}/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.city_name.toLowerCase()}`)
-                                        }} key={index} className='border border-[#C6C6C6] cursor-pointer'>
-                                            
+                                    return (route.asPath.split("/")[0] === "new-cars" ?
+                                        route.asPath.split("/")[4].split("-")[0] === "price" ?<tr onClick={() => {
+                                                route.push(`${route.asPath.split("/")[0]}/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.city_name.toLowerCase()}`)
+                                            }} key={index} className='border border-[#C6C6C6] cursor-pointer'>
+
                                                 <td className='text-[16px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
                                                 <td className='text-right p-2'>
                                                     <p className='text-[16px] text-[#484848] leading-[5px] pt-2 pb-1 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
                                                     {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
                                                 </td>
-                                            
-                                        </tr> : <tr key={index} className='border border-[#C6C6C6]'>
+
+                                            </tr> : <tr key={index} className='border border-[#C6C6C6]'>
+                                                <td className='text-[16px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
+                                                <td className='text-right p-2'>
+                                                    <p className='text-[16px] text-[#484848] leading-[5px] pt-2 pb-1 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
+                                                    {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
+                                                </td>
+                                            </tr> : <tr key={index} className='border border-[#C6C6C6]'>
                                             <td className='text-[16px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
                                             <td className='text-right p-2'>
                                                 <p className='text-[16px] text-[#484848] leading-[5px] pt-2 pb-1 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
