@@ -29,17 +29,19 @@ import Brand_Modal from '../components/brand_modal';
 import Price_Filter from '../components/price_filter';
 import Transmission_Filter from '../components/transmission_filter';
 import Fuel_Filter from '../components/fuel_filter';
+import Body_Filter from '../components/body_type';
 import Link from 'next/link';
 
 
 
 
-export default function Home({bresponse, query, head}) {
+export default function Home({ bresponse, query, head }) {
 
     const top_bar = useRef(null)
     const top_shift = useRef(null)
     const white = useRef(null)
     const [change, setChange] = useState("budget")
+    const [body, setBody] = useState(false)
 
     const [brand, setBrand] = useState(bresponse)
 
@@ -656,25 +658,27 @@ export default function Home({bresponse, query, head}) {
                             <div className='w-full mt-10'>
                                 <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</p>
                                 <ul className='flex space-x-5 my-3'>
-                                    <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>
-                                    <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
+                                    <li onClick={()=> setBody(false)} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>
+                                    <li onClick={()=> setBody(true)} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
                                 </ul>
-                                <div className='grid grid-cols-6 gap-y-10 border border-[#E1E1E1] py-12'>
-                                    {brand.length > 0 ? brand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}`}>
-                                            <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
-                                            </div>
-                                        </Link>)
+                                {body ? <Body_Filter /> : <div>
+                                    <div className='grid grid-cols-6 gap-y-10 border border-[#E1E1E1] py-12'>
+                                        {brand.length > 0 ? brand.map((item, index) => {
+                                            return (<Link key={index} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}`}>
+                                                <div key={index} className='text-center'>
+                                                    <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
+                                                    <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                </div>
+                                            </Link>)
 
-                                    }) : null}
-                                </div>
-                                <div className='text-center my-4'>
-                                    <button className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
-                                        View All Brands
-                                    </span></button>
-                                </div>
+                                        }) : null}
+                                    </div>
+                                    <div className='text-center my-4'>
+                                        <button className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                            View All Brands
+                                        </span></button>
+                                    </div>
+                                </div>}
                             </div>
 
 
