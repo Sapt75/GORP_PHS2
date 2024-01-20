@@ -114,7 +114,7 @@ Filter.getInitialProps = async (context) => {
     let value = query.filter[1].split("-")[0]
 
 
-    const res = await fetch(`http://localhost:5000/filter/${query.filter[0].toLowerCase()}/${value}/${true}`, {
+    const res = await fetch(`https://inquisitive-knickers-fish.cyclic.app/filter/${query.filter[0].toLowerCase()}/${value}/${true}`, {
         // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {
@@ -137,7 +137,7 @@ Filter.getInitialProps = async (context) => {
     // setGetPrices(pricedata)
 
 
-    const res_three = await fetch(`http://localhost:5000/all_var/${query.filter[0].toLowerCase()}/${value}`, {
+    const res_three = await fetch(`https://inquisitive-knickers-fish.cyclic.app/all_var/${query.filter[0].toLowerCase()}/${value}`, {
         // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {

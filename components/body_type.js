@@ -11,7 +11,7 @@ const Body_Filter = () => {
 
 
     async function getData() {
-        let data = await fetch(`${url}/all_body_types`, {
+        let data = await fetch(`https://inquisitive-knickers-fish.cyclic.app/all_body_types`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -33,12 +33,12 @@ const Body_Filter = () => {
     return (
         <div className='grid grid-cols-2 md:grid-cols-4 gap-y-10 border border-[#E1E1E1] py-12'>
             {type.length > 0 ? type.map((item, index) => {
-                return (<Link key={index} href={`/cars/body_type/${item}`}>
+                return ( item !== null ? <Link key={index} href={`/cars/body_type/${item.toLowerCase()}`}>
                     <div className='text-center'>
                         <img width={80} className='mx-auto mb-3' src={`https://imgd.aeplcdn.com/0x0/cw/body/svg/${item === "Luxury" || item === "Minivan" || item === "Pickup Truck" ? "suv" : item.toLowerCase()}_clr.svg?v=1`} alt="" />
-                        <p className='font-semibold text-[14px] py-1.5'>Petrol</p>
+                        <p className='font-semibold text-[14px] py-1.5'>{item}</p>
                     </div>
-                </Link>)
+                </Link>:null)
             }):null}
         </div>
     )

@@ -231,3 +231,9 @@ input:checked + .slider:before {
 input:focus-visible {
   outline: 1px solid #09809A;
 }
+
+
+.top-down div:nth-child(1){
+  width: 100% !important;
+  border: none !important ;
+}

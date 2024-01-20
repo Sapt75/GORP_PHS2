@@ -172,23 +172,11 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                             </ul>
                         </div>
                         <div className='flex w-[25%] border-x border-[#E1E1E1]'>
-                            <div className='px-4 w-1/2 py-[0.5rem] border-+*r justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>Variant</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>E</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
+                            <div className='px-4 w-1/2 top-down py-[0.5rem] border-+*r justify-between border-[#E1E1E1] flex'>
+                                <Version_Modal brand={getmodels[0].brand} model={getmodels[0].model_name} version={getmodels[0].version_name} price={versionPrice} data={finalVersion} />
                             </div>
-                            <div className='px-4 w-1/2 py-[0.5rem] justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>City</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>New Delhi</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
+                            <div className='px-4 w-1/2 top-down py-[0.5rem] justify-between border-[#E1E1E1] flex'>
+                                <City_Modal url={url} />
                             </div>
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
@@ -471,7 +459,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                                     <RLink href={`/price-data/${getmodels[0].brand.split(" ").join("-").toLowerCase()}/${getmodels[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} title={`${getmodels[0].model_name} ${getmodels[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
                                                 </div>
                                             </div>)
-                                        }):null}
+                                        }) : null}
 
                                     </div>
 
