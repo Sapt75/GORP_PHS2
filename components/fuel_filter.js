@@ -28,12 +28,12 @@ const Fuel_Filter = () => {
                 <p className='font-semibold text-[14px] py-1.5'>Electric</p>
             </div>
             </Link>
-            <Link href={`/cars/fuel_type/hybrid`} aria-disabled={true}>
+            {/* <Link href={`/cars/fuel_type/hybrid`} aria-disabled={true}>
             <div className='text-center'>
                 <img width={80} className='mx-auto mb-3' src="https://imgd.aeplcdn.com/0x0/cw/fuel/svg/h-filter-without-background.svg?v=2" alt="" />
                 <p className='font-semibold text-[14px] py-1.5'>Hybrid</p>
             </div>
-            </Link>
+            </Link> */}
         </div>
     )
 }

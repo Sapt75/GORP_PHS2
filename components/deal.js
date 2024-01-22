@@ -47,7 +47,7 @@ export default function TemporaryDrawer({ brand, model, version, status }) {
                     </div>
                     <div className='ml-6'>
                         <p className='text-[18px] font-semibold text-[#484848]'>{brand} {model ? model : null} {version ? version : null}</p>
-                        <p className='text-[#6F6F6F] text-[14px] leading-[1.2]'>Provide your contact details for Test Drive, EMI options, Offers & Exchange Benefits</p>
+                        <p className='text-[#6F6F6F] text-[14px] leading-[1.2]'>Please share your contact details to schedule a test drive, explore EMI options, avail yourself of exchange benefits, and discover exciting offers.</p>
                     </div>
                 </div>
                 <div className='mx-4'>

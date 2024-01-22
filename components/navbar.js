@@ -16,6 +16,7 @@ import Image from 'next/image'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Search from './search'
 import City_Modal from "./city_modal"
+import Link from 'next/link'
 
 
 const Navbar = () => {
@@ -51,7 +52,9 @@ const Navbar = () => {
                     </div>
                     <div id='side' className={`h-screen min-h-screen fixed z-[999999] top-0 bg-white w-8/12 ${style.scroller}`}>
                         <div className='my-4 flex justify-between mr-4'>
+                        <Link href={`/`}>
                             <Image className='w-auto h-auto' width={150} height={60} src="/images/logo.png" alt="logo" />
+                        </Link>
                             <Image onClick={() => document.getElementById("side").classList.remove(style.scroll)} src={cross} alt="cross" />
                         </div>
                         <ul className='mx-4 mt-6 space-y-5 text-sm text-[#484848]'>
@@ -103,9 +106,9 @@ const Navbar = () => {
             </div>
             <div className='hidden md:block pt-[0.5rem] pb-[0.5rem]'>
                 <div className='flex justify-evenly 2xl:mx-2'>
-                    <div>
+                    <Link href={`/`}>
                         <Image className='w-auto h-[60px]' width={345} height={60} src={logo} alt="logo" />
-                    </div>
+                    </Link>
                     <ul className='flex text-[18px] uppercase font-medium tracking-[-0.4px] space-x-[1.5rem] xl:space-x-[3rem] 2xl:space-x-[4rem] 2xl:ml-[2rem] pt-[1rem]'>
                         <li className='text-[#484848]'>New Cars</li>
                         <li className='text-[#484848]'>Compare Cars</li>

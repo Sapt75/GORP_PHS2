@@ -10,6 +10,11 @@ import loc from "../public/images/location.svg"
 import cross from "../public/images/cross.svg"
 import ahmedabad from "../public/images/ahemdabad.png"
 import bangalore from "../public/images/bangalore.png"
+import kolkata from "../public/images/kolkata.png"
+import mumbai from "../public/images/mumbai.png"
+import hyderabad from "../public/images/hyderabad.png"
+import chennai from "../public/images/chennai.png"
+import delhi from "../public/images/delhi.png"
 import locationContext from "../context/LocationContext";
 import { useRouter } from "next/router";
 
@@ -71,7 +76,7 @@ export default function Modal(props) {
                     </div>
                     <div>
                         <p className='p-2 text-[16px] text-[#484848] font-semibold w-full'>Popular Cities</p>
-                        <div className='flex overflow-x-scroll space-x-6 mx-2'>
+                        <div className='flex overflow-x-scroll space-x-10 mx-2'>
                             <div onClick={() => {
                                 setLocation("Ahmedabad")
                                 sessionStorage.setItem("city", "Ahmedabad")
@@ -91,76 +96,49 @@ export default function Modal(props) {
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Bangalore</p>
                             </div>
                             <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
+                                setLocation("Kolkata")
+                                sessionStorage.setItem("city", "Kolkata")
+                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
                                 handleClose()
                             }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={ahmedabad} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Ahmedabad</p>
+                                <Image className='mx-auto' width={70} src={kolkata} alt="kolkata" />
+                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Kolkata</p>
                             </div>
                             <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
+                                setLocation("Mumbai")
+                                sessionStorage.setItem("city", "Mumbai")
+                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
                                 handleClose()
                             }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={bangalore} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Bangalore</p>
+                                <Image className='mx-auto' width={70} src={mumbai} alt="mumbai" />
+                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Mumbai</p>
                             </div>
                             <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
+                                setLocation("Hyderabad")
+                                sessionStorage.setItem("city", "Hyderabad")
+                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
                                 handleClose()
                             }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={ahmedabad} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Ahmedabad</p>
+                                <Image className='mx-auto' width={70} src={hyderabad} alt="hyderabad" />
+                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Hyderabad</p>
                             </div>
                             <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
+                                setLocation("Chennai")
+                                sessionStorage.setItem("city", "Chennai")
+                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
                                 handleClose()
                             }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={bangalore} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Bangalore</p>
+                                <Image className='mx-auto' width={70} src={chennai} alt="chennai" />
+                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Chennai</p>
                             </div>
                             <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
+                                setLocation("Delhi")
+                                sessionStorage.setItem("city", "Delhi")
+                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
                                 handleClose()
                             }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={ahmedabad} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Ahmedabad</p>
-                            </div>
-                            <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
-                                handleClose()
-                            }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={bangalore} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Bangalore</p>
-                            </div>
-                            <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
-                                handleClose()
-                            }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={ahmedabad} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Ahmedabad</p>
-                            </div>
-                            <div onClick={() => {
-                                setLocation(item["City Name"])
-                                sessionStorage.setItem("city", item["City Name"])
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
-                                handleClose()
-                            }} className='text-center'>
-                                <Image className='mx-auto' width={70} src={bangalore} alt="bangalore" />
-                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Bangalore</p>
+                                <Image className='mx-auto' width={70} src={delhi} alt="delhi" />
+                                <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Delhi</p>
                             </div>
                         </div>
                     </div>

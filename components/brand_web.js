@@ -104,7 +104,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
         setTrans(tdata)
         setBrand(bres)
         setDesc(dres)
-    }, [data, pricedata, query, tdata, bres, dres, head])
+    }, [data, pricedata, query, tdata, bres, dres, head, location])
 
 
 
@@ -212,7 +212,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                             {getprices.map((element) => {
                                                 return element.model_id === item.model_id ? <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
                                             })}
-                                            <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
+                                            <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in {location}</p>
                                             <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
                                         </div>
                                         <div>

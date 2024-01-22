@@ -164,7 +164,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[0.5rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                                 <li><Image className='w-auto h-[50px]' width={200} height={60} src={logo} alt='logo' /></li>
                                 <Brand_Model url={url} state={true} brand={getmodels[0].brand} model={getmodels[0].model_name} />
-                                <Link to='spec' spy={true} smooth={true} offset={-100} duration={500}>
+                                <Link to='fec' spy={true} smooth={true} offset={-100} duration={500}>
                                     <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848] mt-2'>Features & Specifications</li>
                                 </Link>
                                 <Link to='ver' spy={true} smooth={true} offset={-100} duration={500}>
@@ -284,12 +284,12 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                     </div>
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
-                                <div className='py-5'>
+                                <div id='fec'  className='py-5'>
                                     <div className='w-full rounded-[2px] flex justify-between font-semibold text-[#484848] py-2'>
                                         <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of {getmodels[0].brand} {getmodels[0].model_name} </h2>
                                         <Link activeClass="active"
                                             to="spec" spy={true} smooth={true} offset={-150} duration={500}>
-                                            <p className='md:text-[14px] cursor-pointer text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p>
+                                            {/* <p className='md:text-[14px] cursor-pointer text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p> */}
                                         </Link>
                                     </div>
                                     <div className={`${style["spec-category"]} my-1`}>

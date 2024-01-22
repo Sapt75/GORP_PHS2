@@ -46,6 +46,32 @@ export default function Home({ bresponse, query, head }) {
 
     const [brand, setBrand] = useState(bresponse)
     const [width, setWidth] = useState()
+    const [show, setShow] = useState([])
+    const [view, setView] = useState(false)
+
+
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+
+
+    async function handleInput(e) {
+        let data = await fetch(`https://inquisitive-knickers-fish.cyclic.app/car-search/${e.target.value}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        let res = await data.json()
+        // res.unshift(`All ${res[0].brand} Cars`)
+        console.log(e.target.value)
+        setShow(res)
+    }
+
+
+
+
+
+
 
 
     useEffect(() => {
@@ -71,7 +97,23 @@ export default function Home({ bresponse, query, head }) {
                 <div className={`w-full ${style["h-banner"]} text-center h-[30rem] md:mt-[-1.5rem] relative`}>
                     <div className='w-full bg-[#1f232f] bg-opacity-70 py-8 absolute bottom-0'>
                         <div className='md:w-2/5 md:mx-auto text-left relative mx-4'>
-                            <input className='py-2 px-3 w-full text-[#6F6F6F] rounded-md' placeholder='Type car name to view details' type="text" />
+                            <div>
+                                <input autoComplete='false' onChange={handleInput} id="form1" className='py-2 px-3 w-full text-[#6F6F6F] rounded-md' placeholder='Type car name to view details' type="text" />
+                                <ul className={`${show.length <= 0 ? "hidden" : null} absolute w-full h-[15rem] px-4 overflow-y-scroll top-1/2 bg-white pt-1`}>
+                                    {show.length > 0 ? show.map((element, index) => {
+                                        if (typeof (element) !== "string") {
+                                            return (<Link key={index} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}`} >
+                                                <li className='py-1 text-[#6f6f6f]'>{element.brand}&nbsp;{element.model_name}</li>
+                                            </Link>)
+                                        } else {
+                                            return (<Link key={index} href={`/new-cars/${element.split(" ")[1].toLowerCase()}`} >
+                                                <li className='py-1 text-[#6f6f6f]'>{element}</li>
+                                            </Link>)
+                                        }
+
+                                    }) : null}
+                                </ul>
+                            </div>
                             <div className='bg-[#09809A] inline pt-1 pb-1.5 pl-2 pr-[0.45rem] rounded-md absolute right-[2px] top-[2px]'>
                                 <SearchOutlined sx={{ color: "white" }} />
                             </div>
@@ -245,7 +287,7 @@ export default function Home({ bresponse, query, head }) {
                                     {body ? <Body_Filter /> : <div>
                                         <div className='grid grid-cols-6 gap-y-10 border border-[#E1E1E1] py-12'>
                                             {brand.length > 0 ? brand.map((item, index) => {
-                                                return (<Link key={index} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}`}>
+                                                return (<Link className={`${view ? null : index >= 12 ? "hidden" : null}`} key={index} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}`}>
                                                     <div key={index} className='text-center'>
                                                         <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
                                                         <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
@@ -255,7 +297,7 @@ export default function Home({ bresponse, query, head }) {
                                             }) : null}
                                         </div>
                                         <div className='text-center my-4'>
-                                            <button className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                            <button onClick={() => view ? setView(false) : setView(true)} className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
                                                 View All Brands
                                             </span></button>
                                         </div>

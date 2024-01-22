@@ -9,6 +9,8 @@ import Image from "next/image";
 import cross from "../public/images/cross.svg"
 import Link from "next/link"
 import edit from "../public/images/edit.svg"
+import { useRouter } from "next/router";
+import locationContext from "../context/LocationContext";
 
 function Version_Model(props) {
     const [open, setOpen] = useState(false);
@@ -18,6 +20,11 @@ function Version_Model(props) {
         fuel_type: null,
         transmission_type: null
     })
+
+    const route = useRouter()
+    const context = React.useContext(locationContext)
+
+    let { location } = context
 
 
     function numFormat(value) {
@@ -120,7 +127,17 @@ function Version_Model(props) {
                     <div>
                         <div className="overflow-y-scroll">
                             {data.length > 0 ? data.map((element, index) => {
-                                return (<Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                return (route.asPath.split("/")[1] === "price-data" ? <Link key={index} onClick={handleClose} href={`/price-data/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/price-in-${location ? location.toLowerCase():null}`}>
+                                    <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
+                                        <div>
+                                            <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
+                                            <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
+                                        </div>
+                                        <div>
+                                            <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{props.price.length > 0 ? `₹ ${numFormat(props.price.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
+                                        </div>
+                                    </div>
+                                </Link>:<Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                     <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
                                         <div>
                                             <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>

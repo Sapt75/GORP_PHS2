@@ -329,11 +329,15 @@ export default function Price({ data,
                                             </div>
                                             <p className='text-[14px] md:inline text-[#6F6F6F] hidden md:text-base'>17 Ratings & 25 Reviews</p>
                                             <p className='md:inline hidden'>|</p>
-                                            <Rating_Model />
+                                            {/* <Rating_Model /> */}
+                                            <p className='text-[#09809A] cursor-pointer md:text-[16px] text-[14px] font-semibold tracking-[-0.32px]'>Rate this car</p>
+
                                             <div className='flex space-x-2 md:hidden'>
                                                 <p className='text-[11px] text-[#6F6F6F] md:text-base'>17 Ratings & 25 Reviews</p>
                                                 <p>|</p>
-                                                <Rating_Model />
+                                                <p className='text-[#09809A] cursor-pointer md:text-[16px] text-[14px] font-semibold tracking-[-0.32px]'>Rate this car</p>
+
+                                                {/* <Rating_Model /> */}
                                             </div>
                                         </div>
                                     </div>
