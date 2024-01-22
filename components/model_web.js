@@ -54,6 +54,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import cross from "../public/images/cross.svg"
 import locationContext from '../context/LocationContext';
+import TemporaryDrawer from './deal';
 
 
 
@@ -264,7 +265,8 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                             <button className='px-[1rem] hover:bg-[#09809A] bg-[#09809A] py-[0.1rem] mx-[1rem] mt-[0.5rem] rounded-[5px] text-white text-[14px] font-medium tracking-[-0.24px]'>View Offers</button>
                                         </div>
                                     </div> */}
-                                    <button className='text-[14px] hidden md:block my-[1rem] py-[0.5rem] rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>
+                                    {/* <button className='text-[14px] hidden md:block my-[1rem] py-[0.5rem] rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button> */}
+                                    <TemporaryDrawer brand={getmodels[0].brand} model={getmodels[0].model_name} />
                                 </div>
                             </div>
                         </div>

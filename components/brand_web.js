@@ -50,6 +50,7 @@ import Link from 'next/link';
 import Brand_Model from './brand_modal';
 import City_Modal from '../components/city_modal';
 import locationContext from '../context/LocationContext';
+import TemporaryDrawer from './deal';
 
 
 
@@ -212,7 +213,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                                 return element.model_id === item.model_id ? <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
                                             })}
                                             <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
-                                            <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
+                                            <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
                                         </div>
                                         <div>
                                             <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
