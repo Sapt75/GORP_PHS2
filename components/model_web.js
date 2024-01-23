@@ -173,7 +173,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                             </ul>
                         </div>
                         <div className='flex w-[25%] border-x border-[#E1E1E1]'>
-                            <div className='px-4 w-1/2 top-down py-[0.5rem] border-+*r justify-between border-[#E1E1E1] flex'>
+                            <div className='px-4 w-1/2 top-down py-[0.5rem] border-r justify-between border-[#E1E1E1] flex'>
                                 <Version_Modal brand={getmodels[0].brand} model={getmodels[0].model_name} version={getmodels[0].version_name} price={versionPrice} data={finalVersion} />
                             </div>
                             <div className='px-4 w-1/2 top-down py-[0.5rem] justify-between border-[#E1E1E1] flex'>
@@ -181,7 +181,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                             </div>
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                            <button className='bg-[#e53012] text-white font-semibold text-[15px] px-[20px] py-2 mt-2'>Get Offers from Dealers</button>
+                            <TemporaryDrawer sticky={true} />
                         </div>
                     </div>
                 </div>

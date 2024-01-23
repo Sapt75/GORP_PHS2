@@ -147,7 +147,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                             </div>
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                            <button className='bg-[#e53012] text-white font-semibold text-[15px] px-[20px] py-2 mt-2'>Get Offers from Dealers</button>
+                            <TemporaryDrawer sticky={true} />
                         </div>
                     </div>
                 </div>
@@ -282,7 +282,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                 <div className='text-center pt-6'>
                                     <Image className='mx-auto' src={connect} alt="" />
                                     <p className='text-[24px] font-semibold tracking-[-0.48px]'>Connect</p>
-                                    <p className='text-[20px] font-semibold tracking-[-0.4px] my-2'>Hyundai Authorized</p>
+                                    <p className='text-[20px] font-semibold tracking-[-0.4px] my-2'>{getbranddata[0].brand} Authorized</p>
                                     <p className='text-[20px] font-semibold tracking-[-0.4px] my-2'>Dealers in your city</p>
                                     <div className='text-center my-4 pb-4'>
                                         <button className='bg-[#09809a] w-[90%] py-2 rounded-md'><span className='text-[20px] font-medium tracking-[-0.24px] text-white'>

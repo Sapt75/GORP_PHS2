@@ -47,6 +47,7 @@ import Rating_Model from '../components/rating_modal';
 import Emi_Modal from '../components/emi';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 
@@ -66,6 +67,11 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
     // const [desc, setDesc] = useState(dres)
 
 
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+
+    const route = useRouter()
+
+
     function numFormat(value) {
         const val = Math.abs(value)
         if (val >= 10000000) return `${(value / 10000000).toFixed(2)} Crore`
@@ -83,6 +89,22 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
             top_bar.current.classList.remove(style.scrolling);
         }
     }
+
+
+    async function fetchAgain() {
+        const res = await fetch(`${url}/filter/${route.query[0]}/${route.query[0]}/${false}`, {
+            // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await res.json();
+
+        setGetbranddata((preValue) => [...preValue].concat(data))
+
+    }
+
 
 
     useEffect(() => {
@@ -161,50 +183,57 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
 
                             {/* Car Models  */}
                             <div className='w-full'>
-                                {getbranddata.map((item, index) => {
-                                    return (<div key={index} className='flex justify-between my-2 px-10 border py-8 border-[#E1E1E1]'>
-                                        <div className='w-[15rem]'>
-                                            <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} />
-                                        </div>
-                                        <div className='space-y-0.5'>
-                                            <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
-                                                <h3 className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
-                                            </Link>
-                                            <span className='text-[#6F6F6F] text-[14px] font-normal'>
-                                                {trans.length > 0 ? trans.filter((value, index, self) => {
-                                                    return index === self.findIndex((t) => {
-                                                        if (t.model_name === item.model_name) {
-                                                            return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
-                                                        }
-                                                    })
+                                <InfiniteScroll
+                                    dataLength={getbranddata ? getbranddata.length : null}
+                                    next={fetchAgain}
+                                    hasMore={true}
+                                    loader={<h4>Loading...</h4>}
+                                >
+                                    {getbranddata.map((item, index) => {
+                                        return (<div key={index} className='flex justify-between my-2 px-10 border py-8 border-[#E1E1E1]'>
+                                            <div className='w-[15rem]'>
+                                                <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} />
+                                            </div>
+                                            <div className='space-y-0.5'>
+                                                <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
+                                                    <h3 className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
+                                                </Link>
+                                                <span className='text-[#6F6F6F] text-[14px] font-normal'>
+                                                    {trans.length > 0 ? trans.filter((value, index, self) => {
+                                                        return index === self.findIndex((t) => {
+                                                            if (t.model_name === item.model_name) {
+                                                                return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
+                                                            }
+                                                        })
 
-                                                }).map((itm) => itm.Specifications.engine_and_transmission.fuel_type).join(" | ") : null} <span className='mr-1'>
-                                                    |
+                                                    }).map((itm) => itm.Specifications.engine_and_transmission.fuel_type).join(" | ") : null} <span className='mr-1'>
+                                                        |
+                                                    </span>
+                                                    {trans.length > 0 ? trans.filter((value, index, self) => {
+                                                        return index === self.findIndex((t) => {
+                                                            if (t.model_name === item.model_name) {
+                                                                return t.transmission_type == value.transmission_type
+                                                            }
+                                                        })
+
+                                                    }).map((itm) => itm.transmission_type).join(" | ") : null}
                                                 </span>
-                                                {trans.length > 0 ? trans.filter((value, index, self) => {
-                                                    return index === self.findIndex((t) => {
-                                                        if (t.model_name === item.model_name) {
-                                                            return t.transmission_type == value.transmission_type
-                                                        }
-                                                    })
 
-                                                }).map((itm) => itm.transmission_type).join(" | "):null}
-                                            </span>
-
-                                            {getprices.map((element) => {
-                                                return element.model_id === item.model_id ? <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
-                                            })}
-                                            <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
-                                            <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
-                                        </div>
-                                        <div>
-                                            <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
-                                                4.5
-                                                <Image width={20} className='pl-[4px]' src={star} alt="" />
-                                            </span>
-                                        </div>
-                                    </div>)
-                                })}
+                                                {getprices.map((element) => {
+                                                    return element.model_id === item.model_id ? <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
+                                                })}
+                                                <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
+                                                <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
+                                            </div>
+                                            <div>
+                                                <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
+                                                    4.5
+                                                    <Image width={20} className='pl-[4px]' src={star} alt="" />
+                                                </span>
+                                            </div>
+                                        </div>)
+                                    })}
+                                </InfiniteScroll>
                                 <div class="bg-yellow-400 p-4 flex justify-evenly my-4">
                                     <div>
                                         <p class="text-2xl font-semibold">EMI Starts  at 12550/Month</p>

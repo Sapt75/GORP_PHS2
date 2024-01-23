@@ -13,7 +13,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import cross from "../public/images/cross.svg"
 import Image from 'next/image';
 
-export default function TemporaryDrawer({ brand, model, version, status }) {
+export default function TemporaryDrawer({ brand, model, version, status, sticky }) {
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -69,7 +69,7 @@ export default function TemporaryDrawer({ brand, model, version, status }) {
     return (
         <div>
             <React.Fragment key={'right'}>
-                {status ? <button onClick={toggleDrawer('right', true)} className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button> : <button onClick={toggleDrawer('right', true)} className='text-[14px] hidden md:block my-[1rem] py-[0.5rem] rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>}
+                {sticky ? <button onClick={toggleDrawer('right', true)} className='bg-[#e53012] text-white font-semibold text-[15px] px-[20px] py-2 mt-2'>Get Offers from Dealers</button> : status ? <button onClick={toggleDrawer('right', true)} className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button> : <button onClick={toggleDrawer('right', true)} className='text-[14px] hidden md:block my-[1rem] py-[0.5rem] rounded-[2px] bg-[#09809A] font-medium tracking-[-0.28px] text-white w-full md:w-3/5'>Get The Best Deal</button>}
                 <Drawer
                     anchor={'right'}
                     open={state['right']}

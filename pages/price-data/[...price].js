@@ -29,6 +29,7 @@ import Rating_Model from '../../components/rating_modal';
 import locationContext from '../../context/LocationContext';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import TemporaryDrawer from '../../components/deal';
 
 
 
@@ -269,7 +270,7 @@ export default function Price({ data,
                         </div>
                     </div>
                     <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                        <button className='bg-[#e53012] text-white font-semibold text-[15px] px-[20px] py-2 mt-2'>Get Offers from Dealers</button>
+                    <TemporaryDrawer sticky={true} />
                     </div>
                 </div>
             </div>

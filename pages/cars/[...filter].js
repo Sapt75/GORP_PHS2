@@ -114,7 +114,7 @@ Filter.getInitialProps = async (context) => {
     let value = query.filter[1].split("-")[0]
 
 
-    const res = await fetch(`https://inquisitive-knickers-fish.cyclic.app/filter/${query.filter[0].toLowerCase()}/${value}/${true}`, {
+    const res = await fetch(`${url}/filter/${query.filter[0].toLowerCase()}/${value}/${true}`, {
         // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {
