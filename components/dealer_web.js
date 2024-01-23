@@ -51,6 +51,7 @@ import Brand_Modal from '../components/brand_modal';
 import { useRouter } from 'next/router';
 import locationContext from '../context/LocationContext';
 import Link from 'next/link';
+import CustomSeparator from './breadcrumbs';
 
 
 
@@ -250,7 +251,7 @@ export default function Dealers_Web({ bresponse, cities }) {
                             </div>
 
                             <div className='md:p-4 p-1.5 mt-8'>
-                                <p>Home &gt; {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} &gt; Aura</p>
+                            <CustomSeparator />
                                 <p className='my-4 text-[#6F6F6F]'><span className='text-[#484848]'>Disclaimer:</span> While we do our best to ensure that these prices are accurate, we suggest to please contact your nearest dealer for current on road prices and offers.</p>
                             </div>
 

@@ -51,6 +51,7 @@ import Brand_Model from './brand_modal';
 import City_Modal from '../components/city_modal';
 import locationContext from '../context/LocationContext';
 import TemporaryDrawer from './deal';
+import CustomSeparator from './breadcrumbs';
 
 
 
@@ -261,7 +262,10 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                 </div>
                             </div>
 
+                            <CustomSeparator />
+
                         </div>
+
 
 
                         <div className='md:w-[26%] mx-[1rem]'>

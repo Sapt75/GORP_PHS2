@@ -55,6 +55,7 @@ import { useRouter } from 'next/router';
 import cross from "../public/images/cross.svg"
 import locationContext from '../context/LocationContext';
 import TemporaryDrawer from './deal';
+import CustomSeparator from './breadcrumbs';
 
 
 
@@ -254,7 +255,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                             <span className='text-[22px] text-[#484848] font-semibold tracking-[-0.48px]'>₹ {modelPrice.length > 0 ? `${numFormat2(modelPrice[0].min_price)} - ${numFormat(modelPrice[0].max_price)}* ` : "No Data"}</span>
                                             <RLink href={`/price-data/${getmodels[0].brand.split(" ").join("-").toLowerCase()}/${getmodels[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
                                         </div>
-                                        <span className='text-[14px] font-thin tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
+                                        <span className='text-[14px] font-thin tracking-[-0.28px] text-[#484848]'>On-Road Price {location}</span>
                                     </div>
                                     {/* <div className='flex justify-between w-100 mt-[2rem] md:mt-0 bg-[#F4F4F4] py-[0.5rem]'>
                                         <div className='px-2 pb-1'>
@@ -575,6 +576,9 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                 </div>
                             </div>
 
+
+                            <CustomSeparator />
+
                         </div>
 
                         <div className='md:w-[26%] mx-[1rem]'>
@@ -582,9 +586,9 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                         </div>
                     </div>
 
-                    <div className='pb-4'>
+                    {/* <div className='pb-4'>
                         <p>Home &gt; Hyundai &gt; Aura</p>
-                    </div>
+                    </div> */}
 
 
                 </div>

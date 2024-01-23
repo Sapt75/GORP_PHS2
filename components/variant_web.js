@@ -57,6 +57,7 @@ import Head from "next/head"
 import ColorSlider from '../components/color';
 import locationContext from '../context/LocationContext';
 import TemporaryDrawer from './deal';
+import CustomSeparator from './breadcrumbs';
 
 
 
@@ -477,6 +478,9 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                     </div>
                                 </div> */}
                             </div>
+
+
+                            <CustomSeparator />
 
                         </div>
 

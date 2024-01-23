@@ -97,9 +97,6 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
             {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} /> : <Variant_Mobile data={data} rcity={rcity} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} />}
 
-            <div className='md:p-4 p-1.5'>
-                <p>Home &gt; Hyundai &gt; Aura</p>
-            </div>
 
 
             <Footer />

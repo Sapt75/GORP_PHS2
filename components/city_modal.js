@@ -37,6 +37,30 @@ export default function Modal(props) {
     };
 
 
+    async function pincodeData(e) {
+        if (!isNaN(e.target.value)) {
+            let data = await fetch(`${props.url}/pincode_details/${e.target.value}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            let response = await data.json()
+            setCity(response)
+        } else {
+            let data = await fetch(`${props.url}/pincode_details/${e.target.value}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            let response = await data.json()
+            setCity(response)
+
+        }
+    }
+
+
     async function getCityData() {
         let data = await fetch(`${props.url}/city_names`, {
             method: "GET",
@@ -72,7 +96,7 @@ export default function Modal(props) {
                 </DialogTitle>
                 <DialogContent>
                     <div className='px-2 bg-gray-100 my-4'>
-                        <input className='border-2 border-[#0B9DBC] w-full py-[0.3rem] px-2' placeholder='Type in your pincode or City name' type="text" />
+                        <input onChange={pincodeData} id='pcode' className='border-2 border-[#0B9DBC] w-full py-[0.3rem] px-2' placeholder='Type in your pincode or City name' type="text" />
                     </div>
                     <div>
                         <p className='p-2 text-[16px] text-[#484848] font-semibold w-full'>Popular Cities</p>
@@ -147,11 +171,11 @@ export default function Modal(props) {
                         <ul className='overflow-y-scroll h-[100vh]'>
                             {city ? city.map((item, id) => {
                                 return (<li key={id} onClick={() => {
-                                    setLocation(item["City Name"])
-                                    sessionStorage.setItem("city", item["City Name"])
-                                    route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item["City Name"].toLowerCase()}`) : null
+                                    setLocation(item.City ? item.City : item["City Name"])
+                                    sessionStorage.setItem("city", item.City ? item.City : item["City Name"])
+                                    route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
                                     handleClose()
-                                }} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item["City Name"]}, {item["State name"]}</li>)
+                                }} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item.City ? item.City : item["City Name"]}, {item.postoffice_name ? item.postoffice_name : item["State name"]}</li>)
                             }) : null}
                         </ul>
                     </div>

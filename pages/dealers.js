@@ -48,6 +48,7 @@ import Version_Modal from '../components/version_modal';
 import { ChevronRight } from '@mui/icons-material';
 import Right from '../components/right';
 import Brand_Modal from '../components/brand_modal';
+import CustomSeparator from '../components/breadcrumbs';
 
 
 
@@ -240,7 +241,7 @@ const Dealers = () => {
 
 
                                 <div className='md:p-4 py-1.5'>
-                                    <p>Home &gt; Hyundai &gt; Aura</p>
+                                <CustomSeparator />
                                     <p className='my-4 text-[#6F6F6F]'>Disclaimer: While we do our best to ensure that these prices are accurate, we suggest to please contact your nearest dealer for current on road prices and offers.</p>
                                 </div>
 
@@ -432,7 +433,7 @@ const Dealers = () => {
                             </div>
 
                             <div className='md:p-4 p-1.5 mt-8'>
-                                <p>Home &gt; Hyundai &gt; Aura</p>
+                            <CustomSeparator />
                                 <p className='my-4 text-[#6F6F6F]'><span className='text-[#484848]'>Disclaimer:</span> While we do our best to ensure that these prices are accurate, we suggest to please contact your nearest dealer for current on road prices and offers.</p>
                             </div>
 

@@ -1687,9 +1687,7 @@ export default function Variant() {
                         </div>
                     </div>
 
-                    <div className='md:p-4 p-1.5'>
-                        <p>Home &gt; Hyundai &gt; Aura</p>
-                    </div>
+                    
 
 
                 </div>

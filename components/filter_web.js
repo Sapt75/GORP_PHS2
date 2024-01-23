@@ -48,6 +48,7 @@ import Emi_Modal from '../components/emi';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import CustomSeparator from './breadcrumbs';
 
 
 
@@ -272,6 +273,8 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                                 </div>
                             </div>
 
+
+                            <CustomSeparator />
                         </div>
 
 
