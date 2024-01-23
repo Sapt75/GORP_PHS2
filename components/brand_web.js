@@ -289,9 +289,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                     <p className='text-[20px] font-semibold tracking-[-0.4px] my-2'>{getbranddata[0].brand} Authorized</p>
                                     <p className='text-[20px] font-semibold tracking-[-0.4px] my-2'>Dealers in your city</p>
                                     <div className='text-center my-4 pb-4'>
-                                        <button className='bg-[#09809a] w-[90%] py-2 rounded-md'><span className='text-[20px] font-medium tracking-[-0.24px] text-white'>
-                                            Locate Dealer
-                                        </span></button>
+                                    <TemporaryDrawer brand={getbranddata[0].brand} right={true} model={getbranddata[0].model_name} />
                                     </div>
                                 </div>
                             </div>
