@@ -95,7 +95,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
                 <script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
             </Head>
 
-            {width > 800 ? <Variant_Web data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} /> : <Variant_Mobile data={data} rcity={rcity} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} />}
+            {width > 800 ? <Variant_Web host_url={host_url} data={data} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} /> : <Variant_Mobile host_url={host_url} data={data} rcity={rcity} response={response} vpresponse={vpresponse} vvpresponse={vvpresponse} params={params} color={cres} />}
 
 
 

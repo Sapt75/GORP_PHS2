@@ -59,7 +59,7 @@ import CustomSeparator from './breadcrumbs';
 
 
 
-export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, head }) {
+export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, head, host_url }) {
 
     const [show, setShow] = useState(false)
     const top_bar = useRef(null)
@@ -272,7 +272,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                 </div>
                             </div>
 
-                            <CustomSeparator />
+                            <CustomSeparator host_url={host_url} />
 
                         </div>
 

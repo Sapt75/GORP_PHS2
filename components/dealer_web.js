@@ -56,7 +56,7 @@ import CustomSeparator from './breadcrumbs';
 
 
 
-export default function Dealers_Web({ bresponse, cities }) {
+export default function Dealers_Web({ bresponse, cities, host_url }) {
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -253,7 +253,7 @@ export default function Dealers_Web({ bresponse, cities }) {
                             </div>
 
                             <div className='md:p-4 p-1.5 mt-8'>
-                            <CustomSeparator />
+                            <CustomSeparator host_url={host_url} />
                                 <p className='my-4 text-[#6F6F6F]'><span className='text-[#484848]'>Disclaimer:</span> While we do our best to ensure that these prices are accurate, we suggest to please contact your nearest dealer for current on road prices and offers.</p>
                             </div>
 

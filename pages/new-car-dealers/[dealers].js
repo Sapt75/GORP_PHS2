@@ -35,7 +35,7 @@ export default function Dealers({ bresponse, cities }) {
                 <title itemProp='title'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Showrooms in {location} | Maruti Dealers in {location} </title>
                 <meta name='description' itemProp='description' content={`${route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} has 56 authorized dealer outlets / showrooms in {location}. Dealer information includes full address, phone numbers, email, pin code etc.`} />
             </Head>
-            {show ? <Dealers_Web bresponse={bresponse} cities={cities} /> : <Dealers_Mobile bresponse={bresponse} cities={cities} />}
+            {show ? <Dealers_Web host_url={host_url} bresponse={bresponse} cities={cities} /> : <Dealers_Mobile bresponse={bresponse} cities={cities} />}
             <Footer />
         </>
     )

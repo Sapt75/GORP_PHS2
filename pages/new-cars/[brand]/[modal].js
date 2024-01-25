@@ -150,7 +150,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
             </Head>
 
 
-            {width > 800 ? <Model_Web data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} /> : <Model_Mobile data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} mcity={rcity} />}
+            {width > 800 ? <Model_Web host_url={host_url} data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} /> : <Model_Mobile host_url={host_url} data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} mcity={rcity} />}
 
             <Footer />
         </>

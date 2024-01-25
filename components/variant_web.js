@@ -61,7 +61,7 @@ import CustomSeparator from './breadcrumbs';
 
 
 
-export default function Variant_Web({ data, response, vpresponse, vvpresponse, params, color }) {
+export default function Variant_Web({ data, response, vpresponse, vvpresponse, params, color, host_url}) {
 
     const [width, setWidth] = useState()
     const [update, setUpdate] = useState(false)
@@ -482,7 +482,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                             </div>
 
 
-                            <CustomSeparator />
+                            <CustomSeparator host_url={host_url} />
 
                         </div>
 

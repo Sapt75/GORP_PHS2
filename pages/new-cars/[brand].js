@@ -88,7 +88,7 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres, head 
                 <meta itemProp='description' name="description" content={`${data[0].brand} Car price in India starts at ₹ ${dres.brand_description.split(" ")[9]} Lakh. Get On Road Price of all ${data.length} ${data[0].brand} Cars available in ${date.getFullYear().toString()}, View Features, Price Breakup, Mileage, Colours, Variants Price and more at GetonRoadPrice
 `} />
             </Head>
-            {width > 800 ? <Brand_Web data={data} pricedata={pricedata} query={query} tdata={tdata} bres={bres} dres={dres} head={head} /> : <Brand_Mobile data={data} pricedata={pricedata} query={query} tdata={tdata} bres={bres} dres={dres} head={head} />}
+            {width > 800 ? <Brand_Web host_url={host_url} data={data} pricedata={pricedata} query={query} tdata={tdata} bres={bres} dres={dres} head={head} /> : <Brand_Mobile host_url={host_url} data={data} pricedata={pricedata} query={query} tdata={tdata} bres={bres} dres={dres} head={head} />}
 
             <Footer />
         </>

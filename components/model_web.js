@@ -61,7 +61,7 @@ import CustomSeparator from './breadcrumbs';
 
 
 
-export default function Model_Web({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres }) {
+export default function Model_Web({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres , host_url}) {
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -579,7 +579,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                             </div>
 
 
-                            <CustomSeparator />
+                            <CustomSeparator host_url={host_url} />
 
                         </div>
 

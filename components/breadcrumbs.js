@@ -11,7 +11,7 @@ function handleClick(event) {
     console.info('You clicked a breadcrumb.');
 }
 
-export default function CustomSeparator() {
+export default function CustomSeparator({ host_url }) {
 
 
     let c = ""
@@ -28,8 +28,8 @@ export default function CustomSeparator() {
                     home
                 </Link>
                 {route.asPath.split("/").map((item, index) => {
-                    c += "/" + item
-                    return (index > 1 ? <Link itemProp="itemListElement" itemscope="" itemType="http://schema.org/ListItem" underline="hover" key="1" color="inherit" href={`/${c}`}>{item}</Link> : null)
+                    c += item + "/"
+                    return (index > 1 ? <Link itemProp="itemListElement" itemscope="" itemType="http://schema.org/ListItem" underline="hover" key="1" color="inherit" href={`${host_url}${c}`}>{item}</Link> : null)
                 })}
             </Breadcrumbs>
         </Stack>

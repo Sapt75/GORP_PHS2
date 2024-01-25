@@ -57,7 +57,7 @@ import TemporaryDrawer from './deal';
 
 
 
-export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head, bres }) {
+export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head, bres, host_url }) {
 
     const [show, setShow] = useState(false)
     const top_bar = useRef(null)
@@ -275,7 +275,7 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                             </div>
 
 
-                            <CustomSeparator />
+                            <CustomSeparator host_url={host_url} />
                         </div>
 
 
