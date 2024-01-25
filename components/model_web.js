@@ -92,7 +92,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
     const route = useRouter()
 
-    const host_url = `https://${head.host}/new-cars`
+    // const host_url = `https://${head.host}/new-cars`
 
     const context = React.useContext(locationContext)
 
