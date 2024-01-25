@@ -123,7 +123,7 @@ export default function Modal(props) {
                             <div onClick={() => {
                                 setLocation("Kolkata")
                                 sessionStorage.setItem("city", "Kolkata")
-                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
+                                route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-kolkata`) : null
                                 route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
                                 handleClose()
                             }} className='text-center'>

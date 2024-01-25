@@ -28,7 +28,7 @@ export default function CustomSeparator({ host_url }) {
                     home
                 </Link>
                 {route.asPath.split("/").map((item, index) => {
-                    c += item + "/"
+                    item !== undefined ? c += item + "/" : null
                     return (index > 1 ? <Link itemProp="itemListElement" itemscope="" itemType="http://schema.org/ListItem" underline="hover" key="1" color="inherit" href={`${host_url}${c}`}>{item}</Link> : null)
                 })}
             </Breadcrumbs>

@@ -10,17 +10,19 @@ import { useRouter } from 'next/router';
 
 
 
-export default function Dealers({ bresponse, cities }) {
+export default function Dealers({ bresponse, cities, head }) {
 
     let [show, setShow] = useState(false)
     const context = React.useContext(locationContext)
     const route = useRouter()
 
     let { location } = context
+    const host_url = `https://${head.host}/new-cars`
 
 
     useEffect(() => {
         window.innerWidth > 800 ? setShow(true) : setShow(false)
+        sessionStorage.setItem("host", head)
     }, [])
 
 
@@ -35,7 +37,7 @@ export default function Dealers({ bresponse, cities }) {
                 <title itemProp='title'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Showrooms in {location} | Maruti Dealers in {location} </title>
                 <meta name='description' itemProp='description' content={`${route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} has 56 authorized dealer outlets / showrooms in {location}. Dealer information includes full address, phone numbers, email, pin code etc.`} />
             </Head>
-            {show ? <Dealers_Web host_url={host_url} bresponse={bresponse} cities={cities} /> : <Dealers_Mobile bresponse={bresponse} cities={cities} />}
+            {show ? <Dealers_Web host_url={host_url} bresponse={bresponse} cities={cities} /> : <Dealers_Mobile host_url={host_url} bresponse={bresponse} cities={cities} />}
             <Footer />
         </>
     )
