@@ -23,8 +23,8 @@ function Search_Web(props) {
     return (
         <>
             {props.status ? <div className='relative'>
-                <input className='w-[20rem] py-[0.45rem] rounded-md border-2 border-[#E1E1E1] px-[1rem] font-semibold text-[#6F6F6F]' placeholder='Search New Car' type="text" />
-                <Image onClick={handleOpen} className='absolute top-[9px] right-[14px] cursor-pointer' width={25} src={search} alt="search" />
+                <input onClick={handleOpen} className='w-[20rem] cursor-pointer py-[0.45rem] rounded-md border-2 border-[#E1E1E1] px-[1rem] font-semibold text-[#6F6F6F]' placeholder='Search New Car' type="text" />
+                <Image className='absolute top-[9px] right-[14px] cursor-pointer' width={25} src={search} alt="search" />
             </div> : <Image onClick={handleOpen} width={20} src={search} alt="search" />}
 
             <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>

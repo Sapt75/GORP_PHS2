@@ -46,10 +46,11 @@ import { ChevronRight } from '@mui/icons-material';
 import Rating_Model from '../../components/rating_modal';
 import Emi_Modal from '../../components/emi';
 import { useRouter } from 'next/router';
-import Brand_Web from '../../components/brand_web';
+import Filter_Web from '../../components/filter_web';
 import Head from 'next/head';
 import Brand_Model from '../../components/brand_modal';
-import Brand_Mobile from '../../components/brand_mobile';
+import Filter_Mobile from '../../components/filter_mobile';
+import Filter_Price from '../../components/filter_price';
 
 
 
@@ -57,7 +58,7 @@ import Brand_Mobile from '../../components/brand_mobile';
 
 
 
-export default function Brand({ data, pricedata, query, tdata, bres, dres, head }) {
+export default function Filter({ newData, pricedata, query, head, bres }) {
 
     const host_url = `https://${head.host}/new-cars`
     const route = useRouter()
@@ -75,7 +76,7 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres, head 
 
         sessionStorage.setItem("host", head)
         setWidth(window.innerWidth)
-    }, [data, pricedata, query, tdata, bres, dres, head])
+    }, [newData, pricedata, query, head, bres])
 
 
 
@@ -83,12 +84,13 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres, head 
     return (
         <>
             <Navbar />
-            <Head>
+            {/* <Head>
                 <title itemProp='name'>{data[0].brand} Cars in India {date.getFullYear().toString()}, {data[0].brand} New Car Models, On Road Price, Car Details & Video Reviews | GetOnRoadPrice</title>
                 <meta itemProp='description' name="description" content={`${data[0].brand} Car price in India starts at ₹ ${dres.brand_description.split(" ")[9]} Lakh. Get On Road Price of all ${data.length} ${data[0].brand} Cars available in ${date.getFullYear().toString()}, View Features, Price Breakup, Mileage, Colours, Variants Price and more at GetonRoadPrice
 `} />
-            </Head>
-            {width > 800 ? <Brand_Web data={data} pricedata={pricedata} query={query} tdata={tdata} bres={bres} dres={dres} head={head} /> : <Brand_Mobile data={data} pricedata={pricedata} query={query} tdata={tdata} bres={bres} dres={dres} head={head} />}
+            </Head> */}
+            <Filter_Price data={newData} pricedata={pricedata} query={query} head={head} bres={bres} />
+            {/* {width > 800 ? <Filter_Web data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} /> : <Filter_Mobile data={data} pricedata={pricedata} query={query} trans={trans} ftdata={ftdata} head={head} />} */}
 
             <Footer />
         </>
@@ -98,7 +100,7 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres, head 
 
 
 
-Brand.getInitialProps = async (context) => {
+Filter.getInitialProps = async (context) => {
 
     const { query, req } = context;
     const url = "https://inquisitive-knickers-fish.cyclic.app"
@@ -107,23 +109,27 @@ Brand.getInitialProps = async (context) => {
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
-    console.log(query.brand.split("-").join(" "))
+    console.log(query)
 
 
-
-    const res = await fetch(`${url}/getonebrandcarsnew?brand=${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
-        // const res = await fetch(`/getonebrandcars?brand=${data[0].brand}&model=${model}&page=${pageNumber}`,{
+    const res = await fetch(`${url}/filter_range_brand/`, {
+        // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {
             "Content-Type": "application/json"
         }
     });
     const data = await res.json();
+    let newData = data.filter((value, index, self) => {
+        return index === self.findIndex((t) => {
+            return t.model_id == value.model_id
+        })
+    })
 
-    // setGetbranddata(data)
+    // setGetbranddata(newData)
 
 
-    const res_two = await fetch(`${url}/all_model_prices/${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
+    const res_two = await fetch(`${url}/filter_range/${parseInt(query.filter[0].split("-")[2]) * 100000}/${true}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -133,16 +139,6 @@ Brand.getInitialProps = async (context) => {
 
     // setGetPrices(pricedata)
 
-    const tres = await fetch(`${url}/all_typ/${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
-        // const res = await fetch(`/getonebrandcars?brand=${data[0].brand}&model=${model}&page=${pageNumber}`,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    const tdata = await tres.json();
-    // setTrans(data)
-
     let bdata = await fetch(`${url}/all_brands`, {
         headers: {
             "Content-Type": "application/json"
@@ -150,26 +146,13 @@ Brand.getInitialProps = async (context) => {
     })
 
     let bres = await bdata.json()
-    // setBrand(res)
-
-
-    let ddata = await fetch(`${url}/brand_desc/${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let dres = await ddata.json()
-    // setDesc(res)
 
 
     return {
-        data,
+        newData,
         pricedata,
         query,
-        tdata,
-        bres,
-        dres,
-        head
+        head,
+        bres
     }
 }

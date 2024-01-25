@@ -32,6 +32,8 @@ import Fuel_Filter from '../components/fuel_filter';
 import Body_Filter from '../components/body_type';
 import Link from 'next/link';
 import Home_Mobile from '../components/home_mobile';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 
 
@@ -48,6 +50,9 @@ export default function Home({ bresponse, query, head }) {
     const [width, setWidth] = useState()
     const [show, setShow] = useState([])
     const [view, setView] = useState(false)
+    const brnd = useRef(null)
+
+    const route = useRouter()
 
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
@@ -82,7 +87,16 @@ export default function Home({ bresponse, query, head }) {
         sessionStorage.setItem("host", head)
         setWidth(window.innerWidth)
         setBrand(bresponse)
-    }, [bresponse, query, head])
+
+
+        console.log(document.getElementById("brands"))
+
+        if (sessionStorage.getItem("scroll")) {
+            brnd.current ? brnd.current.scrollIntoView({ behavior: 'smooth' }) : null
+            sessionStorage.removeItem("scroll")
+        }
+
+    }, [bresponse, query, head, brnd])
 
 
 
@@ -92,6 +106,9 @@ export default function Home({ bresponse, query, head }) {
 
     return (
         <>
+            <Head>
+                <title itemprop="name">New Cars, Used Cars, Buy a Car, Sell Your Car - GetOnRoadPrice</title>
+            </Head>
             <Navbar />
             {width > 800 ? <div>
                 <div className={`w-full ${style["h-banner"]} text-center h-[30rem] md:mt-[-1.5rem] relative`}>
@@ -278,7 +295,7 @@ export default function Home({ bresponse, query, head }) {
 
 
                                 {/* Brands Listing */}
-                                <div className='w-full mt-10'>
+                                <div ref={brnd} className='w-full mt-10'>
                                     <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</h2>
                                     <ul className='flex space-x-5 my-3'>
                                         <li onClick={() => setBody(false)} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>

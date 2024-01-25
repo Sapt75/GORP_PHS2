@@ -64,7 +64,7 @@ function Brand_Model(props) {
 
     return (
         <>
-            {props.state ? props.mod ? <Image onClick={handleOpen} className='inline mx-2 cursor-pointer' src={edit} alt="edit" /> : <li className='font-semibold text-[#484848] cursor-pointer mt-2'><a href="" title={`${props.brand} ${props.model}`}> {props.model}</a> <Image onClick={handleOpen} className='inline' src={edit} alt="edit" /></li> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
+            {props.state ? props.mod ? <Image onClick={handleOpen} className='inline mx-2 cursor-pointer' src={edit} alt="edit" /> : <li className='font-semibold text-[#484848] cursor-pointer mt-2'><a href="" title={`${props.brand} ${props.model}`}> {props.brand}</a> <Image onClick={handleOpen} className='inline' src={edit} alt="edit" /></li> : <div onClick={handleOpen} className='border border-[#E1E1E1] w-1/2 flex justify-between cursor-pointer'>
                 <div className='leading-[1.2] p-[0.5rem]'>
                     <p className='pb-2 text-[#6F6F6F]'>Make</p>
                     <span className='md:text-[14px] text-[13px] text-[#484848] font-semibold tracking-[-0.28px]'>{props.brand}</span>

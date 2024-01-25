@@ -17,7 +17,6 @@ export default function ImageSlider(props) {
     const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
-
     async function getData() {
         const data = await fetch(`${url}/car_images/${titleCase(props.brand)}/${titleCase(props.model)}`, {
             method: "GET",
@@ -79,12 +78,12 @@ export default function ImageSlider(props) {
                 <div className='custom-wrapper'>
                     <SplideTrack>
                         <SplideSlide>
-                            <img title={`${titleCase(props.brand)} ${titleCase(props.model)}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(props.model)}.jpg`} alt={`${props.brand} ${props.model} Hero`} />
+                            <img title={`${titleCase(props.brand)} ${titleCase(props.model)}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(props.model)}.jpg?updatedAt=${new Date().getTime() / 1000}`} alt={`${props.brand} ${props.model} Hero`} />
                         </SplideSlide>
                         {Object.keys(images).map((item) => {
                             return (images[item].map((itm, ind) => {
                                 return (<SplideSlide key={ind}>
-                                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={itm} alt={`${props.brand} ${props.model} ${item}`} />
+                                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={itm + `?updatedAt=${new Date().getTime() / 1000}`} alt={`${props.brand} ${props.model} ${item}`} />
                                 </SplideSlide>)
                             }))
                         })}
@@ -102,7 +101,7 @@ export default function ImageSlider(props) {
                 {/* <SplideSlide>
                     <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src="https://ik.imagekit.io/GORP/Hyundai/Aura/Exterior/car6.jpg?updatedAt=1690106137961" alt="" />
                 </SplideSlide> */}
-            </Splide> 
+            </Splide>
         </div>
     );
 

@@ -12,6 +12,8 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import cross from "../public/images/cross.svg"
 import Image from 'next/image';
+import { useRouter } from "next/router";
+import locationContext from '../context/LocationContext';
 
 export default function TemporaryDrawer({ brand, model, version, status, sticky, right }) {
     const [state, setState] = React.useState({
@@ -20,6 +22,12 @@ export default function TemporaryDrawer({ brand, model, version, status, sticky,
         bottom: false,
         right: false,
     });
+
+    const context = React.useContext(locationContext)
+
+    let { location } = context
+
+    const route = useRouter()
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -32,6 +40,7 @@ export default function TemporaryDrawer({ brand, model, version, status, sticky,
 
     function handelSubmit() {
         toggleDrawer('right', false)
+        route.push(`/new-car-dealers/${brand.toLowerCase()}-car-dealers-in-${location.toLowerCase()}`)
     }
 
     const list = (anchor) => (
@@ -43,7 +52,10 @@ export default function TemporaryDrawer({ brand, model, version, status, sticky,
             <div>
                 <div className='my-[1rem] mx-4 flex'>
                     <div>
-                        <Image onClick={toggleDrawer('right', false)} className='cursor-pointer' width={30} src={cross} />
+                        <Image onClick={() => {
+                            toggleDrawer('right', false)
+                            route.push(`/new-car-dealers/${brand.toLowerCase()}-car-dealers-in-${location.toLowerCase()}`)
+                        }} className='cursor-pointer' width={30} src={cross} />
                     </div>
                     <div className='ml-6'>
                         <p className='text-[18px] font-semibold text-[#484848]'>{brand} {model ? model : null} {version ? version : null}</p>

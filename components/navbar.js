@@ -17,6 +17,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Search from './search'
 import City_Modal from "./city_modal"
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 
 const Navbar = () => {
@@ -27,6 +28,8 @@ const Navbar = () => {
     const [more, setMore] = useState(false)
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
+
+    const route = useRouter()
 
 
 
@@ -52,9 +55,9 @@ const Navbar = () => {
                     </div>
                     <div id='side' className={`h-screen min-h-screen fixed z-[999999] top-0 bg-white w-8/12 ${style.scroller}`}>
                         <div className='my-4 flex justify-between mr-4'>
-                        <Link href={`/`}>
-                            <Image className='w-auto h-auto' width={150} height={60} src="/images/logo.png" alt="logo" />
-                        </Link>
+                            <Link href={`/`}>
+                                <Image className='w-auto h-auto' width={150} height={60} src="/images/logo.png" alt="logo" />
+                            </Link>
                             <Image onClick={() => document.getElementById("side").classList.remove(style.scroll)} src={cross} alt="cross" />
                         </div>
                         <ul className='mx-4 mt-6 space-y-5 text-sm text-[#484848]'>
@@ -110,42 +113,45 @@ const Navbar = () => {
                         <Image className='w-auto h-[60px]' width={345} height={60} src={logo} alt="logo" />
                     </Link>
                     <ul className='flex text-[18px] uppercase font-medium tracking-[-0.4px] space-x-[1.5rem] xl:space-x-[3rem] 2xl:space-x-[4rem] 2xl:ml-[2rem] pt-[1rem]'>
-                        <li className='text-[#484848]'>New Cars</li>
-                        <li className='text-[#484848]'>Compare Cars</li>
-                        <li className='text-[#484848]'>Find Car Dealers</li>
-                        <li className='cursor-pointer text-[#484848]' onClick={() => {
-                            if (show) {
-                                document.getElementById("nav-down").classList.remove(style["top-nav-down"])
-                                setShow(false)
-                            } else {
-                                document.getElementById("nav-down").classList.add(style["top-nav-down"])
-                                setShow(true)
-                                setTimeout(() => {
-                                    document.body.onclick = () => {
-                                        document.getElementById("nav-down").classList.remove(style["top-nav-down"])
-                                        setShow(false)
-                                        document.body.onclick = null
-                                    }
-                                }, 1500)
-                            }
-                        }}><span>More</span> <span><KeyboardArrowDownIcon /></span>
-                            <div id='nav-down' className={`position ${style["top-nav"]} absolute bg-white w-1/4 shadow-2xl`}>
-                                <ul className='text-[18px] mx-10 py-10 space-y-3'>
-                                    <li className='uppercase font-medium hover:text-[#09809a]'>Upcoming Cars</li>
-                                    <li className='uppercase font-medium hover:text-[#09809a]'>Electric Cars</li>
-                                    <li className='uppercase font-medium hover:text-[#09809a]'>New Car Loan</li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    <div className='flex space-x-[1rem] 2xl:space-x-[2rem] 2xl:ml-[2rem] py-[0.8rem]'>
-                        <Search status={true} />
-                        <Image width={25} height={25} src={notification} alt="notification" />
-                        <City_Modal status={true} url={url} />
-                    </div>
+                        <li onClick={()=>{
+                            sessionStorage.setItem("scroll", true)
+                            route.push("/")
+                        }} className='text-[#484848]'>New Cars</li>
+                    <li className='text-[#484848]'>Find Car Dealers</li>
+                    <li className='text-[#484848] invisible'>Compare Cars</li>
+                    <li className='cursor-pointer text-[#484848] invisible' onClick={() => {
+                        if (show) {
+                            document.getElementById("nav-down").classList.remove(style["top-nav-down"])
+                            setShow(false)
+                        } else {
+                            document.getElementById("nav-down").classList.add(style["top-nav-down"])
+                            setShow(true)
+                            setTimeout(() => {
+                                document.body.onclick = () => {
+                                    document.getElementById("nav-down").classList.remove(style["top-nav-down"])
+                                    setShow(false)
+                                    document.body.onclick = null
+                                }
+                            }, 1500)
+                        }
+                    }}><span>More</span> <span><KeyboardArrowDownIcon /></span>
+                        <div id='nav-down' className={`position ${style["top-nav"]} absolute bg-white w-1/4 shadow-2xl`}>
+                            <ul className='text-[18px] mx-10 py-10 space-y-3'>
+                                <li className='uppercase font-medium hover:text-[#09809a]'>Upcoming Cars</li>
+                                <li className='uppercase font-medium hover:text-[#09809a]'>Electric Cars</li>
+                                <li className='uppercase font-medium hover:text-[#09809a]'>New Car Loan</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div className='flex space-x-[1rem] 2xl:space-x-[2rem] 2xl:ml-[2rem] py-[0.8rem]'>
+                    <Search status={true} />
+                    <Image width={25} height={25} src={notification} alt="notification" />
+                    <City_Modal status={true} url={url} />
                 </div>
-                <hr className='border-t-2 mb-[0.8rem] border-gray-300' />
             </div>
+            <hr className='border-t-2 mb-[0.8rem] border-gray-300' />
+        </div >
             <div className='flex md:hidden w-full space-x-0.5 fixed z-[999] bottom-0'>
                 <button className='bg-[#333333] text-white text-[12px] py-2 w-1/2'><span><Image className='inline mr-2' src={book} alt='book' /></span> Contact Details</button>
                 <button className='bg-[#BA1223] text-white text-[12px] py-2 w-1/2'><span><Image className='inline mr-2' src={percent} alt='percentage' /></span> Get Offers</button>
