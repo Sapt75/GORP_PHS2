@@ -118,8 +118,8 @@ const Navbar = () => {
                             route.push("/")
                         }} className='text-[#484848] cursor-pointer'>New Cars</li>
                     <li className='text-[#484848]'>Find Car Dealers</li>
-                    <li className='text-[#484848] invisible'>Compare Cars</li>
-                    <li className='cursor-pointer text-[#484848] invisible' onClick={() => {
+                    {/* <li className='text-[#484848] invisible'>Compare Cars</li> */}
+                    {/* <li className='cursor-pointer text-[#484848] invisible' onClick={() => {
                         if (show) {
                             document.getElementById("nav-down").classList.remove(style["top-nav-down"])
                             setShow(false)
@@ -142,7 +142,7 @@ const Navbar = () => {
                                 <li className='uppercase font-medium hover:text-[#09809a]'>New Car Loan</li>
                             </ul>
                         </div>
-                    </li>
+                    </li> */}
                 </ul>
                 <div className='flex space-x-[1rem] 2xl:space-x-[2rem] 2xl:ml-[2rem] py-[0.8rem]'>
                     <Search status={true} />

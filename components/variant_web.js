@@ -138,7 +138,9 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                     <div className='flex justify-around'>
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[0.5rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <li><Image className='w-auto h-[50px]' width={200} height={60} src={logo} alt='logo' /></li>
+                                <li><Link href={"/"}>
+                                        <Image className='w-auto h-[50px]' width={200} height={60} src={logo} />
+                                    </Link></li>
                                 <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <Link to='spec' spy={true} smooth={true} offset={-100} duration={500}>
                                     <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848] mt-2'>Features & Specifications</li>
