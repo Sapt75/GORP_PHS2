@@ -116,7 +116,7 @@ const Navbar = () => {
                         <li onClick={()=>{
                             sessionStorage.setItem("scroll", true)
                             route.push("/")
-                        }} className='text-[#484848]'>New Cars</li>
+                        }} className='text-[#484848] cursor-pointer'>New Cars</li>
                     <li className='text-[#484848]'>Find Car Dealers</li>
                     <li className='text-[#484848] invisible'>Compare Cars</li>
                     <li className='cursor-pointer text-[#484848] invisible' onClick={() => {

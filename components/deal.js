@@ -47,7 +47,6 @@ export default function TemporaryDrawer({ brand, model, version, status, sticky,
         <Box
             sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 400 }}
             role="presentation"
-            onKeyDown={toggleDrawer(anchor, false)}
         >
             <div>
                 <div className='my-[1rem] mx-4 flex'>

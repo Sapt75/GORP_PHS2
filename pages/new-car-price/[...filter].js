@@ -137,6 +137,9 @@ Filter.getInitialProps = async (context) => {
     });
     const pricedata = await res_two.json();
 
+
+    console.log(pricedata)
+
     // setGetPrices(pricedata)
 
     let bdata = await fetch(`${url}/all_brands`, {
