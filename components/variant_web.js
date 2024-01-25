@@ -118,6 +118,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
         window.onscroll = function () { scrollFunction() };
         setCardetails(data)
 
+        
         setVersion(response)
         setFinalVersion(response)
 
