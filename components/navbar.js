@@ -18,6 +18,7 @@ import Search from './search'
 import City_Modal from "./city_modal"
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import TopDrawer from './find'
 
 
 const Navbar = () => {
@@ -31,6 +32,9 @@ const Navbar = () => {
 
     const route = useRouter()
 
+
+   
+    
 
 
 
@@ -113,13 +117,13 @@ const Navbar = () => {
                         <Image className='w-auto h-[60px]' width={345} height={60} src={logo} alt="logo" />
                     </Link>
                     <ul className='flex text-[18px] uppercase font-medium tracking-[-0.4px] space-x-[1.5rem] xl:space-x-[3rem] 2xl:space-x-[4rem] 2xl:ml-[2rem] pt-[1rem]'>
-                        <li onClick={()=>{
+                        <li onClick={() => {
                             sessionStorage.setItem("scroll", true)
                             route.push("/")
                         }} className='text-[#484848] cursor-pointer'>New Cars</li>
-                    <li className='text-[#484848]'>Find Car Dealers</li>
-                    {/* <li className='text-[#484848] invisible'>Compare Cars</li> */}
-                    {/* <li className='cursor-pointer text-[#484848] invisible' onClick={() => {
+                        <TopDrawer />
+                        {/* <li className='text-[#484848] invisible'>Compare Cars</li> */}
+                        {/* <li className='cursor-pointer text-[#484848] invisible' onClick={() => {
                         if (show) {
                             document.getElementById("nav-down").classList.remove(style["top-nav-down"])
                             setShow(false)
@@ -143,15 +147,15 @@ const Navbar = () => {
                             </ul>
                         </div>
                     </li> */}
-                </ul>
-                <div className='flex space-x-[1rem] 2xl:space-x-[2rem] 2xl:ml-[2rem] py-[0.8rem]'>
-                    <Search status={true} />
-                    <Image width={25} height={25} src={notification} alt="notification" />
-                    <City_Modal status={true} url={url} />
+                    </ul>
+                    <div className='flex space-x-[1rem] 2xl:space-x-[2rem] 2xl:ml-[2rem] py-[0.8rem]'>
+                        <Search status={true} />
+                        <Image width={25} height={25} src={notification} alt="notification" />
+                        <City_Modal status={true} url={url} />
+                    </div>
                 </div>
-            </div>
-            <hr className='border-t-2 mb-[0.8rem] border-gray-300' />
-        </div >
+                <hr className='border-t-2 mb-[0.8rem] border-gray-300' />
+            </div >
             <div className='flex md:hidden w-full space-x-0.5 fixed z-[999] bottom-0'>
                 <button className='bg-[#333333] text-white text-[12px] py-2 w-1/2'><span><Image className='inline mr-2' src={book} alt='book' /></span> Contact Details</button>
                 <button className='bg-[#BA1223] text-white text-[12px] py-2 w-1/2'><span><Image className='inline mr-2' src={percent} alt='percentage' /></span> Get Offers</button>

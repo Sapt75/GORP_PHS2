@@ -367,7 +367,7 @@ export default function Price({ data,
                                         <div className='flex justify-between'>
                                             <p className='text-[16px] text-[#484848]'>On Road Price In  {location ? location : "Mumbai"}</p>
                                             {getbreakup.map((item, index) => {
-                                                return (item.Version_UID === element.uid ? <p key={index} className='text-[16px] text-[#484848] font-semibold'>₹ {item.ex_showroom_price}</p> : null)
+                                                return (item.Version_UID === element.uid ? <p key={index} className='text-[16px] text-[#484848] font-semibold'>₹ {calc(item)}</p> : null)
                                             })}
                                         </div>
                                     </div>

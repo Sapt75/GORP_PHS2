@@ -90,6 +90,8 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
 
     const [dloc, setDlock] = useState()
 
+    const [view, setView] = useState(false)
+
 
 
     function scrollFunction() {
@@ -156,8 +158,8 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-[2rem] overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[2rem] text-[16px] font-normal tracking-[-0.32px]'>
                                 <li><Link href={"/"}>
-                                        <Image width={200} height={60} src={logo} />
-                                    </Link></li>
+                                    <Image width={200} height={60} src={logo} />
+                                </Link></li>
                                 <li className='font-semibold text-[#484848]'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} <Image className='inline' src={edit} alt='edit' /></li>
                                 <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
                                 <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Variant</li>
@@ -236,7 +238,7 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
                                 <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Showrooms of Other Brands in {location}</p>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {brand.length > 0 ? brand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-car-dealers/${item.brand.toLowerCase()}-car-dealers-${location.toLowerCase()}`}>
+                                        return (<Link className={`${view ? null : index >= 8 ? "hidden" : null}`} key={index} href={`/new-car-dealers/${item.brand.toLowerCase()}-car-dealers-${location.toLowerCase()}`}>
                                             <div key={index} className='text-center'>
                                                 <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
                                                 <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
@@ -246,14 +248,14 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
                                     }) : null}
                                 </div>
                                 <div className='text-center my-4'>
-                                    <button className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                    <button onClick={() => view ? setView(false) : setView(true)} className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
                                         View All Versions
                                     </span></button>
                                 </div>
                             </div>
 
                             <div className='md:p-4 p-1.5 mt-8'>
-                            <CustomSeparator host_url={host_url} />
+                                <CustomSeparator host_url={host_url} />
                                 <p className='my-4 text-[#6F6F6F]'><span className='text-[#484848]'>Disclaimer:</span> While we do our best to ensure that these prices are accurate, we suggest to please contact your nearest dealer for current on road prices and offers.</p>
                             </div>
 
