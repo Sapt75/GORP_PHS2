@@ -141,7 +141,7 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
         getBrandData()
         setBrand(bresponse)
         setCity(cities)
-    }, [location])
+    }, [location, brand, dealer])
 
 
 
