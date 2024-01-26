@@ -22,7 +22,7 @@ export default function Dealers({ bresponse, cities, head }) {
 
     useEffect(() => {
         window.innerWidth > 800 ? setShow(true) : setShow(false)
-        sessionStorage.setItem("host", head)
+        sessionStorage.setItem("host", JSON.stringify(head))
     }, [])
 
 

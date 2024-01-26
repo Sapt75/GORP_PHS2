@@ -73,7 +73,7 @@ export default function Filter({ data, pricedata, query, trans, ftdata, head, br
             setWidth(window.innerWidth)
         })
 
-        sessionStorage.setItem("host", head)
+        sessionStorage.setItem("host", JSON.stringify(head))
         setWidth(window.innerWidth)
     }, [data, pricedata, query, trans, ftdata, head])
 

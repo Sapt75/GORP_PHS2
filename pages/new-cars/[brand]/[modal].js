@@ -132,7 +132,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
             setWidth(window.innerWidth)
         })
 
-        sessionStorage.setItem("host", head)
+        sessionStorage.setItem("host", JSON.stringify(head))
         setWidth(window.innerWidth)
     }, [data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres, rcity])
 

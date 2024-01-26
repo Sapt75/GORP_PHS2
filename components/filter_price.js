@@ -84,6 +84,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
 
 
 
+
     function scrollFunction() {
         if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
             top_bar.current.classList.add(style.scrolling);
@@ -102,6 +103,8 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
             }
         });
         const pricedata = await res_two.json();
+
+        console.log(pricedata, "Filter Price")
 
         setGetPrices(getprices.concat(pricedata))
     }
@@ -170,10 +173,10 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                     <div className='md:flex hidden'>
                         <div className='md:w-[74%]'>
                             <div className='mb-[2rem] w-full'>
-                                <h1 className='md:text-[24px] mb-3 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{getbranddata[0].brand} Cars</h1>
+                                <h1 className='md:text-[24px] mb-3 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>Cars Under {route.query.filter[0].split("-")[2]}  Lakh</h1>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F]  p-3'>
                                     {/* <p>{desc.brand_description}<span className={`${show ? null : "hidden"}`}></span> </p> */}
-
+                                    There are a total of {getprices ? getprices.length : 12},  ₹{numFormat(parseInt(route.query.filter[0].split("-")[2]) * 100000)} models currently on sale in india. These include 4 Hatchbaks, 2 Sedans and 6 SUVs.
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
                                         <span className='mx-[1rem] text-[#0B9DBC] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
                                     </div>
@@ -191,15 +194,16 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                                     loader={<h4>Loading...</h4>}
                                 >
                                     {getbranddata.map((item, index) => {
-                                        return (<div key={index} className='flex justify-between my-2 px-10 border py-8 border-[#E1E1E1]'>
-                                            <div className='w-[15rem]'>
-                                                <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} />
-                                            </div>
-                                            <div className='space-y-0.5'>
-                                                <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
-                                                    <h3 className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
-                                                </Link>
-                                                {/* <span className='text-[#6F6F6F] text-[14px] font-normal'>
+                                        return (getprices.map((element) => {
+                                            return element.model_id === item.model_id ? <div key={index} className='flex justify-between my-2 px-10 border py-8 border-[#E1E1E1]'>
+                                                <div className='w-[15rem]'>
+                                                    <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} />
+                                                </div>
+                                                <div className='space-y-0.5'>
+                                                    <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
+                                                        <h3 className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
+                                                    </Link>
+                                                    {/* <span className='text-[#6F6F6F] text-[14px] font-normal'>
                                                     {trans.length > 0 ? trans.filter((value, index, self) => {
                                                         return index === self.findIndex((t) => {
                                                             if (t.model_name === item.model_name) {
@@ -219,20 +223,18 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
 
                                                     }).map((itm) => itm.transmission_type).join(" | ") : null}
                                                 </span> */}
-
-                                                {getprices.map((element) => {
-                                                    return element.model_id === item.model_id ? <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
-                                                })}
-                                                <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
-                                                <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
-                                            </div>
-                                            <div>
-                                                <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
-                                                    4.5
-                                                    <Image width={20} className='pl-[4px]' src={star} alt="" />
-                                                </span>
-                                            </div>
-                                        </div>)
+                                                    <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p>
+                                                    <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
+                                                    <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
+                                                </div>
+                                                <div>
+                                                    <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
+                                                        4.5
+                                                        <Image width={20} className='pl-[4px]' src={star} alt="" />
+                                                    </span>
+                                                </div>
+                                            </div> : null
+                                        }))
                                     })}
                                 </InfiniteScroll>
                                 <div class="bg-yellow-400 p-4 flex justify-evenly my-4">

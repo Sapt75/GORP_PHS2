@@ -94,7 +94,6 @@ export default function TopDrawer() {
                     <div>
                         <Image onClick={() => {
                             toggleDrawer('right', false)
-                            route.push(`/new-car-dealers/${brand.toLowerCase()}-car-dealers-in-${location.toLowerCase()}`)
                         }} className='cursor-pointer' width={20} height={20} src={cross} />
                     </div>
                 </div>

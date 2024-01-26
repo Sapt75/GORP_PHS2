@@ -77,7 +77,7 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
             setWidth(window.innerWidth)
         })
 
-        sessionStorage.setItem("host", head)
+        sessionStorage.setItem("host", JSON.stringify(head))
         setWidth(window.innerWidth)
     }, [])
 

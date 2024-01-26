@@ -84,7 +84,7 @@ export default function Home({ bresponse, query, head }) {
             setWidth(window.innerWidth)
         })
 
-        sessionStorage.setItem("host", head)
+        sessionStorage.setItem("host", JSON.stringify(head))
         setWidth(window.innerWidth)
         setBrand(bresponse)
 

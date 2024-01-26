@@ -73,7 +73,7 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres, head 
             setWidth(window.innerWidth)
         })
 
-        sessionStorage.setItem("host", head)
+        sessionStorage.setItem("host", JSON.stringify(head))
         setWidth(window.innerWidth)
     }, [data, pricedata, query, tdata, bres, dres, head])
 

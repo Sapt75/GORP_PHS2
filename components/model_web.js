@@ -61,7 +61,7 @@ import CustomSeparator from './breadcrumbs';
 
 
 
-export default function Model_Web({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres , host_url}) {
+export default function Model_Web({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres, host_url }) {
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -137,7 +137,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
             cons: {
                 __html: data[0].cons
             }
-        })
+        }, [])
 
 
         setUID(data[0].uid)
@@ -164,8 +164,8 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[0.5rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                                 <li><Link href={"/"}>
-                                        <Image className='w-auto h-[50px]' width={200} height={60} src={logo} />
-                                    </Link></li>
+                                    <Image className='w-auto h-[50px]' width={200} height={60} src={logo} />
+                                </Link></li>
                                 <Brand_Model url={url} state={true} brand={getmodels[0].brand} model={getmodels[0].model_name} />
                                 <Link to='fec' spy={true} smooth={true} offset={-100} duration={500}>
                                     <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848] mt-2'>Features & Specifications</li>
@@ -287,7 +287,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                     </div>
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
-                                <div id='fec'  className='py-5'>
+                                <div id='fec' className='py-5'>
                                     <div className='w-full rounded-[2px] flex justify-between font-semibold text-[#484848] py-2'>
                                         <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of {getmodels[0].brand} {getmodels[0].model_name} </h2>
                                         <Link activeClass="active"

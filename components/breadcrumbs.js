@@ -13,12 +13,14 @@ function handleClick(event) {
 
 export default function CustomSeparator(props) {
 
+    // let c = "https://" + JSON.parse(sessionStorage.getItem("host")).host
 
-    let c = props.host_url
+    let c = "https://seahorse-app-vuq9s.ondigitalocean.app"
 
-
+    
 
     const route = useRouter()
+
 
 
     return (

@@ -61,7 +61,7 @@ import CustomSeparator from './breadcrumbs';
 
 
 
-export default function Variant_Web({ data, response, vpresponse, vvpresponse, params, color, host_url}) {
+export default function Variant_Web({ data, response, vpresponse, vvpresponse, params, color, host_url }) {
 
     const [width, setWidth] = useState()
     const [update, setUpdate] = useState(false)
@@ -118,7 +118,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
         window.onscroll = function () { scrollFunction() };
         setCardetails(data)
 
-        
+
         setVersion(response)
         setFinalVersion(response)
 
@@ -140,8 +140,8 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[0.5rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                                 <li><Link href={"/"}>
-                                        <Image className='w-auto h-[50px]' width={200} height={60} src={logo} />
-                                    </Link></li>
+                                    <Image className='w-auto h-[50px]' width={200} height={60} src={logo} />
+                                </Link></li>
                                 <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <Link to='spec' spy={true} smooth={true} offset={-100} duration={500}>
                                     <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848] mt-2'>Features & Specifications</li>
@@ -156,11 +156,11 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                 <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
                             </div>
                             <div className='px-4 w-1/2 top-down py-[0.5rem] justify-between border-[#E1E1E1] flex'>
-                            <City_Modal url={url} />
+                                <City_Modal url={url} />
                             </div>
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                        <TemporaryDrawer sticky={true} />
+                            <TemporaryDrawer sticky={true} />
                         </div>
                     </div>
                 </div>
@@ -226,7 +226,11 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                 <div className='block'>
                                     <div className='pt-[1.5rem] space-x-[1.6rem]'>
                                         {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
-                                        <RLink href={`/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
+                                        <RLink href={{
+                                            pathname: `/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
+                                                uid: cardetails[0].uid
+                                            }
+                                        }} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
                                     </div>
                                     <span className='text-[14px] font-[400] tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
                                     {/* <div className='flex justify-between mt-2 w-100 bg-[#F4F4F4] py-[0.5rem]'>
@@ -440,7 +444,11 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
         </div> */}
                                                 </div>
                                                 <div>
-                                                    <RLink href={`/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
+                                                    <RLink href={{
+                                                        pathname: `/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
+                                                            uid: element.uid
+                                                        }
+                                                    }} title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
                                                 </div>
                                             </div>)
                                         })}
