@@ -67,6 +67,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
     // const [trans, setTrans] = useState(tdata)
     const [cbrand, setBrand] = useState(bres)
     // const [desc, setDesc] = useState(dres)
+    const [view, setView] = useState(false)
 
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
@@ -96,7 +97,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
 
     async function fetchAgain() {
 
-        const res_two = await fetch(`/filter_range/${parseInt(route.query.filter[0].split("-")[2]) * 100000}/${false}`, {
+        const res_two = await fetch(`${url}/filter_range/${parseInt(route.query.filter[0].split("-")[2]) * 100000}/${false}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -157,7 +158,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                             </div>
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                            <button className='bg-[#e53012] text-white font-semibold text-[15px] px-[20px] py-2 mt-2'>Get Offers from Dealers</button>
+                        <TemporaryDrawer sticky={true} />
                         </div>
                     </div>
                 </div>
@@ -225,7 +226,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                                                 </span> */}
                                                     <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p>
                                                     <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
-                                                    <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
+                                                    <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
                                                 </div>
                                                 <div>
                                                     <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
@@ -254,7 +255,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Top Brands</h2>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
+                                        return (<Link key={index} className={`${view ? null : index >= 8 ? "hidden" : null}`} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
                                             <div key={index} className='text-center'>
                                                 <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
                                                 <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
@@ -262,6 +263,11 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                                         </Link>)
 
                                     })}
+                                </div>
+                                <div className='text-center my-4'>
+                                    <button onClick={() => view ? setView(false) : setView(true)} className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                        View All Brands
+                                    </span></button>
                                 </div>
                             </div>
 

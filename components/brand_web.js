@@ -127,7 +127,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                 <Link href={`/new-car-dealers/${getbranddata[0].brand.toLowerCase().split(" ").join("-")}-dealers-in-${location.toLowerCase()}`}>
                                     <li className='hover:text-[#09809A] mt-2 hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Find Dealers</li>
                                 </Link>
-                                <li className='hover:text-[#09809A] mt-2 hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>FAQ&apos;s</li>
+                                <li className='hover:text-[#09809A] invisible mt-2 hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>FAQ&apos;s</li>
                             </ul>
                         </div>
                         <div className='flex w-[25%] border-x border-[#E1E1E1]'>

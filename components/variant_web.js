@@ -227,7 +227,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                     <div className='pt-[1.5rem] space-x-[1.6rem]'>
                                         {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
                                         <RLink href={{
-                                            pathname: `/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
+                                            pathname: `/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
                                                 uid: cardetails[0].uid
                                             }
                                         }} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
@@ -445,7 +445,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                                 </div>
                                                 <div>
                                                     <RLink href={{
-                                                        pathname: `/price-data/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
+                                                        pathname: `/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
                                                             uid: element.uid
                                                         }
                                                     }} title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in Mumbai`} className='text-[16px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>

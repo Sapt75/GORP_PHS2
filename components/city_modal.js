@@ -104,7 +104,9 @@ export default function Modal(props) {
                                 setLocation("Ahmedabad")
                                 sessionStorage.setItem("city", "Ahmedabad")
                                 route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-ahmedabad`) : null
-                                route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                 handleClose()
                             }} className='text-center'>
                                 <Image className='mx-auto' width={70} src={ahmedabad} alt="bangalore" />
@@ -114,7 +116,9 @@ export default function Modal(props) {
                                 setLocation("Bangalore")
                                 sessionStorage.setItem("city", "Bangalore")
                                 route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
-                                route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                 handleClose()
                             }} className='text-center'>
                                 <Image className='mx-auto' width={70} src={bangalore} alt="bangalore" />
@@ -124,7 +128,9 @@ export default function Modal(props) {
                                 setLocation("Kolkata")
                                 sessionStorage.setItem("city", "Kolkata")
                                 route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-kolkata`) : null
-                                route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                 handleClose()
                             }} className='text-center'>
                                 <Image className='mx-auto' width={70} src={kolkata} alt="kolkata" />
@@ -134,7 +140,9 @@ export default function Modal(props) {
                                 setLocation("Mumbai")
                                 sessionStorage.setItem("city", "Mumbai")
                                 route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
-                                route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                 handleClose()
                             }} className='text-center'>
                                 <Image className='mx-auto' width={70} src={mumbai} alt="mumbai" />
@@ -144,7 +152,9 @@ export default function Modal(props) {
                                 setLocation("Hyderabad")
                                 sessionStorage.setItem("city", "Hyderabad")
                                 route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
-                                route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                 handleClose()
                             }} className='text-center'>
                                 <Image className='mx-auto' width={70} src={hyderabad} alt="hyderabad" />
@@ -154,7 +164,9 @@ export default function Modal(props) {
                                 setLocation("Chennai")
                                 sessionStorage.setItem("city", "Chennai")
                                 route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
-                                route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                 handleClose()
                             }} className='text-center'>
                                 <Image className='mx-auto' width={70} src={chennai} alt="chennai" />
@@ -164,7 +176,9 @@ export default function Modal(props) {
                                 setLocation("Delhi")
                                 sessionStorage.setItem("city", "Delhi")
                                 route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-bangalore`) : null
-                                route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                 handleClose()
                             }} className='text-center'>
                                 <Image className='mx-auto' width={70} src={delhi} alt="delhi" />
@@ -180,7 +194,9 @@ export default function Modal(props) {
                                     setLocation(item.City ? item.City : item["City Name"])
                                     sessionStorage.setItem("city", item.City ? item.City : item["City Name"])
                                     route.asPath.split("/")[1] === "new-car-dealers" ? route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
-                                    route.asPath.split("/")[1] === "price-data" ? route.push(`/price-data/${route.asPath.split("/")[2]}/${route.asPath.split("/")[3]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`) : null
+                                    route.query.uid ? route.push({ pathname: `/${route.asPath.split("/")[1]}/${route.asPath.split("/")[2]}/price-in-${item.City ? item.City.toLowerCase() : item["City Name"].toLowerCase()}`, query:{
+                                    uid: route.query.uid
+                                } }) : null
                                     handleClose()
                                 }} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item.City ? item.City : item["City Name"]}, {item.postoffice_name ? item.postoffice_name : item["State name"]}</li>)
                             }) : null}

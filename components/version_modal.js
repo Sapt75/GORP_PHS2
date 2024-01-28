@@ -73,7 +73,7 @@ function Version_Model(props) {
                                     return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
                                 })
                             }).map((item, index) => {
-                                return(<li key={index} onClick={() => {
+                                return (<li key={index} onClick={() => {
                                     setFilter({
                                         fuel_type: `${item.Specifications.engine_and_transmission.fuel_type}`,
                                         transmission_type: filter.transmission_type
@@ -127,7 +127,11 @@ function Version_Model(props) {
                     <div>
                         <div className="overflow-y-scroll">
                             {data.length > 0 ? data.map((element, index) => {
-                                return (route.asPath.split("/")[1] === "price-data" ? <Link key={index} onClick={handleClose} href={`/price-data/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/price-in-${location ? location.toLowerCase():null}`}>
+                                return (route.query.uid ? <Link key={index} onClick={handleClose} href={{
+                                    pathname: `/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/price-in-${location ? location.toLowerCase() : null}`, query: {
+                                        uid: element.uid
+                                    }
+                                }}>
                                     <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
                                         <div>
                                             <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>
@@ -137,7 +141,7 @@ function Version_Model(props) {
                                             <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{props.price.length > 0 ? `₹ ${numFormat(props.price.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
                                         </div>
                                     </div>
-                                </Link>:<Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                </Link> : <Link key={index} onClick={handleClose} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                     <div className='border-b-[1px] flex justify-between px-4 py-2 border-[#C6C6C6]'>
                                         <div>
                                             <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</p>

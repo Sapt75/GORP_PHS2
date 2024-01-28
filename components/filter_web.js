@@ -50,6 +50,9 @@ import Link from 'next/link';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import CustomSeparator from './breadcrumbs';
 import TemporaryDrawer from './deal';
+import locationContext from '../context/LocationContext';
+import Brand_Model from './brand_modal';
+import City_Modal from '../components/city_modal';
 
 
 
@@ -67,9 +70,15 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
     const [trans, setTrans] = useState(tdata)
     const [cbrand, setBrand] = useState(bres)
     // const [desc, setDesc] = useState(dres)
+    const [view, setView] = useState(false)
 
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
+
+
+    const context = React.useContext(locationContext)
+
+    const { location } = context
 
     const route = useRouter()
 
@@ -128,34 +137,22 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                     <div className='flex justify-around'>
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <li><Image width={200} height={60} src={logo} /></li>
-                                <li className='font-semibold text-[#484848]'>Hyundai <Image className='inline' src={edit} alt='edit' /></li>
-                                <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Find Dealers</li>
-                                <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>FAQ&apos;s</li>
+                                <Link href={`/`}>
+                                    <li><Image width={200} height={60} src={logo} /></li>
+                                </Link>
+                                <Brand_Model url={url} state={true} brand={getbranddata[0].brand} model={getbranddata[0].model_name} />
+                                <Link href={`/new-car-dealers/${getbranddata[0].brand.toLowerCase().split(" ").join("-")}-dealers-in-mumbai`}>
+                                    <li className='hover:text-[#09809A] mt-2 hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Find Dealers</li>
+                                </Link>
+                                <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>FAQ&apos;s</li>
                             </ul>
                         </div>
                         <div className='flex w-[25%] border-x border-[#E1E1E1]'>
-                            <div className='px-4 w-1/2 py-[0.5rem] border-r justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>Brand</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>Hyundai</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
-                            </div>
-                            <div className='px-4 w-1/2 py-[0.5rem] justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>City</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>New Delhi</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
-                            </div>
+                            <Brand_Model url={url} brand={getbranddata[0].brand} model={getbranddata[0].model_name} />
+                            <City_Modal url={url} />
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                            <button className='bg-[#e53012] text-white font-semibold text-[15px] px-[20px] py-2 mt-2'>Get Offers from Dealers</button>
+                            <TemporaryDrawer sticky={true} />
                         </div>
                     </div>
                 </div>
@@ -225,7 +222,7 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                                                     return element.model_id === item.model_id ? <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
                                                 })}
                                                 <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
-                                                <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
+                                                <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
                                             </div>
                                             <div>
                                                 <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
@@ -253,7 +250,7 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Top Brands</h2>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
+                                        return (<Link key={index} className={`${view ? null : index >= 8 ? "hidden" : null}`} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
                                             <div key={index} className='text-center'>
                                                 <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
                                                 <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
@@ -261,6 +258,11 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                                         </Link>)
 
                                     })}
+                                </div>
+                                <div className='text-center my-4'>
+                                    <button onClick={() => view ? setView(false) : setView(true)} className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                        View All Brands
+                                    </span></button>
                                 </div>
                             </div>
 

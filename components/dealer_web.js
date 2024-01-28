@@ -52,6 +52,8 @@ import { useRouter } from 'next/router';
 import locationContext from '../context/LocationContext';
 import Link from 'next/link';
 import CustomSeparator from './breadcrumbs';
+import Brand_Model from '../components/brand_modal';
+import TemporaryDrawer from './deal';
 
 
 
@@ -160,33 +162,18 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
                                 <li><Link href={"/"}>
                                     <Image width={200} height={60} src={logo} />
                                 </Link></li>
-                                <li className='font-semibold text-[#484848]'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} <Image className='inline' src={edit} alt='edit' /></li>
+                                <Brand_Model url={url} state={true} brand={route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} model={route.query.dealers.split("-")[1].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} />
+                                {/* <li className='font-semibold text-[#484848]'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} <Image className='inline' src={edit} alt='edit' /></li> */}
                                 <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
                                 <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Variant</li>
                             </ul>
                         </div>
                         <div className='flex w-[25%] border-x border-[#E1E1E1]'>
-                            <div className='px-4 w-1/2 py-[0.5rem] border-r justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>Brand</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)}</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
-                            </div>
-                            <div className='px-4 w-1/2 py-[0.5rem] justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>City</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>New Delhi</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
-                            </div>
+                            <Brand_Model url={url} brand={route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} model={route.query.dealers.split("-")[1].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} />
+                            <City_Modal url={url} />
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                            <button className='bg-[#e53012] text-white font-semibold text-[15px] px-[20px] py-2 mt-2'>Get Offers from Dealers</button>
+                        <TemporaryDrawer sticky={true} />
                         </div>
                     </div>
                 </div>

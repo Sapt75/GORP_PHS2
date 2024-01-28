@@ -1,37 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react'
-import style from "../../styles/varient.module.css"
+import style from "../styles/varient.module.css"
 import Image from 'next/image';
-import price_tag from "../../public/images/price_tag.svg"
-import star from "../../public/images/star.svg"
-import down from "../../public/images/down.svg"
-import advert from "../../public/images/advert.png"
-import car3 from "../../public/images/car3.png"
-import car5 from "../../public/images/car5.png"
-import car4 from "../../public/images/car4.png"
-import compare_white from "../../public/images/compare-white.svg"
-import brochure from "../../public/images/brocher.jpg"
-import brochure2 from "../../public/images/brochure.svg"
-import download from "../../public/images/download.svg"
-import connect from "../../public/images/connect.svg"
-import promo from "../../public/images/promo.png"
-import last_adv from "../../public/images/last_adv.png"
-import Navbar from '../../components/navbar';
-import Footer from '../../components/footer';
+import price_tag from "../public/images/price_tag.svg"
+import star from "../public/images/star.svg"
+import down from "../public/images/down.svg"
+import advert from "../public/images/advert.png"
+import car3 from "../public/images/car3.png"
+import car5 from "../public/images/car5.png"
+import car4 from "../public/images/car4.png"
+import compare_white from "../public/images/compare-white.svg"
+import brochure from "../public/images/brocher.jpg"
+import brochure2 from "../public/images/brochure.svg"
+import download from "../public/images/download.svg"
+import connect from "../public/images/connect.svg"
+import promo from "../public/images/promo.png"
+import last_adv from "../public/images/last_adv.png"
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import City_Modal from '../../components/city_modal';
-import Version_Modal from '../../components/version_modal';
+import City_Modal from '../components/city_modal';
+import Version_Modal from '../components/version_modal';
 import { ChevronRight } from '@mui/icons-material';
-import Price_Faq from '../../components/pic_faq';
-import Right from '../../components/right';
-import logo from "../../public/images/logo.png"
-import edit from "../../public/images/edit.svg"
-import Rating_Model from '../../components/rating_modal';
-import locationContext from '../../context/LocationContext';
+import Price_Faq from '../components/pic_faq';
+import Right from '../components/right';
+import logo from "../public/images/logo.png"
+import edit from "../public/images/edit.svg"
+import Rating_Model from '../components/rating_modal';
+import locationContext from '../context/LocationContext';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import TemporaryDrawer from '../../components/deal';
-import CustomSeparator from '../../components/breadcrumbs';
-import Brand_Model from '../../components/brand_modal';
+import TemporaryDrawer from '../components/deal';
+import CustomSeparator from '../components/breadcrumbs';
+import Brand_Model from '../components/brand_modal';
 
 
 
@@ -67,7 +67,9 @@ export default function Price({ data,
 
     let route = useRouter()
 
-    const host_url = `https://${head.host}/price-data`
+    console.log(route)
+
+    const host_url = `https://${head.host}/`
 
 
     let sdata = {
@@ -240,7 +242,7 @@ export default function Price({ data,
         // document.getElementById("boom").addEventListener("wheel", ()=> console.log("Hello"))
         // tab_change.current.addEventListner = function () {return console.log("Hello")}
         window.onscroll = function () { scrollFunction() };
-    }, [location])
+    }, [location, finalVersion, route.query])
 
 
 
