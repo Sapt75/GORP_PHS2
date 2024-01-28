@@ -255,7 +255,11 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                     <div className='hidden md:block'>
                                         <div className='pt-[1.5rem] space-x-[1.6rem]'>
                                             <span className='text-[22px] text-[#484848] font-semibold tracking-[-0.48px]'>₹ {modelPrice.length > 0 ? `${numFormat2(modelPrice[0].min_price)} - ${numFormat(modelPrice[0].max_price)}* ` : "No Data"}</span>
-                                            <RLink href={`/${getmodels[0].brand.split(" ").join("-").toLowerCase()}/${getmodels[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
+                                            <RLink href={{
+                                                pathname: `/${getmodels[0].brand.split(" ").join("-").toLowerCase()}/${getmodels[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
+                                                    uid: getmodels[0].uid
+                                                }
+                                            }} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
                                         </div>
                                         <span className='text-[14px] font-thin tracking-[-0.28px] text-[#484848]'>On-Road Price {location}</span>
                                     </div>
