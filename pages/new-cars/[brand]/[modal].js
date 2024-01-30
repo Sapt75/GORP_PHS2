@@ -159,11 +159,16 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 
 
 
-Model.getInitialProps = async (context) => {
+export const getServerSideProps = async (context) => {
 
-    const { query, req } = context;
+    const { query, req, res } = context;
     const url = "https://inquisitive-knickers-fish.cyclic.app"
     // https://inquisitive-knickers-fish.cyclic.app
+
+    res.setHeader(
+        'Cach-Control',
+        'public, s-maxage=10, stale-while-revalidate=59'
+    )
 
 
     console.log(query.brand.split("-").join(" "))
@@ -172,15 +177,15 @@ Model.getInitialProps = async (context) => {
 
 
 
-    const res = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.split("-").join(" ")}&model_name=${query.modal.split("-").join(" ")}`, {
+    const main = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.split("-").join(" ")}&model_name=${query.modal.split("-").join(" ")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
             'Accept-Encoding': 'gzip, deflate'
         }
     });
-    const data = await res.json();
-    if (res.status === 422 || !data) {
+    const data = await main.json();
+    if (main.status === 422 || !data) {
         console.log("error");
     } else {
         // setTips({
@@ -311,17 +316,19 @@ Model.getInitialProps = async (context) => {
 
 
         return {
-            data,
-            response,
-            vresponse,
-            vpresponse,
-            query,
-            head,
-            citresponse,
-            nomcity,
-            specef,
-            cres,
-            rcity
+            props: {
+                data,
+                response,
+                vresponse,
+                vpresponse,
+                query,
+                head,
+                citresponse,
+                nomcity,
+                specef,
+                cres,
+                rcity
+            }
         }
     }
 }
