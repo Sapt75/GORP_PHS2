@@ -271,24 +271,23 @@ Model.getInitialProps = async (context) => {
 
         let res = await dat.json()
 
-        specef.transmission = res.filter((value, index, self) => {
-            return index === self.findIndex((t) => {
-                return t.transmission_type == value.transmission_type
-            })
-        })
+        const removeDuplicatesByProperty = (array, property) => {
+            const uniqueValues = new Set();
+            return array.filter((item) => {
+                const value = item[property];
+                if (!uniqueValues.has(value)) {
+                    uniqueValues.add(value);
+                    return true;
+                }
+                return false;
+            });
+        };
 
-        specef.fuel = res.filter((value, index, self) => {
-            return index === self.findIndex((t) => {
-                return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
-            })
-        })
+        specef.transmission = removeDuplicatesByProperty(res, "transmission_type");
 
-        specef.seat = res.filter((value, index, self) => {
-            return index === self.findIndex((t) => {
-                return t.seating_capacity == value.seating_capacity
-            })
-        })
+        specef.fuel = removeDuplicatesByProperty(res, (value) => value.Specifications.engine_and_transmission.fuel_type);
 
+        specef.seat = removeDuplicatesByProperty(res, "seating_capacity");
         // setSpecs(specef)
 
 
@@ -307,7 +306,7 @@ Model.getInitialProps = async (context) => {
                 "Content-Type": "application/json"
             }
         })
-    
+
         let rcity = await city.json()
 
 
