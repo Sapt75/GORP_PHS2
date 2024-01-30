@@ -175,7 +175,8 @@ Model.getInitialProps = async (context) => {
     const res = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.split("-").join(" ")}&model_name=${query.modal.split("-").join(" ")}`, {
         method: "GET",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Accept-Encoding': 'gzip, deflate'
         }
     });
     const data = await res.json();
@@ -199,7 +200,8 @@ Model.getInitialProps = async (context) => {
         let model = await fetch(`${url}/model_prices/${data[0].model_id}`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept-Encoding': 'gzip, deflate'
             }
         })
 
@@ -211,7 +213,8 @@ Model.getInitialProps = async (context) => {
         let version = await fetch(`${url}/version_data/${data[0].model_id}`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept-Encoding': 'gzip, deflate'
             }
         })
 
@@ -223,7 +226,8 @@ Model.getInitialProps = async (context) => {
         let vp = await fetch(`${url}/version_prices/${data[0].model_id}/Mumbai`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept-Encoding': 'gzip, deflate'
             }
         })
 
@@ -237,19 +241,22 @@ Model.getInitialProps = async (context) => {
         let city_p = await fetch(`${url}/diff_prices/${data[0].uid}`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept-Encoding': 'gzip, deflate'
 
             }
         })
 
         let citresponse = await city_p.json()
+        let rcity = await city_p.json()
         // setCity(citresponse)
 
 
         let nomlcit = await fetch(`${url}/norml_cities/${data[0].uid}`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept-Encoding': 'gzip, deflate'
             }
         })
 
@@ -265,7 +272,8 @@ Model.getInitialProps = async (context) => {
         let dat = await fetch(`${url}/model_car/${query.brand.split("-").join(" ")}/${query.modal.split("-").join(" ")}`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept-Encoding': 'gzip, deflate'
             }
         })
 
@@ -294,21 +302,11 @@ Model.getInitialProps = async (context) => {
         const color = await fetch(`${url}/color_images/${data[0].brand}/${data[0].model_name}`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept-Encoding': 'gzip, deflate'
             }
         });
         const cres = await color.json()
-
-
-        let city = await fetch(`${url}/diff_prices/${data[0].uid}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-
-        let rcity = await city.json()
-
 
 
 
