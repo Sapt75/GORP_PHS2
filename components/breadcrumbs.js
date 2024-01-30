@@ -25,13 +25,13 @@ export default function CustomSeparator(props) {
 
     return (
         <Stack spacing={2}>
-            <Breadcrumbs itemType="http://schema.org/BreadcrumbList" data-skin="breadcrumb" itemscope="" separator="›" aria-label="breadcrumb">
-                <Link itemProp="itemListElement" itemscope="" itemType="http://schema.org/ListItem" underline="hover" key="1" color="inherit" href="/">
+            <Breadcrumbs itemType="http://schema.org/BreadcrumbList" data-skin="breadcrumb" itemScope="" separator="›" aria-label="breadcrumb">
+                <Link itemProp="itemListElement" itemScope="" itemType="http://schema.org/ListItem" underline="hover" key="1" color="inherit" href="/">
                     home
                 </Link>
                 {route.asPath.split("/").map((item, index) => {
                     c ? c.split("/").includes(item) ? null : c = c + "/" + item : null
-                    return (index > 1 ? <Link itemProp="itemListElement" itemscope="" itemType="http://schema.org/ListItem" underline="hover" key="1" color="inherit" href={`${c}`}>{item}</Link> : null)
+                    return (index > 1 ? <Link itemProp="itemListElement" itemScope="" itemType="http://schema.org/ListItem" underline="hover" key="1" color="inherit" href={`${c}`}>{item}</Link> : null)
                 })}
             </Breadcrumbs>
         </Stack>

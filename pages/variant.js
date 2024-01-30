@@ -65,7 +65,7 @@ export default function Variant() {
     const tab_change = useRef(null)
     let [distance, setDistance] = useState(0)
     const white = useRef(null)
-    
+
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
 
@@ -722,38 +722,42 @@ export default function Variant() {
                             <div className='md:w-full'>
                                 <h2 className='md:text-[24px] text-[18px] mt-3 text-[#484848] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'>Aura Price in cities near New Delhi</h2>
                                 <table className='w-full my-2 md:my-5'>
-                                    <tr className='bg-[#f4f4f4]'>
-                                        <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
-                                        <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[15px] text-[#09809A] font-normal p-2'>Noida</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[15px] text-[#09809A] font-normal p-2'>Gaziabad</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[15px] text-[#09809A] font-normal p-2'>Gurugram</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[15px] text-[#09809A] font-normal p-2'>Haridwar</td>
-                                        <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                            <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
+                                    <thead>
+                                        <tr className='bg-[#f4f4f4]'>
+                                            <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
+                                            <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[15px] text-[#09809A] font-normal p-2'>Noida</td>
+                                            <td className='text-right p-2'>
+                                                <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                                <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[15px] text-[#09809A] font-normal p-2'>Gaziabad</td>
+                                            <td className='text-right p-2'>
+                                                <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                                <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[15px] text-[#09809A] font-normal p-2'>Gurugram</td>
+                                            <td className='text-right p-2'>
+                                                <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                                <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[15px] text-[#09809A] font-normal p-2'>Haridwar</td>
+                                            <td className='text-right p-2'>
+                                                <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                                <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
 
@@ -1218,9 +1222,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1234,9 +1238,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1250,9 +1254,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1266,9 +1270,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1282,9 +1286,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1298,9 +1302,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1314,9 +1318,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1330,9 +1334,9 @@ export default function Variant() {
                                             <div>
                                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>₹ 6,95,860</p>
                                                 <div className='pb-[1rem]'>
-                                                        <input className='mx-1' type="checkbox"></input>
-                                                        <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
-                                                    </div>
+                                                    <input className='mx-1' type="checkbox"></input>
+                                                    <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className='text-[16px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
@@ -1457,47 +1461,51 @@ export default function Variant() {
                             <div className='my-10 md:w-full'>
                                 <p className='md:text-[24px] text-[16px] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'>Aura E 1.2 Petrol Price in cities near New Delhi</p>
                                 <table className='w-full my-2 md:my-5'>
-                                    <tr className='bg-[#09809A]'>
-                                        <th className='text-left p-2 text-white text-[16px] font-normal tracking-[-0.32px]'>City</th>
-                                        <th className='text-right px-6 py-2 text-white text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
-                                        <th className='text-right px-6 py-2 text-white text-[16px] font-normal tracking-[-0.32px]'>Price Breakup</th>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Noida</td>
-                                        <td className='text-right px-6 p-2'>
-                                            <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        </td>
-                                        <td className='text-right px-6 p-2'>
-                                            <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Gaziabad</td>
-                                        <td className='text-right px-6 p-2'>
-                                            <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        </td>
-                                        <td className='text-right px-6 p-2'>
-                                            <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Gurugram</td>
-                                        <td className='text-right px-6 p-2'>
-                                            <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        </td>
-                                        <td className='text-right px-6 p-2'>
-                                            <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
-                                    <tr className='border border-[#C6C6C6]'>
-                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Haridwar</td>
-                                        <td className='text-right px-6 p-2'>
-                                            <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
-                                        </td>
-                                        <td className='text-right px-6 p-2'>
-                                            <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
-                                        </td>
-                                    </tr>
+                                    <thead>
+                                        <tr className='bg-[#09809A]'>
+                                            <th className='text-left p-2 text-white text-[16px] font-normal tracking-[-0.32px]'>City</th>
+                                            <th className='text-right px-6 py-2 text-white text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
+                                            <th className='text-right px-6 py-2 text-white text-[16px] font-normal tracking-[-0.32px]'>Price Breakup</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Noida</td>
+                                            <td className='text-right px-6 p-2'>
+                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                            </td>
+                                            <td className='text-right px-6 p-2'>
+                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Gaziabad</td>
+                                            <td className='text-right px-6 p-2'>
+                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                            </td>
+                                            <td className='text-right px-6 p-2'>
+                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Gurugram</td>
+                                            <td className='text-right px-6 p-2'>
+                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                            </td>
+                                            <td className='text-right px-6 p-2'>
+                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='border border-[#C6C6C6]'>
+                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>Haridwar</td>
+                                            <td className='text-right px-6 p-2'>
+                                                <p className='text-[16px] leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ 6.09 Lakh</p>
+                                            </td>
+                                            <td className='text-right px-6 p-2'>
+                                                <span className='text-[14px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
 
@@ -1687,7 +1695,7 @@ export default function Variant() {
                         </div>
                     </div>
 
-                    
+
 
 
                 </div>

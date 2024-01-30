@@ -481,19 +481,23 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                             <div className='my-5 md:my-10 md:w-full'>
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] mx-2 md:mx-0 font-semibold tracking-[-0.48px]'>{getmodels[0].model_name} Price in top cities in India</h2>
                                 <table className='w-full my-2 md:my-5'>
-                                    <tr className='bg-[#f4f4f4]'>
-                                        <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
-                                        <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
-                                    </tr>
-                                    {mbcity.map((item, index) => {
-                                        return (<tr key={index} className='border border-[#C6C6C6]'>
-                                            <td className='text-[16px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
-                                            <td className='text-right p-2'>
-                                                <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
-                                                {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
-                                            </td>
-                                        </tr>)
-                                    })}
+                                    <thead>
+                                        <tr className='bg-[#f4f4f4]'>
+                                            <th className='text-left p-2 text-[16px] font-normal tracking-[-0.32px]'>City</th>
+                                            <th className='text-right mx-4 py-2 px-2 text-[16px] font-normal tracking-[-0.32px]'>On Road Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {mbcity.map((item, index) => {
+                                            return (<tr key={index} className='border border-[#C6C6C6]'>
+                                                <td className='text-[16px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
+                                                <td className='text-right p-2'>
+                                                    <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
+                                                    {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
+                                                </td>
+                                            </tr>)
+                                        })}
+                                    </tbody>
 
                                 </table>
                             </div>

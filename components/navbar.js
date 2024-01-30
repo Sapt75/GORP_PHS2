@@ -46,7 +46,7 @@ const Navbar = () => {
                     <div>
                         <div className='flex justify-evenly'>
                             <div onClick={() => document.getElementById("side").classList.add(style.scroll)}>
-                                <Image className='mt-2' width={25} src={square} alt="square" />
+                                <Image className='mt-2' width={25} height={25} src={square} alt="square" />
                             </div>
                             <div>
                                 <Image className='w-auto h-[50px]' width={200} height={60} src={logo} alt="logo" />
@@ -91,16 +91,16 @@ const Navbar = () => {
                         <div className='border-t-[1px] space-y-2 w-full border-black absolute bottom-40 text-left px-4 text-sm'>
                             <ul className='flex space-x-3 justify-center my-8'>
                                 <a href=" https://www.facebook.com/getonroadprice">
-                                    <li><Image width={20} src={facebook} alt="facebook" /></li>
+                                    <li><Image width={20} height={20} src={facebook} alt="facebook" /></li>
                                 </a>
                                 <a href="https://twitter.com/getonroadprice">
-                                    <li><Image width={25} src={twitter} alt="twitter" /></li>
+                                    <li><Image width={25} height={25} src={twitter} alt="twitter" /></li>
                                 </a>
                                 <a href="https://www.youtube.com/channel/UC61OEz_KZVsMlozqPz-1xgw">
-                                    <li><Image width={25} src={youtube} alt="youtube" /></li>
+                                    <li><Image width={25} height={25} src={youtube} alt="youtube" /></li>
                                 </a>
                                 <a href="https://www.instagram.com/getonroadprice/">
-                                    <li><Image width={25} src={insta} alt="instagram" /></li>
+                                    <li><Image width={25} height={25} src={insta} alt="instagram" /></li>
                                 </a>
                             </ul>
                             <p className='mt-3 font-semibold text-[#484848]'>VMetrics Solutions Private Limited</p>
@@ -113,7 +113,7 @@ const Navbar = () => {
             </div>
             <div className='hidden md:block pt-[0.5rem] pb-[0.5rem]'>
                 <div className='flex justify-evenly 2xl:mx-2'>
-                    <Link href={`/`}>
+                    <Link href="/">
                         <Image className='w-auto h-[60px]' width={345} height={60} src={logo} alt="logo" />
                     </Link>
                     <ul className='flex text-[18px] uppercase font-medium tracking-[-0.4px] space-x-[1.5rem] xl:space-x-[3rem] 2xl:space-x-[4rem] 2xl:ml-[2rem] pt-[1rem]'>

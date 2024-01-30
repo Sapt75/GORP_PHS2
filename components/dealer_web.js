@@ -173,7 +173,7 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
                             <City_Modal url={url} />
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                        <TemporaryDrawer sticky={true} />
+                            <TemporaryDrawer sticky={true} />
                         </div>
                     </div>
                 </div>
@@ -261,46 +261,48 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
                                                 {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Dealers in Top Cities
                                             </p>
                                             <table className='w-full'>
-                                                <tr onClick={() => {
-                                                    setLocation("Mumbai")
-                                                    sessionStorage.setItem("city", "Mumbai")
-                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-mumbai`)
-                                                }} className='cursor-pointer border border-[#C6C6C6]'>
-                                                    <td className='text-[16px] text-[#09809A] font-normal p-2'>Mumbai</td>
-                                                    <td className='text-right px-2 py-3'>
-                                                        <ChevronRight sx={{ color: "#09809A" }} />
-                                                    </td>
-                                                </tr>
-                                                <tr onClick={() => {
-                                                    setLocation("Delhi")
-                                                    sessionStorage.setItem("city", "Delhi")
-                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-delhi`)
-                                                }} className='cursor-pointer border border-[#C6C6C6]'>
-                                                    <td className='text-[16px] text-[#09809A] font-normal p-2'>Delhi</td>
-                                                    <td className='text-right px-2 py-3'>
-                                                        <ChevronRight sx={{ color: "#09809A" }} />
-                                                    </td>
-                                                </tr>
-                                                <tr onClick={() => {
-                                                    setLocation("Hyderabad")
-                                                    sessionStorage.setItem("city", "Hyderabad")
-                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-hyderabad`)
-                                                }} className='cursor-pointer border border-[#C6C6C6]'>
-                                                    <td className='text-[16px] text-[#09809A] font-normal p-2'>Hyderabad</td>
-                                                    <td className='text-right px-2 py-3'>
-                                                        <ChevronRight sx={{ color: "#09809A" }} />
-                                                    </td>
-                                                </tr>
-                                                <tr onClick={() => {
-                                                    setLocation("Kolkata")
-                                                    sessionStorage.setItem("city", "Kolkata")
-                                                    route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-kolkata`)
-                                                }} className='cursor-pointer border border-[#C6C6C6]'>
-                                                    <td className='text-[16px] text-[#09809A] font-normal p-2'>Kolkata</td>
-                                                    <td className='text-right px-2 py-3'>
-                                                        <ChevronRight sx={{ color: "#09809A" }} />
-                                                    </td>
-                                                </tr>
+                                                <tbody>
+                                                    <tr onClick={() => {
+                                                        setLocation("Mumbai")
+                                                        sessionStorage.setItem("city", "Mumbai")
+                                                        route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-mumbai`)
+                                                    }} className='cursor-pointer border border-[#C6C6C6]'>
+                                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Mumbai</td>
+                                                        <td className='text-right px-2 py-3'>
+                                                            <ChevronRight sx={{ color: "#09809A" }} />
+                                                        </td>
+                                                    </tr>
+                                                    <tr onClick={() => {
+                                                        setLocation("Delhi")
+                                                        sessionStorage.setItem("city", "Delhi")
+                                                        route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-delhi`)
+                                                    }} className='cursor-pointer border border-[#C6C6C6]'>
+                                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Delhi</td>
+                                                        <td className='text-right px-2 py-3'>
+                                                            <ChevronRight sx={{ color: "#09809A" }} />
+                                                        </td>
+                                                    </tr>
+                                                    <tr onClick={() => {
+                                                        setLocation("Hyderabad")
+                                                        sessionStorage.setItem("city", "Hyderabad")
+                                                        route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-hyderabad`)
+                                                    }} className='cursor-pointer border border-[#C6C6C6]'>
+                                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Hyderabad</td>
+                                                        <td className='text-right px-2 py-3'>
+                                                            <ChevronRight sx={{ color: "#09809A" }} />
+                                                        </td>
+                                                    </tr>
+                                                    <tr onClick={() => {
+                                                        setLocation("Kolkata")
+                                                        sessionStorage.setItem("city", "Kolkata")
+                                                        route.push(`/new-car-dealers/${route.asPath.split("/")[2].split("-")[0]}-car-dealers-kolkata`)
+                                                    }} className='cursor-pointer border border-[#C6C6C6]'>
+                                                        <td className='text-[16px] text-[#09809A] font-normal p-2'>Kolkata</td>
+                                                        <td className='text-right px-2 py-3'>
+                                                            <ChevronRight sx={{ color: "#09809A" }} />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>

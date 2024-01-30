@@ -452,6 +452,7 @@ const Dealers = () => {
                                                 Hyundai Dealers in Cities Nearby
                                             </p>
                                             <table className='w-full'>
+                                            <tbody>
                                                 <tr className='border border-[#C6C6C6]'>
                                                     <td className='text-[16px] text-[#09809A] font-normal p-2'>Noida</td>
                                                     <td className='text-right px-2 py-3'>
@@ -476,6 +477,8 @@ const Dealers = () => {
                                                         <ChevronRight sx={{ color: "#09809A" }} />
                                                     </td>
                                                 </tr>
+
+                                            </tbody>
                                             </table>
                                         </div>
                                     </div>

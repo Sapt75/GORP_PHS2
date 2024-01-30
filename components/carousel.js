@@ -78,12 +78,12 @@ export default function ImageSlider(props) {
                 <div className='custom-wrapper'>
                     <SplideTrack>
                         <SplideSlide>
-                            <img title={`${titleCase(props.brand)} ${titleCase(props.model)}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(props.model)}.jpg?updatedAt=${new Date().getTime() / 1000}`} alt={`${props.brand} ${props.model} Hero`} />
+                            <Image width={500} height={300} priority={true} title={`${titleCase(props.brand)} ${titleCase(props.model)}`} className={`${width >= 1000 ? "h-[16rem]" : "h-auto"} mx-auto`} src={`https://ik.imagekit.io/GORP/${titleCase(props.brand)}/${titleCase(props.model)}/${titleCase(props.model)}.jpg?updatedAt=${parseInt(new Date().getTime() / 1000)}`} alt={`${props.brand} ${props.model} Hero`} />
                         </SplideSlide>
                         {Object.keys(images).map((item) => {
                             return (images[item].map((itm, ind) => {
                                 return (<SplideSlide key={ind}>
-                                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={itm + `?updatedAt=${new Date().getTime() / 1000}`} alt={`${props.brand} ${props.model} ${item}`} />
+                                    <img className={`${width >= 1000 ? "h-[16rem]" : null} mx-auto`} src={itm + `?updatedAt=${parseInt(new Date().getTime() / 1000)}`} alt={`${props.brand} ${props.model} ${item}`} />
                                 </SplideSlide>)
                             }))
                         })}
