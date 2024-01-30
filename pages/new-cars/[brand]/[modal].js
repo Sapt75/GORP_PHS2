@@ -248,7 +248,7 @@ Model.getInitialProps = async (context) => {
         })
 
         let citresponse = await city_p.json()
-        let rcity = await city_p.json()
+        let rcity = citresponse
         // setCity(citresponse)
 
 
