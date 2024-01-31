@@ -236,10 +236,10 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                 </ul>
                                 <div className='grid grid-cols-3 gap-y-10 border border-[#E1E1E1] py-12'>
                                     {brand.length > 0 ? brand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}`}>
+                                        return (<Link key={index} href={`/new-cars/${item.split(" ").join("-").toLowerCase()}`}>
                                             <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
 

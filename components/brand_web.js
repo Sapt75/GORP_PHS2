@@ -246,10 +246,10 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Top Brands</h2>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} className={`${view ? null : index >= 8 ? "hidden" : null}`} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
+                                        return (<Link key={index} className={`${view ? null : index >= 8 ? "hidden" : null}`} href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`}>
                                             <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
 

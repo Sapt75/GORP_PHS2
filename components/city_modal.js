@@ -26,6 +26,8 @@ export default function Modal(props) {
 
     let { location, setLocation } = context
 
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+
 
     const handleOpen = () => {
         setOpen(true);
@@ -38,7 +40,7 @@ export default function Modal(props) {
 
     async function pincodeData(e) {
         if (!isNaN(e.target.value)) {
-            let data = await fetch(`${props.url}/pincode_details/${e.target.value}`, {
+            let data = await fetch(`${url}/pincode_details/${e.target.value}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -47,7 +49,7 @@ export default function Modal(props) {
             let response = await data.json()
             setCity(response)
         } else {
-            let data = await fetch(`${props.url}/pincode_details/${e.target.value}`, {
+            let data = await fetch(`${url}/pincode_details/${e.target.value}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -61,7 +63,7 @@ export default function Modal(props) {
 
 
     async function getCityData() {
-        let data = await fetch(`${props.url}/city_names`, {
+        let data = await fetch(`${url}/city_names`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"

@@ -80,7 +80,11 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
 
 
     useEffect(() => {
-
+        setGetbranddata(data)
+        setGetPrices(pricedata)
+        setTrans(tdata)
+        setBrand(bres)
+        setDesc(dres)
     }, [])
 
 
@@ -175,10 +179,10 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mt-6 mb-3'>Top Brands</h2>
                                 <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
+                                        return (<Link key={index} href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`}>
                                             <div className='text-center'>
-                                                <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                <p className='text-[16px] text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-[16px] text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
 

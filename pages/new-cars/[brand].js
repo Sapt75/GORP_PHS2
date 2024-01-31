@@ -62,10 +62,6 @@ export const getServerSideProps = async (context) => {
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
-    console.log(query.brand.split("-").join(" "))
-
-
-
     const res = await fetch(`${url}/getonebrandcarsnew?brand=${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
         // const res = await fetch(`/getonebrandcars?brand=${data[0].brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
@@ -74,6 +70,7 @@ export const getServerSideProps = async (context) => {
         }
     });
     const data = await res.json();
+
 
     // setGetbranddata(data)
 

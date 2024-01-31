@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 export default function Model({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres, rcity }) {
 
     const [width, setWidth] = useState()
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
 
     const route = useRouter()
 
@@ -188,6 +188,7 @@ export const getServerSideProps = async (context) => {
         }
     });
     const data = await main.json();
+
     if (main.status === 422 || !data) {
         console.log("error");
     } else {
@@ -240,6 +241,7 @@ export const getServerSideProps = async (context) => {
         })
 
         let vpresponse = await vp.json()
+
 
         // vpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vpresponse)
         // console.log("Data Fetched!");
