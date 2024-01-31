@@ -243,6 +243,7 @@ export const getServerSideProps = async (context) => {
         let vpresponse = await vp.json()
 
 
+
         // vpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vpresponse)
         // console.log("Data Fetched!");
 

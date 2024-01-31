@@ -222,10 +222,10 @@ export default function Dealers_Web({ bresponse, host_url }) {
                                 <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Showrooms of Other Brands in {location}</p>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {brand.length > 0 ? brand.map((item, index) => {
-                                        return (<Link className={`${view ? null : index >= 8 ? "hidden" : null}`} key={index} href={`/new-car-dealers/${item.brand.toLowerCase()}-car-dealers-${location.toLowerCase()}`}>
+                                        return (<Link className={`${view ? null : index >= 8 ? "hidden" : null}`} key={index} href={`/new-car-dealers/${item.toLowerCase()}-car-dealers-${location.toLowerCase()}`}>
                                             <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
 

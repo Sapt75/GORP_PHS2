@@ -244,10 +244,10 @@ export default function Dealers_Mobile({ bresponse, cities }) {
                                     <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Top Brands</h2>
                                     <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
                                         {brand.length > 0 ? brand.map((item, index) => {
-                                            return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase()}`}>
+                                            return (<Link key={index} href={`/new-cars/${item.toLowerCase()}`}>
                                                 <div key={index} className='text-center'>
-                                                    <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                    <p className='text-[16px] text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                    <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                    <p className='text-[16px] text-[#484848] font-semibold my-3'>{item}</p>
                                                 </div>
                                             </Link>)
 
