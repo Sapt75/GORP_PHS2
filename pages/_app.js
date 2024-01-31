@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
 
 
   return (<>
-    {show ? <Loader /> : <LocationState>
+    {!show ? <Loader /> : <LocationState>
       <LoadingBar
         color='#0B9DBC'
         progress={progress}
