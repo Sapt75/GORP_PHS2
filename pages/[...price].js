@@ -191,10 +191,6 @@ export default function Price({ data,
     }
 
 
-    console.log(first)
-
-
-
 
     function scrollFunction() {
         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -257,7 +253,7 @@ export default function Price({ data,
                 <meta name="description" content={`${cardetails[0].brand} ${cardetails[0].model_name} ${cardetails[0].version_name} on road price in ${location} is ${versionPrice.length > 0 ? numFormat(versionPrice[0].ex_showroom_price) : null} .Check ${cardetails[0].brand} ${cardetails[0].model_name} price breakup, ex-showroom price, Registration Charges, Insurance & Other Charges in ${location}. | GetonRoadPrice`} />
                 <script key="structured-data" type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(sdata) }} />
             </Head>
-            <Navbar />
+
             {finalVersion.length > 0 ? <div>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                     <div className='flex justify-between'>
@@ -526,10 +522,6 @@ export default function Price({ data,
                     </div>
                 </div >
             </div> : null}
-
-            <div className='relative z-[100]'>
-                <Footer />
-            </div>
         </>
     )
 }

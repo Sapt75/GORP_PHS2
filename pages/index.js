@@ -109,7 +109,6 @@ export default function Home({ bresponse, query, head }) {
             <Head>
                 <title itemprop="name">New Cars, Used Cars, Buy a Car, Sell Your Car - GetOnRoadPrice</title>
             </Head>
-            <Navbar />
             {width > 800 ? <div>
                 <div className={`w-full ${style["h-banner"]} text-center h-[30rem] md:mt-[-1.5rem] relative`}>
                     <div className='w-full bg-[#1f232f] bg-opacity-70 py-8 absolute bottom-0'>
@@ -577,7 +576,6 @@ export default function Home({ bresponse, query, head }) {
                     </div>
                 </div>
             </div> : <Home_Mobile bresponse={bresponse} query={query} head={head} />}
-            <Footer />
         </>
     )
 }
@@ -602,9 +600,6 @@ Home.getInitialProps = async (context) => {
         }
     })
     let bresponse = await data.json()
-
-
-    console.log(bresponse)
 
 
     return {

@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 
 
 
-export default function Dealers({ bresponse, cities, head }) {
+export default function Dealers({ bresponse, head }) {
 
     let [show, setShow] = useState(false)
     const context = React.useContext(locationContext)
@@ -32,13 +32,11 @@ export default function Dealers({ bresponse, cities, head }) {
 
     return (
         <>
-            <Navbar />
             <Head>
                 <title itemProp='title'>{route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Showrooms in {location} | Maruti Dealers in {location} </title>
                 <meta name='description' itemProp='description' content={`${route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} has 56 authorized dealer outlets / showrooms in {location}. Dealer information includes full address, phone numbers, email, pin code etc.`} />
             </Head>
-            {show ? <Dealers_Web host_url={host_url} bresponse={bresponse} cities={cities} /> : <Dealers_Mobile host_url={host_url} bresponse={bresponse} cities={cities} />}
-            <Footer />
+            {show ? <Dealers_Web host_url={host_url} bresponse={bresponse} /> : <Dealers_Mobile host_url={host_url} bresponse={bresponse} />}
         </>
     )
 }
@@ -66,26 +64,25 @@ Dealers.getInitialProps = async (context) => {
 
 
 
-    async function getCityData() {
-        let data = await fetch(`${url}/city_names`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        let response = await data.json()
-        return response
-        // setCity(response)
-    }
+    // async function getCityData() {
+    //     let data = await fetch(`${url}/city_names`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     })
+    //     let response = await data.json()
+    //     return response
+    //     // setCity(response)
+    // }
 
-    let cities = getCityData()
+    // let cities = getCityData()
 
 
 
 
     return {
         bresponse,
-        cities,
         query,
         head
     }

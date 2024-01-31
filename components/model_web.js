@@ -48,7 +48,7 @@ import Rating_Model from '../components/rating_modal';
 import Emi_Modal from '../components/emi';
 // import Brand_Model from '../components/brand_modal';
 import { Link } from 'react-scroll';
-import ColorSlider from '../components/color';
+// import ColorSlider from '../components/color';
 import RLink from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -93,21 +93,13 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
     const route = useRouter()
 
-    const Brand_Model = dynamic(() => import('../components/brand_modal'),{
-        ssr: false
-    });
-    const Version_Modal = dynamic(() => import('../components/version_modal'),{
-        ssr: false
-    })
-    const City_Modal = dynamic(() => import('../components/city_modal'),{
-        ssr: false
-    })
-    const TemporaryDrawer = dynamic(() => import('./deal'),{
-        ssr: false
-    })
-    const CustomSeparator = dynamic(() => import('./breadcrumbs'),{
-        ssr: false
-    })
+    const Brand_Model = dynamic(() => import('../components/brand_modal'));
+    const Version_Modal = dynamic(() => import('../components/version_modal'))
+    const City_Modal = dynamic(() => import('../components/city_modal'))
+    const TemporaryDrawer = dynamic(() => import('./deal'))
+    const CustomSeparator = dynamic(() => import('./breadcrumbs'))
+    const ColorSlider = dynamic(()=> import('../components/color'))
+    
 
     // const host_url = `https://${head.host}/new-cars`
 

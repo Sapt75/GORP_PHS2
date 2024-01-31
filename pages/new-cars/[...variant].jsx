@@ -85,7 +85,6 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
     return (
         <>
-            <Navbar />
             <Head>
                 <title itemProp='name'>{data[0].brand} {data[0].model_name} {data[0].version_name} on road price, {data[0].brand} {data[0].model_name} {data[0].version_name} Features & Specs, Colours & Variants.
                 </title>
@@ -99,7 +98,6 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 
 
 
-            <Footer />
         </>
     )
 }

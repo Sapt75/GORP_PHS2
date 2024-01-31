@@ -3,8 +3,7 @@ import Navbar from '../../../components/navbar';
 import Footer from '../../../components/footer';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Model_Web from '../../../components/model_web';
-import Model_Mobile from '../../../components/model_mobile';
+import dynamic from 'next/dynamic';
 
 
 
@@ -14,10 +13,14 @@ import Model_Mobile from '../../../components/model_mobile';
 export default function Model({ data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, cres, rcity }) {
 
     const [width, setWidth] = useState()
+    const [loading, setLoading] = useState(true)
 
     const route = useRouter()
 
     const host_url = `https://${head.host}/new-cars`
+
+    const Model_Web = dynamic(() => import('../../../components/model_web'));
+    const Model_Mobile = dynamic(() => import('../../../components/model_mobile'));
 
 
     function numFormat(value) {
@@ -141,7 +144,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 
     return (
         <>
-            <Navbar />
+
             <Head>
                 <title itemProp='name'>{data[0].brand} {data[0].model_name} Price, {data[0].model_name} Varients, Mileage & Features & Specifications | GetOnRoadPrice</title>
                 <meta name="description" itemProp='description' content={`${data[0].brand} ${data[0].model_name} price in India starts at ${response.length > 0 ? numFormat(response[0].min_price) : null}. Get ${data[0].brand} ${data[0].model_name} key specs, features, ${data[0].model} Price Breakup, mileage, color, variants Price at GetonRoadPrice  `} />
@@ -152,7 +155,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 
             {width > 800 ? <Model_Web host_url={host_url} data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} /> : <Model_Mobile host_url={host_url} data={data} response={response} vresponse={vresponse} vpresponse={vpresponse} query={query} head={head} citresponse={citresponse} nomcity={nomcity} specef={specef} cres={cres} mcity={rcity} />}
 
-            <Footer />
+
         </>
     )
 }

@@ -58,7 +58,7 @@ import TemporaryDrawer from './deal';
 
 
 
-export default function Dealers_Web({ bresponse, cities, host_url }) {
+export default function Dealers_Web({ bresponse, host_url }) {
 
     const [update, setUpdate] = useState(false)
     const [show, setShow] = useState(false)
@@ -74,8 +74,6 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
     let { location, pinn, setLocation } = context
 
     const route = useRouter()
-
-    const [city, setCity] = useState()
 
     const [mainb, setMainb] = useState(route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)
     )
@@ -144,7 +142,6 @@ export default function Dealers_Web({ bresponse, cities, host_url }) {
         // setDealer(sessionStorage.getItem("dealer_details") ? JSON.parse(sessionStorage.getItem("dealer_details")) : [])
         getBrandData()
         setBrand(bresponse)
-        setCity(cities)
     }, [location, brand, dealer])
 
 
