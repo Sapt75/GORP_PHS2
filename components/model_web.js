@@ -130,7 +130,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
     }
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
@@ -228,19 +228,19 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
                         <ul className='whitespace-nowrap hidden md:flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                             <li className='font-semibold text-[#484848]'><span title={`${getmodels[0].brand} ${getmodels[0].model_name}`}> {getmodels[0].model_name}  </span><Version_Modal brand={getmodels[0].brand} model={getmodels[0].model_name} version={getmodels[0].version_name} price={versionPrice} data={finalVersion} status={true} /></li>
-                            <Link title={`${getmodels[0].model_name} Overview`} activeClass="active"
+                            <Link title={`${getmodels[0].model_name} Overview`} activeclassName="active"
                                 to="over" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Overview</li>
                             </Link>
-                            <Link title={`${getmodels[0].model_name} Variants`} activeClass="active"
+                            <Link title={`${getmodels[0].model_name} Variants`} activeclassName="active"
                                 to="ver" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variants</li>
                             </Link>
-                            <Link title={`${getmodels[0].model_name} Colors`} activeClass="active"
+                            <Link title={`${getmodels[0].model_name} Colors`} activeclassName="active"
                                 to="col" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
                             </Link>
-                            <Link title={`${getmodels[0].model_name} Mileage`} activeClass="active"
+                            <Link title={`${getmodels[0].model_name} Mileage`} activeclassName="active"
                                 to="mil" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Performance [mileage]</li>
                             </Link>
@@ -303,7 +303,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                 <div id='fec' className='py-5'>
                                     <div className='w-full rounded-[2px] flex justify-between font-semibold text-[#484848] py-2'>
                                         <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of {getmodels[0].brand} {getmodels[0].model_name} </h2>
-                                        <Link activeClass="active"
+                                        <Link activeclassName="active"
                                             to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                             {/* <p className='md:text-[14px] cursor-pointer text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p> */}
                                         </Link>

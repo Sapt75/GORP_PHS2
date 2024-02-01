@@ -70,7 +70,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
     const [view, setView] = useState(false)
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
     const route = useRouter()
 
@@ -115,6 +115,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
     useEffect(() => {
         window.onscroll = function () { scrollFunction() };
         setGetbranddata(data)
+        console.log(data)
         setGetPrices(pricedata)
         // setTrans(tdata)
         setBrand(bres)
@@ -194,7 +195,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                                     hasMore={true}
                                     loader={<h4>Loading...</h4>}
                                 >
-                                    {getbranddata.map((item, index) => {
+                                    {getbranddata.length > 0 ?getbranddata.map((item, index) => {
                                         return (getprices.map((element) => {
                                             return element.model_id === item.model_id ? <div key={index} className='flex justify-between my-2 px-10 border py-8 border-[#E1E1E1]'>
                                                 <div className='w-[15rem]'>
@@ -236,15 +237,15 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                                                 </div>
                                             </div> : null
                                         }))
-                                    })}
+                                    }):null}
                                 </InfiniteScroll>
-                                <div class="bg-yellow-400 p-4 flex justify-evenly my-4">
+                                <div className="bg-yellow-400 p-4 flex justify-evenly my-4">
                                     <div>
-                                        <p class="text-2xl font-semibold">EMI Starts  at 12550/Month</p>
+                                        <p className="text-2xl font-semibold">EMI Starts  at 12550/Month</p>
                                         <Emi_Modal />
                                     </div>
                                     <div>
-                                        <button class="px-10 py-1.5 bg-[#CE4327] text-white text-xl font-semibold rounded-[10px]">GET OFFERS</button>
+                                        <button className="px-10 py-1.5 bg-[#CE4327] text-white text-xl font-semibold rounded-[10px]">GET OFFERS</button>
                                     </div>
                                 </div>
                             </div>
@@ -255,10 +256,10 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Top Brands</h2>
                                 <div className='grid grid-cols-4 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} className={`${view ? null : index >= 8 ? "hidden" : null}`} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
+                                        return (<Link key={index} className={`${view ? null : index >= 8 ? "hidden" : null}`} href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`}>
                                             <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
 

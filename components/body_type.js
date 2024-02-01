@@ -6,12 +6,12 @@ const Body_Filter = () => {
 
     const [type, setType] = useState([])
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
     async function getData() {
-        let data = await fetch(`https://inquisitive-knickers-fish.cyclic.app/all_body_types`, {
+        let data = await fetch(`http://localhost:5000/all_body_types`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"

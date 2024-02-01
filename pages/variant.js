@@ -67,7 +67,7 @@ export default function Variant() {
     const white = useRef(null)
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
@@ -224,15 +224,15 @@ export default function Variant() {
                         </div>
                         <ul className='whitespace-nowrap hidden md:flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                             <Brand_Model url={url} state={true} brand={"Hyundai"} model={"Aura"} />
-                            <Link activeClass="active"
+                            <Link activeclassName="active"
                                 to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Features & Specifications</li>
                             </Link>
-                            <Link activeClass="active"
+                            <Link activeclassName="active"
                                 to="ver" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variants</li>
                             </Link>
-                            <Link activeClass="active"
+                            <Link activeclassName="active"
                                 to="col" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
                             </Link>

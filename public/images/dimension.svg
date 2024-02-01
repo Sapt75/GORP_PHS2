@@ -1,9 +1,9 @@
 <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="icon-park-outline:scale-one" clip-path="url(#clip0_1022_623)">
 <g id="Group">
-<path id="Vector" d="M14.25 9.07996H6.125V5.95496L14.25 2.82996H21.75L29.875 5.95496V9.07996H21.75" stroke="#333333" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M14.25 2.82996H21.75V27.83H14.25V2.82996Z" stroke="#333333" stroke-width="0.5" stroke-linejoin="round"/>
-<path id="Vector_3" d="M14.25 7.82996H16.75M14.25 19.08H17.375M14.25 11.58H17.375M14.25 15.33H16.75M14.25 22.83H16.75M14.25 6.57996V24.08" stroke="#333333" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector" d="M14.25 9.07996H6.125V5.95496L14.25 2.82996H21.75L29.875 5.95496V9.07996H21.75" stroke="#333333" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path id="Vector_2" d="M14.25 2.82996H21.75V27.83H14.25V2.82996Z" stroke="#333333" strokeWidth="0.5" strokeLinejoin="round"/>
+<path id="Vector_3" d="M14.25 7.82996H16.75M14.25 19.08H17.375M14.25 11.58H17.375M14.25 15.33H16.75M14.25 22.83H16.75M14.25 6.57996V24.08" stroke="#333333" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round"/>
 </g>
 </g>
 <defs>

@@ -90,9 +90,9 @@ function Emi_Modal() {
                         </div>
                         <div className="justify-center flex space-x-2 mt-6">
                             <p className="text-[16px] text-[#6f6f6f] mt-2">Graph</p>
-                            <label class="switch">
+                            <label className="switch">
                                 <input onChange={() => change ? setChange(false) : setChange(true)} type="checkbox" />
-                                <span class="slider round"></span>
+                                <span className="slider round"></span>
                             </label>
                             {/* <Switch size='medium' defaultChecked /> */}
                             <p className="text-[16px] text-[#6f6f6f] mt-2">Schedule</p>

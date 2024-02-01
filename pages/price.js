@@ -203,12 +203,12 @@
 //                                                 <span className="text-cyan-600 text-[18px] font-medium">Individual</span>
 //                                             </div>
 //                                             <div className='relative h-[9rem]'>
-//                                                 <div class="w-[257px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
+//                                                 <div className="w-[257px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
 //                                                 <div className='absolute right-20 space-y-4 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 67,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 675</p>
@@ -227,12 +227,12 @@
 //                                             </div>
 //                                             <p className="text-[18px] font-semibold">Other Charges </p>
 //                                             <div className='relative h-[9rem]'>
-//                                                 <div class="w-[130px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
+//                                                 <div className="w-[130px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
 //                                                 <div className='absolute right-20 space-y-4 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 1,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 600</p>
@@ -247,16 +247,16 @@
 //                                         <div className='pt-4'>
 //                                             <p className="text-[18px] font-semibold">Optional</p>
 //                                             <div className='relative h-[14rem]'>
-//                                                 <div class="w-[130px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
+//                                                 <div className="w-[130px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
 //                                                 <div className='absolute right-20 space-y-5 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 4,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 6,000</p>
@@ -311,12 +311,12 @@
 //                                                 <span className="text-cyan-600 text-[18px] font-medium">Individual</span>
 //                                             </div>
 //                                             <div className='relative h-[9rem]'>
-//                                                 <div class="w-[257px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
+//                                                 <div className="w-[257px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
 //                                                 <div className='absolute right-20 space-y-4 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 67,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 675</p>
@@ -335,12 +335,12 @@
 //                                             </div>
 //                                             <p className="text-[18px] font-semibold">Other Charges </p>
 //                                             <div className='relative h-[9rem]'>
-//                                                 <div class="w-[130px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
+//                                                 <div className="w-[130px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
 //                                                 <div className='absolute right-20 space-y-4 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 1,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 600</p>
@@ -355,16 +355,16 @@
 //                                         <div className='pt-4'>
 //                                             <p className="text-[18px] font-semibold">Optional</p>
 //                                             <div className='relative h-[14rem]'>
-//                                                 <div class="w-[130px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
+//                                                 <div className="w-[130px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
 //                                                 <div className='absolute right-20 space-y-5 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 4,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 6,000</p>
@@ -419,12 +419,12 @@
 //                                                 <span className="text-cyan-600 text-[18px] font-medium">Individual</span>
 //                                             </div>
 //                                             <div className='relative h-[9rem]'>
-//                                                 <div class="w-[257px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
+//                                                 <div className="w-[257px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
 //                                                 <div className='absolute right-20 space-y-4 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 67,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 675</p>
@@ -443,12 +443,12 @@
 //                                             </div>
 //                                             <p className="text-[18px] font-semibold">Other Charges </p>
 //                                             <div className='relative h-[9rem]'>
-//                                                 <div class="w-[130px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
+//                                                 <div className="w-[130px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
 //                                                 <div className='absolute right-20 space-y-4 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 1,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 600</p>
@@ -463,16 +463,16 @@
 //                                         <div className='pt-4'>
 //                                             <p className="text-[18px] font-semibold">Optional</p>
 //                                             <div className='relative h-[14rem]'>
-//                                                 <div class="w-[130px] h-[0px] border border-black"></div>
-//                                                 <div class="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
-//                                                 <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
-//                                                 <div class="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
-//                                                 <p class="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
+//                                                 <div className="w-[130px] h-[0px] border border-black"></div>
+//                                                 <div className="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
+//                                                 <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
+//                                                 <div className="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
+//                                                 <p className="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
 //                                                 <div className='absolute right-20 space-y-5 mt-4'>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 4,500</p>
 //                                                     <p className="text-neutral-500 text-right text-lg">₹ 6,000</p>
@@ -759,70 +759,70 @@
 //                         <div className='w-full my-6 md:px-0'>
 
 //                             <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Key Highlights of Hyundai Cars</p>
-//                             <div class="relative overflow-x-auto">
-//                                 <table class="w-full text-left">
+//                             <div className="relative overflow-x-auto">
+//                                 <table className="w-full text-left">
 //                                     <tbody>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 Registration Fees
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
+//                                             <td className="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
 //                                                 Rs. 600 – For all cars
 //                                             </td>
 //                                         </tr>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 Hypothecation Charges
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
+//                                             <td className="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
 //                                                 Rs. 1,500 – If the car is purchased on a loan
 //                                             </td>
 //                                         </tr>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 Number Plate Charges
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
+//                                             <td className="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
 //                                                 Rs. 230 – 400 – Same for HSRP Number Plate
 //                                             </td>
 //                                         </tr>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 Parking Fee/State Development Charges
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
+//                                             <td className="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
 //                                                 <p className='pb-3'>Rs. 2,000 – MCD Parking Fees for cars under</p>
 //                                                 <p>Rs. 4 LakhRs. 4,000 – MCD Parking Fees for cars above Rs. 4 Lakh</p>
 //                                             </td>
 //                                         </tr>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 Number Plate Charges
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
+//                                             <td className="md:pl-[15rem] text-[14px] px-2 md:px-0 text-[#6F6F6F] md:text-base">
 //                                                 Rs. 230 – 400 – Same for HSRP Number Plate
 //                                             </td>
 //                                         </tr>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 Temporary Registration Charges
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] text-[#6F6F6F] px-2 md:px-0 md:text-base">Rs. 1,200 – 1,500 – Temporary Registration for up to 1 month</td>
+//                                             <td className="md:pl-[15rem] text-[14px] text-[#6F6F6F] px-2 md:px-0 md:text-base">Rs. 1,200 – 1,500 – Temporary Registration for up to 1 month</td>
 //                                         </tr>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 Road Tax Charges
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] text-[#6F6F6F] px-2 md:px-0 md:text-base">
+//                                             <td className="md:pl-[15rem] text-[14px] text-[#6F6F6F] px-2 md:px-0 md:text-base">
 //                                                 <p className="pb-2">Cars under Rs. 10.0 Lakh: CNG – 7%, Petrol – 11%, Diesel – 13%Cars between Rs. 10.0 – 20.0 Lakh: Petrol – 12%, Diesel – 14%Cars above Rs. 20.0 Lakh: Petrol – 13%, Diesel – 15%</p>
 //                                                 <p className='pb-1'>If car is purchased under Company Name, Road Tax is above 20%</p>
 //                                             </td>
 //                                         </tr>
-//                                         <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-//                                             <th scope="row" class="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
+//                                         <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+//                                             <th scope="row" className="md:px-6 px-2 text-[14px] text-[#484848] md:text-base py-2 font-semibold md:whitespace-nowrap dark:text-white">
 //                                                 FastTag Charges
 //                                             </th>
-//                                             <td class="md:pl-[15rem] text-[14px] text-[#6F6F6F] px-2 md:px-0 md:text-base">Rs. 500 FasTag fees payable on purchase of the vehicle</td>
+//                                             <td className="md:pl-[15rem] text-[14px] text-[#6F6F6F] px-2 md:px-0 md:text-base">Rs. 500 FasTag fees payable on purchase of the vehicle</td>
 //                                         </tr>
 //                                     </tbody>
 //                                 </table>

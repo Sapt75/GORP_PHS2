@@ -250,13 +250,13 @@ const Brand = () => {
                                         </span>
                                     </div>
                                 </div>
-                                <div class="bg-yellow-400 p-4 flex justify-evenly my-4">
+                                <div className="bg-yellow-400 p-4 flex justify-evenly my-4">
                                     <div>
-                                        <p class="text-[16px] font-semibold">EMI Starts  at 12550/Month</p>
+                                        <p className="text-[16px] font-semibold">EMI Starts  at 12550/Month</p>
                                         <Emi_Modal />
                                     </div>
                                     <div>
-                                        <button class="px-4 py-1 bg-[#CE4327] text-white text-[16px] font-semibold rounded-[10px]">GET OFFERS</button>
+                                        <button className="px-4 py-1 bg-[#CE4327] text-white text-[16px] font-semibold rounded-[10px]">GET OFFERS</button>
                                     </div>
                                 </div>
                             </div>
@@ -375,54 +375,54 @@ const Brand = () => {
                             {/* Highlights  */}
                             <div className='w-full my-6'>
                                 <p className='text-[18px] text-[#484848] font-semibold mb-3'>Key Highlights of Hyundai Cars</p>
-                                <div class="relative overflow-x-auto">
-                                    <table class="w-full text-left">
+                                <div className="relative overflow-x-auto">
+                                    <table className="w-full text-left">
                                         <tbody>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Popular Models
                                                 </th>
-                                                <td class="text-[16px] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="text-[16px] text-[#6F6F6F] py-4 font-normal">
                                                     Extra, Creta, Venu
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Affordable Model
                                                 </th>
-                                                <td class="text-[16px] py-4 text-[#6F6F6F] font-normal">
+                                                <td className="text-[16px] py-4 text-[#6F6F6F] font-normal">
                                                     Tata Tiago(Rs. 5.60 Lakh)
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Most Expensive
                                                 </th>
-                                                <td class="text-[16px] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="text-[16px] text-[#6F6F6F] py-4 font-normal">
                                                     Tata Safari(Rs. 15.85 Lakh)
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Number of Cars
                                                 </th>
-                                                <td class="text-[16px] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="text-[16px] text-[#6F6F6F] py-4 font-normal">
                                                     17 (3 Compact SUV, 9 SUV, 3 Hatchback, 1 Sedan, 1 Compact Sedan)
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Upcoming Models
                                                 </th>
-                                                <td class="text-[16px] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="text-[16px] text-[#6F6F6F] py-4 font-normal">
                                                     Tata Harrier 2023, Tata Altroz Racer, Tata Curvv EV, Tata Curvv, Tata Avinya
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-4 text-[16px] font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Dealer Showrooms
                                                 </th>
-                                                <td class="text-[16px] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="text-[16px] text-[#6F6F6F] py-4 font-normal">
                                                     1620 Showrooms
                                                 </td>
                                             </tr>
@@ -733,13 +733,13 @@ const Brand = () => {
                                         </span>
                                     </div>
                                 </div>
-                                <div class="bg-yellow-400 p-4 flex justify-evenly my-4">
+                                <div className="bg-yellow-400 p-4 flex justify-evenly my-4">
                                     <div>
-                                        <p class="text-2xl font-semibold">EMI Starts  at 12550/Month</p>
+                                        <p className="text-2xl font-semibold">EMI Starts  at 12550/Month</p>
                                         <Emi_Modal />
                                     </div>
                                     <div>
-                                        <button class="px-10 py-1.5 bg-[#CE4327] text-white text-xl font-semibold rounded-[10px]">GET OFFERS</button>
+                                        <button className="px-10 py-1.5 bg-[#CE4327] text-white text-xl font-semibold rounded-[10px]">GET OFFERS</button>
                                     </div>
                                 </div>
                             </div>
@@ -866,54 +866,54 @@ const Brand = () => {
                             <div className='w-full my-6'>
 
                                 <p className='text-[24px] text-[#484848] font-semibold mb-3'>Key Highlights of Hyundai Cars</p>
-                                <div class="relative overflow-x-auto">
-                                    <table class="w-full text-left">
+                                <div className="relative overflow-x-auto">
+                                    <table className="w-full text-left">
                                         <tbody>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Popular Models
                                                 </th>
-                                                <td class="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
                                                     Extra, Creta, Venu
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Affordable Model
                                                 </th>
-                                                <td class="pl-[15rem] py-4 text-[#6F6F6F] font-normal">
+                                                <td className="pl-[15rem] py-4 text-[#6F6F6F] font-normal">
                                                     Tata Tiago(Rs. 5.60 Lakh)
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Most Expensive
                                                 </th>
-                                                <td class="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
                                                     Tata Safari(Rs. 15.85 Lakh)
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Number of Cars
                                                 </th>
-                                                <td class="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
                                                     17 (3 Compact SUV, 9 SUV, 3 Hatchback, 1 Sedan, 1 Compact Sedan)
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Upcoming Models
                                                 </th>
-                                                <td class="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
                                                     Tata Harrier 2023, Tata Altroz Racer, Tata Curvv EV, Tata Curvv, Tata Avinya
                                                 </td>
                                             </tr>
-                                            <tr class="bg-white border dark:bg-gray-800 dark:border-gray-700">
-                                                <th scope="row" class="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
+                                            <tr className="bg-white border dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 font-semibold text-[#484848] py-4 whitespace-nowrap dark:text-white">
                                                     Dealer Showrooms
                                                 </th>
-                                                <td class="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
+                                                <td className="pl-[15rem] text-[#6F6F6F] py-4 font-normal">
                                                     1620 Showrooms
                                                 </td>
                                             </tr>

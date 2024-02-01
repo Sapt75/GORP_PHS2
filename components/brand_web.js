@@ -85,7 +85,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
         return value;
     }
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
@@ -229,13 +229,13 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                         </div>
                                     </div>)
                                 })}
-                                <div class="bg-yellow-400 p-4 flex justify-evenly my-4">
+                                <div className="bg-yellow-400 p-4 flex justify-evenly my-4">
                                     <div>
-                                        <p class="text-2xl font-semibold">EMI Starts  at 12550/Month</p>
+                                        <p className="text-2xl font-semibold">EMI Starts  at 12550/Month</p>
                                         <Emi_Modal />
                                     </div>
                                     <div>
-                                        <button class="px-10 py-1.5 bg-[#CE4327] text-white text-xl font-semibold rounded-[10px]">GET OFFERS</button>
+                                        <button className="px-10 py-1.5 bg-[#CE4327] text-white text-xl font-semibold rounded-[10px]">GET OFFERS</button>
                                     </div>
                                 </div>
                             </div>

@@ -187,7 +187,7 @@
 //                             <p className='text-[24px] font-bold tracking-[0.48px] mb-6'>Key Specifications of Yodha Pickup 3150/Crew Cabin 4x2</p>
 //                             <div className='md:w-full md:flex'>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Number of Tyre</td>
@@ -209,7 +209,7 @@
 //                                     </table>
 //                                 </div>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Power</td>
@@ -297,7 +297,7 @@
 //                             <p className='text-[24px] font-bold tracking-[0.48px] mb-6'>Specifications of Yodha Pickup 3150/Crew Cabin 4x2</p>
 //                             <div className='md:w-full md:flex'>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Chassis Type</td>
@@ -335,7 +335,7 @@
 //                                     </table>
 //                                 </div>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Fuel Tank</td>
@@ -659,7 +659,7 @@
 //                             <p className='text-[24px] font-bold tracking-[0.48px] mb-6'>Key Specifications of Yodha Pickup 3150/Crew Cabin 4x2</p>
 //                             <div className='md:w-full md:flex'>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Number of Tyre</td>
@@ -681,7 +681,7 @@
 //                                     </table>
 //                                 </div>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Power</td>
@@ -769,7 +769,7 @@
 //                             <p className='text-[24px] font-bold tracking-[0.48px] mb-6'>Specifications of Yodha Pickup 3150/Crew Cabin 4x2</p>
 //                             <div className='md:w-full md:flex'>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Chassis Type</td>
@@ -807,7 +807,7 @@
 //                                     </table>
 //                                 </div>
 //                                 <div className='flex md:w-1/2'>
-//                                     <table class="table-auto w-full md:mr-[4rem]">
+//                                     <table className="table-auto w-full md:mr-[4rem]">
 //                                         <tbody>
 //                                             <tr className='border-b-[1px] border-b-[#C6C6C6]'>
 //                                                 <td className='py-2'>Fuel Tank</td>

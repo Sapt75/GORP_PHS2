@@ -104,7 +104,7 @@ export default function Price({ data,
 
     let { location, setDet, setShowLoc } = context
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
     async function getFinal() {
@@ -395,12 +395,12 @@ export default function Price({ data,
                                                             <span className="text-cyan-600 text-[18px] font-medium">Individual</span>
                                                         </div>
                                                         <div className='relative h-[9rem]'>
-                                                            <div class="w-[257px] h-[0px] border border-black"></div>
-                                                            <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-                                                            <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
+                                                            <div className="w-[257px] h-[0px] border border-black"></div>
+                                                            <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+                                                            <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
+                                                            <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
                                                             <div className='absolute right-20 space-y-4 mt-4'>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.rto}</p>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.road_safety_tax_cess}</p>
@@ -419,12 +419,12 @@ export default function Price({ data,
                                                         </div>
                                                         <p className="text-[18px] font-semibold">Other Charges </p>
                                                         <div className='relative h-[9rem]'>
-                                                            <div class="w-[130px] h-[0px] border border-black"></div>
-                                                            <div class="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
-                                                            <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
+                                                            <div className="w-[130px] h-[0px] border border-black"></div>
+                                                            <div className="w-[84px] absolute left-[-25px] top-[42px] h-[0px] border border-black rotate-90"></div>
+                                                            <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
+                                                            <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
                                                             <div className='absolute right-20 space-y-4 mt-4'>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.hypothecation_charges}</p>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.fastag}</p>
@@ -439,16 +439,16 @@ export default function Price({ data,
                                                     <div className='pt-4'>
                                                         <p className="text-[18px] font-semibold">Optional</p>
                                                         <div className='relative h-[14rem]'>
-                                                            <div class="w-[130px] h-[0px] border border-black"></div>
-                                                            <div class="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
-                                                            <div class="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
-                                                            <div class="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
-                                                            <p class="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
+                                                            <div className="w-[130px] h-[0px] border border-black"></div>
+                                                            <div className="w-[180px] absolute left-[-72px] top-[90px] h-[0px] border border-black rotate-90"></div>
+                                                            <div className="w-[24.66px] h-[0px] left-[18px] top-[40px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Zero Deep Insurance</p>
+                                                            <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Extended Warranty (4 Years)</p>
+                                                            <div className="w-[24.66px] h-[0px] left-[17px] top-[130px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
+                                                            <div className="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
+                                                            <p className="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
                                                             <div className='absolute right-20 space-y-5 mt-4'>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.zero_deep_insurance ? item.zero_deep_insurance : 0}</p>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.four_year_extended_warranty ? item.four_year_extended_warranty : 0}</p>
@@ -534,7 +534,7 @@ Price.getInitialProps = async (context) => {
     const { query, req } = context;
     const head = req ? req.headers : sessionStorage.getItem("host")
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
     let dt = await fetch(`${url}/price_ver/${query.price[0]}/${query.price[1]}`, {
