@@ -82,7 +82,6 @@ export default function Filter({ data, pricedata, query, trans, ftdata, head, br
 
     return (
         <>
-            <Navbar />
             {/* <Head>
                 <title itemProp='name'>{data[0].brand} Cars in India {date.getFullYear().toString()}, {data[0].brand} New Car Models, On Road Price, Car Details & Video Reviews | GetOnRoadPrice</title>
                 <meta itemProp='description' name="description" content={`${data[0].brand} Car price in India starts at ₹ ${dres.brand_description.split(" ")[9]} Lakh. Get On Road Price of all ${data.length} ${data[0].brand} Cars available in ${date.getFullYear().toString()}, View Features, Price Breakup, Mileage, Colours, Variants Price and more at GetonRoadPrice
@@ -91,7 +90,6 @@ export default function Filter({ data, pricedata, query, trans, ftdata, head, br
             <Filter_Web data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} bres={bres} />
             {/* {width > 800 ? <Filter_Web data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} /> : <Filter_Mobile data={data} pricedata={pricedata} query={query} trans={trans} ftdata={ftdata} head={head} />} */}
 
-            <Footer />
         </>
     )
 }
@@ -107,8 +105,6 @@ Filter.getInitialProps = async (context) => {
     let id, model
 
     const head = req ? req.headers : sessionStorage.getItem("host")
-
-    console.log(query)
 
 
     let value = query.filter[1].split("-")[0]

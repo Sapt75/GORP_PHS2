@@ -160,7 +160,7 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
     )
 }
 
-
+let cacheData = [];
 
 export const getServerSideProps = async (context) => {
 
@@ -168,153 +168,155 @@ export const getServerSideProps = async (context) => {
     const url = "https://inquisitive-knickers-fish.cyclic.app"
     // https://inquisitive-knickers-fish.cyclic.app
 
-    
+
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
 
-
-    const main = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.split("-").join(" ")}&model_name=${query.modal.split("-").join(" ")}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            'Accept-Encoding': 'gzip, deflate'
+    if (cacheData.find(item => item.data[0].model_name.toLowerCase().split(" ").join("-") === query.modal)) {
+        return {
+            props: cacheData.find(item => item.data[0].model_name.toLowerCase().split(" ").join("-") === query.modal)
         }
-    });
-    const data = await main.json();
-
-    if (main.status === 422 || !data) {
-        console.log("error");
     } else {
-        // setTips({
-        //     pros: {
-        //         __html: data[0].pros
-        //     },
-        //     cons: {
-        //         __html: data[0].cons
-        //     }
-        // })
-
-        // setUID(data[0].uid)
-        // setModel_ID(data[0].model_id)
-        // setdata(data)
-
-        //Model Price Fetching
-        let model = await fetch(`${url}/model_prices/${data[0].model_id}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Accept-Encoding': 'gzip, deflate'
-            }
-        })
-
-        let response = await model.json()
-
-
-        // response == "No Data" ? setresponse([]) : setresponse(response)
-
-        let version = await fetch(`${url}/version_data/${data[0].model_id}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Accept-Encoding': 'gzip, deflate'
-            }
-        })
-
-        let vresponse = await version.json()
-        // setVersion(vresponse)
-        // setFinalVersion(vresponse)
-
-        //Version Price Fetch
-        let vp = await fetch(`${url}/version_prices/${data[0].model_id}/Mumbai`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Accept-Encoding': 'gzip, deflate'
-            }
-        })
-
-        let vpresponse = await vp.json()
-
-        // vpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vpresponse)
-        // console.log("Data Fetched!");
-
-
-        //City Price
-        let city_p = await fetch(`${url}/diff_prices/${data[0].uid}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Accept-Encoding': 'gzip, deflate'
-
-            }
-        })
-
-        let citresponse = await city_p.json()
-        let rcity = citresponse
-        // setCity(citresponse)
-
-
-        let nomlcit = await fetch(`${url}/norml_cities/${data[0].uid}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Accept-Encoding': 'gzip, deflate'
-            }
-        })
-
-        let nomcity = await nomlcit.json()
-        // setRCity(nomcity)
-
-
-        let specef = {
-            transmission: "",
-            fuel: "",
-            seat: ""
-        }
-        let dat = await fetch(`${url}/model_car/${query.brand.split("-").join(" ")}/${query.modal.split("-").join(" ")}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Accept-Encoding': 'gzip, deflate'
-            }
-        })
-
-        let res = await dat.json()
-
-        const removeDuplicatesByProperty = (array, property) => {
-            const uniqueValues = new Set();
-            return array.filter((item) => {
-                const value = item[property];
-                if (!uniqueValues.has(value)) {
-                    uniqueValues.add(value);
-                    return true;
-                }
-                return false;
-            });
-        };
-
-        specef.transmission = removeDuplicatesByProperty(res, "transmission_type");
-
-        specef.fuel = removeDuplicatesByProperty(res, (value) => value.Specifications.engine_and_transmission.fuel_type);
-
-        specef.seat = removeDuplicatesByProperty(res, "seating_capacity");
-        // setSpecs(specef)
-
-
-        const color = await fetch(`${url}/color_images/${data[0].brand}/${data[0].model_name}`, {
+        const main = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.split("-").join(" ")}&model_name=${query.modal.split("-").join(" ")}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 'Accept-Encoding': 'gzip, deflate'
             }
         });
-        const cres = await color.json()
+        const data = await main.json();
+
+        if (main.status === 422 || !data) {
+            console.log("error");
+        } else {
+            // setTips({
+            //     pros: {
+            //         __html: data[0].pros
+            //     },
+            //     cons: {
+            //         __html: data[0].cons
+            //     }
+            // })
+
+            // setUID(data[0].uid)
+            // setModel_ID(data[0].model_id)
+            // setdata(data)
+
+            //Model Price Fetching
+            let model = await fetch(`${url}/model_prices/${data[0].model_id}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept-Encoding': 'gzip, deflate'
+                }
+            })
+
+            let response = await model.json()
 
 
+            // response == "No Data" ? setresponse([]) : setresponse(response)
 
-        return {
-            props: {
+            let version = await fetch(`${url}/version_data/${data[0].model_id}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept-Encoding': 'gzip, deflate'
+                }
+            })
+
+            let vresponse = await version.json()
+            // setVersion(vresponse)
+            // setFinalVersion(vresponse)
+
+            //Version Price Fetch
+            let vp = await fetch(`${url}/version_prices/${data[0].model_id}/Mumbai`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept-Encoding': 'gzip, deflate'
+                }
+            })
+
+            let vpresponse = await vp.json()
+
+            // vpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vpresponse)
+            // console.log("Data Fetched!");
+
+
+            //City Price
+            let city_p = await fetch(`${url}/diff_prices/${data[0].uid}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept-Encoding': 'gzip, deflate'
+
+                }
+            })
+
+            let citresponse = await city_p.json()
+            let rcity = citresponse
+            // setCity(citresponse)
+
+
+            let nomlcit = await fetch(`${url}/norml_cities/${data[0].uid}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept-Encoding': 'gzip, deflate'
+                }
+            })
+
+            let nomcity = await nomlcit.json()
+            // setRCity(nomcity)
+
+
+            let specef = {
+                transmission: "",
+                fuel: "",
+                seat: ""
+            }
+            let dat = await fetch(`${url}/model_car/${query.brand.split("-").join(" ")}/${query.modal.split("-").join(" ")}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept-Encoding': 'gzip, deflate'
+                }
+            })
+
+            let res = await dat.json()
+
+            const removeDuplicatesByProperty = (array, property) => {
+                const uniqueValues = new Set();
+                return array.filter((item) => {
+                    const value = item[property];
+                    if (!uniqueValues.has(value)) {
+                        uniqueValues.add(value);
+                        return true;
+                    }
+                    return false;
+                });
+            };
+
+            specef.transmission = removeDuplicatesByProperty(res, "transmission_type");
+
+            specef.fuel = removeDuplicatesByProperty(res, (value) => value.Specifications.engine_and_transmission.fuel_type);
+
+            specef.seat = removeDuplicatesByProperty(res, "seating_capacity");
+            // setSpecs(specef)
+
+
+            const color = await fetch(`${url}/color_images/${data[0].brand}/${data[0].model_name}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept-Encoding': 'gzip, deflate'
+                }
+            });
+            const cres = await color.json()
+
+
+            cacheData.push({
                 data,
                 response,
                 vresponse,
@@ -326,9 +328,28 @@ export const getServerSideProps = async (context) => {
                 specef,
                 cres,
                 rcity
+            })
+
+
+
+            return {
+                props: {
+                    data,
+                    response,
+                    vresponse,
+                    vpresponse,
+                    query,
+                    head,
+                    citresponse,
+                    nomcity,
+                    specef,
+                    cres,
+                    rcity
+                }
             }
         }
     }
+
 }
 
 

@@ -95,7 +95,6 @@ const Dealers = () => {
 
     return (
         <>
-            <Navbar />
             <div className='mx-2 md:mx-0'>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                     <div className='flex justify-between'>
@@ -544,7 +543,6 @@ const Dealers = () => {
 
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

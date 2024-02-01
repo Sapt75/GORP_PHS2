@@ -103,9 +103,9 @@ export default function Variant({ data, response, vpresponse, vvpresponse, param
 }
 
 
+let cacheData = [];
 
-
-Variant.getInitialProps = async (context) => {
+export const getServerSideProps = async (context) => {
 
     const { query, req } = context;
     const url = "https://inquisitive-knickers-fish.cyclic.app"
@@ -116,91 +116,111 @@ Variant.getInitialProps = async (context) => {
 
     // console.log(`${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2]}`)
 
-
-
-    const res = await fetch(`${url}/single_car/${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2]}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
+    if (cacheData.find(item => item.data[0].version_name.toLowerCase().split(" ").join("-") === query.variant[2])) {
+        return {
+            props: cacheData.find(item => item.data[0].version_name.toLowerCase().split(" ").join("-") === query.variant[2])
         }
-    });
+    } else {
+        const res = await fetch(`${url}/single_car/${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2]}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
 
-    const data = await res.json()
+        const data = await res.json()
 
 
-    id = data.length > 0 ? data[0].uid : 218
-    model = data.length > 0 ? data[0].model_id : 24
-    // setdata(data)
+        id = data.length > 0 ? data[0].uid : 218
+        model = data.length > 0 ? data[0].model_id : 24
+        // setdata(data)
 
 
-    let vversion = await fetch(`${url}/version_data/${model}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
+        let vversion = await fetch(`${url}/version_data/${model}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        let response = await vversion.json()
+
+
+        // setVersion(response)
+        // setFinalVersion(response)
+
+        let vp = await fetch(`${url}/version_prices/${model}/Mumbai`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        let vpresponse = await vp.json()
+
+        // vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
+
+
+        let vvp = await fetch(`${url}/single_version/${id}/Mumbai`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        let vvpresponse = await vvp.json()
+
+
+        // vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
+
+
+        const color = await fetch(`${url}/color_images/${data[0].brand}/${data[0].model_name}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const cres = await color.json()
+        // setImages(res)
+
+        let city = await fetch(`${url}/diff_prices/${data[0].uid}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        let rcity = await city.json()
+
+        // setCity(res)
+
+        cacheData.push({
+            data,
+            response,
+            vpresponse,
+            vvpresponse,
+            query,
+            head,
+            cres,
+            rcity
+        })
+
+        return {
+            props: {
+                data,
+                response,
+                vpresponse,
+                vvpresponse,
+                query,
+                head,
+                cres,
+                rcity
+            }
         }
-    })
-
-    let response = await vversion.json()
-
-
-    // setVersion(response)
-    // setFinalVersion(response)
-
-    let vp = await fetch(`${url}/version_prices/${model}/Mumbai`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let vpresponse = await vp.json()
-
-    // vpresponse == "No Data" ? setAllVersionPrice([]) : setAllVersionPrice(vpresponse)
-
-
-    let vvp = await fetch(`${url}/single_version/${id}/Mumbai`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let vvpresponse = await vvp.json()
-
-
-    // vvpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vvpresponse)
-
-
-    const color = await fetch(`${url}/color_images/${data[0].brand}/${data[0].model_name}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    const cres = await color.json()
-    // setImages(res)
-
-    let city = await fetch(`${url}/diff_prices/${data[0].uid}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let rcity = await city.json()
-
-    // setCity(res)
-
-
-    return {
-        data,
-        response,
-        vpresponse,
-        vvpresponse,
-        query,
-        head,
-        cres, 
-        rcity
     }
+
+
+
+
 }
 

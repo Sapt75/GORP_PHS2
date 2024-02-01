@@ -59,7 +59,6 @@ export default function Home_Mobile({ bresponse, query, head }) {
 
     return (
         <>
-            <Navbar />
             <div className={`w-full ${style["h-banner"]} text-center h-[30rem] md:mt-[-1.5rem] relative`}>
                 <div className='w-full bg-[#1f232f] bg-opacity-70 py-8 absolute bottom-0'>
                     <div className='md:w-2/5 md:mx-auto text-left relative mx-4'>
@@ -503,7 +502,6 @@ export default function Home_Mobile({ bresponse, query, head }) {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

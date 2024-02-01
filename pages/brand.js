@@ -77,7 +77,6 @@ const Brand = () => {
 
     return (
         <>
-            <Navbar />
             <div className='mx-2 md:mx-0'>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                     <div className='flex justify-around'>
@@ -1153,7 +1152,6 @@ const Brand = () => {
 
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

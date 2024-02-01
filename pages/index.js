@@ -581,6 +581,7 @@ export default function Home({ bresponse, query, head }) {
 }
 
 
+let cacheData;
 
 
 export const getServerSideProps = async (context) => {
@@ -592,20 +593,31 @@ export const getServerSideProps = async (context) => {
     const head = req ? req.headers : sessionStorage.getItem("host")
 
 
-
-    let data = await fetch(`${url}/all_brands`, {
-        headers: {
-            "Content-Type": "application/json"
+    if (cacheData) {
+        return {
+            props: cacheData
         }
-    })
-    let bresponse = await data.json()
+    } else {
+        let data = await fetch(`${url}/all_brands`, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let bresponse = await data.json()
 
-
-    return {
-        props: {
+        cacheData = {
             bresponse,
             query,
             head
+        }
+
+
+        return {
+            props: {
+                bresponse,
+                query,
+                head
+            }
         }
     }
 }

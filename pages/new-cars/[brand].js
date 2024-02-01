@@ -51,80 +51,57 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres, head 
 }
 
 
+let cacheData = [];
 
 
 export const getServerSideProps = async (context) => {
-
     const { query, req } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    // https://inquisitive-knickers-fish.cyclic.app
-    let id, model
+    const url = "https://inquisitive-knickers-fish.cyclic.app";
 
-    const head = req ? req.headers : sessionStorage.getItem("host")
+    const head = req ? req.headers : sessionStorage.getItem("host");
 
-    const res = await fetch(`${url}/getonebrandcarsnew?brand=${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
-        // const res = await fetch(`/getonebrandcars?brand=${data[0].brand}&model=${model}&page=${pageNumber}`,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    const data = await res.json();
+    const brandKey = query.brand.toLowerCase().split(" ").join("-");
 
+    // Check if data is in cache
+    const cachedItem = cacheData.find(item => item.data[0].brand.toLowerCase().split(" ").join("-") === brandKey);
 
-    // setGetbranddata(data)
-
-
-    const res_two = await fetch(`${url}/all_model_prices/${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    const pricedata = await res_two.json();
-
-    // setGetPrices(pricedata)
-
-    const tres = await fetch(`${url}/all_typ/${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
-        // const res = await fetch(`/getonebrandcars?brand=${data[0].brand}&model=${model}&page=${pageNumber}`,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept-Encoding": "gzip"
-        }
-    });
-    const tdata = await tres.json();
-    // setTrans(data)
-
-    let bdata = await fetch(`${url}/all_brands`, {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let bres = await bdata.json()
-    // setBrand(res)
-
-
-    let ddata = await fetch(`${url}/brand_desc/${query.brand === "rolls-royce" || query.brand === "mercedes-benz" ? query.brand : query.brand.split("-").join(" ")}`, {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-
-    let dres = await ddata.json()
-    // setDesc(res)
-
-
-    return {
-        props: {
-            data,
-            pricedata,
-            query,
-            tdata,
-            bres,
-            dres,
-            head
-        }
+    if (cachedItem) {
+        return {
+            props: cachedItem
+        };
     }
-}
+
+    try {
+        const fetchData = async (endpoint) => {
+            const res = await fetch(`${url}/${endpoint}?brand=${brandKey}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            return res.json();
+        };
+
+        const [data, pricedata, tdata, bres, dres] = await Promise.all([
+            fetchData("getonebrandcarsnew"),
+            fetchData(`all_model_prices/${brandKey}`),
+            fetchData(`all_typ/${brandKey}`),
+            fetchData("all_brands"),
+            fetchData(`brand_desc/${brandKey}`)
+        ]);
+
+        cacheData.push({ data, pricedata, query, tdata, bres, dres, head });
+
+        return {
+            props: { data, pricedata, query, tdata, bres, dres, head }
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return {
+            props: {
+                error: "Error fetching data"
+            }
+        };
+    }
+};
+

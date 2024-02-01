@@ -47,6 +47,7 @@ export default function Modal(props) {
                 }
             })
             let response = await data.json()
+            console.log(data)
             setCity(response)
         } else {
             let data = await fetch(`${url}/pincode_details/${e.target.value}`, {
@@ -56,6 +57,7 @@ export default function Modal(props) {
                 }
             })
             let response = await data.json()
+            console.log(data)
             setCity(response)
 
         }
@@ -110,7 +112,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                 handleClose()
-                            }} className='text-center'>
+                            }} className='text-center cursor-pointer'>
                                 <Image className='mx-auto' width={70} src={ahmedabad} alt="bangalore" />
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Ahmedabad</p>
                             </div>
@@ -122,7 +124,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                 handleClose()
-                            }} className='text-center'>
+                            }} className='text-center cursor-pointer'>
                                 <Image className='mx-auto' width={70} src={bangalore} alt="bangalore" />
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Bangalore</p>
                             </div>
@@ -134,7 +136,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                 handleClose()
-                            }} className='text-center'>
+                            }} className='text-center cursor-pointer'>
                                 <Image className='mx-auto' width={70} src={kolkata} alt="kolkata" />
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Kolkata</p>
                             </div>
@@ -146,7 +148,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                 handleClose()
-                            }} className='text-center'>
+                            }} className='text-center cursor-pointer'>
                                 <Image className='mx-auto' width={70} src={mumbai} alt="mumbai" />
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Mumbai</p>
                             </div>
@@ -158,7 +160,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                 handleClose()
-                            }} className='text-center'>
+                            }} className='text-center cursor-pointer'>
                                 <Image className='mx-auto' width={70} src={hyderabad} alt="hyderabad" />
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Hyderabad</p>
                             </div>
@@ -170,7 +172,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                 handleClose()
-                            }} className='text-center'>
+                            }} className='text-center cursor-pointer'>
                                 <Image className='mx-auto' width={70} src={chennai} alt="chennai" />
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Chennai</p>
                             </div>
@@ -182,7 +184,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                 handleClose()
-                            }} className='text-center'>
+                            }} className='text-center cursor-pointer'>
                                 <Image className='mx-auto' width={70} src={delhi} alt="delhi" />
                                 <p className='text-[16px] text-[#6F6F6F] font-normal my-1'>Delhi</p>
                             </div>
@@ -200,7 +202,7 @@ export default function Modal(props) {
                                     uid: route.query.uid
                                 } }) : null
                                     handleClose()
-                                }} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item.City ? item.City : item["City Name"]}, {item.postoffice_name ? item.postoffice_name : item["State name"]}</li>)
+                                }} className='py-2.5 px-2 cursor-pointer border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item.City ? item.City : item["City Name"]}, {item.postoffice_name ? item.postoffice_name : item["State name"]} </li>)
                             }) : null}
                         </ul>
                     </div>

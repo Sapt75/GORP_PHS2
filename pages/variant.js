@@ -102,7 +102,6 @@ export default function Variant() {
 
     return (
         <>
-            <Navbar />
             <div className='mx-2 md:mx-0'>
                 <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
                     <div className='flex justify-around'>
@@ -1701,7 +1700,6 @@ export default function Variant() {
                 </div>
             </div>
 
-            <Footer />
         </>
     )
 }
