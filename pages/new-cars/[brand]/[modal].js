@@ -168,13 +168,7 @@ export const getServerSideProps = async (context) => {
     const url = "https://inquisitive-knickers-fish.cyclic.app"
     // https://inquisitive-knickers-fish.cyclic.app
 
-    res.setHeader(
-        'Cach-Control',
-        'public, s-maxage=10, stale-while-revalidate=59'
-    )
-
-
-    console.log(query.brand.split("-").join(" "))
+    
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
@@ -241,8 +235,6 @@ export const getServerSideProps = async (context) => {
         })
 
         let vpresponse = await vp.json()
-
-
 
         // vpresponse == "No Data" ? setVersionPrice([]) : setVersionPrice(vpresponse)
         // console.log("Data Fetched!");
