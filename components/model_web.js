@@ -130,7 +130,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
     }
 
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 

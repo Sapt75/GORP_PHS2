@@ -101,8 +101,8 @@ export default function Filter({ newData, pricedata, query, head, bres }) {
 Filter.getInitialProps = async (context) => {
 
     const { query, req } = context;
-    const url = "http://localhost:5000"
-    // http://localhost:5000
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    // https://inquisitive-knickers-fish.cyclic.app
     let id, model
 
     const head = req ? req.headers : sessionStorage.getItem("host")
