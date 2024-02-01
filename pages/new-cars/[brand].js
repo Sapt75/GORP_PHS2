@@ -60,7 +60,7 @@ export const getServerSideProps = async (context) => {
 
     const head = req ? req.headers : sessionStorage.getItem("host");
 
-    const brandKey = query.brand.toLowerCase().split(" ").join("-");
+    const brandKey = query.brand.toLowerCase().split("-").join(" ");
 
     // Check if data is in cache
     const cachedItem = cacheData.find(item => item.data[0].brand.toLowerCase().split(" ").join("-") === brandKey);
