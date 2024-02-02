@@ -328,3 +328,9 @@ input:focus-visible {
     stroke-dashoffset: -22;
   }
 }
+
+
+.big button{
+  width: 100% !important;
+  margin: 0 !important;
+}

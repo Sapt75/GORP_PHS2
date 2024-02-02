@@ -182,7 +182,7 @@ export default function Variant_Mobile(props) {
                         </div> */}
                     </div>
                     <div className='space-x-[1.6rem]'>
-                        {versionPrice.length > 0 ? <span className='text-[20px] text-[#484848] font-semibold tracking-[-0.48px]'> {`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
+                        {versionPrice.length > 0 ? <span className='text-[20px] text-[#484848] font-semibold tracking-[-0.48px]'> {`₹ ${numFormat(versionPrice[0].ex_showroom_price ? versionPrice[0].ex_showroom_price : 5000000)}`}</span> : null}
                         <span className='text-[12px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
                     </div>
                     <span className='text-[14px] pt-1.5 font-normal tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
@@ -474,7 +474,7 @@ export default function Variant_Mobile(props) {
                                             <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
                                         </div>
                                         <div>
-                                            <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null}</p>
+                                            <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid) ? allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price : 5000000)}` : null}</p>
                                             {/* <div className=''>
                                                     <input className='mx-1' type="checkbox"></input>
                                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
@@ -541,11 +541,11 @@ export default function Variant_Mobile(props) {
                                     return (<tr key={index} className='border border-[#C6C6C6]'>
                                         <td className='text-[15px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
                                         <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price)} Onwards</p>
+                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ ${numFormat(item.ex_showroom_price ? item.ex_showroom_price : 5000000)}` Onwards</p>
                                             {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
                                         </td>
                                     </tr>)
-                                }):null}
+                                }) : null}
                             </tbody>
                         </table>
                     </div>

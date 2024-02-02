@@ -384,7 +384,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                                     <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
                                                 </div>
                                                 <div>
-                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{versionPrice.length > 0 ? `₹ ${numFormat(versionPrice.find(o => o.Version_UID === element.uid) ? versionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price :900000)}` : null}</p>
+                                                    <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{versionPrice.length > 0 && versionPrice !== "No Data" ? `₹ ${numFormat(versionPrice.find(o => o.Version_UID === element.uid) ? versionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price :900000)}` : null}</p>
                                                     {/* <div className=''>
                                                     <input className='mx-1' type="checkbox"></input>
                                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>

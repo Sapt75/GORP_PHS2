@@ -32,6 +32,7 @@ import Head from 'next/head';
 import TemporaryDrawer from '../components/deal';
 import CustomSeparator from '../components/breadcrumbs';
 import Brand_Model from '../components/brand_modal';
+import Link from 'next/link';
 
 
 
@@ -176,11 +177,14 @@ export default function Price({ data,
 
     function calc(item) {
 
+        console.log(item, "INs")
+
         let zero = item.zero_deep_insurance ? parseInt(item.zero_deep_insurance) : 0
         let four = item.four_year_extended_warranty ? parseInt(item.four_year_extended_warranty) : 0
         let amc = item.amc ? parseInt(item.amc) : 0
+        let ins = typeof (item.insurance) == "number" ? parseInt(Math.round(item.insurance)) : 0
 
-        let sum = parseInt(item.ex_showroom_price) + parseInt(item.rto) + parseInt(item.road_safety_tax_cess) + parseInt(Math.round(item.insurance)) + parseInt(item.fastag) + parseInt(item.hypothecation_charges) + zero + four + amc
+        let sum = parseInt(item.ex_showroom_price) + parseInt(item.rto) + parseInt(item.road_safety_tax_cess) + ins + parseInt(item.fastag) + parseInt(item.hypothecation_charges) + zero + four + amc
 
         return sum
 
@@ -259,7 +263,9 @@ export default function Price({ data,
                     <div className='flex justify-between'>
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-[2rem] overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[2rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <li><Image width={200} height={60} src={logo} /></li>
+                                <Link href={'/'}>
+                                    <li><Image width={200} height={60} src={logo} /></li>
+                                </Link>
                                 <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
                                 <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Features & Specifications</li>
                                 <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Variant</li>
@@ -415,7 +421,7 @@ export default function Price({ data,
                                                     <div className='pt-4'>
                                                         <div className='flex justify-between pb-6'>
                                                             <p className="text-[18px] font-semibold">Insurance Charges</p>
-                                                            <p className="text-black text-[18px] text-right font-semibold ">₹ {Math.round(item.insurance)}</p>
+                                                            <p className="text-black text-[18px] text-right font-semibold ">₹ {typeof (item.insurance) == "number" ? parseInt(Math.round(item.insurance)) : 0}</p>
                                                         </div>
                                                         <p className="text-[18px] font-semibold">Other Charges </p>
                                                         <div className='relative h-[9rem]'>
@@ -495,8 +501,8 @@ export default function Price({ data,
                                     </div>
                                 </div>
                                 <div className='hidden md:block'>
-                                    <div className='text-center py-3'>
-                                        <button className='bg-[#09809A] text-white w-full font-medium px-4 py-1.5 rounded-md'>Get Latest Offers</button>
+                                    <div className='text-center py-3 big'>
+                                        <TemporaryDrawer brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} />
                                     </div>
                                     <div className='w-full bg-[#F4F4F4] px-5 max-h-fit h-fit'>
                                         <p className='text-[18px] font-semibold pt-2'>Contact Hyundai Dealer</p>

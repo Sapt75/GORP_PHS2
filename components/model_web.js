@@ -467,7 +467,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
 
                                                 <div>
-                                                    <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{versionPrice.length > 0 ? `₹ ${numFormat(versionPrice.find(o => o.Version_UID === element.uid) ? versionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price :900000)}` : null} </p>
+                                                    <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{versionPrice.length > 0 && versionPrice !== "No Data" ? `₹ ${numFormat(versionPrice.find(o => o.Version_UID === element.uid) ? versionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price :900000)}` : null} </p>
                                                     {/* <div className='pb-[1rem]'>
             <input className='mx-1' type="checkbox"></input>
             <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>

@@ -295,7 +295,7 @@ export default function Home({ bresponse, query, head }) {
 
                                 {/* Brands Listing */}
                                 <div ref={brnd} className='w-full mt-10'>
-                                    <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</h2>
+                                    <h1 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</h1>
                                     <ul className='flex space-x-5 my-3'>
                                         <li onClick={() => setBody(false)} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>
                                         <li onClick={() => setBody(true)} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
@@ -303,7 +303,7 @@ export default function Home({ bresponse, query, head }) {
                                     {body ? <Body_Filter /> : <div>
                                         <div className='grid grid-cols-6 gap-y-10 border border-[#E1E1E1] py-12'>
                                             {brand.length > 0 ? brand.map((item, index) => {
-                                                return (<Link className={`${view ? null : index >= 12 ? "hidden" : null}`} key={index} href={`/new-cars/${item.split(" ").join("-").toLowerCase()}`}>
+                                                return (<Link title={`${item} Cars`} className={`${view ? null : index >= 12 ? "hidden" : null}`} key={index} href={`/new-cars/${item.split(" ").join("-").toLowerCase()}`}>
                                                     <div key={index} className='text-center'>
                                                         <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
                                                         <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>

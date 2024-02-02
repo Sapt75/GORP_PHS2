@@ -225,7 +225,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                 </div>
                                 <div className='block'>
                                     <div className='pt-[1.5rem] space-x-[1.6rem]'>
-                                        {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price)}`}</span> : null}
+                                        {versionPrice.length > 0 ? <span className='text-[24px] text-[#484848] font-semibold tracking-[-0.48px]'>{`₹ ${numFormat(versionPrice[0].ex_showroom_price ? versionPrice[0].ex_showroom_price : 5000000)}`}</span> : null}
                                         <RLink href={{
                                             pathname: `/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
                                                 uid: cardetails[0].uid
@@ -429,7 +429,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                         {finalVersion.map((element, id) => {
                                             return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                                 <div className='w-[25rem]'>
-                                                    <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
+                                                    <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                                         <h3 className='text-[18px] mb-1 text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</h3>
                                                     </RLink>
                                                     <span className='text-[14px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
@@ -437,7 +437,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
 
 
                                                 <div>
-                                                    <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price)}` : null} </p>
+                                                    <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid) ? allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price: 5000000)}` : null} </p>
                                                     {/* <div className='pb-[1rem]'>
             <input className='mx-1' type="checkbox"></input>
             <span className='text-[#6F6F6F] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
