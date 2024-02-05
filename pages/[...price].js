@@ -105,7 +105,7 @@ export default function Price({ data,
 
     let { location, setDet, setShowLoc } = context
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
     async function getFinal() {
@@ -540,7 +540,7 @@ Price.getInitialProps = async (context) => {
     const { query, req } = context;
     const head = req ? req.headers : sessionStorage.getItem("host")
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
     let dt = await fetch(`${url}/price_ver/${query.price[0]}/${query.price[1]}`, {

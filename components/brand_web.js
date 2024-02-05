@@ -59,7 +59,7 @@ import CustomSeparator from './breadcrumbs';
 
 
 
-export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, head, host_url }) {
+export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, head }) {
 
     const [show, setShow] = useState(false)
     const top_bar = useRef(null)
@@ -85,7 +85,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
         return value;
     }
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
@@ -272,7 +272,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                 </div>
                             </div>
 
-                            <CustomSeparator host_url={host_url} />
+                            <CustomSeparator />
 
                         </div>
 

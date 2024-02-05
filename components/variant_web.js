@@ -84,8 +84,8 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
 
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    // https://inquisitive-knickers-fish.cyclic.app
+    const url = "http://localhost:5000"
+    // http://localhost:5000
 
 
 
@@ -232,7 +232,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                             }
                                         }} className='text-[16px] text-[#CE4327] font-semibold underline'>View Price Breakup</RLink>
                                     </div>
-                                    <span className='text-[14px] font-[400] tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
+                                    <span className='text-[14px] font-[400] tracking-[-0.28px] text-[#484848]'>On-Road Price {location}</span>
                                     {/* <div className='flex justify-between mt-2 w-100 bg-[#F4F4F4] py-[0.5rem]'>
                                             <div className='px-2 pb-1'>
                                                 <p className='text-[16px] text-[#484848] font-medium pb-0.5 tracking-[-0.28px]'>EMI Starts  at 12550/Month</p>

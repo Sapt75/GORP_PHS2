@@ -108,8 +108,8 @@ let cacheData = [];
 export const getServerSideProps = async (context) => {
 
     const { query, req } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    // https://inquisitive-knickers-fish.cyclic.app
+    const url = "http://localhost:5000"
+    // http://localhost:5000
     let id, model
 
     const head = req ? req.headers : sessionStorage.getItem("host")
@@ -121,7 +121,7 @@ export const getServerSideProps = async (context) => {
             props: cacheData.find(item => item.data[0].version_name.toLowerCase().split(" ").join("-") === query.variant[2])
         }
     } else {
-        const res = await fetch(`${url}/single_car/${query.variant[0].charAt(0).toUpperCase() + query.variant[0].slice(1)}/${query.variant[1].charAt(0).toUpperCase() + query.variant[1].slice(1)}/${query.variant[2]}`, {
+        const res = await fetch(`${url}/single_car/${query.variant[0].toLowerCase()}/${query.variant[1].toLowerCase()}/${query.variant[2].toLowerCase()}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"

@@ -165,7 +165,7 @@ let cacheData = [];
 export const getServerSideProps = async (context) => {
 
     const { query, req, res } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
     // https://inquisitive-knickers-fish.cyclic.app
 
 
@@ -178,7 +178,7 @@ export const getServerSideProps = async (context) => {
             props: cacheData.find(item => item.data[0].model_name.toLowerCase().split(" ").join("-") === query.modal)
         }
     } else {
-        const main = await fetch(`${url}/getmodelnewdetails?brand=${query.brand.split("-").join(" ")}&model_name=${query.modal.split("-").join(" ")}`, {
+        const main = await fetch(`${url}/getmodelnewdetails?brand=${query.brand}&model_name=${query.modal}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
