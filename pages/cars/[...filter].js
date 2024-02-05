@@ -100,8 +100,8 @@ export default function Filter({ data, pricedata, query, trans, ftdata, head, br
 Filter.getInitialProps = async (context) => {
 
     const { query, req } = context;
-    const url = "http://localhost:5000"
-    // http://localhost:5000
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    // https://inquisitive-knickers-fish.cyclic.app
     let id, model
 
     const head = req ? req.headers : sessionStorage.getItem("host")
@@ -133,7 +133,7 @@ Filter.getInitialProps = async (context) => {
     // setGetPrices(pricedata)
 
 
-    const res_three = await fetch(`http://localhost:5000/all_var/${query.filter[0].split("-").join("_").toLowerCase()}/${value.split("-")[0]}`, {
+    const res_three = await fetch(`https://inquisitive-knickers-fish.cyclic.app/all_var/${query.filter[0].split("-").join("_").toLowerCase()}/${value.split("-")[0]}`, {
         // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {

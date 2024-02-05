@@ -55,11 +55,11 @@ export default function Home({ bresponse, query, head }) {
     const route = useRouter()
 
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
     async function handleInput(e) {
-        let data = await fetch(`http://localhost:5000/car-search/${e.target.value}`, {
+        let data = await fetch(`https://inquisitive-knickers-fish.cyclic.app/car-search/${e.target.value}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -587,8 +587,8 @@ let cacheData;
 export const getServerSideProps = async (context) => {
 
     const { query, req } = context;
-    const url = "http://localhost:5000"
-    // http://localhost:5000
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    // https://inquisitive-knickers-fish.cyclic.app
 
     const head = req ? req.headers : sessionStorage.getItem("host")
 
