@@ -86,14 +86,6 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
 
 
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            top_bar.current.classList.add(style.scrolling);
-        } else {
-            top_bar.current.classList.remove(style.scrolling);
-        }
-    }
-
 
     async function fetchAgain() {
 
@@ -113,7 +105,6 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
 
 
     useEffect(() => {
-        window.onscroll = function () { scrollFunction() };
         setGetbranddata(data)
         console.log(data)
         setGetPrices(pricedata)
@@ -128,43 +119,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
     return (
         <>
             <div className='mx-2 md:mx-0'>
-                <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
-                    <div className='flex justify-around'>
-                        <div className='flex'>
-                            <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <li><Image width={200} height={60} src={logo} /></li>
-                                <li className='font-semibold text-[#484848]'>Hyundai <Image className='inline' src={edit} alt='edit' /></li>
-                                <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Find Dealers</li>
-                                <li className='hover:text-[#09809A] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>FAQ&apos;s</li>
-                            </ul>
-                        </div>
-                        <div className='flex w-[25%] border-x border-[#E1E1E1]'>
-                            <div className='px-4 w-1/2 py-[0.5rem] border-r justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>Brand</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>Hyundai</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
-                            </div>
-                            <div className='px-4 w-1/2 py-[0.5rem] justify-between border-[#E1E1E1] flex'>
-                                <div className='pt-2'>
-                                    <p className='text-[16px] text-[#6F6F6F]'>City</p>
-                                    <p className='text-[13px] font-semibold text-[#484848]'>New Delhi</p>
-                                </div>
-                                <div className='pt-4'>
-                                    <ChevronRight />
-                                </div>
-                            </div>
-                        </div>
-                        <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                        <TemporaryDrawer sticky={true} />
-                        </div>
-                    </div>
-                </div>
-
-
+                
                 <div className='lg:mx-[5rem]'>
 
                     <div className='mb-[2rem]'>

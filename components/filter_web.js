@@ -94,15 +94,6 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
 
 
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            top_bar.current.classList.add(style.scrolling);
-        } else {
-            top_bar.current.classList.remove(style.scrolling);
-        }
-    }
-
-
     async function fetchAgain() {
         const res = await fetch(`${url}/filter/${route.query[0].split("-").join("_")}/${route.query[0].split("-")[0]}/${false}`, {
             // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
@@ -120,7 +111,6 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
 
 
     useEffect(() => {
-        window.onscroll = function () { scrollFunction() };
         setGetbranddata(data)
         console.log(data)
         setGetPrices(pricedata)
@@ -135,31 +125,7 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
     return (
         <>
             <div className='mx-2 md:mx-0'>
-                <div ref={top_bar} className={`${style["top-scroll"]} hidden md:block`}>
-                    <div className='flex justify-around'>
-                        <div className='flex'>
-                            <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
-                                <Link href={`/`}>
-                                    <li><Image width={200} height={60} src={logo} /></li>
-                                </Link>
-                                <Brand_Model url={url} state={true} brand={getbranddata[0].brand} model={getbranddata[0].model_name} />
-                                <Link href={`/new-car-dealers/${getbranddata[0].brand.toLowerCase().split(" ").join("-")}-dealers-in-mumbai`}>
-                                    <li className='hover:text-[#09809A] mt-2 hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>Find Dealers</li>
-                                </Link>
-                                <li className='hover:text-[#09809A] invisible hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold text-[#484848]'>FAQ&apos;s</li>
-                            </ul>
-                        </div>
-                        <div className='flex w-[25%] border-x border-[#E1E1E1]'>
-                            <Brand_Model url={url} brand={getbranddata[0].brand} model={getbranddata[0].model_name} />
-                            <City_Modal url={url} />
-                        </div>
-                        <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                            <TemporaryDrawer sticky={true} />
-                        </div>
-                    </div>
-                </div>
-
-
+               
                 <div className='lg:mx-[5rem]'>
 
                     <div className='mb-[2rem]'>

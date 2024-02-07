@@ -50,6 +50,7 @@ export default function Home({ bresponse, query, head }) {
     const [width, setWidth] = useState()
     const [show, setShow] = useState([])
     const [view, setView] = useState(false)
+    const [bod, setBod] = useState(true)
     const brnd = useRef(null)
 
     const route = useRouter()
@@ -59,7 +60,7 @@ export default function Home({ bresponse, query, head }) {
 
 
     async function handleInput(e) {
-        let data = await fetch(`https://inquisitive-knickers-fish.cyclic.app/car-search/${e.target.value}`, {
+        let data = await fetch(`${url}/car-search/${e.target.value}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -68,8 +69,14 @@ export default function Home({ bresponse, query, head }) {
 
         let res = await data.json()
         // res.unshift(`All ${res[0].brand} Cars`)
-        console.log(e.target.value)
+
         setShow(res)
+
+        bod ? setBod(false) : setBod(true)
+
+        document.body.addEventListener("click", () => {
+            setBod(false)
+        })
     }
 
 
@@ -115,7 +122,7 @@ export default function Home({ bresponse, query, head }) {
                         <div className='md:w-2/5 md:mx-auto text-left relative mx-4'>
                             <div>
                                 <input autoComplete='false' onChange={handleInput} id="form1" className='py-2 px-3 w-full text-[#6F6F6F] rounded-md' placeholder='Type car name to view details' type="text" />
-                                <ul className={`${show.length <= 0 ? "hidden" : null} absolute w-full h-[15rem] px-4 overflow-y-scroll top-1/2 bg-white pt-1`}>
+                                <ul className={`${bod ? show.length <= 0 ? "hidden" : null : "hidden"} absolute w-full h-[15rem] px-4 overflow-y-scroll top-1/2 bg-white pt-1`}>
                                     {show.length > 0 ? show.map((element, index) => {
                                         if (typeof (element) !== "string") {
                                             return (<Link key={index} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}`} >

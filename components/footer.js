@@ -31,8 +31,8 @@ const Footer = () => {
                     <div className='mt-10 hidden w-1/5 md:inline'>
                         <p>VMetrics Solutions Private Limited:
                             103/A, Rishabh CHS LTD, Jai Ambe Mata Mandir Road, Bhayander West, Thane 401101, Maharashtra, India</p>
-                        <p>+91 976 990 0531</p>
-                        <p>info@abccorporation.com</p>
+                        {/* <p>+91 976 990 0531</p> */}
+                        <p className='mt-2'>info@abccorporation.com</p>
                     </div>
                     <div>
                         <p className='text-[20px] font-normal'>Connect with Us</p>

@@ -15,6 +15,7 @@ import locationContext from "../context/LocationContext";
 function Brand_Model(props) {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState([])
+    const [filter, setFilter] = useState([])
 
     const context = React.useContext(locationContext)
 
@@ -45,6 +46,23 @@ function Brand_Model(props) {
 
     }
 
+    function handelChange(e) {
+        const searchQuery = e.target.value; // Example search query
+
+        console.log(searchQuery)
+
+        // Filtering the array based on the search query
+        const filteredData = data.filter(item => {
+            // Convert both the item name and search query to lowercase for case-insensitive comparison
+            return item.toLowerCase().includes(searchQuery.toLowerCase());
+        });
+
+        // Sorting the filtered array based on the name
+        setFilter(filteredData.sort((a, b) => {
+            // Sort alphabetically based on the name property
+            return a.localeCompare(b);
+        }))
+    }
 
 
     const handleOpen = () => {
@@ -81,14 +99,20 @@ function Brand_Model(props) {
                 </DialogTitle>
                 <DialogContent>
                     <div className='px-2 my-4 bg-gray-100'>
-                        <input className='border-2 border-[#C6C6C6] focus-visible:border-[#0B9DBC] w-full py-[0.3rem] px-2' placeholder='Type in your Car name' type="text" />
+                        <input onChange={handelChange} className='border-2 border-[#C6C6C6] focus-visible:border-[#0B9DBC] w-full py-[0.3rem] px-2' placeholder='Type in your Car name' type="text" />
                     </div>
                     <div>
                         <p className='p-2 text-[16px] text-[#484848] font-semibold w-full'>Most Searched Cars</p>
                     </div>
                     <div className='mt-4'>
                         <ul className='overflow-y-scroll h-[100vh]'>
-                            {data.length > 0 ? data.map((item, index) => {
+                            {data.length > 0 ? filter.length > 0 ? filter.map((item, index) => {
+                                return (item !== "#N/A" ? route.asPath.split("/")[1] === "new-car-dealers" ? <Link href={`/new-car-dealers/${item.toLowerCase().split(" ").join("-")}-car-dealers-in-${location.toLowerCase()}`} key={index}>
+                                    <li onClick={handleClose} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
+                                </Link> : <Link href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`} key={index}>
+                                    <li onClick={handleClose} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
+                                </Link> : null)
+                            }) : data.map((item, index) => {
                                 return (item !== "#N/A" ? route.asPath.split("/")[1] === "new-car-dealers" ? <Link href={`/new-car-dealers/${item.toLowerCase().split(" ").join("-")}-car-dealers-in-${location.toLowerCase()}`} key={index}>
                                     <li onClick={handleClose} className='py-3 px-2 border-b-[1px] text-[#6F6F6F] border-[#C6C6C6]'>{item}</li>
                                 </Link> : <Link href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`} key={index}>

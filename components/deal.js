@@ -38,9 +38,10 @@ export default function TemporaryDrawer({ brand, model, version, status, sticky,
     };
 
 
-    function handelSubmit() {
+    function handelSubmit(e) {
+        e.preventDefault()
         toggleDrawer('right', false)
-        route.push(`/new-car-dealers/${brand.toLowerCase()}-car-dealers-in-${location.toLowerCase()}`)
+        route.push(`/new-car-dealers/${brand.toLowerCase().split(" ").join("-")}-car-dealers-in-${location.toLowerCase()}`)
     }
 
     const list = (anchor) => (
@@ -53,7 +54,7 @@ export default function TemporaryDrawer({ brand, model, version, status, sticky,
                     <div>
                         <Image onClick={() => {
                             toggleDrawer('right', false)
-                            route.push(`/new-car-dealers/${brand.toLowerCase()}-car-dealers-in-${location.toLowerCase()}`)
+                            route.push(`/new-car-dealers/${brand.toLowerCase().split(" ").join("-")}-car-dealers-in-${location.toLowerCase()}`)
                         }} className='cursor-pointer' width={30} src={cross} />
                     </div>
                     <div className='ml-6'>

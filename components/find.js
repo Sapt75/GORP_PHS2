@@ -91,9 +91,7 @@ export default function TopDrawer() {
         >
             <div>
                 <div className='my-[1rem] mx-4 flex'>
-                    <div onClick={() => {
-                            toggleDrawer('right', false)
-                        }}>
+                    <div onClick={toggleDrawer('right', false)}>
                         <Image className='cursor-pointer' width={20} height={20} src={cross} />
                     </div>
                 </div>
@@ -102,7 +100,7 @@ export default function TopDrawer() {
                     <p className='text-[15px] text-[#6F6F6F]'>Brand</p>
                         <select className='block w-full py-2 border-[1px] border-[#C6C6C6] rounded-md mt-3 px-4' name="brand">
                             {data ? data.map((item, index) => {
-                                return (<option key={index} value={item.brand}>{item.brand}</option>)
+                                return (<option key={index} value={item}>{item}</option>)
                             }) : null}
                         </select>
                         <p className='text-[15px] text-[#6F6F6F] mt-4'>City</p>

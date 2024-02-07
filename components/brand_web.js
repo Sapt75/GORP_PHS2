@@ -153,7 +153,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                             </div>
                         </div>
                         <div className='my-[0.5rem] px-8 border-[#E1E1E1]'>
-                            <TemporaryDrawer sticky={true} />
+                            <TemporaryDrawer sticky={true} brand={getbranddata[0].brand} model={getbranddata[0].brand.model_name} />
                         </div>
                     </div>
                 </div>
