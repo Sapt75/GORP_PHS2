@@ -173,7 +173,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                         <div className='flex'>
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[0.5rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                                 <li><Link href={"/"}>
-                                    <Image className='w-auto h-[50px]' width={200} height={60} src={logo} />
+                                    <Image className='w-auto h-[50px]' width={200} height={60} src={logo} alt='logo' />
                                 </Link></li>
                                 <Brand_Model url={url} state={true} brand={getmodels[0].brand} model={getmodels[0].model_name} />
                                 <Link to='fec' spy={true} smooth={true} offset={-100} duration={500}>
@@ -228,19 +228,19 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
                         <ul className='whitespace-nowrap hidden md:flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                             <li className='font-semibold text-[#484848]'><span title={`${getmodels[0].brand} ${getmodels[0].model_name}`}> {getmodels[0].model_name}  </span><Version_Modal brand={getmodels[0].brand} model={getmodels[0].model_name} version={getmodels[0].version_name} price={versionPrice} data={finalVersion} status={true} /></li>
-                            <Link title={`${getmodels[0].model_name} Overview`} activeclassName="active"
+                            <Link title={`${getmodels[0].model_name} Overview`} activeclassname="active"
                                 to="over" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Overview</li>
                             </Link>
-                            <Link title={`${getmodels[0].model_name} Variants`} activeclassName="active"
+                            <Link title={`${getmodels[0].model_name} Variants`} activeclassname="active"
                                 to="ver" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variants</li>
                             </Link>
-                            <Link title={`${getmodels[0].model_name} Colors`} activeclassName="active"
+                            <Link title={`${getmodels[0].model_name} Colors`} activeclassname="active"
                                 to="col" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
                             </Link>
-                            <Link title={`${getmodels[0].model_name} Mileage`} activeclassName="active"
+                            <Link title={`${getmodels[0].model_name} Mileage`} activeclassname="active"
                                 to="mil" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Performance [mileage]</li>
                             </Link>
@@ -303,7 +303,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
                                 <div id='fec' className='py-5'>
                                     <div className='w-full rounded-[2px] flex justify-between font-semibold text-[#484848] py-2'>
                                         <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of {getmodels[0].brand} {getmodels[0].model_name} </h2>
-                                        <Link activeclassName="active"
+                                        <Link activeclassname="active"
                                             to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                             {/* <p className='md:text-[14px] cursor-pointer text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p> */}
                                         </Link>

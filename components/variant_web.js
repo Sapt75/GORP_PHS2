@@ -194,15 +194,15 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                         </div>
                         <ul className='whitespace-nowrap flex md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] space-x-5 md:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                             <Brand_Model url={url} state={true} brand={cardetails[0].brand} model={cardetails[0].model_name} />
-                            <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeclassName="active"
+                            <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeclassname="active"
                                 to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Features & Specifications</li>
                             </Link>
-                            <Link title={`${cardetails[0].model_name} Variants`} activeclassName="active"
+                            <Link title={`${cardetails[0].model_name} Variants`} activeclassname="active"
                                 to="ver" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Variants</li>
                             </Link>
-                            <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Colors`} activeclassName="active"
+                            <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Colors`} activeclassname="active"
                                 to="col" spy={true} smooth={true} offset={-150} duration={500}>
                                 <li className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>Colors</li>
                             </Link>
@@ -266,7 +266,7 @@ export default function Variant_Web({ data, response, vpresponse, vvpresponse, p
                                 <div className='py-5'>
                                     <div className='w-full rounded-[2px] flex justify-between font-semibold text-[#484848] py-2'>
                                         <h2 className='md:text-[24px] text-[12px] font-semibold tracking-[-0.32px]'>Key Specs of {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name}</h2>
-                                        <Link activeclassName="active"
+                                        <Link activeclassname="active"
                                             to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                             <p className='md:text-[14px] cursor-pointer text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p>
                                         </Link>

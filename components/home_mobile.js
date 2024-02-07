@@ -237,7 +237,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                     {brand.length > 0 ? brand.map((item, index) => {
                                         return (<Link key={index} href={`/new-cars/${item.split(" ").join("-").toLowerCase()}`}>
                                             <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} alt={item} />
                                                 <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)

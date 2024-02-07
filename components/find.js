@@ -91,10 +91,10 @@ export default function TopDrawer() {
         >
             <div>
                 <div className='my-[1rem] mx-4 flex'>
-                    <div>
-                        <Image onClick={() => {
+                    <div onClick={() => {
                             toggleDrawer('right', false)
-                        }} className='cursor-pointer' width={20} height={20} src={cross} />
+                        }}>
+                        <Image className='cursor-pointer' width={20} height={20} src={cross} />
                     </div>
                 </div>
                 <div className='mx-4'>

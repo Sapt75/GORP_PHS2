@@ -154,15 +154,15 @@ export default function Variant_Mobile(props) {
                         <div>
                             <ul className='flex fixed mt-[15px] z-[999] bg-white w-full md:hidden whitespace-nowrap overflow-x-scroll md:whitespace-normal space-x-8 md:space-x-[5rem] text-[16px] border-y border-[#E1E1E1] font-normal tracking-[-0.32px] px-2'>
                                 <li className='font-semibold text-[#484848] text-[14px] my-2'>{cardetails[0].model_name}</li>
-                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeclassName="active"
+                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeclassname="active"
                                     to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                     <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Features & Specifications</li>
                                 </Link>
-                                <Link title={`${cardetails[0].model_name} Variants`} activeclassName="active"
+                                <Link title={`${cardetails[0].model_name} Variants`} activeclassname="active"
                                     to="ver" spy={true} smooth={true} offset={-150} duration={500}>
                                     <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Variants</li>
                                 </Link>
-                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Colors`} activeclassName="active"
+                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Colors`} activeclassname="active"
                                     to="col" spy={true} smooth={true} offset={-150} duration={500}>
                                     <li className='hover:text-[#09809A] text-[14px] text-[#484848] hover:border-b-[3px] border-[#09809A] pb-2 cursor-pointer font-semibold my-2'>Colors</li>
                                 </Link>
@@ -261,7 +261,7 @@ export default function Variant_Mobile(props) {
                         <div className='py-2'>
                             <div className='w-full rounded-[2px] flex justify-between text-[#484848] py-2 px-2'>
                                 <h2 className='text-[15px] md:text-[24px] font-semibold tracking-[-0.32px]'>Key Specs of {cardetails[0].brand} {cardetails[0].model_name} {cardetails[0].version_name}</h2>
-                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeclassName="active"
+                                <Link title={`${cardetails[0].model_name} ${cardetails[0].version_name} Features & Specification`} activeclassname="active"
                                     to="spec" spy={true} smooth={true} offset={-150} duration={500}>
                                     <p className='md:text-[14px] text-[12px] font-semibold tracking-[-0.28px] mx-3 md:mx-[2rem] flex'>View All</p>
                                 </Link>
