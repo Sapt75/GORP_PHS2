@@ -96,20 +96,20 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
                 <div className='lg:mx-[5rem]'>
 
                     <div className='mb-[2rem]'>
-                        <Image className='mx-auto' src={advert} alt="" />
+                        <Image className='mx-auto' src={advert} alt="advertisement" />
                     </div>
 
 
                     <div className='md:hidden'>
                         <div className='md:w-[74%]'>
-                            <div className='mb-[2rem] w-full'>
+                            <div className='mb-[2rem] w-full'>a
                                 <h1 className='md:text-[24px] text-[#484848] mb-3 text-[20px] font-semibold tracking-[-0.48px]'>Hyundai Cars</h1>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
                                     <p>{desc.brand_description}<span className={`${update ? null : "hidden"}`}>
                                     </span></p>
 
                                     <div onClick={() => update ? setUpdate(false) : setUpdate(true)} className='text-right cursor-pointer pt-[1rem]'>
-                                        <span className='mx-[1rem] text-[#0B9DBC] text-[16px] font-normal'>Read More <Image className='inline' src={down} alt="" /></span>
+                                        <span className='mx-[1rem] text-[#0B9DBC] text-[16px] font-normal'>Read More <Image className='inline' src={down} alt="down arrow" /></span>
                                     </div>
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
@@ -148,8 +148,8 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
 
                                                 }).map((itm) => itm.transmission_type).join(" | ")}
                                             </span>
-                                            {getprices.map((element) => {
-                                                return element.model_id === item.model_id ? <p className='text-[14px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
+                                            {getprices.map((element, index) => {
+                                                return element.model_id === item.model_id ? <p key={index} className='text-[14px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
                                             })}
 
                                             <p className='text-[12px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
@@ -158,7 +158,7 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
                                         <div className='mr-2'>
                                             <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[10px] font-semibold rounded-md text-white'>
                                                 4.5
-                                                <Image width={15} className='pl-[4px]' src={star} alt="" />
+                                                <Image width={15} className='pl-[4px]' src={star} alt="star" />
                                             </span>
                                         </div>
                                     </div>)
@@ -181,7 +181,7 @@ export default function Brand_Mobile({ data, pricedata, query, tdata, bres, dres
                                     {cbrand.map((item, index) => {
                                         return (<Link key={index} href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`}>
                                             <div className='text-center'>
-                                                <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} alt={item} />
                                                 <p className='text-[16px] text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)

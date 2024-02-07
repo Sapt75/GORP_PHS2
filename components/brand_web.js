@@ -120,7 +120,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                             <ul className='whitespace-nowrap text-gray-800 md:whitespace-normal md:overflow-x-auto md:mx-0 overflow-x-scroll mx-[1rem] my-[1rem] flex space-x-10 2xl:space-x-[5rem] text-[16px] font-normal tracking-[-0.32px]'>
                                 <li>
                                     <Link href={"/"}>
-                                        <Image width={200} height={60} src={logo} />
+                                        <Image width={200} height={60} src={logo} alt='Logo' />
                                     </Link>
                                 </li>
                                 <Brand_Model url={url} state={true} brand={getbranddata[0].brand} model={getbranddata[0].model_name} />
@@ -162,7 +162,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                 <div className='lg:mx-[5rem]'>
 
                     <div className='mb-[2rem]'>
-                        <Image className='mx-auto' src={advert} alt="" />
+                        <Image className='mx-auto' src={advert} alt="Advertisement" />
                     </div>
 
 
@@ -174,7 +174,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                     <p>{desc.brand_description}<span className={`${show ? null : "hidden"}`}></span> </p>
 
                                     <div onClick={() => show ? setShow(false) : setShow(true)} className='text-right pt-[1rem] cursor-pointer'>
-                                        <span className='mx-[1rem] text-[#0B9DBC] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="" /></span>
+                                        <span className='mx-[1rem] text-[#0B9DBC] text-[16px] font-normal'>Read {show ? "Less" : "More"} <Image className='inline' src={down} alt="Down Arrow" /></span>
                                     </div>
                                 </div>
                                 <hr className='border-t-1 border-[#E1E1E1]' />
@@ -187,7 +187,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                     return (<div key={index} className='flex justify-between my-2 px-10 border py-8 border-[#E1E1E1]'>
                                         <div className='w-[15rem]'>
                                             <Link title={`${item.brand} ${item.model_name}`} href={`/new-cars/${item.brand.split(" ").join("-").toLowerCase()}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
-                                                <img width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg?updatedAt=${new Date().getTime() / 1000}`} />
+                                                <img width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg?updatedAt=${new Date().getTime() / 1000}`} alt={item.brand} />
                                             </Link>
                                         </div>
                                         <div className='space-y-0.5'>
@@ -215,8 +215,8 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                                 }).map((itm) => itm.transmission_type).join(" | ")}
                                             </span>
 
-                                            {getprices.map((element) => {
-                                                return element.model_id === item.model_id ? <p className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
+                                            {getprices.map((element, index) => {
+                                                return element.model_id === item.model_id ? <p key={index} className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
                                             })}
                                             <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in {location}</p>
                                             <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
@@ -224,7 +224,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                         <div>
                                             <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[14px] font-semibold rounded-md text-white'>
                                                 4.5
-                                                <Image width={20} className='pl-[4px]' src={star} alt="" />
+                                                <Image width={20} className='pl-[4px]' src={star} alt="star" />
                                             </span>
                                         </div>
                                     </div>)
@@ -248,7 +248,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                     {cbrand.map((item, index) => {
                                         return (<Link key={index} className={`${view ? null : index >= 8 ? "hidden" : null}`} href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`}>
                                             <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} alt={item} />
                                                 <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
@@ -294,7 +294,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
 
                             <div className='bg-[#c2e6ee] mt-10'>
                                 <div className='text-center pt-6'>
-                                    <Image className='mx-auto' src={connect} alt="" />
+                                    <Image className='mx-auto' src={connect} alt="connect" />
                                     <p className='text-[24px] font-semibold tracking-[-0.48px]'>Connect</p>
                                     <p className='text-[20px] font-semibold tracking-[-0.4px] my-2'>{getbranddata[0].brand} Authorized</p>
                                     <p className='text-[20px] font-semibold tracking-[-0.4px] my-2'>Dealers in your city</p>
@@ -309,7 +309,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                             <div className='bg-[#F4F4F4] p-4'>
                                 <p className='text-[#f80a1a] text-[32px] font-semibold leading-[1]'>Car Loan</p>
                                 <p className='text-[#1db876] text-[30px] font-semibold leading-[1]'>Lowest EMI</p>
-                                <Image src={promo} alt="" />
+                                <Image src={promo} alt="promo" />
                                 <div className='text-center py-3'>
                                     <button className='bg-[#ff3209] text-white text-[18px] font-medium px-4 rounded-md'>GET THE BEST OFFERS</button>
                                 </div>
@@ -318,7 +318,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
 
                             {/* LAst Adv  */}
                             <div className='my-4'>
-                                <Image src={last_adv} alt="" />
+                                <Image src={last_adv} alt="Advertisement" />
                             </div>
 
                         </div>

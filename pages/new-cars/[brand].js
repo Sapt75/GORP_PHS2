@@ -91,7 +91,7 @@ export const getServerSideProps = async (context) => {
             fetchData("all_brands"),
             fetchData(`brand_desc/${brandKey}`)
         ]);
-
+        console.log(data[0].brand)
         cacheData.push({ data, pricedata, query, tdata, bres, dres });
 
 
