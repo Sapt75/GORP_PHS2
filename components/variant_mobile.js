@@ -53,6 +53,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import Brand_Model from '../components/brand_modal';
 import RLink from 'next/link';
 import ColorSlider from '../components/color';
+import locationContext from '../context/LocationContext';
 
 
 
@@ -78,6 +79,15 @@ export default function Variant_Mobile(props) {
     const [versionPrice, setVersionPrice] = useState(vvpresponse == "No Data" ? [] : vvpresponse)
     const [city, setCity] = useState(rcity)
     const router = useRouter();
+    const [filter, setFilter] = useState({
+        fuel_type: null,
+        transmission_type: null
+    })
+
+    const [fdata, setfData] = useState(response)
+    const context = React.useContext(locationContext)
+
+    let { location } = context
 
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
@@ -183,7 +193,11 @@ export default function Variant_Mobile(props) {
                     </div>
                     <div className='space-x-[1.6rem]'>
                         {versionPrice.length > 0 ? <span className='text-[20px] text-[#484848] font-semibold tracking-[-0.48px]'> {`₹ ${numFormat(versionPrice[0].ex_showroom_price ? versionPrice[0].ex_showroom_price : 5000000)}`}</span> : null}
-                        <span className='text-[12px] text-[#CE4327] font-semibold underline'>View Price Breakup</span>
+                        <RLink href={{
+                            pathname: `/${cardetails[0].brand.split(" ").join("-").toLowerCase()}/${cardetails[0].model_name.split(" ").join("-").toLowerCase()}/price-in-mumbai`, query: {
+                                uid: cardetails[0].uid
+                            }
+                        }} title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in ${location}`} className='text-[12px] text-[#CE4327] cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
                     </div>
                     <span className='text-[14px] pt-1.5 font-normal tracking-[-0.28px] text-[#484848]'>On-Road Price New Delhi</span>
                     {/* <div className='hidden md:flex justify-between w-100 bg-[#F4F4F4] py-[0.5rem]'>
@@ -455,26 +469,83 @@ export default function Variant_Mobile(props) {
                     {/* Car Versions Listing  */}
 
                     <div id='ver' className='lg:w-full'>
-                        <h2 className='lg:text-[24px] text-[#484848] text-[18px] mt-4 mb-2 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Variants 2023</h2>
+                        <p className='lg:text-[24px] text-[#484848] text-[16px] my-4 font-semibold tracking-[-0.48px]'>{cardetails[0].brand} {cardetails[0].model_name} Variants 2023</p>
+                        <ul className='flex space-x-8 py-4 text-[#484848] font-semibold'>
+                                        {finalVersion.filter((value, index, self) => {
+                                            return index === self.findIndex((t) => {
+                                                return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
+                                            })
+                                        }).map((item, index) => {
+                                            return (<li onClick={() => {
+                                                setFilter({
+                                                    fuel_type: `${item.Specifications.engine_and_transmission.fuel_type}`,
+                                                    transmission_type: filter.transmission_type
+                                                })
+                                                filter.transmission_type !== null ? setfData(data.filter((itm) => item.Specifications.engine_and_transmission.fuel_type === `${itm.Specifications.engine_and_transmission.fuel_type}` && itm.transmission_type === filter.transmission_type)) : setfData(data.filter(itemm => itemm.Specifications.engine_and_transmission.fuel_type === `${item.Specifications.engine_and_transmission.fuel_type}`
+                                                ))
+                                            }} key={index} className='hover:text-[#09809A] hover:border-b-[3px] text-[14px] border-[#09809A] cursor-pointer'>{item.Specifications.engine_and_transmission.fuel_type}</li>)
+                                        })}
+                                        {/* <li>|</li> */}
+                                        <li onClick={() => {
+                                            setFilter({
+                                                fuel_type: filter.fuel_type,
+                                                transmission_type: "Manual"
+                                            })
+                                            filter.fuel_type !== null ? setfData(data.filter((item) => item.transmission_type === "Manual" && item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setfData(data.filter((item) => item.transmission_type === "Manual"))
+                                        }} className='border-l-[1px] border-black pl-4 text-[14px] cursor-pointer'>Manual</li>
+                                        <li onClick={() => {
+                                            setFilter({
+                                                fuel_type: filter.fuel_type,
+                                                transmission_type: "Automatic"
+                                            })
+                                            filter.fuel_type !== null ? setfData(data.filter((item) => item.transmission_type === "Automatic" && item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setfData(data.filter((item) => item.transmission_type === "Automatic"))
+                                        }} className="cursor-pointer text-[14px]">Automatic</li>
+                                    </ul>
+                                    <div className={`${ filter.fuel_type !== null ? "flex":"hidden"} space-x-4 my-4`}>
+                                        {filter.fuel_type !== null ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                                            {filter.fuel_type} <Image onClick={() => {
+                                                setFilter({
+                                                    fuel_type: null,
+                                                    transmission_type: filter.transmission_type
+                                                })
+                                                filter.transmission_type !== null ? setfData(data.filter((item) => item.transmission_type === filter.transmission_type)) : setfData(data)
+                                            }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                                        </span> : null}
+                                        {filter.transmission_type !== null ? <span className="text-[14px] border-[1px] border-[#C6C6C6] rounded-lg px-4 py-0.5">
+                                            {filter.transmission_type} <Image onClick={() => {
+                                                setFilter({
+                                                    fuel_type: filter.fuel_type,
+                                                    transmission_type: null
+                                                })
+                                                filter.fuel_type !== null ? setfData(data.filter((item) => item.Specifications.engine_and_transmission.fuel_type === filter.fuel_type)) : setfData(data)
+                                            }} src={cross} className="inline pb-0.5 ml-2 cursor-pointer" width={12} alt="cross" />
+                                        </span> : null}
+                                    </div>
                         <div>
                             <div className='flex justify-between bg-[#F4F4F4] py-3 px-4'>
-                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Variants</p>
+                                <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>Versions</p>
                                 <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.32px]'>On Road Price</p>
                             </div>
 
                             {/* Versions  */}
                             <div>
                                 {finalVersion.map((element, id) => {
-                                    return (<div key={id} className={`${show ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
+                                    return (<div key={id} className={`${update ? "flex" : id > 3 ? "hidden" : "flex"} justify-between py-3 px-4 border border-[#C6C6C6]`}>
                                         <div className='w-[10rem]'>
                                             <RLink title={`${element.model_name} ${element.version_name}`} href={`/new-cars/${element.brand.toLowerCase()}/${element.model_name.toLowerCase().split(" ").join("-")}/${element.version_name.toLowerCase().split(" ").join("-")}`}>
                                                 <h3 className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{element.model_name} {element.version_name}</h3>
                                             </RLink>
                                             <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
-                                            <p className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.24px]'>View Price Breakup</p>
+                                            <RLink href={{
+                                                pathname: `/${element.brand.split(" ").join("-").toLowerCase()}/${element.model_name.split(" ").join("-").toLowerCase()}/price-in-mumbai`, query: {
+                                                    uid: element.uid
+                                                }
+                                            }} title={`${cardetails[0].model_name} ${cardetails[0].version_name} Price in ${location}`} className='text-[12px] text-[#CE4327] block cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
                                         </div>
+
+
                                         <div>
-                                            <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{allVersionPrice.length > 0 ? `₹ ${numFormat(allVersionPrice.find(o => o.Version_UID === element.uid) ? allVersionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price : 5000000)}` : null}</p>
+                                            <p className='text-[16px] text-[#484848] font-semibold tracking-[-0.36px]'>{versionPrice.length > 0 && versionPrice !== "No Data" ? `₹ ${numFormat(versionPrice.find(o => o.Version_UID === element.uid) ? versionPrice.find(o => o.Version_UID === element.uid).ex_showroom_price : 900000)}` : null}</p>
                                             {/* <div className=''>
                                                     <input className='mx-1' type="checkbox"></input>
                                                     <span className='text-[#484848] md:text-[16px] text-[14px] font-normal tracking-[-0.32px]'>Compare</span>
@@ -482,16 +553,16 @@ export default function Variant_Mobile(props) {
                                         </div>
                                     </div>)
                                 })}
+
                             </div>
 
                             <div className='text-center my-4'>
-                                <button onClick={() => show ? setShow(false) : setShow(true)} className='px-16 rounded-md'><span className='text-[12px] font-normal tracking-[-0.24px] text-[#09809A]'>
-                                    {show ? "Hide" : "View"} All Variants
+                                <button onClick={() => update ? setUpdate(false) : setUpdate(true)} className='px-16 rounded-md'> <span className='text-[16px] font-normal tracking-[-0.24px] hover:text-[#09809A] text-[#09809A]'>
+                                    {update ? "Hide" : "View"} All Variants
                                 </span></button>
                             </div>
                         </div>
                     </div>
-
                     {/* SPonsored adv  */}
                     <div>
                         <p className='text-[12px] text-[#484848] mb-2 underline'>Sponsored</p>
@@ -541,7 +612,7 @@ export default function Variant_Mobile(props) {
                                     return (<tr key={index} className='border border-[#C6C6C6]'>
                                         <td className='text-[15px] text-[#09809A] font-normal p-2'>{item.city_name}</td>
                                         <td className='text-right p-2'>
-                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ ${numFormat(item.ex_showroom_price ? item.ex_showroom_price : 5000000)}` Onwards</p>
+                                            <p className='text-[16px] pb-1 leading-[5px] pt-2 font-semibold tracking-[-0.32px]'>₹ {numFormat(item.ex_showroom_price ? item.ex_showroom_price : 5000000)} Onwards</p>
                                             {/* <span className='text-[12px] text-[#CE4327] font-semibold tracking-[-0.2px]'>View Price Breakup</span> */}
                                         </td>
                                     </tr>)

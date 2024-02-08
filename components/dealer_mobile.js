@@ -68,7 +68,7 @@ export default function Dealers_Mobile({ bresponse, cities }) {
     const url = "https://inquisitive-knickers-fish.cyclic.app"
     const context = React.useContext(locationContext)
 
-    let { location, pinn, setLocation } = context
+    const { location, pinn, setLocation } = context
 
     const route = useRouter()
 
@@ -82,6 +82,8 @@ export default function Dealers_Mobile({ bresponse, cities }) {
     const [brand, setBrand] = useState(bresponse)
 
     const [dealer, setDealer] = useState([])
+
+    const [view, setView] = useState(false)
 
     const [cityData, setCityData] = useState()
 
@@ -222,8 +224,9 @@ export default function Dealers_Mobile({ bresponse, cities }) {
 
                                 {/* Dealers Section  */}
                                 <div className='mt-6'>
-                                    <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Authorised {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Dealers in {location}</h2>
-                                    <div className='space-y-4'>
+                                <p className='md:text-[24px] md:ml-0 md:mx-0 text-[18px] font-semibold text-[#484848] pb-2 tracking-[-0.48px]'>Authorized {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} Dealers in {location}</p>
+                                <div className='md:w-full'>
+                                    <div style={{ display: "-webkit-box" }} className='overflow-x-scroll md:mx-0 space-x-3 md:m-3'>
                                         {dealer.map((item, index) => {
                                             return (<div key={index} className='border border-[#C6C6C6] w-[18rem] px-4'>
                                                 <p className='font-semibold text-[15px] text-[#484848] md:text-base py-2'>{item.dealer_name}</p>
@@ -234,28 +237,32 @@ export default function Dealers_Mobile({ bresponse, cities }) {
                                         })}
                                     </div>
                                 </div>
+                            </div>
 
 
 
 
 
                                 {/* Brands Listing */}
-                                <div className='w-full my-6'>
-                                    <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mb-2'>Top Brands</h2>
-                                    <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
-                                        {brand.length > 0 ? brand.map((item, index) => {
-                                            return (<Link key={index} href={`/new-cars/${item.toLowerCase()}`}>
-                                                <div key={index} className='text-center'>
-                                                    <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
-                                                    <p className='text-[16px] text-[#484848] font-semibold my-3'>{item}</p>
-                                                </div>
-                                            </Link>)
+                                <div className='w-full mt-6'>
+                                <p className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-6'>Showrooms of Other Brands in {location}</p>
+                                <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
+                                    {brand.length > 0 ? brand.map((item, index) => {
+                                        return (<Link className={`${view ? null : index >= 9 ? "hidden" : null}`} key={index} href={`/new-car-dealers/${item.toLowerCase()}-car-dealers-mumbai`}>
+                                            <div key={index} className='text-center'>
+                                                <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-[14px] text-[#484848] font-semibold my-3'>{item}</p>
+                                            </div>
+                                        </Link>)
 
-                                        }) : null}
-                                    </div>
-
+                                    }) : null}
                                 </div>
-
+                                <div className='text-center my-4'>
+                                    <button onClick={() => view ? setView(false) : setView(true)} className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                        View All Versions
+                                    </span></button>
+                                </div>
+                            </div>
 
                                 <div className='md:p-4 py-1.5'>
                                     <p>Home &gt; {route.query.dealers.split("-")[0].charAt(0).toUpperCase() + route.query.dealers.split("-")[0].slice(1)} &gt; Aura</p>

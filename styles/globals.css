@@ -334,3 +334,7 @@ input:focus-visible {
   width: 100% !important;
   margin: 0 !important;
 }
+
+.pic .picc{
+  margin-top: -1rem !important;
+}

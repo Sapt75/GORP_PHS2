@@ -47,6 +47,8 @@ import Rating_Model from '../components/rating_modal';
 import Emi_Modal from '../components/emi';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import TemporaryDrawer from './deal';
+import locationContext from '../context/LocationContext';
 
 
 
@@ -54,17 +56,29 @@ import Link from 'next/link';
 
 
 
-export default function Filter_Mobile({ data, pricedata, query, tdata, bres, dres, head }) {
+export default function Filter_Mobile({ data, pricedata, query, head, bres }) {
 
     const [update, setUpdate] = useState(false)
+    // const [desc, setDesc] = useState(dres)
+
+
+    // const [trans, setTrans] = useState(tdata)
     const [show, setShow] = useState(false)
     const top_bar = useRef(null)
     const [getbranddata, setGetbranddata] = useState(data);
     const [getprices, setGetPrices] = useState(pricedata);
     const [read, setRead] = useState(false)
-    const [trans, setTrans] = useState(tdata)
+    // const [trans, setTrans] = useState(tdata)
     const [cbrand, setBrand] = useState(bres)
-    const [desc, setDesc] = useState(dres)
+    // const [desc, setDesc] = useState(dres)
+    const [view, setView] = useState(false)
+
+
+    const context = React.useContext(locationContext)
+
+    let { location } = context
+
+    const route = useRouter()
 
 
     function numFormat(value) {
@@ -80,8 +94,13 @@ export default function Filter_Mobile({ data, pricedata, query, tdata, bres, dre
 
 
     useEffect(() => {
-
-    }, [])
+        setGetbranddata(data)
+        console.log(data)
+        setGetPrices(pricedata)
+        // setTrans(tdata)
+        setBrand(bres)
+        // setDesc(dres)
+    }, [data, pricedata, query, head, bres])
 
 
 
@@ -99,7 +118,7 @@ export default function Filter_Mobile({ data, pricedata, query, tdata, bres, dre
                     <div className='md:hidden'>
                         <div className='md:w-[74%]'>
                             <div className='mb-[2rem] w-full'>
-                                <h1 className='md:text-[24px] text-[#484848] mb-3 text-[20px] font-semibold tracking-[-0.48px]'>Hyundai Cars</h1>
+                                <h1 className='md:text-[24px] text-[#484848] mb-3 text-[20px] font-semibold tracking-[-0.48px]'>Cars Under {route.query.filter[0].split("-")[2]}  Lakh</h1>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
                                     {/* <p>{desc.brand_description}<span className={`${update ? null : "hidden"}`}>
                                     </span></p> */}
@@ -116,15 +135,18 @@ export default function Filter_Mobile({ data, pricedata, query, tdata, bres, dre
                             {/* Car Models  */}
                             <div className='w-full'>
                                 {getbranddata.map((item, index) => {
-                                    return (<div key={index} className='flex justify-between my-2 border py-8 border-[#E1E1E1]'>
-                                        <div className='w-[8rem]'>
-                                            <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} alt={`${item.brand} image`} />
-                                        </div>
-                                        <div className='space-y-0.5'>
-                                            <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
-                                                <h3 className='text-[16px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
-                                            </Link>
-                                            <span className='text-[#6F6F6F] text-[12px] font-normal'>
+                                    return (getprices.map((element) => {
+                                        return (element.model_id === item.model_id ? <div key={index} className='flex justify-between my-2 border py-8 border-[#E1E1E1]'>
+                                            <div className='w-[8rem]'>
+                                                <Link title={`${item.brand} ${item.model_name}`} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
+                                                    <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} alt={`${item.brand} image`} />
+                                                </Link>
+                                            </div>
+                                            <div className='space-y-0.5'>
+                                                <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
+                                                    <h3 className='text-[16px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
+                                                </Link>
+                                                {/* <span className='text-[#6F6F6F] text-[12px] font-normal'>
                                                 {trans.filter((value, index, self) => {
                                                     return index === self.findIndex((t) => {
                                                         if (t.model_name === item.model_name) {
@@ -143,21 +165,20 @@ export default function Filter_Mobile({ data, pricedata, query, tdata, bres, dre
                                                     })
 
                                                 }).map((itm) => itm.transmission_type).join(" | ")}
-                                            </span>
-                                            {getprices.map((element) => {
-                                                return element.model_id === item.model_id ? <p className='text-[14px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
-                                            })}
+                                            </span> */}
+                                                <p className='text-[14px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> 
 
-                                            <p className='text-[12px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in Mumbai</p>
-                                            <button className="text-[#CE4327] text-[16px] font-semibold ">Get Latest Offers</button>
-                                        </div>
-                                        <div className='mr-2'>
-                                            <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[10px] font-semibold rounded-md text-white'>
-                                                4.5
-                                                <Image width={15} className='pl-[4px]' src={star} alt="" />
-                                            </span>
-                                        </div>
-                                    </div>)
+                                                <p className='text-[12px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in {location}</p>
+                                                <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
+                                            </div>
+                                            <div className='mr-2'>
+                                                <span className='bg-[#0B9DBC] px-[0.6rem] py-[4px] flex text-[10px] font-semibold rounded-md text-white'>
+                                                    4.5
+                                                    <Image width={15} className='pl-[4px]' src={star} alt="" />
+                                                </span>
+                                            </div>
+                                        </div> : null)
+                                    }))
                                 })}
                                 <div className="bg-yellow-400 p-4 flex justify-evenly my-4">
                                     <div>
@@ -175,16 +196,20 @@ export default function Filter_Mobile({ data, pricedata, query, tdata, bres, dre
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold mt-6 mb-3'>Top Brands</h2>
                                 <div className='grid grid-cols-3 gap-y-8 border border-[#E1E1E1] py-12'>
                                     {cbrand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}`}>
+                                        return (<Link key={index} href={`/new-cars/${item.toLowerCase().split(" ").join("-")}`} className={`${view ? null : index >= 12 ? "hidden" : null}`}>
                                             <div className='text-center'>
-                                                <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item.brand}.jpg?updatedAt=1693313074421`} />
-                                                <p className='text-[16px] text-[#484848] font-semibold my-3'>{item.brand}</p>
+                                                <Image className='mx-auto' width={70} height={40} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} />
+                                                <p className='text-[16px] text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
 
                                     })}
                                 </div>
-
+                                <div className='text-center my-4'>
+                                    <button onClick={() => view ? setView(false) : setView(true)} className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                        View All Brands
+                                    </span></button>
+                                </div>
                             </div>
 
                             {/* Sponsored Adv  */}

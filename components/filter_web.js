@@ -159,7 +159,9 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                                     {getbranddata.map((item, index) => {
                                         return (<div key={index} className='flex justify-between my-2 px-10 border py-8 border-[#E1E1E1]'>
                                             <div className='w-[15rem]'>
+                                            <Link title={`${item.brand} ${item.model_name}`} href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>
                                                 <Image width={200} height={200} src={`https://ik.imagekit.io/GORP/${item.brand.split(" ").join("_")}/${item.model_name.split(" ").join("_")}/${item.model_name.split(" ").join("_")}.jpg`} />
+                                            </Link>
                                             </div>
                                             <div className='space-y-0.5'>
                                                 <Link href={`/new-cars/${item.brand.toLowerCase().split(" ").join("-")}/${item.model_name.toLowerCase().split(' ').join("-")}`}>

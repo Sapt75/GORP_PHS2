@@ -86,7 +86,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
     }
 
     const url = "https://inquisitive-knickers-fish.cyclic.app"
-
+    // https://inquisitive-knickers-fish.cyclic.app
 
 
 
@@ -157,7 +157,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                         </div>
                     </div>
                 </div>
-
+                
 
                 <div className='lg:mx-[5rem]'>
 
@@ -215,9 +215,9 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                                 }).map((itm) => itm.transmission_type).join(" | ")}
                                             </span>
 
-                                            {getprices.map((element, index) => {
+                                            {getprices.length > 0 ? getprices.map((element, index) => {
                                                 return element.model_id === item.model_id ? <p key={index} className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
-                                            })}
+                                            }):null}
                                             <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in {location}</p>
                                             <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
                                         </div>

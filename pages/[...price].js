@@ -380,7 +380,7 @@ export default function Price({ data,
                                             </div>
                                         </div>
                                         {getbreakup.map((item, ind) => {
-                                            return (item.Version_UID === element.uid ? <div key={ind} className={`w-full ${first ? first[index] ? "block" : "hidden" : null} border border-[#E1E1E1]`}>
+                                            return (item.Version_UID === element.uid ? <div key={ind} className={`w-full ${first ? first[index] ? "block" : "hidden" : null} border border-[#E1E1E1] my-4`}>
                                                 <div className='flex justify-between px-4'>
                                                     <p className="text-[#484848] text-[17px] md:text-[20px] py-3 font-semibold">{element.model_name}&nbsp;{element.version_name}&nbsp;Price {location ? location : "Mumbai"}</p>
                                                     <div onClick={() => setFirst(prevValues => ({
@@ -390,7 +390,7 @@ export default function Price({ data,
                                                         <ChevronRight className='rotate-[90deg]' />
                                                     </div>
                                                 </div>
-                                                <div className='bg-stone-300 bg-opacity-25 md:px-4'>
+                                                <div className='bg-stone-300 bg-opacity-25 md:px-4 px-2'>
                                                     <div className='flex justify-between pt-4'>
                                                         <p className="text-[18px] font-semibold">Ex-Showroom Price</p>
                                                         <p className="text-black text-[18px] text-right font-semibold ">₹ {item.ex_showroom_price}</p>
@@ -407,7 +407,7 @@ export default function Price({ data,
                                                             <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">RTO</p>
                                                             <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
                                                             <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">Road Safety Tax/Cess</p>
-                                                            <div className='absolute right-20 space-y-4 mt-4'>
+                                                            <div className='absolute right-8 md:right-20 space-y-4 mt-4'>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.rto}</p>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.road_safety_tax_cess}</p>
                                                             </div>
@@ -431,7 +431,7 @@ export default function Price({ data,
                                                             <p className="text-neutral-500 absolute left-[58px] top-[25px] text-lg">Hypothecation Charges</p>
                                                             <div className="w-[24.66px] h-[0px] left-[17px] top-[84px] absolute border border-black"></div>
                                                             <p className="text-neutral-500 absolute left-[58px] top-[70px] text-lg">FASTag</p>
-                                                            <div className='absolute right-20 space-y-4 mt-4'>
+                                                            <div className='absolute right-8 md:right-20 space-y-4 mt-4'>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.hypothecation_charges}</p>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.fastag}</p>
                                                             </div>
@@ -455,7 +455,7 @@ export default function Price({ data,
                                                             <p className="text-neutral-500 absolute left-[58px] top-[115px] text-lg">AMC</p>
                                                             <div className="w-[24.66px] h-[0px] left-[17px] top-[180px] absolute border border-black"></div>
                                                             <p className="text-neutral-500 absolute left-[58px] top-[165px] text-lg">Accessories</p>
-                                                            <div className='absolute right-20 space-y-5 mt-4'>
+                                                            <div className='absolute right-8 md:right-20 space-y-5 mt-4'>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.zero_deep_insurance ? item.zero_deep_insurance : 0}</p>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.four_year_extended_warranty ? item.four_year_extended_warranty : 0}</p>
                                                                 <p className="text-neutral-500 text-right text-lg">₹ {item.amc ? item.amc : 0}</p>
@@ -495,7 +495,7 @@ export default function Price({ data,
                             </div>
                             <div className='md:w-[25%] order-1 md:order-2'>
                                 <div className='md:h-[10rem]'>
-                                    <div className={`flex md:block ${style.full} ${style.full3} space-y-2 bg-white z-10`}>
+                                    <div className={`flex md:block ${style.full} ${style.full3} bg-white z-10`}>
                                         <Version_Modal brand={cardetails[0].brand} model={cardetails[0].model_name} version={cardetails[0].version_name} price={allVersionPrice} data={finalVersion} />
                                         <City_Modal url={url} />
                                     </div>

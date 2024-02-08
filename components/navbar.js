@@ -49,7 +49,9 @@ const Navbar = () => {
                                 <Image className='mt-2' width={25} height={25} src={square} alt="square" />
                             </div>
                             <div>
+                            <Link href={'/'}>
                                 <Image className='w-auto h-[50px]' width={200} height={60} src={logo} alt="logo" />
+                            </Link>
                             </div>
                             <div className='flex space-x-4'>
                                 <Search />
@@ -57,7 +59,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <div id='side' className={`h-screen min-h-screen fixed z-[999999] top-0 bg-white w-8/12 ${style.scroller}`}>
+                    <div id='side' className={`h-screen min-h-screen hidden fixed z-[999999] top-0 bg-white w-8/12 ${style.scroller}`}>
                         <div className='my-4 flex justify-between mr-4'>
                             <Link href={`/`}>
                                 <Image className='w-auto h-auto' width={150} height={60} src="/images/logo.png" alt="logo" />

@@ -87,8 +87,8 @@ export default function Filter({ data, pricedata, query, trans, ftdata, head, br
                 <meta itemProp='description' name="description" content={`${data[0].brand} Car price in India starts at ₹ ${dres.brand_description.split(" ")[9]} Lakh. Get On Road Price of all ${data.length} ${data[0].brand} Cars available in ${date.getFullYear().toString()}, View Features, Price Breakup, Mileage, Colours, Variants Price and more at GetonRoadPrice
 `} />
             </Head> */}
-            <Filter_Web data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} bres={bres} />
-            {/* {width > 800 ? <Filter_Web data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} /> : <Filter_Mobile data={data} pricedata={pricedata} query={query} trans={trans} ftdata={ftdata} head={head} />} */}
+            {/* <Filter_Web data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} bres={bres} /> */}
+            {width > 800 ? <Filter_Web data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} bres={bres} /> : <Filter_Mobile data={data} pricedata={pricedata} query={query} tdata={trans} ftdata={ftdata} head={head} bres={bres} />}
 
         </>
     )

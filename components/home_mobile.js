@@ -42,7 +42,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
     const white = useRef(null)
     const [change, setChange] = useState("budget")
     const [body, setBody] = useState(false)
-
+    const [view, setView] = useState(false)
     const [brand, setBrand] = useState(bresponse)
 
 
@@ -230,22 +230,22 @@ export default function Home_Mobile({ bresponse, query, head }) {
                             <div className='w-full mt-10'>
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</h2>
                                 <ul className='flex space-x-5 my-3'>
-                                    <li className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>
-                                    <li className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
+                                    <li onClick={() => setBody(false)} className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>
+                                    <li onClick={() => setBody(true)} className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
                                 </ul>
-                                <div className='grid grid-cols-3 gap-y-10 border border-[#E1E1E1] py-12'>
+                                {body ? <Body_Filter /> :<div className='grid grid-cols-3 gap-y-10 border border-[#E1E1E1] py-12'>
                                     {brand.length > 0 ? brand.map((item, index) => {
-                                        return (<Link key={index} href={`/new-cars/${item.split(" ").join("-").toLowerCase()}`}>
-                                            <div key={index} className='text-center'>
-                                                <Image className='mx-auto' width={100} height={70} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} alt={item} />
-                                                <p className='text-xl text-[#484848] font-semibold my-3'>{item}</p>
+                                        return (<Link key={index} href={`/new-cars/${item.split(" ").join("-").toLowerCase()}`} className={`${view ? null : index >= 12 ? "hidden" : null} text-center`}>
+                                            <div key={index}>
+                                                <Image className='mx-auto' width={80} height={50} src={`https://ik.imagekit.io/GORP/Logos/${item}.jpg?updatedAt=1693313074421`} alt={item} />
+                                                <p className='text-[12px] text-[#484848] font-semibold my-3'>{item}</p>
                                             </div>
                                         </Link>)
 
                                     }) : null}
-                                </div>
+                                </div>}
                                 <div className='text-center my-4'>
-                                    <button className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
+                                    <button onClick={() => view ? setView(false) : setView(true)} className='px-16 rounded-md'><span className='text-[16px] font-normal tracking-[-0.24px] text-[#09809A]'>
                                         View All Brands
                                     </span></button>
                                 </div>
@@ -269,7 +269,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
 
 
                             {/* Upcoming Cars  */}
-{/* 
+                            {/* 
                             <div className='lg:flex mt-10'>
                                 <div className='lg:w-full md:mx-0'>
                                     <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>Upcoming Cars</p>
@@ -344,7 +344,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
 
 
                             {/* Compare Cars  */}
-                            <div className='my-10'>
+                            {/* <div className='my-10'>
                                 <p className='text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>Most Compared Cars</p>
                                 <ul className='flex space-x-5 my-2'>
                                     <li className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>SUV</li>
@@ -359,7 +359,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                             <div className='border border-[#C6C6C6] text-center'>
                                                 <Image className='mx-auto' src={car5} alt="" />
                                             </div>
-                                            {/* <div className='relative z-20'>
+                                            <div className='relative z-20'>
                                                 <div className={`${style.box} absolute left-[-35px] md:left-[-45px] top-[90px] md:top-[100px]`}>
                                                     <div className={`${style["v-s"]}`}>
                                                         <div className={`${style["overlap-group"]}`}>
@@ -370,7 +370,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                                 </div>
 
 
-                                            </div> */}
+                                            </div>
 
                                             <div className='border-y border-r border-[#C6C6C6] text-center'>
                                                 <Image className='mx-auto' src={car5} alt="" />
@@ -397,7 +397,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                             <div className='border border-[#C6C6C6] text-center'>
                                                 <Image className='mx-auto' src={car5} alt="" />
                                             </div>
-                                            {/* <div className='relative z-20'>
+                                            <div className='relative z-20'>
                                                 <div className={`${style.box} absolute left-[-35px] md:left-[-45px] top-[90px] md:top-[100px]`}>
                                                     <div className={`${style["v-s"]}`}>
                                                         <div className={`${style["overlap-group"]}`}>
@@ -408,7 +408,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                                 </div>
 
 
-                                            </div> */}
+                                            </div>
 
                                             <div className='border-y border-r border-[#C6C6C6] text-center'>
                                                 <Image className='mx-auto' src={car5} alt="" />
@@ -435,7 +435,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                             <div className='border border-[#C6C6C6] text-center'>
                                                 <Image className='mx-auto' src={car5} alt="" />
                                             </div>
-                                            {/* <div className='relative z-20'>
+                                            <div className='relative z-20'>
                                                 <div className={`${style.box} absolute left-[-35px] md:left-[-45px] top-[90px] md:top-[100px]`}>
                                                     <div className={`${style["v-s"]}`}>
                                                         <div className={`${style["overlap-group"]}`}>
@@ -446,7 +446,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                                 </div>
 
 
-                                            </div> */}
+                                            </div>
 
                                             <div className='border-y border-r border-[#C6C6C6] text-center'>
                                                 <Image className='mx-auto' src={car5} alt="" />
@@ -470,7 +470,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> */}
 
 
                             {/* FAQ Section  */}
