@@ -157,7 +157,7 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                         </div>
                     </div>
                 </div>
-                
+
 
                 <div className='lg:mx-[5rem]'>
 
@@ -195,29 +195,29 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
                                                 <h3 className='text-[22px] font-semibold text-[#484848]'>{item.brand} {item.model_name}</h3>
                                             </Link>
                                             <span className='text-[#6F6F6F] text-[14px] font-normal'>
-                                                {trans.filter((value, index, self) => {
+                                                {trans.length > 0 ? trans.filter((value, index, self) => {
                                                     return index === self.findIndex((t) => {
                                                         if (t.model_name === item.model_name) {
                                                             return t.Specifications.engine_and_transmission.fuel_type == value.Specifications.engine_and_transmission.fuel_type
                                                         }
                                                     })
 
-                                                }).map((itm) => itm.Specifications.engine_and_transmission.fuel_type).join(" | ")} <span className='mr-1'>
+                                                }).map((itm) => itm.Specifications.engine_and_transmission.fuel_type).join(" | ") : null} <span className='mr-1'>
                                                     |
                                                 </span>
-                                                {trans.filter((value, index, self) => {
+                                                {trans.length > 0 ? trans.filter((value, index, self) => {
                                                     return index === self.findIndex((t) => {
                                                         if (t.model_name === item.model_name) {
                                                             return t.transmission_type == value.transmission_type
                                                         }
                                                     })
 
-                                                }).map((itm) => itm.transmission_type).join(" | ")}
+                                                }).map((itm) => itm.transmission_type).join(" | ") : null}
                                             </span>
 
                                             {getprices.length > 0 ? getprices.map((element, index) => {
                                                 return element.model_id === item.model_id ? <p key={index} className='text-[22px] font-semibold text-[#484848]'>₹ {numFormat(element.min_price)} - ₹ {numFormat(element.max_price)}</p> : null
-                                            }):null}
+                                            }) : null}
                                             <p className='text-[14px] text-[#6F6F6F] font-normal'>Ex-Showroom Price in {location}</p>
                                             <TemporaryDrawer status={true} brand={item.brand} model={item.model_name} />
                                         </div>

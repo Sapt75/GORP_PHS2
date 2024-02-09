@@ -34,6 +34,7 @@ import Link from 'next/link';
 import Home_Mobile from '../components/home_mobile';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Seating from '../components/seating';
 
 
 
@@ -335,10 +336,12 @@ export default function Home({ bresponse, query, head }) {
                                         <li onClick={() => setChange("budget")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Budget</li>
                                         <li onClick={() => setChange("fuel")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Fuel Type</li>
                                         <li onClick={() => setChange("transmission")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Transmission Type</li>
+                                        <li onClick={() => setChange("seat")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Seating Capacity</li>
                                     </ul>
                                     {change === "budget" ? <Price_Filter /> : null}
                                     {change === "transmission" ? <Transmission_Filter /> : null}
                                     {change === "fuel" ? <Fuel_Filter /> : null}
+                                    {change === "seat" ? <Seating /> : null}
                                 </div>
 
 

@@ -118,7 +118,7 @@ export default function Filter_Mobile({ data, pricedata, query, head, bres }) {
                     <div className='md:hidden'>
                         <div className='md:w-[74%]'>
                             <div className='mb-[2rem] w-full'>
-                                <h1 className='md:text-[24px] text-[#484848] mb-3 text-[20px] font-semibold tracking-[-0.48px]'>Cars Under {route.query.filter[0].split("-")[2]}  Lakh</h1>
+                                <h1 className='md:text-[24px] text-[#484848] mb-3 text-[20px] font-semibold tracking-[-0.48px]'>{route.query.filter[1].split("-")[0]}  Cars</h1>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F] p-3'>
                                     {/* <p>{desc.brand_description}<span className={`${update ? null : "hidden"}`}>
                                     </span></p> */}

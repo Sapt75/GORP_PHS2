@@ -136,7 +136,7 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
                     <div className='md:flex hidden'>
                         <div className='md:w-[74%]'>
                             <div className='mb-[2rem] w-full'>
-                                <h1 className='md:text-[24px] mb-3 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{getbranddata[0].brand} Cars</h1>
+                                <h1 className='md:text-[24px] mb-3 text-[18px] text-[#484848] font-semibold tracking-[-0.48px]'>{route.query.filter[1].split("-")[0]}  Cars</h1>
                                 <div className='bg-[#f4f4f4] text-[#6F6F6F]  p-3'>
                                     {/* <p>{desc.brand_description}<span className={`${show ? null : "hidden"}`}></span> </p> */}
 

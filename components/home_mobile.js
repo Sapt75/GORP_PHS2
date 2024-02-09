@@ -228,7 +228,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
 
                             {/* Brands Listing */}
                             <div className='w-full mt-10'>
-                                <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</h2>
+                                <h1 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</h1>
                                 <ul className='flex space-x-5 my-3'>
                                     <li onClick={() => setBody(false)} className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>
                                     <li onClick={() => setBody(true)} className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>

@@ -133,7 +133,7 @@ Filter.getInitialProps = async (context) => {
     // setGetPrices(pricedata)
 
 
-    const res_three = await fetch(`https://inquisitive-knickers-fish.cyclic.app/all_var/${query.filter[0].split("-").join("_").toLowerCase()}/${value.split("-")[0]}`, {
+    const res_three = await fetch(`${url}/all_var/${query.filter[0].split("-").join("_").toLowerCase()}/${value.split("-")[0]}`, {
         // const res = await fetch(`/getonebrandcars?brand=${brand}&model=${model}&page=${pageNumber}`,{
         method: "GET",
         headers: {
