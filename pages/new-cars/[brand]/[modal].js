@@ -4,6 +4,9 @@ import Footer from '../../../components/footer';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+import Model_Web from "../../../components/model_web"
+import Model_Mobile from "../../../components/model_mobile"
+
 
 
 
@@ -19,8 +22,8 @@ export default function Model({ data, response, vresponse, vpresponse, query, he
 
     const host_url = `https://${head.host}/new-cars`
 
-    const Model_Web = dynamic(() => import('../../../components/model_web'));
-    const Model_Mobile = dynamic(() => import('../../../components/model_mobile'));
+    // const Model_Web = dynamic(() => import('../../../components/model_web'));
+    // const Model_Mobile = dynamic(() => import('../../../components/model_mobile'));
 
 
     function numFormat(value) {
