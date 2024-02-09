@@ -152,7 +152,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
         setCity(citresponse)
         setRCity(nomcity)
         setSpecs(specef)
-    }, [data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, mcity])
+    }, [data, response, vresponse, vpresponse, query, head, citresponse, nomcity, specef, mcity, location])
 
 
 
@@ -502,7 +502,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
                                                     </RLink>
                                                     <span className='text-[13px] text-[#6F6F6F] font-normal tracking-[-0.28px]'>{element.Specifications.engine_and_transmission.displacement} cc, {element.transmission_type}, {element.Specifications.engine_and_transmission.fuel_type} </span>
                                                     <RLink href={{
-                                                        pathname: `/${element.brand.split(" ").join("-").toLowerCase()}/${element.model_name.split(" ").join("-").toLowerCase()}/price-in-${location.toLowerCase()}`, query: {
+                                                        pathname: `/${element.brand.split(" ").join("-").toLowerCase()}/${element.model_name.split(" ").join("-").toLowerCase()}/price-in-mumbai}`, query: {
                                                             uid: element.uid
                                                         }
                                                     }} title={`${getmodels[0].model_name} ${getmodels[0].version_name} Price in ${location}`} className='text-[12px] text-[#CE4327] block cursor-pointer font-semibold tracking-[-0.24px]'>View Price Breakup</RLink>
