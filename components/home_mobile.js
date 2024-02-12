@@ -44,6 +44,33 @@ export default function Home_Mobile({ bresponse, query, head }) {
     const [body, setBody] = useState(false)
     const [view, setView] = useState(false)
     const [brand, setBrand] = useState(bresponse)
+    const [bod, setBod] = useState(true)
+    const [show, setShow] = useState([])
+
+
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
+
+
+
+    async function handleInput(e) {
+        let data = await fetch(`${url}/car-search/${e.target.value}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        let res = await data.json()
+        // res.unshift(`All ${res[0].brand} Cars`)
+
+        setShow(res)
+
+        bod ? setBod(false) : setBod(true)
+
+        document.body.addEventListener("click", () => {
+            setBod(false)
+        })
+    }
 
 
     useEffect(() => {
@@ -62,7 +89,21 @@ export default function Home_Mobile({ bresponse, query, head }) {
             <div className={`w-full ${style["h-banner"]} text-center h-[30rem] md:mt-[-1.5rem] relative`}>
                 <div className='w-full bg-[#1f232f] bg-opacity-70 py-8 absolute bottom-0'>
                     <div className='md:w-2/5 md:mx-auto text-left relative mx-4'>
-                        <input className='py-2 px-3 w-full text-[#6F6F6F] rounded-md' placeholder='Type car name to view details' type="text" />
+                        <input className='py-2 px-3 w-full text-[#6F6F6F] rounded-md' onChange={handleInput} placeholder='Type car name to view details' type="text" />
+                        <ul className={`${bod ? show.length <= 0 ? "hidden" : null : "hidden"} absolute w-full h-[15rem] px-4 overflow-y-scroll top-1/2 bg-white pt-1`}>
+                            {show.length > 0 ? show.map((element, index) => {
+                                if (typeof (element) !== "string") {
+                                    return (<Link key={index} href={`/new-cars/${element.brand.toLowerCase().split(" ").join("-")}/${element.model_name.toLowerCase().split(" ").join("-")}`} >
+                                        <li className='py-1 text-[#6f6f6f]'>{element.brand}&nbsp;{element.model_name}</li>
+                                    </Link>)
+                                } else {
+                                    return (<Link key={index} href={`/new-cars/${element.split(" ")[1].toLowerCase()}`} >
+                                        <li className='py-1 text-[#6f6f6f]'>{element}</li>
+                                    </Link>)
+                                }
+
+                            }) : null}
+                        </ul>
                         <div className='bg-[#09809A] inline pt-1 pb-1.5 pl-2 pr-[0.45rem] rounded-md absolute right-[2px] top-[2px]'>
                             <SearchOutlined sx={{ color: "white" }} />
                         </div>
@@ -233,7 +274,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
                                     <li onClick={() => setBody(false)} className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Brand</li>
                                     <li onClick={() => setBody(true)} className={`hover:text-[#09809A] text-[14px]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Body Type</li>
                                 </ul>
-                                {body ? <Body_Filter /> :<div className='grid grid-cols-3 gap-y-10 border border-[#E1E1E1] py-12'>
+                                {body ? <Body_Filter /> : <div className='grid grid-cols-3 gap-y-10 border border-[#E1E1E1] py-12'>
                                     {brand.length > 0 ? brand.map((item, index) => {
                                         return (<Link key={index} href={`/new-cars/${item.split(" ").join("-").toLowerCase()}`} className={`${view ? null : index >= 12 ? "hidden" : null} text-center`}>
                                             <div key={index}>

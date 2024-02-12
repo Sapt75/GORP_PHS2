@@ -33,7 +33,7 @@ const Seating = () => {
     return (
         <div className='grid grid-cols-2 md:grid-cols-4 gap-y-10 border border-[#E1E1E1] py-12'>
             {type.length > 0 ? type.map((item, index) => {
-                return (item !== null && item ? <Link title={`${item} Cars`} key={index} href={`/cars/seating-capacity/${item.seating_capacity}-seater-cars`}>
+                return (item !== null && item && item.seating_capacity !== 0 ? <Link title={`${item.seating_capacity} Seater Cars`} key={index} href={`/cars/seating-capacity/${item.seating_capacity}-seater-cars`}>
                     <div className={`border-[1px] border-[#6C6C6C] w-2/3 text-center rounded-md mx-auto ${style["price-hover"]} cursor-pointer`}>
                             <p className='font-semibold text-[14px] py-1.5'>{item.seating_capacity} Seater</p>
                     </div>
