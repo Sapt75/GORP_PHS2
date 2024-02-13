@@ -108,8 +108,8 @@ let cacheData = [];
 export const getServerSideProps = async (context) => {
 
     const { query, req } = context;
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    // https://inquisitive-knickers-fish.cyclic.app
+    const url = "http://localhost:5000"
+    // http://localhost:5000
     let id, model
 
     const head = req ? req.headers : sessionStorage.getItem("host")

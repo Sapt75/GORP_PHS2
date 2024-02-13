@@ -26,7 +26,7 @@ export default function Modal(props) {
 
     let { location, setLocation } = context
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
     const handleOpen = () => {

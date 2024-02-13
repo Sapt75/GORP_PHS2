@@ -14,7 +14,7 @@ export default function ImageSlider(props) {
     const [images, setImages] = useState([])
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
     async function getData() {

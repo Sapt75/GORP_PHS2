@@ -39,23 +39,23 @@ import promo from "../public/images/promo.png"
 import last_adv from "../public/images/last_adv.png"
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-// import City_Modal from '../components/city_modal';
-// import Version_Modal from '../components/version_modal';
+import City_Modal from '../components/city_modal';
+import Version_Modal from '../components/version_modal';
 import { ChevronRight } from '@mui/icons-material';
 import DoneIcon from '@mui/icons-material/Done';
 import Right from '../components/right';
 import Rating_Model from '../components/rating_modal';
 import Emi_Modal from '../components/emi';
-// import Brand_Model from '../components/brand_modal';
+import Brand_Model from '../components/brand_modal';
 import { Link } from 'react-scroll';
-// import ColorSlider from '../components/color';
+import ColorSlider from '../components/color';
 import RLink from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import cross from "../public/images/cross.svg"
 import locationContext from '../context/LocationContext';
-// import TemporaryDrawer from './deal';
-// import CustomSeparator from './breadcrumbs';
+import TemporaryDrawer from './deal';
+import CustomSeparator from './breadcrumbs';
 import dynamic from 'next/dynamic';
 
 
@@ -93,12 +93,12 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
 
     const route = useRouter()
 
-    const Brand_Model = dynamic(() => import('../components/brand_modal'));
-    const Version_Modal = dynamic(() => import('../components/version_modal'))
-    const City_Modal = dynamic(() => import('../components/city_modal'))
-    const TemporaryDrawer = dynamic(() => import('./deal'))
-    const CustomSeparator = dynamic(() => import('./breadcrumbs'))
-    const ColorSlider = dynamic(()=> import('../components/color'))
+    // const Brand_Model = dynamic(() => import('../components/brand_modal'));
+    // const Version_Modal = dynamic(() => import('../components/version_modal'))
+    // const City_Modal = dynamic(() => import('../components/city_modal'))
+    // const TemporaryDrawer = dynamic(() => import('./deal'))
+    // const CustomSeparator = dynamic(() => import('./breadcrumbs'))
+    // const ColorSlider = dynamic(()=> import('../components/color'))
     
 
     // const host_url = `https://${head.host}/new-cars`
@@ -130,7 +130,7 @@ export default function Model_Web({ data, response, vresponse, vpresponse, query
     }
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 

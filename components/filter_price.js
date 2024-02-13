@@ -70,7 +70,7 @@ export default function Filter_Price({ data, pricedata, query, head, bres }) {
     const [view, setView] = useState(false)
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
     const route = useRouter()
 

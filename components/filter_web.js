@@ -73,8 +73,8 @@ export default function Filter_Web({ data, pricedata, query, tdata, ftdata, head
     const [view, setView] = useState(false)
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    // https://inquisitive-knickers-fish.cyclic.app
+    const url = "http://localhost:5000"
+    // http://localhost:5000
 
 
     const context = React.useContext(locationContext)

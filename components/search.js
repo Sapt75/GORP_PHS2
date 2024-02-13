@@ -25,7 +25,7 @@ function Search_Web(props) {
     let route = useRouter()
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
     async function getData() {

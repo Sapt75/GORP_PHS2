@@ -85,8 +85,8 @@ export default function Brand_Web({ data, pricedata, query, tdata, bres, dres, h
         return value;
     }
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
-    // https://inquisitive-knickers-fish.cyclic.app
+    const url = "http://localhost:5000"
+    // http://localhost:5000
 
 
 

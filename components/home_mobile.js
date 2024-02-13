@@ -31,6 +31,7 @@ import Transmission_Filter from '../components/transmission_filter';
 import Fuel_Filter from '../components/fuel_filter';
 import Body_Filter from '../components/body_type';
 import Link from 'next/link';
+import Seating from './seating';
 
 
 
@@ -48,7 +49,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
     const [show, setShow] = useState([])
 
 
-    const url = "https://inquisitive-knickers-fish.cyclic.app"
+    const url = "http://localhost:5000"
 
 
 
@@ -296,14 +297,16 @@ export default function Home_Mobile({ bresponse, query, head }) {
                             {/* Price Listing */}
                             <div className='w-full mt-10'>
                                 <h2 className='md:text-[24px] text-[18px] text-[#484848] font-semibold my-2'>Find the Perfect Cars for You!</h2>
-                                <ul className='flex space-x-5 my-2'>
+                                <ul className='flex space-x-5 my-2 overflow-x-scroll whitespace-nowrap'>
                                     <li onClick={() => setChange("budget")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Budget</li>
                                     <li onClick={() => setChange("fuel")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Fuel Type</li>
                                     <li onClick={() => setChange("transmission")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Transmission Type</li>
+                                    <li onClick={() => setChange("seat")} className={`hover:text-[#09809A]  text-[#484848] hover:border-b-[3px] border-b-[3px] border-transparent hover:border-[#09809A] pb-2 cursor-pointer font-semibold`}>By Seating Capacity</li>
                                 </ul>
                                 {change === "budget" ? <Price_Filter /> : null}
                                 {change === "transmission" ? <Transmission_Filter /> : null}
                                 {change === "fuel" ? <Fuel_Filter /> : null}
+                                {change === "seat" ? <Seating /> : null}
                             </div>
 
 
