@@ -4,6 +4,8 @@ import Footer from '../../components/footer';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import Brand_Web from '../../components/brand_web';
+import Brand_Mobile from '../../components/brand_mobile';
 
 
 
@@ -18,8 +20,8 @@ export default function Brand({ data, pricedata, query, tdata, bres, dres }) {
 
     const [width, setWidth] = useState()
 
-    const Brand_Web = dynamic(() => import('../../components/brand_web'));
-    const Brand_Mobile = dynamic(() => import('../../components/brand_mobile'));
+    // const Brand_Web = dynamic(() => import('../../components/brand_web'));
+    // const Brand_Mobile = dynamic(() => import('../../components/brand_mobile'));
 
 
 
