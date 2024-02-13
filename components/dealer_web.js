@@ -68,7 +68,7 @@ export default function Dealers_Web({ bresponse, host_url }) {
     let [distance, setDistance] = useState(0)
     const white = useRef(null)
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
     const context = React.useContext(locationContext)
 
     let { location, pinn, setLocation } = context

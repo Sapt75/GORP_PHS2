@@ -90,7 +90,7 @@ export default function Variant_Mobile(props) {
     let { location } = context
 
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 

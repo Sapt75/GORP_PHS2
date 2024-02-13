@@ -49,7 +49,7 @@ export default function Home_Mobile({ bresponse, query, head }) {
     const [show, setShow] = useState([])
 
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 

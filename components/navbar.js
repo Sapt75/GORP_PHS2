@@ -28,7 +28,7 @@ const Navbar = () => {
     const [drop, setDrop] = useState(false)
     const [more, setMore] = useState(false)
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
     const route = useRouter()
 

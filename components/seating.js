@@ -7,7 +7,7 @@ const Seating = () => {
 
     const [type, setType] = useState([])
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 

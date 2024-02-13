@@ -124,7 +124,7 @@ export default function Model_Mobile({ data, response, vresponse, vpresponse, qu
     }
 
 
-    const url = "http://localhost:5000"
+    const url = "https://inquisitive-knickers-fish.cyclic.app"
 
 
 
